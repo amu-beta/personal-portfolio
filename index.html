@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Deslopify｜让应用焕然一新</title>
+  <meta name="description" content="把现有界面交给 AI 与设计判断，快速变成清晰、统一、可以继续开发的产品体验。">
+  <meta property="og:title" content="Deslopify｜让应用焕然一新">
+  <meta property="og:description" content="把现有界面变成清晰、统一、可以继续开发的产品体验。">
+  <meta property="og:image" content="https://deslopify.studio/assets/og-v2.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:url" content="https://deslopify.studio">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://deslopify.studio/assets/og-v2.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="assets/hero-sky.jpg" fetchpriority="high">
+  <link rel="stylesheet" href="styles.css?v=201">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/favicon-light.png" media="(prefers-color-scheme: light)">
+  <link rel="icon" href="assets/favicon-dark.png" media="(prefers-color-scheme: dark)">
+</head>
+<body>
+<!-- ============ NAV ============ -->
+<!-- outside .canvas: fixed elements inside a zoomed ancestor position
+     inconsistently across browsers — out here it centers on the real viewport -->
+<nav class="nav" id="site-nav">
+  <a class="nav-logo tree-logo" href="index.html" aria-label="返回首页">
+    <svg viewBox="0 0 32 32" aria-hidden="true">
+      <path d="M16 28V14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+      <path d="M16 16C8 16 5 12 6 7c5-1 9 1 10 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M16 18c8 0 11-4 10-9-5-1-9 1-10 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </a>
+  <div class="nav-links">
+    <a href="index.html" aria-current="page">首页</a>
+    <a href="works.html">作品集</a>
+    <a href="ai-learning.html">AI 学习</a>
+    <a href="#about">关于</a>
+  </div>
+</nav>
+<div class="page-cover">
+<div class="canvas">
+
+  <!-- ============ HERO ============ -->
+  <div class="hero-zone">
+  <header class="hero">
+    <div class="hero-pill">
+      <span class="hero-pill-chip"><img src="assets/claude-icon.png" alt="">Claude 协作</span>
+      <span class="hero-pill-text"><span class="hpt-full">把想法变成可继续开发的界面</span><span class="hpt-short">做成可开发的界面</span></span>
+    </div>
+    <div class="hero-heading">
+      <h1>让应用焕然一新</h1>
+      <p class="type-line"><span id="type-text"></span><span class="type-cursor" aria-hidden="true"></span></p>
+    </div>
+    <p class="hero-sub">把现有界面交给 AI 与设计判断，快速变成清晰、统一、可以继续开发的产品体验。</p>
+    <a class="btn-dark" href="works.html">
+      <span class="btn-dark-label">查看作品集</span>
+      <span class="btn-arrow"><img src="assets/arrow.png" alt=""><img src="assets/arrow.png" alt=""></span>
+    </a>
+  </header>
+
+  <!-- ============ HERO PHONE TICKER ============ -->
+  <div class="hero-ticker-wrap">
+    <!-- each slot is a named screen; drop assets/screens/<name>-after.png and
+         <name>-before.png and the slider shows the real pair for that slot.
+         Missing files fall back: before→after→the old placeholder. -->
+    <div class="ticker" id="hero-ticker" data-speed="80" data-direction="ltr" data-arc="3200">
+      <div class="ticker-track">
+        <div class="phone-card"><span class="ba-pill">改造后</span><div class="phone-frame"><img data-screen="hush-home" src="assets/screens/hush-home-after.jpg" data-fallback="assets/phone-1.jpg" alt=""></div></div>
+        <div class="phone-card"><span class="ba-pill">改造后</span><div class="phone-frame"><img data-screen="hush-chat" src="assets/screens/hush-chat-after.jpg" data-fallback="assets/phone-2.jpg" alt=""></div></div>
+        <div class="phone-card"><span class="ba-pill">改造后</span><div class="phone-frame"><img data-screen="founder" src="assets/screens/founder-after.jpg" data-fallback="assets/phone-4.jpg" alt=""></div></div>
+        <div class="phone-card"><span class="ba-pill">改造后</span><div class="phone-frame"><img data-screen="fund" src="assets/screens/fund-after.jpg" data-fallback="assets/phone-5.jpg" alt=""></div></div>
+        <div class="phone-card"><span class="ba-pill">改造后</span><div class="phone-frame"><img data-screen="indus-home" src="assets/screens/indus-home-after.jpg" data-fallback="assets/phone-6.jpg" alt=""></div></div>
+        <div class="phone-card"><span class="ba-pill">改造后</span><div class="phone-frame"><img data-screen="product" src="assets/screens/product-after.jpg" data-fallback="assets/phone-7.jpg" alt=""></div></div>
+      </div>
+    </div>
+    <div class="ticker ticker-gray" aria-hidden="true">
+      <div class="ticker-track"></div>
+    </div>
+    <div class="hero-overlay">
+      <div class="hero-overlay-bar"></div>
+      <div class="hero-overlay-circles" role="slider" tabindex="0" aria-label="改造前后对比位置" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+        <div class="circle-mid"><div class="circle-core"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 8l-4 4 4 4M15 8l4 4-4 4"/></svg></div></div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <!-- ============ WHY CHOOSE US + LOGO MARQUEE ============ -->
+  <section class="why-us" hidden>
+    <span class="tag"><img src="assets/badge-why.png" alt="">Why Choose Us</span>
+    <div class="logo-flips">
+      <div class="logo-flip"><div class="logo-flip-stack"><img src="assets/logoipsum.png" alt=""><img src="assets/logoipsum.png" alt=""><img src="assets/logoipsum.png" alt=""></div></div>
+      <div class="logo-flip"><div class="logo-flip-stack"><img src="assets/logoipsum.png" alt=""><img src="assets/logoipsum.png" alt=""><img src="assets/logoipsum.png" alt=""></div></div>
+      <div class="logo-flip"><div class="logo-flip-stack"><img src="assets/logoipsum.png" alt=""><img src="assets/logoipsum.png" alt=""><img src="assets/logoipsum.png" alt=""></div></div>
+      <div class="logo-flip"><div class="logo-flip-stack"><img src="assets/logoipsum.png" alt=""><img src="assets/logoipsum.png" alt=""><img src="assets/logoipsum.png" alt=""></div></div>
+    </div>
+  </section>
+
+  <!-- ============ FEATURES 1 (ASCII gear + phone + float cards) ============ -->
+  <section class="intelligence" id="intelligence">
+    <div class="intelligence-head">
+      <span class="tag"><img src="assets/badge-features.png" alt="">改造前 / 改造后</span>
+      <h2>从混乱界面，<br><span class="blue">到清晰产品。</span></h2>
+    </div>
+    <div class="intelligence-sticky">
+      <div class="iphone-stage">
+        <div class="iphone">
+          <div class="iphone-screens">
+            <div class="screen-warp">
+              <img class="iphone-screen screen-old" src="assets/screens/indus-home-before.jpg" alt="">
+              <img class="iphone-screen screen-new" src="assets/screens/indus-home-after.jpg" alt="">
+              <div class="screen-shimmer"></div>
+            </div>
+          </div>
+          <img class="iphone-frame" src="assets/intelligence-frame.png" alt="" onerror="this.style.display='none'">
+          <div class="stage-toggle" aria-hidden="true">
+            <span class="stage-toggle-thumb"></span>
+            <span class="st-item st-left"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 16c2-7 6-9 7-6s-4 8-1 9 6-8 8-6-3 7 2 5"/></svg>改造前</span>
+            <span class="st-item st-right"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M12 4l1.9 5.3L19 12l-5.1 2.7L12 20l-1.9-5.3L5 12l5.1-2.7z"/></svg>改造后</span>
+          </div>
+        </div>
+        <div class="float-card float-card-left">
+          <div class="float-card-chips">
+            <span class="chip"><img src="assets/file-icon.svg" alt=""><span>发来界面</span></span>
+          </div>
+          <div class="float-card-text">
+            <h4>保留真实问题</h4>
+            <p>发来现有截图。任何页面、任何状态，都是开始。</p>
+          </div>
+        </div>
+        <div class="float-card float-card-right">
+          <div class="float-card-chips">
+            <span class="chip"><img src="assets/file-icon.svg" alt=""><span>交付成品</span></span>
+          </div>
+          <div class="float-card-text">
+            <h4>重新设计，继续开发</h4>
+            <p>同一套页面重新梳理，统一、清晰，也更好接手。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ GALLERY TOGGLE SECTION ============ -->
+  <section class="showcase" id="work">
+    <div class="showcase-inner">
+      <div class="showcase-head">
+        <span class="tag"><img loading="lazy" decoding="async" src="assets/badge-features.png" alt="">作品集</span>
+        <h2>真实项目，<br><span class="blue">完整呈现。</span></h2>
+      </div>
+      <div class="showcase-body">
+        <div class="pill-toggle" id="pill-toggle">
+          <span class="pill-thumb"></span>
+          <button class="pill active" type="button" aria-pressed="true">应用设计</button>
+          <button class="pill" type="button" aria-pressed="false">应用商店素材</button>
+        </div>
+        <div class="showcase-ticker-wrap">
+          <div class="ticker proj proj-a active" id="showcase-ticker" data-speed="80">
+            <div class="ticker-track">
+              <div class="shot-card"><div class="phone-frame"><img loading="lazy" decoding="async" src="assets/projects/founder-1.jpg" alt="Founder 高级会员升级页，含钻石礼盒插画"></div></div>
+              <div class="shot-card"><div class="phone-frame"><img loading="lazy" decoding="async" src="assets/projects/founder-2.jpg" alt="Founder 会员权益对比与票券套餐页"></div></div>
+              <div class="shot-card"><div class="phone-frame"><img loading="lazy" decoding="async" src="assets/projects/founder-3.jpg" alt="Founder 股票图表课程的付费方案页"></div></div>
+              <div class="shot-card"><div class="phone-frame"><img loading="lazy" decoding="async" src="assets/projects/founder-4.jpg" alt="Founder 用户资料页，展示连接人数与项目"></div></div>
+              <div class="shot-card"><div class="phone-frame"><img loading="lazy" decoding="async" src="assets/projects/founder-5.jpg" alt="Founder 附近活动列表页，含植物活动卡片"></div></div>
+              <div class="shot-card"><div class="phone-frame"><img loading="lazy" decoding="async" src="assets/projects/founder-6.jpg" alt="Founder 活动详情页，含紫色花卉封面与地图"></div></div>
+              <div class="shot-card"><div class="phone-frame"><img loading="lazy" decoding="async" src="assets/projects/founder-7.jpg" alt="Founder 上传头像与选择人物头像页"></div></div>
+            </div>
+          </div>
+          <div class="ticker proj proj-b" data-speed="80">
+            <div class="ticker-track">
+              <div class="shot-card"><div class="phone-frame"><img loading="lazy" decoding="async" data-src="assets/projects/indus-1.jpg" alt="Indus 印度与新西兰牌照验证欢迎页"></div></div>
+              <div class="shot-card"><div class="phone-frame"><img loading="lazy" decoding="async" data-src="assets/projects/indus-2.jpg" alt="Indus 基金探索页，展示热门基金与分类"></div></div>
+              <div class="shot-card"><div class="phone-frame"><img loading="lazy" decoding="async" data-src="assets/projects/indus-3.jpg" alt="Indus BNK 基金详情页，展示收益走势图"></div></div>
+              <div class="shot-card"><div class="phone-frame"><img loading="lazy" decoding="async" data-src="assets/projects/indus-4.jpg" alt="Indus 钱包页，展示余额、充值与提现操作"></div></div>
+              <div class="shot-card"><div class="phone-frame"><img loading="lazy" decoding="async" data-src="assets/projects/indus-5.jpg" alt="Indus 投资仪表盘，展示价值与收益曲线"></div></div>
+              <div class="shot-card"><div class="phone-frame"><img loading="lazy" decoding="async" data-src="assets/projects/indus-6.jpg" alt="Indus 身份验证与邀请好友任务卡片"></div></div>
+              <div class="shot-card"><div class="phone-frame"><img loading="lazy" decoding="async" data-src="assets/projects/indus-7.jpg" alt="Indus 基金拆分页，展示持有基金卡片"></div></div>
+            </div>
+          </div>
+          <div class="ticker proj proj-c" data-speed="80">
+            <div class="ticker-track">
+              <div class="shot-card"><div class="phone-frame"><img loading="lazy" decoding="async" data-src="assets/projects/hush-1.jpg" alt="Hush 荧光绿品牌启动页"></div></div>
+              <div class="shot-card"><div class="phone-frame"><img loading="lazy" decoding="async" data-src="assets/projects/hush-2.jpg" alt="Hush 欢迎页，说明回信解锁聊天"></div></div>
+              <div class="shot-card"><div class="phone-frame"><img loading="lazy" decoding="async" data-src="assets/projects/hush-3.jpg" alt="Hush 手机号码登录与验证码键盘页"></div></div>
+              <div class="shot-card"><div class="phone-frame"><img loading="lazy" decoding="async" data-src="assets/projects/hush-4.jpg" alt="Hush 消息收件箱，含置顶会话与筛选"></div></div>
+              <div class="shot-card"><div class="phone-frame"><img loading="lazy" decoding="async" data-src="assets/projects/hush-5.jpg" alt="Hush 与 Rehan 的文字聊天记录页"></div></div>
+              <div class="shot-card"><div class="phone-frame"><img loading="lazy" decoding="async" data-src="assets/projects/hush-6.jpg" alt="Hush 与 Rehan 的语音通话页"></div></div>
+              <div class="shot-card"><div class="phone-frame"><img loading="lazy" decoding="async" data-src="assets/projects/hush-7.jpg" alt="Hush 与 Rehan 的视频通话街景页"></div></div>
+              <div class="shot-card"><div class="phone-frame"><img loading="lazy" decoding="async" data-src="assets/projects/hush-8.jpg" alt="Hush 最近通话列表页"></div></div>
+            </div>
+          </div>
+          <div class="ticker proj proj-e" data-speed="80">
+            <div class="ticker-track">
+              <div class="shot-card"><div class="phone-frame"><img loading="lazy" decoding="async" data-src="assets/projects/flyout-1.jpg" alt="Flyout 与创作者视频通话的商店展示图"></div></div>
+              <div class="shot-card"><div class="phone-frame"><img loading="lazy" decoding="async" data-src="assets/projects/flyout-2.jpg" alt="Flyout 创作者内容信息流的商店展示图"></div></div>
+              <div class="shot-card"><div class="phone-frame"><img loading="lazy" decoding="async" data-src="assets/projects/flyout-3.jpg" alt="Flyout 每日发现创作者的商店展示图"></div></div>
+              <div class="shot-card"><div class="phone-frame"><img loading="lazy" decoding="async" data-src="assets/projects/flyout-4.jpg" alt="Flyout 预约通话日期与时段的商店展示图"></div></div>
+              <div class="shot-card"><div class="phone-frame"><img loading="lazy" decoding="async" data-src="assets/projects/flyout-5.jpg" alt="Flyout 用户评价墙的商店展示图"></div></div>
+              <div class="shot-card"><div class="phone-frame"><img loading="lazy" decoding="async" data-src="assets/projects/flyout-6.jpg" alt="Flyout 私信聊天功能的商店展示图"></div></div>
+            </div>
+          </div>
+          <div class="ticker proj proj-f" data-speed="80">
+            <div class="ticker-track">
+              <div class="shot-card"><div class="phone-frame"><img loading="lazy" decoding="async" data-src="assets/projects/justgains-1.jpg" alt="Justgains 扫描牛角包并识别营养数据的商店展示图"></div></div>
+              <div class="shot-card"><div class="phone-frame"><img loading="lazy" decoding="async" data-src="assets/projects/justgains-2.jpg" alt="Justgains 喝水与习惯连续记录的商店展示图"></div></div>
+              <div class="shot-card"><div class="phone-frame"><img loading="lazy" decoding="async" data-src="assets/projects/justgains-3.jpg" alt="Justgains 食谱深浅主题切换的商店展示图"></div></div>
+              <div class="shot-card"><div class="phone-frame"><img loading="lazy" decoding="async" data-src="assets/projects/justgains-4.jpg" alt="Justgains 跑步路线地图的商店展示图"></div></div>
+              <div class="shot-card"><div class="phone-frame"><img loading="lazy" decoding="async" data-src="assets/projects/justgains-5.jpg" alt="Justgains Apple Watch 习惯追踪的商店展示图"></div></div>
+            </div>
+          </div>
+          <div class="app-icons" data-mode="design">
+            <button class="app-icon sel" type="button" data-proj="a" aria-pressed="true"><img loading="lazy" decoding="async" src="assets/app-icon-1.png" alt="Founder" title="Founder"></button>
+            <button class="app-icon" type="button" data-proj="b" aria-pressed="false"><img loading="lazy" decoding="async" src="assets/app-icon-2.png" alt="Indus" title="Indus"></button>
+            <button class="app-icon" type="button" data-proj="c" aria-pressed="false"><img loading="lazy" decoding="async" src="assets/app-icon-3.png" alt="Hush" title="Hush"></button>
+                      </div>
+          <div class="app-icons" data-mode="store">
+            <button class="app-icon sel" type="button" data-proj="e" aria-pressed="true"><img loading="lazy" decoding="async" src="assets/projects/flyout-icon.jpg" alt="Flyout" title="Flyout"></button>
+            <button class="app-icon" type="button" data-proj="f" aria-pressed="false"><img loading="lazy" decoding="async" src="assets/projects/justgains-icon.jpg" alt="Justgains" title="Justgains"></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ HOW IT WORKS ============ -->
+  <section class="process" id="how">
+    <div class="process-sticky">
+      <div class="proc-stage" data-step="0">
+        <span class="proc-ico pi-claude"><img loading="lazy" decoding="async" src="assets/claude-icon.png" alt="Claude"></span>
+        <span class="proc-ico pi-app"><img loading="lazy" decoding="async" src="assets/appstore-icon.svg" alt="App Store"></span>
+        <span class="proc-ico pi-gpt"><svg viewBox="0 0 24 24" aria-label="ChatGPT"><path fill="#0f0f0f" d="M22.2819 9.8211a5.9847 5.9847 0 0 0-.5157-4.9108 6.0462 6.0462 0 0 0-6.5098-2.9A6.0651 6.0651 0 0 0 4.9807 4.1818a5.9847 5.9847 0 0 0-3.9977 2.9 6.0462 6.0462 0 0 0 .7427 7.0966 5.98 5.98 0 0 0 .511 4.9107 6.051 6.051 0 0 0 6.5146 2.9001A5.9847 5.9847 0 0 0 13.2599 24a6.0557 6.0557 0 0 0 5.7718-4.2058 5.9894 5.9894 0 0 0 3.9977-2.9001 6.0557 6.0557 0 0 0-.7475-7.0729zm-9.022 12.6081a4.4755 4.4755 0 0 1-2.8764-1.0408l.1419-.0804 4.7783-2.7582a.7948.7948 0 0 0 .3927-.6813v-6.7369l2.02 1.1686a.071.071 0 0 1 .038.052v5.5826a4.504 4.504 0 0 1-4.4945 4.4944zm-9.6607-4.1254a4.4708 4.4708 0 0 1-.5346-3.0137l.142.0852 4.783 2.7582a.7712.7712 0 0 0 .7806 0l5.8428-3.3685v2.3324a.0804.0804 0 0 1-.0332.0615L9.74 19.9502a4.4992 4.4992 0 0 1-6.1408-1.6464zM2.3408 7.8956a4.485 4.485 0 0 1 2.3655-1.9728V11.6a.7664.7664 0 0 0 .3879.6765l5.8144 3.3543-2.0201 1.1685a.0757.0757 0 0 1-.071 0l-4.8303-2.7865A4.504 4.504 0 0 1 2.3408 7.8956zm16.5963 3.8558L13.1038 8.364 15.1192 7.2a.0757.0757 0 0 1 .071 0l4.8303 2.7913a4.4944 4.4944 0 0 1-.6765 8.1042v-5.6772a.79.79 0 0 0-.407-.667zm2.0107-3.0231l-.142-.0852-4.7735-2.7818a.7759.7759 0 0 0-.7854 0L9.409 9.2297V6.8974a.0662.0662 0 0 1 .0284-.0615l4.8303-2.7866a4.4992 4.4992 0 0 1 6.6802 4.66zM8.3065 12.863l-2.02-1.1638a.0804.0804 0 0 1-.038-.0567V6.0742a4.4992 4.4992 0 0 1 7.3757-3.4537l-.142.0805L8.704 5.459a.7948.7948 0 0 0-.3927.6813zm1.0976-2.3654l2.602-1.4998 2.6069 1.4998v2.9994l-2.5974 1.4997-2.6067-1.4997Z"/></svg></span>
+        <span class="proc-ico pi-figma"><svg viewBox="0 0 38 57" aria-label="Figma"><path fill="#F24E1E" d="M19 0H9.5a9.5 9.5 0 0 0 0 19H19Z"/><path fill="#FF7262" d="M19 0h9.5a9.5 9.5 0 0 1 0 19H19Z"/><path fill="#A259FF" d="M19 19H9.5a9.5 9.5 0 0 0 0 19H19Z"/><circle fill="#1ABCFE" cx="28.5" cy="28.5" r="9.5"/><path fill="#0ACF83" d="M19 38H9.5A9.5 9.5 0 1 0 19 47.5Z"/></svg></span>
+        <div class="proc-phone">
+          <div class="proc-screen">
+            <img loading="lazy" decoding="async" class="proc-before" src="assets/screens/hush-chat-before.jpg" alt="改造前界面">
+            <img loading="lazy" decoding="async" class="proc-after" src="assets/screens/hush-chat-after.jpg" alt="改造后界面">
+            <div class="proc-scan" aria-hidden="true"></div>
+          </div>
+          <div class="proc-req">
+            <span class="sa-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 3.5h8l3 3v14h-11Z"/><path d="M14 3.5v3.2h3.2M9 11h6M9 14.5h6"/></svg>重新设计这些界面</span>
+            <div class="proc-req-lines"><span></span><span></span></div>
+          </div>
+          <div class="proc-git">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#171515" d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.387.6.11.82-.26.82-.577 0-.285-.01-1.04-.016-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.09-.745.082-.73.082-.73 1.205.085 1.838 1.238 1.838 1.238 1.07 1.834 2.807 1.304 3.492.997.108-.775.418-1.305.762-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.468-2.38 1.235-3.22-.123-.303-.535-1.523.117-3.176 0 0 1.008-.322 3.3 1.23.957-.266 1.983-.4 3.003-.404 1.02.005 2.047.138 3.006.404 2.29-1.552 3.297-1.23 3.297-1.23.653 1.653.24 2.873.118 3.176.77.84 1.233 1.91 1.233 3.22 0 4.61-2.804 5.625-5.476 5.92.43.372.814 1.103.814 2.222 0 1.606-.015 2.898-.015 3.293 0 .32.216.694.825.576C20.565 21.796 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg>
+            <div class="proc-git-text"><strong>yourapp-ios</strong><span>GitHub · 主分支</span></div>
+          </div>
+          <div class="proc-md">
+            <div class="proc-md-head">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 3.5h8l3 3v14h-11Z"/><path d="M14 3.5v3.2h3.2M9 11h6M9 14.5h6M9 18h3.5"/></svg>
+              <strong>design.md</strong>
+            </div>
+            <div class="proc-req-lines"><span></span><span></span><span></span></div>
+          </div>
+          <div class="proc-testi">
+            <div class="proc-testi-head">
+              <img loading="lazy" decoding="async" src="assets/avatars/a56-32.jpg" alt="">
+              <div><strong>Aisha M.</strong><span>Founder，Hush</span></div>
+              <em>&#9733;&#9733;&#9733;&#9733;&#9733;</em>
+            </div>
+            <p>&ldquo;没想到它能这么清爽。六天就上线了。&rdquo;</p>
+          </div>
+        </div>
+        <div class="proc-pills" aria-hidden="true">
+          <span class="proc-thumb"></span>
+          <span class="proc-pill" data-i="0"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16V4M7 9l5-5 5 5M4 20h16"/></svg>发来界面</span>
+          <span class="proc-pill" data-i="1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.8 4.6L18 9l-4.2 1.4L12 15l-1.8-4.6L6 9l4.2-1.4Z"/><path d="M19 15l.9 2.3L22 18l-2.1.7L19 21l-.9-2.3L16 18l2.1-.7Z"/></svg>重新设计</span>
+          <span class="proc-pill" data-i="2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19l4-4M9 5l10 10M14 4l6 6-8 8-6-6Z"/></svg>交付成品</span>
+        </div>
+        <div class="proc-heads">
+          <h2 class="proc-h" data-i="0"><span class="lm"><span>发来界面。</span></span><span class="lm"><span>乱一点也没关系。</span></span></h2>
+          <h2 class="proc-h" data-i="1"><span class="lm"><span>重新设计</span></span><span class="lm"><span>每一个关键界面。</span></span></h2>
+          <h2 class="proc-h" data-i="2"><span class="lm"><span>交付成品。</span></span><span class="lm"><span>让人看见变化。</span></span></h2>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FEATURES BENTO ============ -->
+  <section class="bento" id="bento">
+    <div class="bento-head">
+      <span class="tag"><img loading="lazy" decoding="async" src="assets/badge-features.png" alt="">设计细节</span>
+      <h2>每个细节，<br><span class="blue">都有理由。</span></h2>
+    </div>
+    <div class="bv2-grid">
+      <div class="bv2-card bv2-tall">
+        <span class="bv2-eyebrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 8V6a2 2 0 0 1 2-2h2M16 4h2a2 2 0 0 1 2 2v2M20 16v2a2 2 0 0 1-2 2h-2M8 20H6a2 2 0 0 1-2-2v-2"/></svg>有质感的设计</span>
+        <h3 class="bv2-h">把你欣赏的完成度，带回自己的产品。</h3>
+        <div class="bv2-chips">
+          <span>玻璃质感</span><span>微交互</span><span>信息网格</span><span>动态设计</span>
+        </div>
+        <div class="bv2-screen"><img loading="lazy" decoding="async" src="assets/screens/hush-home-after.jpg" alt=""></div>
+      </div>
+      <div class="bv2-card bv2-side">
+        <span class="bv2-eyebrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 8V6a2 2 0 0 1 2-2h2M16 4h2a2 2 0 0 1 2 2v2M20 16v2a2 2 0 0 1-2 2h-2M8 20H6a2 2 0 0 1-2-2v-2"/></svg>清晰交付</span>
+        <h3 class="bv2-h">页面归类清楚，继续开发更顺手。</h3>
+        <div class="b3-folders">
+          <div class="b3-folder" style="--fc:#aa26f2"><span class="b3-folder-name">引导流程</span><img loading="lazy" decoding="async" class="b3-folder-r" src="assets/logo.svg" alt=""><span class="b3-folder-count">10 个界面</span></div>
+          <div class="b3-folder" style="--fc:#ca7c0e"><span class="b3-folder-name">登录认证</span><img loading="lazy" decoding="async" class="b3-folder-r" src="assets/logo.svg" alt=""><span class="b3-folder-count">8 个界面</span></div>
+          <div class="b3-folder" style="--fc:#f25c26"><span class="b3-folder-name">首页</span><img loading="lazy" decoding="async" class="b3-folder-r" src="assets/logo.svg" alt=""><span class="b3-folder-count">11 个界面</span></div>
+          <div class="b3-folder" style="--fc:#0c9618"><span class="b3-folder-name">设置</span><img loading="lazy" decoding="async" class="b3-folder-r" src="assets/logo.svg" alt=""><span class="b3-folder-count">5 个界面</span></div>
+          <div class="b3-folder" style="--fc:#6e73fa"><span class="b3-folder-name">个人资料</span><img loading="lazy" decoding="async" class="b3-folder-r" src="assets/logo.svg" alt=""><span class="b3-folder-count">21 个界面</span></div>
+          <div class="b3-folder" style="--fc:#71880a"><span class="b3-folder-name">结账</span><img loading="lazy" decoding="async" class="b3-folder-r" src="assets/logo.svg" alt=""><span class="b3-folder-count">14 个界面</span></div>
+          <div class="b3-folder" style="--fc:#20a684"><span class="b3-folder-name">搜索</span><img loading="lazy" decoding="async" class="b3-folder-r" src="assets/logo.svg" alt=""><span class="b3-folder-count">4 个界面</span></div>
+          <div class="b3-folder" style="--fc:#0c5696"><span class="b3-folder-name">订阅页</span><img loading="lazy" decoding="async" class="b3-folder-r" src="assets/logo.svg" alt=""><span class="b3-folder-count">9 个界面</span></div>
+        </div>
+      </div>
+      <div class="bv2-card bv2-side">
+        <span class="bv2-eyebrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 8V6a2 2 0 0 1 2-2h2M16 4h2a2 2 0 0 1 2 2v2M20 16v2a2 2 0 0 1-2 2h-2M8 20H6a2 2 0 0 1-2-2v-2"/></svg>Claude 协作</span>
+        <h3 class="bv2-h">AI 提速，设计判断不缺席。</h3>
+        <div class="b3-prompt">
+          <div class="b3-avatar"><img loading="lazy" decoding="async" src="assets/claude-icon.png" alt="Claude"></div>
+          <div class="b3-promptbox">
+            <p class="b3-ph"><span id="b3-type"></span><i class="b3-caret"></i></p>
+            <div class="b3-prompt-bar">
+              <span class="b3-model">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M12 3.2 19.6 7.6v8.8L12 20.8 4.4 16.4V7.6Z"/><path d="M12 8.3l3.2 1.85v3.7L12 15.7l-3.2-1.85v-3.7Z"/><path d="M12 3.2v5.1M19.6 16.4l-4.4-2.55M4.4 16.4l4.4-2.55"/></svg>
+                Claude
+              </span>
+              <span class="b3-actions">
+                <button class="b3-attach" type="button" aria-label="添加附件">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 7.5a2 2 0 0 1 2-2h3.6l2 2.4h7.4a2 2 0 0 1 2 2v7.6a2 2 0 0 1-2 2h-13a2 2 0 0 1-2-2Z"/><path d="M12 12.2v4M10 14.2h4"/></svg>
+                </button>
+                <button class="b3-send" type="button" aria-label="发送">
+                  <svg viewBox="0 0 16 16" fill="currentColor"><path d="M7 2h2v2H7zM5 4h2v2H5zM9 4h2v2H9zM3 6h2v2H3zM11 6h2v2h-2zM7 6h2v8H7z"/></svg>
+                </button>
+              </span>
+            </div>
+          </div>
+          <div class="b3-chips">
+            <span class="b3-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 3.5h8l3 3v14h-11Z"/><path d="M14 3.5v3.2h3.2M9 11h6M9 14.5h6M9 18h3.5"/></svg>优化引导页</span>
+            <span class="b3-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="4.5" width="17" height="12" rx="2"/><path d="M12 16.5v3M8.5 19.5h7M8 10l2.5 2.5L16 8"/></svg>更新应用品牌</span>
+            <span class="b3-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><rect x="3.5" y="3.5" width="6" height="6" rx="1.6"/><rect x="14.5" y="14.5" width="6" height="6" rx="1.6"/><path d="M9.5 6.5h5a3 3 0 0 1 3 3v5" fill="none" stroke-linecap="round"/></svg>打磨订阅页</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="b2-grid" hidden>
+      <div class="b2-col">
+        <div class="b2-row">
+          <span class="b2-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><rect x="3" y="4.5" width="18" height="15" rx="3"/><path d="M12 4.5v15M12 11.5h9"/></svg></span>
+          <div class="b2-row-txt"><strong>Kanban</strong><span>Organize your records on a pipeline</span></div>
+        </div>
+        <div class="b2-row is-selected">
+          <span class="b2-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><rect x="3" y="4.5" width="18" height="15" rx="3"/><path d="M3 9.5h18M3 14.5h18M10 4.5v15M15.5 4.5v15"/></svg></span>
+          <div class="b2-row-txt"><strong>Table</strong><span>Organize your records on a table</span></div>
+          <span class="b2-cursor b2-cursor-yellow"><svg viewBox="0 0 20 20"><path d="M2.5 1.5 16.5 7.5 10 9.8 7.6 16.8Z" fill="currentColor" stroke="#fff" stroke-width="1.4" stroke-linejoin="round"/></svg><em>Mark S</em></span>
+        </div>
+        <div class="b2-card">
+          <svg class="b2-art" width="440" height="310" viewBox="0 0 440 310" fill="none">
+            <rect x="16" y="44" width="86" height="86" rx="20" stroke="#d8d8e2" stroke-width="1.5" stroke-dasharray="6 8"/>
+            <rect x="66" y="158" width="62" height="62" rx="16" stroke="#d8d8e2" stroke-width="1.5" stroke-dasharray="6 8"/>
+            <rect x="10" y="226" width="84" height="84" rx="20" stroke="#d8d8e2" stroke-width="1.5" stroke-dasharray="6 8"/>
+            <rect x="338" y="44" width="86" height="86" rx="20" stroke="#d8d8e2" stroke-width="1.5" stroke-dasharray="6 8"/>
+            <rect x="312" y="158" width="62" height="62" rx="16" stroke="#d8d8e2" stroke-width="1.5" stroke-dasharray="6 8"/>
+            <rect x="346" y="226" width="84" height="84" rx="20" stroke="#d8d8e2" stroke-width="1.5" stroke-dasharray="6 8"/>
+            <path d="M220 130 275 163V229L220 262 165 229V163Z" stroke="#a2a2b0" stroke-width="1.6" stroke-linejoin="round"/>
+            <path d="M165 163 220 196M275 163 220 196M220 196V262" stroke="#a2a2b0" stroke-width="1.6" stroke-linejoin="round"/>
+            <rect x="162" y="52" width="116" height="116" rx="26" transform="rotate(45 220 110)" fill="#fafafc" stroke="currentColor" stroke-width="1.6"/>
+            <rect x="176" y="66" width="88" height="88" rx="20" transform="rotate(45 220 110)" stroke="currentColor" stroke-width="1.4" opacity="0.45"/>
+            <path d="M209 101.5h6.8l3 3.6h11.4a2.8 2.8 0 0 1 2.8 2.8v8.8a2.8 2.8 0 0 1-2.8 2.8h-21.2a2.8 2.8 0 0 1-2.8-2.8v-12.4a2.8 2.8 0 0 1 2.8-2.8Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+          </svg>
+          <h3>No files found</h3>
+          <p>It seems Nicolas Sharp doesn&rsquo;t<br>have files</p>
+          <button class="b2-btn" type="button">New file</button>
+        </div>
+      </div>
+      <div class="b2-col">
+        <div class="b2-card">
+          <svg class="b2-art" width="470" height="310" viewBox="0 0 470 310" fill="none">
+            <path d="M95 56H140V140H183M287 118H340V62H392M287 162H340V244H390M183 162H140V228H92" stroke="#c9c9d6" stroke-width="1.5" stroke-dasharray="5 7"/>
+            <rect x="392" y="26" width="72" height="72" rx="18" stroke="#d8d8e2" stroke-width="1.5" stroke-dasharray="6 8"/>
+            <rect x="390" y="208" width="72" height="72" rx="18" stroke="#d8d8e2" stroke-width="1.5" stroke-dasharray="6 8"/>
+            <rect x="28" y="196" width="64" height="64" rx="16" stroke="#d8d8e2" stroke-width="1.5" stroke-dasharray="6 8"/>
+            <path d="M62 16 95 36V76L62 96 29 76V36Z" fill="#fafafc" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+            <path d="M29 36 62 56M95 36 62 56M62 56V96" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+            <rect x="183" y="88" width="104" height="104" rx="26" fill="#fafafc" stroke="currentColor" stroke-width="1.6"/>
+            <rect x="197" y="102" width="76" height="76" rx="18" stroke="currentColor" stroke-width="1.4" opacity="0.45"/>
+            <rect x="223" y="126" width="24" height="28" rx="4" stroke="currentColor" stroke-width="1.6"/>
+            <circle cx="235" cy="136.5" r="3" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M229 148c0-3.4 12-3.4 12 0" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+          <h3>No companies found</h3>
+          <p>It seems Nicolas Sharp doesn&rsquo;t<br>have associated companies</p>
+          <button class="b2-btn" type="button">Add to list</button>
+        </div>
+        <div class="b2-row">
+          <span class="b2-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M8.5 10h7v9.5h-7Z"/><path d="M8.5 10l2.2-1.6h7L15.5 10"/><path d="M15.5 10l2.2-1.6v9.5l-2.2 1.6"/><path d="M10.3 3.4h3.4v3.4h-3.4Z"/><path d="M10.3 3.4l1.8-1.3h3.4l-1.8 1.3"/><path d="M13.7 3.4l1.8-1.3v3.4l-1.8 1.3"/></svg></span>
+          <div class="b2-row-txt"><strong>People</strong><span>Built a process around people</span></div>
+        </div>
+        <div class="b2-row is-selected">
+          <span class="b2-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M8 5h6.5v14.5H8Z"/><path d="M8 5l2.4-1.7h6.5L14.5 5"/><path d="M14.5 5l2.4-1.7v14.5l-2.4 1.7"/></svg></span>
+          <div class="b2-row-txt"><strong>Companies</strong><span>Built a process around companies</span></div>
+          <span class="b2-cursor b2-cursor-pink"><svg viewBox="0 0 20 20"><path d="M2.5 1.5 16.5 7.5 10 9.8 7.6 16.8Z" fill="currentColor" stroke="#fff" stroke-width="1.4" stroke-linejoin="round"/></svg><em>Alex V</em></span>
+        </div>
+      </div>
+    </div>
+    <div class="bento-grid" hidden>
+      <div class="bento-card">
+        <p class="bento-cap"><strong>Every screen on one system.</strong> Type, color and spacing unified.</p>
+        <div class="bento-stage">
+          <div class="fan">
+            <img loading="lazy" decoding="async" class="f1" src="assets/phone-5.jpg" alt="">
+            <img loading="lazy" decoding="async" class="f2" src="assets/phone-4.jpg" alt="">
+            <img loading="lazy" decoding="async" class="f3" src="assets/phone-2.jpg" alt="">
+          </div>
+        </div>
+        <div class="bento-pill">
+          <svg viewBox="0 0 24 24" class="pill-ico"><rect x="3.5" y="3.5" width="7" height="7" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><rect x="13.5" y="3.5" width="7" height="7" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><rect x="3.5" y="13.5" width="7" height="7" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><rect x="13.5" y="13.5" width="7" height="7" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+          Design system applied
+          <span class="bento-pill-r">v2.0 <svg viewBox="0 0 12 12" class="pill-chev"><path d="M3 4.5 6 1.8 9 4.5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 7.5 6 10.2 9 7.5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </div>
+      </div>
+      <div class="bento-card">
+        <p class="bento-cap"><strong>Know exactly what changed</strong> with every single delivery.</p>
+        <div class="bento-stage">
+        </div>
+        <div class="bento-pill pill-purple">
+          <span class="spark">✦</span>
+          Deslopify tracked 2 changes
+          <span class="bento-pill-r">2 new <svg viewBox="0 0 12 12" class="pill-chev"><path d="M3 4.5 6 1.8 9 4.5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 7.5 6 10.2 9 7.5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </div>
+      </div>
+      <!-- removed cards (2×1 rework): "Days, not months" delivery card and
+           "Straight into your Figma" card — their CSS (.delivery-visual, .figma-card)
+           is kept in styles.css in case they return -->
+      <div class="bento-card" hidden>
+        <p class="bento-cap"><strong>Days, not months.</strong> Urgent gets it to your door in 5.</p>
+        <div class="bento-stage">
+          <div class="delivery-visual">
+            <div class="delivery-track">
+              <span class="delivery-fill"></span>
+              <i style="--x:0"></i><i style="--x:16.6%"></i><i style="--x:33.3%"></i><i style="--x:50"></i><i style="--x:66.6%"></i><i style="--x:83.3%"></i><i style="--x:100"></i>
+            </div>
+            <div class="delivery-days"><span>Day 1</span><span>Day 3</span><span>Day 5</span><span>Day 7</span></div>
+          </div>
+        </div>
+        <div class="bento-pill">
+          <svg viewBox="0 0 24 24" class="pill-ico"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M12 7.5V12l3 2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          Urgent delivery
+          <span class="bento-pill-r">After 5 days <svg viewBox="0 0 12 12" class="pill-chev"><path d="M3 4.5 6 1.8 9 4.5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 7.5 6 10.2 9 7.5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </div>
+      </div>
+      <div class="bento-card" hidden>
+        <p class="bento-cap"><strong>Straight into your Figma.</strong> Organized, named, editable.</p>
+        <div class="bento-stage">
+          <div class="figma-card">
+            <div class="figma-file">
+              <svg viewBox="0 0 24 24" class="figma-logo"><circle cx="8" cy="5" r="3.4" fill="#f24e1e"/><circle cx="16" cy="5" r="3.4" fill="#ff7262"/><circle cx="16" cy="12" r="3.4" fill="#1abcfe"/><circle cx="8" cy="12" r="3.4" fill="#a259ff"/><circle cx="8" cy="19" r="3.4" fill="#0acf83"/></svg>
+              <div class="figma-file-txt"><strong>yourapp-revamp.fig</strong><span>12 pages · 148 components</span></div>
+            </div>
+            <div class="figma-rows">
+              <div class="figma-row hot"><i></i>Design System<em>updated</em></div>
+              <div class="figma-row"><i></i>Home / v2</div>
+              <div class="figma-row"><i></i>Checkout / v2</div>
+            </div>
+          </div>
+        </div>
+        <div class="bento-pill">
+          <svg viewBox="0 0 24 24" class="figma-logo pill-figma"><circle cx="8" cy="5" r="3.4" fill="#f24e1e"/><circle cx="16" cy="5" r="3.4" fill="#ff7262"/><circle cx="16" cy="12" r="3.4" fill="#1abcfe"/><circle cx="8" cy="12" r="3.4" fill="#a259ff"/><circle cx="8" cy="19" r="3.4" fill="#0acf83"/></svg>
+          Full source file included
+          <span class="bento-pill-r">Open ↗</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ UNFOLD GALLERY (Framer University grid-scroll, 1:1) ============ -->
+  <section class="unfold">
+    <div class="unfold-sticky">
+      <div class="unfold-grid" id="unfold-grid">
+      <div class="u-tile" style="left:0px;top:0px" data-s="0.5" data-tx="300" data-ty="150"><img data-src="assets/gal-a1v.jpg" alt="" loading="lazy"></div>
+      <div class="u-tile" style="left:240px;top:0px" data-s="0.6" data-tx="124" data-ty="90"><img data-src="assets/gal-b1.jpg" alt="" loading="lazy"></div>
+      <div class="u-tile" style="left:480px;top:0px" data-s="0.7" data-tx="0" data-ty="40"><img data-src="assets/gal-c1.jpg" alt="" loading="lazy"></div>
+      <div class="u-tile" style="left:720px;top:0px" data-s="0.6" data-tx="-124" data-ty="90"><img data-src="assets/gal-a2.jpg" alt="" loading="lazy"></div>
+      <div class="u-tile" style="left:960px;top:0px" data-s="0.5" data-tx="-300" data-ty="150"><img data-src="assets/gal-b2.jpg" alt="" loading="lazy"></div>
+      <div class="u-tile" style="left:0px;top:295px" data-s="0.5" data-tx="270" data-ty="0"><img data-src="assets/gal-c2.jpg" alt="" loading="lazy"></div>
+      <div class="u-tile" style="left:240px;top:295px" data-s="0.6" data-tx="94" data-ty="0"><img data-src="assets/gal-a3.jpg" alt="" loading="lazy"></div>
+      <div class="u-tile u-hero" style="left:480px;top:295px" data-s="1" data-tx="0" data-ty="0"><img data-src="assets/gal-hero.jpg" alt="" loading="lazy"></div>
+      <div class="u-tile" style="left:720px;top:295px" data-s="0.6" data-tx="-94" data-ty="0"><img data-src="assets/gal-c3.jpg" alt="" loading="lazy"></div>
+      <div class="u-tile" style="left:960px;top:295px" data-s="0.5" data-tx="-270" data-ty="0"><img data-src="assets/gal-a4.jpg" alt="" loading="lazy"></div>
+      <div class="u-tile" style="left:0px;top:590px" data-s="0.5" data-tx="300" data-ty="-150"><img data-src="assets/gal-b4.jpg" alt="" loading="lazy"></div>
+      <div class="u-tile" style="left:240px;top:590px" data-s="0.6" data-tx="124" data-ty="-90"><img data-src="assets/gal-c4.jpg" alt="" loading="lazy"></div>
+      <div class="u-tile" style="left:480px;top:590px" data-s="0.7" data-tx="0" data-ty="-40"><img data-src="assets/gal-a5.jpg" alt="" loading="lazy"></div>
+      <div class="u-tile" style="left:720px;top:590px" data-s="0.6" data-tx="-124" data-ty="-90"><img data-src="assets/gal-b5.jpg" alt="" loading="lazy"></div>
+      <div class="u-tile" style="left:960px;top:590px" data-s="0.5" data-tx="-300" data-ty="-150"><img data-src="assets/gal-c5.jpg" alt="" loading="lazy"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ABOUT (designer file card) ============ -->
+  <section class="about" id="about">
+    <video class="about-bg" data-vsrc="assets/about-art.mp4" poster="assets/about-art-poster.jpg" autoplay muted loop playsinline preload="none" aria-hidden="true"></video>
+    <div class="about-head">
+      <span class="tag">关于</span>
+      <h2>关于我和我的<br><span class="blue">工作方式。</span></h2>
+    </div>
+    <div class="about-stage">
+      <div class="about-card">
+        <p class="ac-top">&lsquo;一个设计师，与一位 AI 助手&rsquo;</p>
+        <div class="ac-field">
+          <label>设计师</label>
+          <div class="ac-name">Rehan Ahmed</div>
+        </div>
+        <div class="ac-field">
+          <label>简介</label>
+          <p class="ac-blurb">我把停在半路的应用界面重新理清。Claude 负责加速，我负责判断取舍；交付的是可落地的设计和能在手机上运行的原型。</p>
+        </div>
+        <div class="ac-cols">
+          <div class="ac-col">
+            <label>交付内容</label>
+            <ul>
+              <li>应用设计</li>
+              <li>插画动效</li>
+              <li>可运行原型</li>
+              <li>应用商店素材</li>
+            </ul>
+          </div>
+          <div class="ac-col">
+            <label>常用工具</label>
+            <ul>
+              <li>Claude</li>
+              <li>Figma</li>
+              <li>SwiftUI</li>
+              <li>异步协作</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <svg class="about-clip" viewBox="0 0 44 90" aria-hidden="true"><path d="M31 12 v52 a9 9 0 0 1 -18 0 V20 a6 6 0 0 1 12 0 v40 a3 3 0 0 1 -6 0 V24" fill="none" stroke="#9aa2ad" stroke-width="4.6" stroke-linecap="round"/></svg>
+      <figure class="about-photo ap-1">
+        <span class="tape"></span>
+        <img src="assets/about-snap-2.jpg" alt="在咖啡馆设计" loading="lazy" decoding="async">
+      </figure>
+      <figure class="about-photo ap-2">
+        <span class="tape tape-r"></span>
+        <img src="assets/about-snap-3.jpg" alt="" loading="lazy" decoding="async">
+      </figure>
+      <figure class="about-photo ap-3">
+        <span class="tape"></span>
+        <img src="assets/about-snap-1.jpg" alt="" loading="lazy" decoding="async">
+      </figure>
+      <svg class="about-doodle ad-1" viewBox="0 0 100 110" aria-hidden="true"><g fill="none" stroke="#1d1e24" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M50 8 L59 34 L86 35 L64 51 L72 78 L50 62 L28 78 L36 51 L14 35 L41 34 Z"/><circle cx="44" cy="44" r="2.6" fill="#1d1e24"/><circle cx="58" cy="44" r="2.6" fill="#1d1e24"/><path d="M44 70 L40 92 M40 92 L33 92 M58 70 L62 92 M62 92 L69 92"/></g></svg>
+      <svg class="about-doodle ad-2" viewBox="0 0 110 100" aria-hidden="true"><g fill="none" stroke="#1d1e24" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M55 30 C48 16 26 16 22 32 C18 47 38 62 55 74 C72 62 92 47 88 32 C84 16 62 16 55 30 Z"/><circle cx="45" cy="40" r="2.6" fill="#1d1e24"/><circle cx="63" cy="40" r="2.6" fill="#1d1e24"/><path d="M42 72 L37 90 M37 90 L30 89 M66 72 L71 90 M71 90 L78 89 M40 22 C36 14 30 12 26 14 M70 22 C74 14 80 12 84 14"/></g></svg>
+      <svg class="about-doodle ad-3" viewBox="0 0 120 60" aria-hidden="true"><path d="M8 46 C26 10 40 10 46 30 C52 50 64 50 72 30 C80 10 96 12 112 40" fill="none" stroke="#1d1e24" stroke-width="2.4" stroke-linecap="round"/></svg>
+    </div>
+  </section>
+
+</div>
+</div>
+  <!-- ============ FOOTER V2 (marble jar easter egg; content TBD) ============ -->
+  <footer class="footer-v2" id="footer">
+    <div class="jar-block">
+      <h3 class="jar-title">在这里种下一棵树</h3>
+      <p class="jar-sub">选一种心情，放下一颗弹珠。</p>
+      <div class="jar-stage" id="jar-stage">
+        <!-- user-designed jar (Jar.svg), split so marbles render inside the glass -->
+        <svg class="jar-under" viewBox="0 0 377 356" fill="none" aria-hidden="true">
+          <g opacity="0.2" filter="url(#filter0_f_981_1964)">
+            <path d="M188.5 328C277.142 328 349 319.046 349 308C349 296.954 277.142 288 188.5 288C99.8583 288 28 296.954 28 308C28 319.046 99.8583 328 188.5 328Z" fill="#141B20"/>
+          </g>
+          <g filter="url(#filter1_ii_981_1964)">
+            <path d="M140.533 28.9117H236.906C236.906 50.1137 290.874 48.1862 292.802 92.5175C294.247 121.429 294.729 150.341 294.729 191.781C294.729 250.568 292.802 279.48 271.6 294.9C252.325 306.464 217.631 308.392 188.72 308.392C159.808 308.392 125.114 306.464 105.839 294.9C84.6374 279.48 82.71 250.568 82.71 191.781C82.71 150.341 83.1918 121.429 84.6374 92.5175C86.5649 48.1862 140.533 50.1137 140.533 28.9117Z" fill="white" fill-opacity="0.6"/>
+          </g>
+          <defs>
+            <filter id="filter0_f_981_1964" x="0" y="260" width="377" height="96" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+              <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+              <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+              <feGaussianBlur stdDeviation="14" result="effect1_foregroundBlur_981_1964"/>
+            </filter>
+            <filter id="filter1_ii_981_1964" x="81.5054" y="23.707" width="214.429" height="285.889" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+              <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+              <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+              <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+              <feOffset/>
+              <feGaussianBlur stdDeviation="12"/>
+              <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+              <feColorMatrix type="matrix" values="0 0 0 0 0.50539 0 0 0 0 0.641989 0 0 0 0 0.720046 0 0 0 1 0"/>
+              <feBlend mode="normal" in2="shape" result="effect1_innerShadow_981_1964"/>
+              <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+              <feOffset dy="-7"/>
+              <feGaussianBlur stdDeviation="2"/>
+              <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+              <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.11 0"/>
+              <feBlend mode="normal" in2="effect1_innerShadow_981_1964" result="effect2_innerShadow_981_1964"/>
+            </filter>
+            <filter id="filter2_i_981_1964" x="128.831" y="-4" width="119.645" height="34.8392" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+              <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+              <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+              <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+              <feOffset dy="-5"/>
+              <feGaussianBlur stdDeviation="2"/>
+              <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+              <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+              <feBlend mode="normal" in2="shape" result="effect1_innerShadow_981_1964"/>
+            </filter>
+            <linearGradient id="paint0_linear_981_1964" x1="248.306" y1="15.4196" x2="129.306" y2="15.4196" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#C2C2C2"/>
+              <stop offset="0.064255" stop-color="#C5C5C5"/>
+              <stop offset="0.174961" stop-color="#818181"/>
+              <stop offset="0.268635" stop-color="#969696"/>
+              <stop offset="0.55" stop-color="#F6F6F6"/>
+              <stop offset="0.861809" stop-color="white"/>
+              <stop offset="0.90128" stop-color="#DEDDDD"/>
+              <stop offset="1" stop-color="#8E8E8E"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        <canvas id="jar-canvas" width="754" height="712"></canvas>
+        <canvas id="jar-fx" aria-hidden="true"></canvas>
+        <svg class="jar-over" viewBox="0 0 377 356" fill="none" aria-hidden="true">
+          <path d="M140.533 28.9117H236.906C236.906 50.1137 290.874 48.1862 292.802 92.5175C294.247 121.429 294.729 150.341 294.729 191.781C294.729 250.568 292.802 279.48 271.6 294.9C252.325 306.464 217.631 308.392 188.72 308.392C159.808 308.392 125.114 306.464 105.839 294.9C84.6374 279.48 82.71 250.568 82.71 191.781C82.71 150.341 83.1918 121.429 84.6374 92.5175C86.5649 48.1862 140.533 50.1137 140.533 28.9117Z" stroke="#B7C5CD" stroke-width="2.40931"/>
+          <path d="M274 93.5615C278.819 132.111 278.819 180.297 274.964 218.846C281.71 188.007 282.674 130.183 279.782 95.489C278.819 85.8517 274.964 85.8517 274 93.5615Z" fill="white"/>
+          <path opacity="0.4" d="M105.824 82.0422C100.071 134.196 99.1122 201.803 104.865 248.162C107.741 269.41 119.247 279.068 125 281C115.412 248.162 113.494 134.196 121.165 85.9055C123.082 70.4524 109.659 68.5208 105.824 82.0422Z" fill="white"/>
+          <g filter="url(#filter2_i_981_1964)">
+            <path d="M138.473 0H238.7C244.023 0 248.337 4.31474 248.337 9.63724V21.2019C248.337 26.5244 249.628 30.8392 244.306 30.8392H133.806C128.483 30.8392 128.836 26.5244 128.836 21.2019V9.63724C128.836 4.31474 133.15 0 138.473 0Z" fill="url(#paint0_linear_981_1964)"/>
+          </g>
+          <g opacity="0.34">
+            <path d="M105.839 86.7353C100.057 138.776 99.0933 206.237 104.876 252.496C107.767 273.698 119.331 283.335 125.114 285.262C115.477 252.496 113.549 138.776 121.259 90.5902C123.186 75.1706 109.694 73.2431 105.839 86.7353Z" fill="white"/>
+            <path d="M148.243 36.6216H229.196C198.357 44.3314 179.082 44.3314 148.243 36.6216Z" fill="white"/>
+            <path d="M263.89 100.227C268.709 138.776 268.709 186.963 264.854 225.512C271.6 194.672 272.564 136.849 269.672 102.155C268.709 92.5176 264.854 92.5176 263.89 100.227Z" fill="white"/>
+          </g>
+        </svg>
+      </div>
+      <div class="jar-ui">
+        <div class="jar-picker" id="jar-picker" role="radiogroup" aria-label="选择一种心情"></div>
+        <button class="jar-drop" id="jar-drop" type="button">放下一颗弹珠</button>
+        <p class="jar-note" id="jar-note"></p>
+      </div>
+    </div>
+    <canvas class="rain-canvas" aria-hidden="true"></canvas>
+    <p class="fv2-copy">&copy; 2026 DESLOPIFY. 保留所有权利。</p>
+  </footer>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <filter id="ai-ripple" x="-25%" y="-25%" width="150%" height="150%">
+    <feTurbulence id="ai-turb" type="fractalNoise" baseFrequency="0.012 0.02" numOctaves="2" seed="7" result="noise"/>
+    <feDisplacementMap id="ai-disp" in="SourceGraphic" in2="noise" scale="0" xChannelSelector="R" yChannelSelector="G"/>
+  </filter>
+</svg>
+<!-- fixed full-viewport glow — outside .canvas for the same reason as the nav -->
+<div class="ai-wave" aria-hidden="true"></div>
+  <script src="script.js?v=189"></script>
+</body>
+</html>
