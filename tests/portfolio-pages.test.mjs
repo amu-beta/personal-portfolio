@@ -124,6 +124,15 @@ test('home retains the work showcase and removes commercial/social sections', ()
   assert.equal(/id="cal-slot"|app\.cal\.com|href="#book"/.test(html), false, 'home must not contain booking UI');
 });
 
+test('intelligence heading stays on one responsive line', () => {
+  const html = readPage('index.html');
+  const css = readPage('styles.css');
+  assert.match(html, /<h2>从混乱界面，<span class="blue">到清晰产品。<\/span><\/h2>/);
+  assert.doesNotMatch(html, /从混乱界面，<br>/);
+  assert.match(css, /\.intelligence-head h2\s*\{[^}]*white-space:\s*nowrap;/s);
+  assert.match(css, /\.intelligence-head h2\s*\{[^}]*font-size:\s*clamp\(24px,\s*6\.5vw,\s*52px\);/s);
+});
+
 test('works page contains every project family and both work filters', () => {
   assert.equal(existsSync(pageUrl('works.html')), true, 'works.html must exist');
   const html = readPage('works.html');

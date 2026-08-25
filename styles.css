@@ -974,6 +974,10 @@ h2 .blue { color: var(--blue); }
 .intelligence-head .blue,
 .bento-head .blue,
 .showcase-head .blue { color: var(--hero-navy); }
+.intelligence-head h2 {
+  white-space: nowrap;
+  font-size: clamp(24px, 6.5vw, 52px);
+}
 .float-card { border-radius: 16px; border-color: #efecf3; }
 .float-card .chip {
   border-radius: 999px;
@@ -3207,6 +3211,7 @@ h2 .blue { color: var(--blue); }
   .hiw-head-content h2, .bento-head h2 {
     font-size: clamp(30px, 8.2vw, 36px);
   }
+  .intelligence-head h2 { font-size: clamp(24px, 6.5vw, 28px); }
   .tag { font-size: 14px; gap: 10px; }
   .tag img { width: 20px; height: 20px; margin-right: -3px; }
 
