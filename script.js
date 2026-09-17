@@ -167,7 +167,6 @@ document.querySelectorAll('.ticker:not(.ticker-gray)').forEach(ticker => {
       wireFallback(img);
       if (img.src.includes('-after.')) img.src = img.src.replace('-after.', '-before.');
     });
-    grayTicker.querySelectorAll('.ba-pill').forEach(p => { p.textContent = '改造前'; });
   };
   let loopWidth = 0;
   /* arc geometry, cached outside the frame loop: card centers never move
@@ -261,54 +260,6 @@ document.querySelectorAll('.ticker:not(.ticker-gray)').forEach(ticker => {
   }
   requestAnimationFrame(frame);
 });
-
-/* ============ 2b. Hero before/after slider ============ */
-/* Everything left of the handle renders grayscale, right stays colorful —
-   including mid-drag of both the handle and the carousel. */
-(() => {
-  const wrap = document.querySelector('.hero-ticker-wrap');
-  if (!wrap) return;
-  const grips = wrap.querySelectorAll('.hero-overlay-circles, .hero-overlay-bar');
-  const sliderHandle = wrap.querySelector('.hero-overlay-circles[role="slider"]');
-  let dragging = false;
-  const setSplitPercent = value => {
-    const percent = Math.min(100, Math.max(0, value));
-    wrap.style.setProperty('--split', percent.toFixed(3) + '%');
-    if (sliderHandle) {
-      sliderHandle.setAttribute('aria-valuenow', String(Math.round(percent)));
-      sliderHandle.setAttribute('aria-valuetext', `改造前 ${Math.round(percent)}%，改造后 ${100 - Math.round(percent)}%`);
-    }
-  };
-  const setSplit = clientX => {
-    const r = wrap.getBoundingClientRect();
-    setSplitPercent((clientX - r.left) / r.width * 100);
-  };
-  grips.forEach(g => {
-    g.addEventListener('pointerdown', e => {
-      dragging = true;
-      g.setPointerCapture(e.pointerId);
-      setSplit(e.clientX);
-      e.preventDefault();
-      e.stopPropagation();
-    });
-    g.addEventListener('pointermove', e => { if (dragging) setSplit(e.clientX); });
-    const end = () => { dragging = false; };
-    g.addEventListener('pointerup', end);
-    g.addEventListener('pointercancel', end);
-  });
-  sliderHandle?.addEventListener('keydown', event => {
-    const current = Number(sliderHandle.getAttribute('aria-valuenow')) || 50;
-    let next = current;
-    if (event.key === 'ArrowLeft' || event.key === 'ArrowDown') next = current - 5;
-    else if (event.key === 'ArrowRight' || event.key === 'ArrowUp') next = current + 5;
-    else if (event.key === 'Home') next = 0;
-    else if (event.key === 'End') next = 100;
-    else return;
-    event.preventDefault();
-    setSplitPercent(next);
-  });
-  setSplitPercent(Number(sliderHandle?.getAttribute('aria-valuenow')) || 50);
-})();
 
 /* ============ 3. Logo flip columns ============ */
 (() => {
@@ -425,51 +376,6 @@ document.querySelectorAll('.ticker:not(.ticker-gray)').forEach(ticker => {
   })();
 })();
 
-/* ============ 4c. Process scroll-jack (v2, replaces hiw) ============ */
-/* Pins for the runway; progress thirds select the step. Each step drives the
-   phone (before / scanning / after-wipe), the straddling pills' thumb, the
-   slide-out app icons, and the masked-line heading swap — all via data-step. */
-(() => {
-  const section = document.querySelector('.process');
-  const sticky = document.querySelector('.process-sticky');
-  if (!section || !sticky) return;
-  const stage = document.querySelector('.proc-stage');
-  const pills = [...document.querySelectorAll('.proc-pill')];
-  const thumb = document.querySelector('.proc-thumb');
-  const heads = [...document.querySelectorAll('.proc-h')];
-  const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
-  const PROC = new URLSearchParams(location.search).get('proc'); // debug freeze
-
-  let cur = -1;
-  function setStep(i) {
-    if (i === cur) return;
-    cur = i;
-    stage.dataset.step = i;
-    pills.forEach((p, j) => p.classList.toggle('on', j === i));
-    heads.forEach((h, j) => h.classList.toggle('on', j === i));
-    if (thumb && pills[i]) {
-      thumb.style.transform = `translateX(${pills[i].offsetLeft}px)`;
-      thumb.style.width = pills[i].offsetWidth + 'px';
-    }
-  }
-  function update() {
-    const r = section.getBoundingClientRect();
-    const total = r.height - sticky.getBoundingClientRect().height;
-    const p = PROC !== null ? parseFloat(PROC) : (STATIC ? 0 : clamp(-r.top / total, 0, 1));
-    setStep(p < 1 / 3 ? 0 : p < 2 / 3 ? 1 : 2);
-  }
-  window.addEventListener('scroll', update, { passive: true });
-  window.addEventListener('resize', () => { cur = -1; update(); });
-  /* re-run once assets/fonts settle so the thumb measures real pill widths */
-  window.addEventListener('load', () => { cur = -1; update(); });
-  if (PROC !== null) {
-    const r = section.getBoundingClientRect();
-    const stageH = sticky.getBoundingClientRect().height;
-    window.scrollTo({ top: scrollY + r.top + (r.height - stageH) * parseFloat(PROC), behavior: 'instant' });
-  }
-  update();
-})();
-
 /* ============ 5. How-it-works step cycle ============ */
 (() => {
   const DUR = 6000;
@@ -584,143 +490,6 @@ document.querySelectorAll('.ticker:not(.ticker-gray)').forEach(ticker => {
   init();
   window.addEventListener('load', init);
   window.addEventListener('resize', init);
-})();
-
-/* ============ 7b. Apple-Intelligence scroll-jack ============ */
-/* Section pins for ~1800px of scroll; progress drives the viewport edge glow
-   and a feathered radial wipe that morphs the old screen into the new one. */
-(() => {
-  const section = document.querySelector('.intelligence');
-  const sticky = document.querySelector('.intelligence-sticky');
-  const wave = document.querySelector('.ai-wave');
-  const iphone = document.querySelector('.iphone');
-  if (!section || !sticky || !wave) return;
-
-  // real mockup dropped in assets/? then hide the CSS bezel
-  const frameImg = document.querySelector('.iphone-frame');
-  if (frameImg) {
-    if (frameImg.complete && frameImg.naturalWidth > 0) iphone.classList.add('has-frame');
-    frameImg.addEventListener('load', () => iphone.classList.add('has-frame'));
-  }
-
-  const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
-  const easeInOut = t => t < .5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
-  const JACK = new URLSearchParams(location.search).get('jack'); // debug: freeze at progress
-
-  // state toggle straddling the phone bottom (thumb slides across the morph)
-  const stThumb = document.querySelector('.stage-toggle-thumb');
-  const stItems = document.querySelectorAll('.stage-toggle .st-item');
-
-  /* mobile single-card mode: the left card's copy flips to the right card's
-     copy once the morph completes (both cards' markup stays the source) */
-  const PHASES = (() => {
-    const read = sel => {
-      const c = document.querySelector(sel);
-      return c && {
-        chip: c.querySelector('.chip span')?.textContent,
-        head: c.querySelector('.float-card-text h4')?.textContent,
-        text: c.querySelector('.float-card-text p')?.textContent,
-      };
-    };
-    return [read('.float-card-left'), read('.float-card-right')];
-  })();
-  let phase = 0, swapTimer = null;
-  function setPhase(i) {
-    if (i === phase || !PHASES[0] || !PHASES[1]) return;
-    phase = i;
-    const card = document.querySelector('.float-card-left');
-    clearTimeout(swapTimer);
-    card.classList.add('fc-swap');
-    swapTimer = setTimeout(() => {
-      card.querySelector('.chip span').textContent = PHASES[phase].chip;
-      const h = card.querySelector('.float-card-text h4');
-      if (h && PHASES[phase].head) h.textContent = PHASES[phase].head;
-      card.querySelector('.float-card-text p').textContent = PHASES[phase].text;
-      card.classList.remove('fc-swap');
-    }, 180);
-  }
-
-  let raf = null;
-  function update() {
-    raf = null;
-    const r = section.getBoundingClientRect();
-    const stageH = sticky.getBoundingClientRect().height;
-    const total = r.height - stageH;
-    const p = JACK !== null ? parseFloat(JACK) : (STATIC ? 0 : clamp(-r.top / total, 0, 1));
-
-    // edge glow: ramps in, holds through the morph, ramps out
-    let glow = 0;
-    if (p > 0.12 && p < 0.3) glow = (p - 0.12) / 0.18;
-    else if (p >= 0.3 && p <= 0.7) glow = 1;
-    else if (p > 0.7 && p < 0.88) glow = 1 - (p - 0.7) / 0.18;
-
-    // screen morph: bottom-to-top sweep with an iOS-style liquid ripple.
-    // Ripple intensity bells up mid-morph and settles to zero at both ends.
-    const morph = clamp((p - 0.32) / 0.4, 0, 1);
-    const rev = easeInOut(morph) * 100;
-    const ripple = Math.sin(Math.PI * morph);
-    const warp = document.querySelector('.screen-warp');
-    const turb = document.getElementById('ai-turb');
-    const disp = document.getElementById('ai-disp');
-    /* the displacement-filter ripple is too heavy for phone GPUs; mobile keeps
-       the (cheap) radial wipe morph and skips the liquid effect */
-    const noRipple = document.documentElement.classList.contains('is-mobile');
-    if (warp && noRipple) warp.classList.remove('rippling');
-    if (warp && turb && disp && !noRipple) {
-      const breathe = 1 + 0.25 * Math.sin(p * 60); // evolving wavefront
-      disp.setAttribute('scale', (ripple * 26 * breathe).toFixed(2));
-      turb.setAttribute('baseFrequency',
-        (0.010 + ripple * 0.007).toFixed(4) + ' ' + (0.018 + ripple * 0.010).toFixed(4));
-      warp.classList.toggle('rippling', ripple > 0.02);
-    }
-
-    // float cards: left ("Send screenshots") wipes in early,
-    // right ("Get designs") wipes in after the morph completes.
-    // Mobile: one card under the phone — its text swaps at the morph instead.
-    const m1 = easeInOut(clamp((p - 0.05) / 0.18, 0, 1));
-    const m2 = easeInOut(clamp((p - 0.58) / 0.18, 0, 1));
-    const cardL = document.querySelector('.float-card-left');
-    const cardR = document.querySelector('.float-card-right');
-    if (cardL) cardL.style.setProperty('--m', m1.toFixed(3));
-    if (cardR) cardR.style.setProperty('--m', m2.toFixed(3));
-    setPhase(document.documentElement.classList.contains('is-mobile') && p >= 0.58 ? 1 : 0);
-
-    // toggle thumb: slides left pill → right pill in lockstep with the morph,
-    // interpolating position AND width since the two labels differ in length
-    if (stThumb && stItems.length === 2) {
-      const sw = easeInOut(morph);
-      const [a, b] = stItems;
-      const x = a.offsetLeft + (b.offsetLeft - a.offsetLeft) * sw;
-      const w = a.offsetWidth + (b.offsetWidth - a.offsetWidth) * sw;
-      stThumb.style.transform = `translateX(${x.toFixed(1)}px)`;
-      stThumb.style.width = w.toFixed(1) + 'px';
-      a.classList.toggle('on', sw < 0.5);
-      b.classList.toggle('on', sw >= 0.5);
-    }
-
-    // bg veil: hidden until the morph fully lands on state 2 (p ≈ 0.72),
-    // then a feathered radial mask wipes outward from behind the phone
-    const bgr = STATIC ? 1 : easeInOut(clamp((p - 0.74) / 0.16, 0, 1));
-    sticky.style.setProperty('--bgr', bgr.toFixed(3));
-
-    sticky.style.setProperty('--p', p.toFixed(4));
-    sticky.style.setProperty('--glow', glow.toFixed(3));
-    sticky.style.setProperty('--r', rev.toFixed(2));
-    wave.style.setProperty('--glow', glow.toFixed(3));
-    wave.style.setProperty('--ang', (p * 720).toFixed(1) + 'deg');
-    wave.classList.toggle('on', glow > 0.01);
-  }
-  window.addEventListener('scroll', () => {
-    if (document.hidden) return update();
-    if (!raf) raf = requestAnimationFrame(update);
-  }, { passive: true });
-  window.addEventListener('resize', update);
-  if (JACK !== null) {
-    const r = section.getBoundingClientRect();
-    const stageH = sticky.getBoundingClientRect().height;
-    window.scrollTo({ top: scrollY + r.top + (r.height - stageH) * parseFloat(JACK), behavior: 'instant' });
-  }
-  update();
 })();
 
 /* ============ 7c2. Unfold gallery (Framer University grid-scroll, 1:1) ============ */
@@ -1546,4 +1315,16 @@ void main(){
     });
   }, { threshold: 0.15 });
   targets.forEach(t => obs.observe(t));
+})();
+
+/* ============ 9. Back to top ============ */
+(() => {
+  const button = document.getElementById('back-to-top');
+  if (!button) return;
+  const sync = () => button.classList.toggle('is-visible', window.scrollY > 640);
+  window.addEventListener('scroll', sync, { passive: true });
+  button.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: REDUCED ? 'auto' : 'smooth' });
+  });
+  sync();
 })();

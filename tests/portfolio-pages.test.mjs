@@ -16,11 +16,7 @@ test('home interface copy is Chinese', () => {
     '更有质感',
     '更像成品',
     '让人记住',
-    '从混乱界面，到清晰产品。',
     '真实项目，完整呈现。',
-    '发来界面',
-    '重新设计',
-    '交付成品',
     '每个细节，都有理由。',
     '关于我和我的工作方式。',
     '在这里种下一棵树',
@@ -80,14 +76,7 @@ test('home interactive selectors expose and update accessible state', () => {
   const html = readPage('index.html');
   const runtime = readPage('script.js');
 
-  assert.match(
-    html,
-    /class="hero-overlay-circles"[^>]*\brole="slider"[^>]*\btabindex="0"[^>]*\baria-valuemin="0"[^>]*\baria-valuemax="100"[^>]*\baria-valuenow="50"/,
-  );
-  for (const key of ['ArrowLeft', 'ArrowRight', 'Home', 'End']) {
-    assert.match(runtime, new RegExp(`['"]${key}['"]`), `slider must handle ${key}`);
-  }
-  assert.match(runtime, /sliderHandle\.setAttribute\(['"]aria-valuenow['"],\s*String\(/);
+  assert.doesNotMatch(html, /hero-overlay-circles|role="slider"/);
 
   assert.match(html, /<button\b[^>]*class="pill active"[^>]*\baria-pressed="true"[^>]*>\s*应用设计\s*</);
   assert.match(html, /<button\b[^>]*class="pill"[^>]*\baria-pressed="false"[^>]*>\s*应用商店素材\s*</);
@@ -127,10 +116,32 @@ test('home retains the work showcase and removes commercial/social sections', ()
 test('intelligence heading stays on one responsive line', () => {
   const html = readPage('index.html');
   const css = readPage('styles.css');
-  assert.match(html, /<h2>从混乱界面，<span class="blue">到清晰产品。<\/span><\/h2>/);
-  assert.doesNotMatch(html, /从混乱界面，<br>/);
-  assert.match(css, /\.intelligence-head h2\s*\{[^}]*white-space:\s*nowrap;/s);
-  assert.match(css, /\.intelligence-head h2\s*\{[^}]*font-size:\s*clamp\(24px,\s*6\.5vw,\s*52px\);/s);
+  assert.doesNotMatch(html, /<section class="intelligence"/);
+  assert.doesNotMatch(css, /\.intelligence\s*\{/);
+});
+
+test('browser feedback is reflected across the home page', () => {
+  const html = readPage('index.html');
+  const css = readPage('styles.css');
+  const js = readPage('script.js');
+
+  assert.match(html, /5 年全流程 UI 设计经验，以用户体验 \+ 数据驱动决策覆盖需求梳理、原型、视觉和落地；擅长把设计工具与 AI 体系结合到实际工作流里。/);
+  assert.match(html, /<img src="assets\/codex-icon\.png" alt="">Codex 协作/);
+  assert.doesNotMatch(html, /class="ba-pill"|class="ticker ticker-gray"|class="hero-overlay"/);
+  assert.doesNotMatch(html, /<section class="intelligence"|<section class="process"/);
+  assert.match(html, /<h2>真实项目，<span class="blue">完整呈现。<\/span><\/h2>/);
+  assert.match(html, /<h2>关于我和我的<span class="blue">工作方式。<\/span><\/h2>/);
+  assert.match(html, /Codex 协作/);
+  assert.match(html, /<div class="ac-name">Chloe<\/div>/);
+  assert.match(html, /Codex 负责加速/);
+  assert.doesNotMatch(html, /Claude|Rehan Ahmed/);
+  assert.match(html, /id="back-to-top"[^>]*aria-label="回到顶部"/);
+
+  assert.match(css, /\.hero-zone::before\s*\{[^}]*background:\s*#fff;/s);
+  assert.match(css, /\.showcase-head h2[^}]*white-space:\s*nowrap;/s);
+  assert.match(css, /\.about-head h2[^}]*white-space:\s*nowrap;/s);
+  assert.match(css, /\.back-to-top\s*\{/);
+  assert.match(js, /getElementById\('back-to-top'\)/);
 });
 
 test('works page contains every project family and both work filters', () => {

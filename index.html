@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Deslopify｜让应用焕然一新</title>
-  <meta name="description" content="把现有界面交给 AI 与设计判断，快速变成清晰、统一、可以继续开发的产品体验。">
+  <meta name="description" content="5 年全流程 UI 设计经验，以用户体验 + 数据驱动决策覆盖需求梳理、原型、视觉和落地；擅长把设计工具与 AI 体系结合到实际工作流里。">
   <meta property="og:title" content="Deslopify｜让应用焕然一新">
-  <meta property="og:description" content="把现有界面变成清晰、统一、可以继续开发的产品体验。">
+  <meta property="og:description" content="5 年全流程 UI 设计经验，以用户体验与数据驱动覆盖需求、原型、视觉和落地，并把 AI 融入真实设计工作流。">
   <meta property="og:image" content="https://deslopify.studio/assets/og-v2.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -19,7 +19,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
   <link rel="preload" as="image" href="assets/hero-sky.jpg" fetchpriority="high">
-  <link rel="stylesheet" href="styles.css?v=202">
+  <link rel="stylesheet" href="styles.css?v=203">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="icon" href="assets/favicon-light.png" media="(prefers-color-scheme: light)">
   <link rel="icon" href="assets/favicon-dark.png" media="(prefers-color-scheme: dark)">
@@ -50,14 +50,14 @@
   <div class="hero-zone">
   <header class="hero">
     <div class="hero-pill">
-      <span class="hero-pill-chip"><img src="assets/claude-icon.png" alt="">Claude 协作</span>
+      <span class="hero-pill-chip"><img src="assets/codex-icon.png" alt="">Codex 协作</span>
       <span class="hero-pill-text"><span class="hpt-full">把想法变成可继续开发的界面</span><span class="hpt-short">做成可开发的界面</span></span>
     </div>
     <div class="hero-heading">
       <h1>让应用焕然一新</h1>
       <p class="type-line"><span id="type-text"></span><span class="type-cursor" aria-hidden="true"></span></p>
     </div>
-    <p class="hero-sub">把现有界面交给 AI 与设计判断，快速变成清晰、统一、可以继续开发的产品体验。</p>
+    <p class="hero-sub">5 年全流程 UI 设计经验，以用户体验 + 数据驱动决策覆盖需求梳理、原型、视觉和落地；擅长把设计工具与 AI 体系结合到实际工作流里。</p>
     <a class="btn-dark" href="works.html">
       <span class="btn-dark-label">查看作品集</span>
       <span class="btn-arrow"><img src="assets/arrow.png" alt=""><img src="assets/arrow.png" alt=""></span>
@@ -66,26 +66,15 @@
 
   <!-- ============ HERO PHONE TICKER ============ -->
   <div class="hero-ticker-wrap">
-    <!-- each slot is a named screen; drop assets/screens/<name>-after.png and
-         <name>-before.png and the slider shows the real pair for that slot.
-         Missing files fall back: before→after→the old placeholder. -->
+    <!-- Selected product screens from completed interface work. -->
     <div class="ticker" id="hero-ticker" data-speed="80" data-direction="ltr" data-arc="3200">
       <div class="ticker-track">
-        <div class="phone-card"><span class="ba-pill">改造后</span><div class="phone-frame"><img data-screen="hush-home" src="assets/screens/hush-home-after.jpg" data-fallback="assets/phone-1.jpg" alt=""></div></div>
-        <div class="phone-card"><span class="ba-pill">改造后</span><div class="phone-frame"><img data-screen="hush-chat" src="assets/screens/hush-chat-after.jpg" data-fallback="assets/phone-2.jpg" alt=""></div></div>
-        <div class="phone-card"><span class="ba-pill">改造后</span><div class="phone-frame"><img data-screen="founder" src="assets/screens/founder-after.jpg" data-fallback="assets/phone-4.jpg" alt=""></div></div>
-        <div class="phone-card"><span class="ba-pill">改造后</span><div class="phone-frame"><img data-screen="fund" src="assets/screens/fund-after.jpg" data-fallback="assets/phone-5.jpg" alt=""></div></div>
-        <div class="phone-card"><span class="ba-pill">改造后</span><div class="phone-frame"><img data-screen="indus-home" src="assets/screens/indus-home-after.jpg" data-fallback="assets/phone-6.jpg" alt=""></div></div>
-        <div class="phone-card"><span class="ba-pill">改造后</span><div class="phone-frame"><img data-screen="product" src="assets/screens/product-after.jpg" data-fallback="assets/phone-7.jpg" alt=""></div></div>
-      </div>
-    </div>
-    <div class="ticker ticker-gray" aria-hidden="true">
-      <div class="ticker-track"></div>
-    </div>
-    <div class="hero-overlay">
-      <div class="hero-overlay-bar"></div>
-      <div class="hero-overlay-circles" role="slider" tabindex="0" aria-label="改造前后对比位置" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
-        <div class="circle-mid"><div class="circle-core"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 8l-4 4 4 4M15 8l4 4-4 4"/></svg></div></div>
+        <div class="phone-card"><div class="phone-frame"><img data-screen="hush-home" src="assets/screens/hush-home-after.jpg" data-fallback="assets/phone-1.jpg" alt=""></div></div>
+        <div class="phone-card"><div class="phone-frame"><img data-screen="hush-chat" src="assets/screens/hush-chat-after.jpg" data-fallback="assets/phone-2.jpg" alt=""></div></div>
+        <div class="phone-card"><div class="phone-frame"><img data-screen="founder" src="assets/screens/founder-after.jpg" data-fallback="assets/phone-4.jpg" alt=""></div></div>
+        <div class="phone-card"><div class="phone-frame"><img data-screen="fund" src="assets/screens/fund-after.jpg" data-fallback="assets/phone-5.jpg" alt=""></div></div>
+        <div class="phone-card"><div class="phone-frame"><img data-screen="indus-home" src="assets/screens/indus-home-after.jpg" data-fallback="assets/phone-6.jpg" alt=""></div></div>
+        <div class="phone-card"><div class="phone-frame"><img data-screen="product" src="assets/screens/product-after.jpg" data-fallback="assets/phone-7.jpg" alt=""></div></div>
       </div>
     </div>
   </div>
@@ -102,57 +91,12 @@
     </div>
   </section>
 
-  <!-- ============ FEATURES 1 (ASCII gear + phone + float cards) ============ -->
-  <section class="intelligence" id="intelligence">
-    <div class="intelligence-head">
-      <span class="tag"><img src="assets/badge-features.png" alt="">改造前 / 改造后</span>
-      <h2>从混乱界面，<span class="blue">到清晰产品。</span></h2>
-    </div>
-    <div class="intelligence-sticky">
-      <div class="iphone-stage">
-        <div class="iphone">
-          <div class="iphone-screens">
-            <div class="screen-warp">
-              <img class="iphone-screen screen-old" src="assets/screens/indus-home-before.jpg" alt="">
-              <img class="iphone-screen screen-new" src="assets/screens/indus-home-after.jpg" alt="">
-              <div class="screen-shimmer"></div>
-            </div>
-          </div>
-          <img class="iphone-frame" src="assets/intelligence-frame.png" alt="" onerror="this.style.display='none'">
-          <div class="stage-toggle" aria-hidden="true">
-            <span class="stage-toggle-thumb"></span>
-            <span class="st-item st-left"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 16c2-7 6-9 7-6s-4 8-1 9 6-8 8-6-3 7 2 5"/></svg>改造前</span>
-            <span class="st-item st-right"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M12 4l1.9 5.3L19 12l-5.1 2.7L12 20l-1.9-5.3L5 12l5.1-2.7z"/></svg>改造后</span>
-          </div>
-        </div>
-        <div class="float-card float-card-left">
-          <div class="float-card-chips">
-            <span class="chip"><img src="assets/file-icon.svg" alt=""><span>发来界面</span></span>
-          </div>
-          <div class="float-card-text">
-            <h4>保留真实问题</h4>
-            <p>发来现有截图。任何页面、任何状态，都是开始。</p>
-          </div>
-        </div>
-        <div class="float-card float-card-right">
-          <div class="float-card-chips">
-            <span class="chip"><img src="assets/file-icon.svg" alt=""><span>交付成品</span></span>
-          </div>
-          <div class="float-card-text">
-            <h4>重新设计，继续开发</h4>
-            <p>同一套页面重新梳理，统一、清晰，也更好接手。</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- ============ GALLERY TOGGLE SECTION ============ -->
   <section class="showcase" id="work">
     <div class="showcase-inner">
       <div class="showcase-head">
         <span class="tag"><img loading="lazy" decoding="async" src="assets/badge-features.png" alt="">作品集</span>
-        <h2>真实项目，<br><span class="blue">完整呈现。</span></h2>
+        <h2>真实项目，<span class="blue">完整呈现。</span></h2>
       </div>
       <div class="showcase-body">
         <div class="pill-toggle" id="pill-toggle">
@@ -228,59 +172,6 @@
     </div>
   </section>
 
-  <!-- ============ HOW IT WORKS ============ -->
-  <section class="process" id="how">
-    <div class="process-sticky">
-      <div class="proc-stage" data-step="0">
-        <span class="proc-ico pi-claude"><img loading="lazy" decoding="async" src="assets/claude-icon.png" alt="Claude"></span>
-        <span class="proc-ico pi-app"><img loading="lazy" decoding="async" src="assets/appstore-icon.svg" alt="App Store"></span>
-        <span class="proc-ico pi-gpt"><svg viewBox="0 0 24 24" aria-label="ChatGPT"><path fill="#0f0f0f" d="M22.2819 9.8211a5.9847 5.9847 0 0 0-.5157-4.9108 6.0462 6.0462 0 0 0-6.5098-2.9A6.0651 6.0651 0 0 0 4.9807 4.1818a5.9847 5.9847 0 0 0-3.9977 2.9 6.0462 6.0462 0 0 0 .7427 7.0966 5.98 5.98 0 0 0 .511 4.9107 6.051 6.051 0 0 0 6.5146 2.9001A5.9847 5.9847 0 0 0 13.2599 24a6.0557 6.0557 0 0 0 5.7718-4.2058 5.9894 5.9894 0 0 0 3.9977-2.9001 6.0557 6.0557 0 0 0-.7475-7.0729zm-9.022 12.6081a4.4755 4.4755 0 0 1-2.8764-1.0408l.1419-.0804 4.7783-2.7582a.7948.7948 0 0 0 .3927-.6813v-6.7369l2.02 1.1686a.071.071 0 0 1 .038.052v5.5826a4.504 4.504 0 0 1-4.4945 4.4944zm-9.6607-4.1254a4.4708 4.4708 0 0 1-.5346-3.0137l.142.0852 4.783 2.7582a.7712.7712 0 0 0 .7806 0l5.8428-3.3685v2.3324a.0804.0804 0 0 1-.0332.0615L9.74 19.9502a4.4992 4.4992 0 0 1-6.1408-1.6464zM2.3408 7.8956a4.485 4.485 0 0 1 2.3655-1.9728V11.6a.7664.7664 0 0 0 .3879.6765l5.8144 3.3543-2.0201 1.1685a.0757.0757 0 0 1-.071 0l-4.8303-2.7865A4.504 4.504 0 0 1 2.3408 7.8956zm16.5963 3.8558L13.1038 8.364 15.1192 7.2a.0757.0757 0 0 1 .071 0l4.8303 2.7913a4.4944 4.4944 0 0 1-.6765 8.1042v-5.6772a.79.79 0 0 0-.407-.667zm2.0107-3.0231l-.142-.0852-4.7735-2.7818a.7759.7759 0 0 0-.7854 0L9.409 9.2297V6.8974a.0662.0662 0 0 1 .0284-.0615l4.8303-2.7866a4.4992 4.4992 0 0 1 6.6802 4.66zM8.3065 12.863l-2.02-1.1638a.0804.0804 0 0 1-.038-.0567V6.0742a4.4992 4.4992 0 0 1 7.3757-3.4537l-.142.0805L8.704 5.459a.7948.7948 0 0 0-.3927.6813zm1.0976-2.3654l2.602-1.4998 2.6069 1.4998v2.9994l-2.5974 1.4997-2.6067-1.4997Z"/></svg></span>
-        <span class="proc-ico pi-figma"><svg viewBox="0 0 38 57" aria-label="Figma"><path fill="#F24E1E" d="M19 0H9.5a9.5 9.5 0 0 0 0 19H19Z"/><path fill="#FF7262" d="M19 0h9.5a9.5 9.5 0 0 1 0 19H19Z"/><path fill="#A259FF" d="M19 19H9.5a9.5 9.5 0 0 0 0 19H19Z"/><circle fill="#1ABCFE" cx="28.5" cy="28.5" r="9.5"/><path fill="#0ACF83" d="M19 38H9.5A9.5 9.5 0 1 0 19 47.5Z"/></svg></span>
-        <div class="proc-phone">
-          <div class="proc-screen">
-            <img loading="lazy" decoding="async" class="proc-before" src="assets/screens/hush-chat-before.jpg" alt="改造前界面">
-            <img loading="lazy" decoding="async" class="proc-after" src="assets/screens/hush-chat-after.jpg" alt="改造后界面">
-            <div class="proc-scan" aria-hidden="true"></div>
-          </div>
-          <div class="proc-req">
-            <span class="sa-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 3.5h8l3 3v14h-11Z"/><path d="M14 3.5v3.2h3.2M9 11h6M9 14.5h6"/></svg>重新设计这些界面</span>
-            <div class="proc-req-lines"><span></span><span></span></div>
-          </div>
-          <div class="proc-git">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#171515" d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.387.6.11.82-.26.82-.577 0-.285-.01-1.04-.016-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.09-.745.082-.73.082-.73 1.205.085 1.838 1.238 1.838 1.238 1.07 1.834 2.807 1.304 3.492.997.108-.775.418-1.305.762-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.468-2.38 1.235-3.22-.123-.303-.535-1.523.117-3.176 0 0 1.008-.322 3.3 1.23.957-.266 1.983-.4 3.003-.404 1.02.005 2.047.138 3.006.404 2.29-1.552 3.297-1.23 3.297-1.23.653 1.653.24 2.873.118 3.176.77.84 1.233 1.91 1.233 3.22 0 4.61-2.804 5.625-5.476 5.92.43.372.814 1.103.814 2.222 0 1.606-.015 2.898-.015 3.293 0 .32.216.694.825.576C20.565 21.796 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg>
-            <div class="proc-git-text"><strong>yourapp-ios</strong><span>GitHub · 主分支</span></div>
-          </div>
-          <div class="proc-md">
-            <div class="proc-md-head">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 3.5h8l3 3v14h-11Z"/><path d="M14 3.5v3.2h3.2M9 11h6M9 14.5h6M9 18h3.5"/></svg>
-              <strong>design.md</strong>
-            </div>
-            <div class="proc-req-lines"><span></span><span></span><span></span></div>
-          </div>
-          <div class="proc-testi">
-            <div class="proc-testi-head">
-              <img loading="lazy" decoding="async" src="assets/avatars/a56-32.jpg" alt="">
-              <div><strong>Aisha M.</strong><span>Founder，Hush</span></div>
-              <em>&#9733;&#9733;&#9733;&#9733;&#9733;</em>
-            </div>
-            <p>&ldquo;没想到它能这么清爽。六天就上线了。&rdquo;</p>
-          </div>
-        </div>
-        <div class="proc-pills" aria-hidden="true">
-          <span class="proc-thumb"></span>
-          <span class="proc-pill" data-i="0"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16V4M7 9l5-5 5 5M4 20h16"/></svg>发来界面</span>
-          <span class="proc-pill" data-i="1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.8 4.6L18 9l-4.2 1.4L12 15l-1.8-4.6L6 9l4.2-1.4Z"/><path d="M19 15l.9 2.3L22 18l-2.1.7L19 21l-.9-2.3L16 18l2.1-.7Z"/></svg>重新设计</span>
-          <span class="proc-pill" data-i="2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19l4-4M9 5l10 10M14 4l6 6-8 8-6-6Z"/></svg>交付成品</span>
-        </div>
-        <div class="proc-heads">
-          <h2 class="proc-h" data-i="0"><span class="lm"><span>发来界面。</span></span><span class="lm"><span>乱一点也没关系。</span></span></h2>
-          <h2 class="proc-h" data-i="1"><span class="lm"><span>重新设计</span></span><span class="lm"><span>每一个关键界面。</span></span></h2>
-          <h2 class="proc-h" data-i="2"><span class="lm"><span>交付成品。</span></span><span class="lm"><span>让人看见变化。</span></span></h2>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- ============ FEATURES BENTO ============ -->
   <section class="bento" id="bento">
     <div class="bento-head">
@@ -311,16 +202,16 @@
         </div>
       </div>
       <div class="bv2-card bv2-side">
-        <span class="bv2-eyebrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 8V6a2 2 0 0 1 2-2h2M16 4h2a2 2 0 0 1 2 2v2M20 16v2a2 2 0 0 1-2 2h-2M8 20H6a2 2 0 0 1-2-2v-2"/></svg>Claude 协作</span>
+        <span class="bv2-eyebrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 8V6a2 2 0 0 1 2-2h2M16 4h2a2 2 0 0 1 2 2v2M20 16v2a2 2 0 0 1-2 2h-2M8 20H6a2 2 0 0 1-2-2v-2"/></svg>Codex 协作</span>
         <h3 class="bv2-h">AI 提速，设计判断不缺席。</h3>
         <div class="b3-prompt">
-          <div class="b3-avatar"><img loading="lazy" decoding="async" src="assets/claude-icon.png" alt="Claude"></div>
+          <div class="b3-avatar"><img loading="lazy" decoding="async" src="assets/codex-icon.png" alt="Codex"></div>
           <div class="b3-promptbox">
             <p class="b3-ph"><span id="b3-type"></span><i class="b3-caret"></i></p>
             <div class="b3-prompt-bar">
               <span class="b3-model">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M12 3.2 19.6 7.6v8.8L12 20.8 4.4 16.4V7.6Z"/><path d="M12 8.3l3.2 1.85v3.7L12 15.7l-3.2-1.85v-3.7Z"/><path d="M12 3.2v5.1M19.6 16.4l-4.4-2.55M4.4 16.4l4.4-2.55"/></svg>
-                Claude
+                Codex
               </span>
               <span class="b3-actions">
                 <button class="b3-attach" type="button" aria-label="添加附件">
@@ -498,18 +389,18 @@
     <video class="about-bg" data-vsrc="assets/about-art.mp4" poster="assets/about-art-poster.jpg" autoplay muted loop playsinline preload="none" aria-hidden="true"></video>
     <div class="about-head">
       <span class="tag">关于</span>
-      <h2>关于我和我的<br><span class="blue">工作方式。</span></h2>
+      <h2>关于我和我的<span class="blue">工作方式。</span></h2>
     </div>
     <div class="about-stage">
       <div class="about-card">
         <p class="ac-top">&lsquo;一个设计师，与一位 AI 助手&rsquo;</p>
         <div class="ac-field">
           <label>设计师</label>
-          <div class="ac-name">Rehan Ahmed</div>
+          <div class="ac-name">Chloe</div>
         </div>
         <div class="ac-field">
           <label>简介</label>
-          <p class="ac-blurb">我把停在半路的应用界面重新理清。Claude 负责加速，我负责判断取舍；交付的是可落地的设计和能在手机上运行的原型。</p>
+          <p class="ac-blurb">我把停在半路的应用界面重新理清。Codex 负责加速，我负责判断取舍；交付的是可落地的设计和能在手机上运行的原型。</p>
         </div>
         <div class="ac-cols">
           <div class="ac-col">
@@ -524,7 +415,7 @@
           <div class="ac-col">
             <label>常用工具</label>
             <ul>
-              <li>Claude</li>
+              <li>Codex</li>
               <li>Figma</li>
               <li>SwiftUI</li>
               <li>异步协作</li>
@@ -644,6 +535,9 @@
 </svg>
 <!-- fixed full-viewport glow — outside .canvas for the same reason as the nav -->
 <div class="ai-wave" aria-hidden="true"></div>
-  <script src="script.js?v=189"></script>
+<button class="back-to-top" id="back-to-top" type="button" aria-label="回到顶部">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 14 6-6 6 6"/></svg>
+</button>
+  <script src="script.js?v=190"></script>
 </body>
 </html>
