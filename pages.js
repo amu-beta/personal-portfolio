@@ -42,30 +42,12 @@
     });
   });
 
-  const dialog = document.getElementById('case-dialog');
-  const dialogTitle = document.getElementById('case-dialog-title');
-  const dialogGallery = dialog?.querySelector('[data-case-gallery]');
-
-  document.querySelectorAll('[data-open-case]').forEach((button) => {
-    button.addEventListener('click', () => {
-      const project = projects.find((item) => item.dataset.projectKind === button.dataset.openCase);
-      const template = project?.querySelector('template[data-case-template]');
-      const title = project?.querySelector('h2')?.textContent?.trim();
-      if (!dialog || !dialogGallery || !template || !title) return;
-      dialogTitle.textContent = title;
-      dialogGallery.replaceChildren(template.content.cloneNode(true));
-      dialogGallery.querySelectorAll('img').forEach((image) => {
-        image.addEventListener('error', () => image.classList.add('image-unavailable'));
-      });
-      dialog.showModal();
+  projects.forEach((project) => {
+    project.addEventListener('click', (event) => {
+      if (event.target.closest('a, button')) return;
+      project.querySelector('.featured-project-title-link')?.click();
     });
   });
-
-  dialog?.querySelector('[data-close-case]')?.addEventListener('click', () => dialog.close());
-  dialog?.addEventListener('click', (event) => {
-    if (event.target === dialog) dialog.close();
-  });
-  dialog?.addEventListener('close', () => dialogGallery?.replaceChildren());
 
   activateFeaturedProject(filters.find((button) => button.classList.contains('active'))?.dataset.featuredFilter || 'operations');
 })();

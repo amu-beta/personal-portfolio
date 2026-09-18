@@ -149,10 +149,10 @@ test('works page uses the referenced portfolio content in the existing design sy
   const html = readPage('works.html');
   const runtime = readPage('pages.js');
   const projects = [
-    { kind: 'app', title: '先知命局 SeerQ DESIGN', type: 'PRODUCT DESIGN', year: '2024 - 2026', cover: 'cover-seerq.jpg', details: ['app1.png', 'app2.png'], href: 'https://play.google.com/store/apps/details?id=com.mmc.seer.onnet&hl=zh' },
-    { kind: 'website', title: '枫燧堂（香港）PC 端官网', type: 'WEB DESIGN', year: '2025', cover: 'cover-fengsuitang.jpg', details: ['fengsui1.jpg', 'fengsui2.jpg'], href: 'https://fengsuitang.com/' },
-    { kind: 'topic', title: '运势专题改版', type: 'VISUAL DESIGN', year: '2025', cover: 'cover-topic.jpg', details: ['zhuangti1.jpg', 'zhuangti2.jpg'], href: 'https://www.seeronnet.com/seer/onlinecs' },
-    { kind: 'operations', title: '运营活动视觉设计', type: 'AIGC VISUAL', year: '2025 - 2026', cover: 'cover-operations.jpg', details: ['haoyun1.png', 'haoyun2.png'], href: 'https://h5.seeronnet.net/dist/new-year-2026/' },
+    { kind: 'app', title: '先知命局 SeerQ DESIGN', type: 'PRODUCT DESIGN', year: '2024 - 2026', page: 'project-seerq.html', cover: 'cover-seerq.jpg', details: ['app1.png', 'app2.png'], href: 'https://play.google.com/store/apps/details?id=com.mmc.seer.onnet&hl=zh' },
+    { kind: 'website', title: '枫燧堂（香港）PC 端官网', type: 'WEB DESIGN', year: '2025', page: 'project-fengsuitang.html', cover: 'cover-fengsuitang.jpg', details: ['fengsui1.jpg', 'fengsui2.jpg'], href: 'https://fengsuitang.com/' },
+    { kind: 'topic', title: '运势专题改版', type: 'VISUAL DESIGN', year: '2025', page: 'project-topic.html', cover: 'cover-topic.jpg', details: ['zhuangti1.jpg', 'zhuangti2.jpg'], href: 'https://www.seeronnet.com/seer/onlinecs' },
+    { kind: 'operations', title: '运营活动视觉设计', type: 'AIGC VISUAL', year: '2025 - 2026', page: 'project-operations.html', cover: 'cover-operations.jpg', details: ['haoyun1.png', 'haoyun2.png'], href: 'https://h5.seeronnet.net/dist/new-year-2026/' },
   ];
 
   assert.match(html, /<body\b[^>]*\bclass="[^"]*\bcontent-page\b[^"]*\bworks-page\b[^"]*"/);
@@ -163,41 +163,70 @@ test('works page uses the referenced portfolio content in the existing design sy
   assert.match(html, /href="index\.html#about"[^>]*>关于</);
   assert.match(html, /<script\s+src="pages\.js(?:\?v=\d+)?"\s*><\/script>/);
 
-  for (const { kind, title, type, year, cover, details, href } of projects) {
-    assert.match(html, new RegExp(`<article\\b[^>]*\\bdata-project-kind="${kind}"[^>]*>[\\s\\S]*?<h2\\b[^>]*>\\s*${title.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\s*<`));
-    assert.match(html, new RegExp(type));
-    assert.match(html, new RegExp(year.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')));
-    assert.match(html, new RegExp(`assets/portfolio/${cover.replace('.', '\\.')}"`));
-    details.forEach((detail) => assert.match(html, new RegExp(`assets/portfolio/${detail.replace('.', '\\.')}"`)));
+  assert.doesNotMatch(html, /SELECTED WORK|<h1[^>]*>\s*精选作品\s*</, 'the removed portfolio heading must stay removed');
+  assert.match(html, /class="works-summary"/);
+
+  for (const { kind, title, type, year, page, cover, details, href } of projects) {
+    const article = html.match(new RegExp(`<article\\b[^>]*\\bdata-project-kind="${kind}"[^>]*>[\\s\\S]*?<\\/article>`))?.[0];
+    assert.ok(article, `${kind} must have a complete project card`);
+    assert.match(article, new RegExp(`<a\\b[^>]*href="${page.replace('.', '\\.')}"[^>]*>\\s*<h2\\b[^>]*>\\s*${title.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\s*<`));
+    assert.equal((article.match(new RegExp(`href="${page.replace('.', '\\.')}"`, 'g')) || []).length, 2, `${title} card and case action must both link to its detail page`);
+    assert.match(article, new RegExp(type));
+    assert.match(article, new RegExp(year.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')));
+    assert.match(article, new RegExp(`assets/portfolio/${cover.replace('.', '\\.')}"`));
+    details.forEach((detail) => assert.match(article, new RegExp(`assets/portfolio/${detail.replace('.', '\\.')}"`)));
     const htmlHref = href.replaceAll('&', '&amp;');
-    assert.match(html, new RegExp(`href="${htmlHref.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}"`));
+    assert.match(article, new RegExp(`href="${htmlHref.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}"`));
   }
-  assert.equal((html.match(/assets\/portfolio\/(?:cover-[\w-]+\.jpg|[\w-]+\.(?:jpg|png))/g) || []).length, 24, 'four visible galleries and four dialog templates must each reference three local assets');
+  assert.equal((html.match(/assets\/portfolio\/(?:cover-[\w-]+\.jpg|[\w-]+\.(?:jpg|png))/g) || []).length, 12, 'four visible galleries must each reference three local assets once');
   for (const [kind, label] of [['app', 'App'], ['website', '官网'], ['topic', '专题页'], ['operations', '运营活动']]) {
     assert.match(html, new RegExp(`<button\\b[^>]*data-featured-filter="${kind}"[^>]*>\\s*${label}\\s*<`));
   }
   assert.match(html, /data-featured-filter="operations"[^>]*aria-pressed="true"/);
-  assert.match(html, /<dialog\b[^>]*id="case-dialog"/);
-  assert.equal((html.match(/data-open-case=/g) || []).length, 4);
+  assert.doesNotMatch(html, /<dialog\b|data-open-case=/, 'project details must use separate pages instead of a dialog');
   assert.doesNotMatch(html, /Founder|Indus|Hush|Flyout|Justgains/);
   assert.doesNotMatch(html, /<img\b[^>]*\bsrc="https?:\/\//, 'works page must not use remote image URLs');
   assert.match(runtime, /document\.documentElement\.classList\.add\(['"]js['"]\)/);
   assert.match(runtime, /function activateFeaturedProject\(selected\)/);
   assert.match(runtime, /project\.hidden\s*=\s*project\.dataset\.projectKind\s*!==\s*selected/);
   assert.match(runtime, /button\.setAttribute\(['"]aria-pressed['"],\s*String\(isActive\)\)/);
-  assert.match(runtime, /dialog\.showModal\(\)/);
+  assert.match(runtime, /project\.addEventListener\(['"]click['"]/);
+  assert.match(runtime, /project\.querySelector\(['"]\.featured-project-title-link['"]\)\?\.click\(\)/);
 });
 
-test('featured portfolio media is local, present, and resilient', () => {
+test('featured portfolio cards are quiet and route to complete local detail pages', () => {
   const works = readPage('works.html');
   const styles = readPage('styles.css');
-  const media = ['cover-seerq.jpg', 'app1.png', 'app2.png', 'cover-fengsuitang.jpg', 'fengsui1.jpg', 'fengsui2.jpg', 'cover-topic.jpg', 'zhuangti1.jpg', 'zhuangti2.jpg', 'cover-operations.jpg', 'haoyun1.png', 'haoyun2.png'];
-  media.forEach((filename) => {
-    assert.equal(existsSync(pageUrl(`assets/portfolio/${filename}`)), true, `${filename} must be stored locally`);
-    assert.match(works, new RegExp(`assets/portfolio/${filename.replace('.', '\\.')}"`));
-  });
+  const details = [
+    { page: 'project-seerq.html', title: '先知命局', media: ['cover-seerq.jpg', 'app1.png', 'app2.png'] },
+    { page: 'project-fengsuitang.html', title: '枫燧堂', media: ['cover-fengsuitang.jpg', 'fengsui1.jpg', 'fengsui2.jpg'] },
+    { page: 'project-topic.html', title: '运势专题改版', media: ['cover-topic.jpg', 'zhuangti1.jpg', 'zhuangti2.jpg'] },
+    { page: 'project-operations.html', title: '运营活动', media: ['cover-operations.jpg', 'haoyun1.png', 'haoyun2.png'] },
+  ];
+
+  assert.match(styles, /\.featured-project\s*\{[^}]*border:\s*0;[^}]*box-shadow:\s*0 12px 32px -28px/s);
+  assert.match(styles, /\.featured-project-meta span\s*\{[^}]*color:\s*#818798/s);
+  assert.doesNotMatch(styles, /\.featured-project-meta span:first-child\s*\{[^}]*var\(--blue\)/s);
+  assert.match(styles, /\.featured-project-title-link::after\s*\{[^}]*position:\s*absolute;[^}]*inset:\s*0/s);
   assert.match(styles, /\.featured-project-gallery\s+img\s*\{[^}]*object-fit:\s*cover/s);
   assert.match(styles, /\.featured-project-gallery\s+img\.image-unavailable\s*\{[^}]*visibility:\s*hidden/s);
+
+  for (const { page, title, media } of details) {
+    assert.equal(existsSync(pageUrl(page)), true, `${page} must exist`);
+    const detail = readPage(page);
+    assert.match(detail, /<body\b[^>]*class="[^"]*project-detail-page[^"]*"/);
+    assert.match(detail, new RegExp(`<h1[^>]*>[\\s\\S]*?${title}`));
+    assert.match(detail, /href="works\.html"[^>]*>[\s\S]*?返回作品集/);
+    assert.match(detail, /class="project-detail-cover"/);
+    assert.match(detail, /class="project-detail-gallery"/);
+    assert.equal((detail.match(/assets\/portfolio\//g) || []).length, 3, `${page} must show one cover and two detail images`);
+    assert.doesNotMatch(detail, /<img\b[^>]*\bsrc="https?:\/\//, `${page} must not use remote images`);
+    for (const filename of media) {
+      assert.equal(existsSync(pageUrl(`assets/portfolio/${filename}`)), true, `${filename} must be stored locally`);
+      assert.match(works, new RegExp(`assets/portfolio/${filename.replace('.', '\\.')}"`));
+      assert.match(detail, new RegExp(`assets/portfolio/${filename.replace('.', '\\.')}"`));
+    }
+  }
 });
 
 test('AI learning page is a static seven-article learning list', () => {
