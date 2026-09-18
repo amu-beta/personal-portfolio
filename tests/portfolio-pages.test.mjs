@@ -78,8 +78,8 @@ test('home interactive selectors expose and update accessible state', () => {
 
   assert.doesNotMatch(html, /hero-overlay-circles|role="slider"/);
 
-  assert.match(html, /<button\b[^>]*class="pill active"[^>]*\baria-pressed="true"[^>]*>\s*应用设计\s*</);
-  assert.match(html, /<button\b[^>]*class="pill"[^>]*\baria-pressed="false"[^>]*>\s*应用商店素材\s*</);
+  assert.match(html, /<button\b[^>]*class="pill [^"]*active"[^>]*\baria-pressed="true"[^>]*>\s*应用设计\s*</);
+  assert.match(html, /<button\b[^>]*class="pill ui-segmented__item"[^>]*\baria-pressed="false"[^>]*>\s*应用商店素材\s*</);
   assert.equal((html.match(/class="app-icon[^"\n]*"[^>]*\baria-pressed="(?:true|false)"/g) || []).length, 5);
   assert.match(runtime, /icon\.setAttribute\(['"]aria-pressed['"],\s*String\(isSelected\)\)/);
   assert.match(runtime, /pill\.setAttribute\(['"]aria-pressed['"],\s*String\(isActive\)\)/);
@@ -142,6 +142,50 @@ test('browser feedback is reflected across the home page', () => {
   assert.match(css, /\.about-head h2[^}]*white-space:\s*nowrap;/s);
   assert.match(css, /\.back-to-top\s*\{/);
   assert.match(js, /getElementById\('back-to-top'\)/);
+});
+
+test('all site buttons share the reference-driven variant system', () => {
+  const css = readPage('styles.css');
+  const home = readPage('index.html');
+  const works = readPage('works.html');
+  const script = readPage('script.js');
+  const detailPages = ['project-seerq.html', 'project-fengsuitang.html', 'project-topic.html', 'project-operations.html'].map(readPage);
+
+  for (const token of ['--control-solid-bg', '--control-outline-bg', '--control-muted-bg', '--button-height', '--button-radius']) {
+    assert.match(css, new RegExp(`${token}:`), `${token} must be defined once for the shared button system`);
+  }
+  assert.match(css, /\.ui-button\s*\{[^}]*min-height:\s*var\(--button-height\)[^}]*border-radius:\s*var\(--button-radius\)/s);
+  assert.match(css, /\.ui-button::after\s*\{[^}]*mask:[^}]*svg/s, 'text buttons must use the pixel chevron from the reference');
+  assert.match(css, /\.ui-button--solid\s*\{[^}]*background:\s*var\(--control-solid-bg\)[^}]*color:\s*var\(--control-solid-fg\)/s);
+  assert.match(css, /\.ui-button--outline\s*\{[^}]*border-color:\s*var\(--control-outline-border\)[^}]*background:\s*var\(--control-outline-bg\)/s);
+  assert.match(css, /\.ui-button--muted\s*\{[^}]*background:\s*var\(--control-muted-bg\)[^}]*color:\s*var\(--control-muted-fg\)/s);
+  assert.match(css, /\.ui-button--back::after\s*\{[^}]*order:\s*-1[^}]*scaleX\(-1\)/s, 'return buttons must place a reversed arrow before the label');
+  assert.match(css, /\.ui-icon-button:focus-visible/);
+  assert.match(css, /\.ui-segmented__item\.active\s*\{[^}]*background:\s*var\(--control-solid-bg\)/s);
+
+  assert.match(home, /class="btn-dark ui-button ui-button--solid"[^>]*>\s*<span>查看作品集<\/span>/);
+  assert.match(home, /class="pill-toggle ui-segmented"/);
+  assert.match(home, /class="jar-drop ui-button ui-button--solid"/);
+  assert.match(home, /class="back-to-top ui-icon-button ui-icon-button--outline"/);
+  assert.equal((home.match(/ui-icon-button ui-icon-button--muted/g) || []).length, 5, 'five project icon selectors must use the muted icon-button variant');
+  assert.match(script, /jar-pick ui-icon-button ui-icon-button--muted/);
+
+  for (const [name, html] of [['home', home], ['works', works], ...detailPages.map((html, index) => [`detail-${index + 1}`, html])]) {
+    for (const match of html.matchAll(/<button\b[^>]*>/g)) {
+      assert.match(match[0], /class="[^"]*\bui-(?:button|icon-button|segmented__item)\b/, `${name} button must opt into the shared system: ${match[0]}`);
+    }
+  }
+
+  assert.equal((works.match(/featured-case-button ui-button ui-button--solid/g) || []).length, 4);
+  assert.equal((works.match(/featured-project-link ui-button ui-button--outline/g) || []).length, 4);
+  assert.match(works, /class="featured-tabs ui-segmented"/);
+
+  detailPages.forEach((html) => {
+    assert.match(html, /class="project-back ui-button ui-button--muted ui-button--back"/);
+    assert.match(html, /class="btn-dark ui-button ui-button--solid"/);
+    assert.match(html, /class="ui-button ui-button--outline"[^>]*>\s*<span>下一个项目<\/span>/);
+    assert.doesNotMatch(html, /[←→↗]/, 'button direction must come from the shared icon system, not text glyphs');
+  });
 });
 
 test('works page uses the referenced portfolio content in the existing design system', () => {

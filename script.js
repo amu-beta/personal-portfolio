@@ -786,7 +786,7 @@ document.querySelectorAll('.ticker:not(.ticker-gray)').forEach(ticker => {
   CHARS.forEach((c, i) => {
     const b = document.createElement('button');
     b.type = 'button';
-    b.className = 'jar-pick' + (i === picked ? ' on' : '');
+    b.className = 'jar-pick ui-icon-button ui-icon-button--muted' + (i === picked ? ' on' : '');
     b.setAttribute('role', 'radio');
     b.setAttribute('aria-label', c.name);
     b.setAttribute('aria-checked', String(i === picked));

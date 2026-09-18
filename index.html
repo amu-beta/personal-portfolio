@@ -19,7 +19,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
   <link rel="preload" as="image" href="assets/hero-sky.jpg" fetchpriority="high">
-  <link rel="stylesheet" href="styles.css?v=203">
+  <link rel="stylesheet" href="styles.css?v=205">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="icon" href="assets/favicon-light.png" media="(prefers-color-scheme: light)">
   <link rel="icon" href="assets/favicon-dark.png" media="(prefers-color-scheme: dark)">
@@ -58,10 +58,7 @@
       <p class="type-line"><span id="type-text"></span><span class="type-cursor" aria-hidden="true"></span></p>
     </div>
     <p class="hero-sub">5 年全流程 UI 设计经验，以用户体验 + 数据驱动决策覆盖需求梳理、原型、视觉和落地；擅长把设计工具与 AI 体系结合到实际工作流里。</p>
-    <a class="btn-dark" href="works.html">
-      <span class="btn-dark-label">查看作品集</span>
-      <span class="btn-arrow"><img src="assets/arrow.png" alt=""><img src="assets/arrow.png" alt=""></span>
-    </a>
+    <a class="btn-dark ui-button ui-button--solid" href="works.html"><span>查看作品集</span></a>
   </header>
 
   <!-- ============ HERO PHONE TICKER ============ -->
@@ -99,10 +96,10 @@
         <h2>真实项目，<span class="blue">完整呈现。</span></h2>
       </div>
       <div class="showcase-body">
-        <div class="pill-toggle" id="pill-toggle">
+        <div class="pill-toggle ui-segmented" id="pill-toggle">
           <span class="pill-thumb"></span>
-          <button class="pill active" type="button" aria-pressed="true">应用设计</button>
-          <button class="pill" type="button" aria-pressed="false">应用商店素材</button>
+          <button class="pill ui-segmented__item active" type="button" aria-pressed="true">应用设计</button>
+          <button class="pill ui-segmented__item" type="button" aria-pressed="false">应用商店素材</button>
         </div>
         <div class="showcase-ticker-wrap">
           <div class="ticker proj proj-a active" id="showcase-ticker" data-speed="80">
@@ -159,13 +156,13 @@
             </div>
           </div>
           <div class="app-icons" data-mode="design">
-            <button class="app-icon sel" type="button" data-proj="a" aria-pressed="true"><img loading="lazy" decoding="async" src="assets/app-icon-1.png" alt="Founder" title="Founder"></button>
-            <button class="app-icon" type="button" data-proj="b" aria-pressed="false"><img loading="lazy" decoding="async" src="assets/app-icon-2.png" alt="Indus" title="Indus"></button>
-            <button class="app-icon" type="button" data-proj="c" aria-pressed="false"><img loading="lazy" decoding="async" src="assets/app-icon-3.png" alt="Hush" title="Hush"></button>
+            <button class="app-icon ui-icon-button ui-icon-button--muted sel" type="button" data-proj="a" aria-pressed="true"><img loading="lazy" decoding="async" src="assets/app-icon-1.png" alt="Founder" title="Founder"></button>
+            <button class="app-icon ui-icon-button ui-icon-button--muted" type="button" data-proj="b" aria-pressed="false"><img loading="lazy" decoding="async" src="assets/app-icon-2.png" alt="Indus" title="Indus"></button>
+            <button class="app-icon ui-icon-button ui-icon-button--muted" type="button" data-proj="c" aria-pressed="false"><img loading="lazy" decoding="async" src="assets/app-icon-3.png" alt="Hush" title="Hush"></button>
                       </div>
           <div class="app-icons" data-mode="store">
-            <button class="app-icon sel" type="button" data-proj="e" aria-pressed="true"><img loading="lazy" decoding="async" src="assets/projects/flyout-icon.jpg" alt="Flyout" title="Flyout"></button>
-            <button class="app-icon" type="button" data-proj="f" aria-pressed="false"><img loading="lazy" decoding="async" src="assets/projects/justgains-icon.jpg" alt="Justgains" title="Justgains"></button>
+            <button class="app-icon ui-icon-button ui-icon-button--muted sel" type="button" data-proj="e" aria-pressed="true"><img loading="lazy" decoding="async" src="assets/projects/flyout-icon.jpg" alt="Flyout" title="Flyout"></button>
+            <button class="app-icon ui-icon-button ui-icon-button--muted" type="button" data-proj="f" aria-pressed="false"><img loading="lazy" decoding="async" src="assets/projects/justgains-icon.jpg" alt="Justgains" title="Justgains"></button>
           </div>
         </div>
       </div>
@@ -214,10 +211,10 @@
                 Codex
               </span>
               <span class="b3-actions">
-                <button class="b3-attach" type="button" aria-label="添加附件">
+                <button class="b3-attach ui-icon-button ui-icon-button--outline" type="button" aria-label="添加附件">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 7.5a2 2 0 0 1 2-2h3.6l2 2.4h7.4a2 2 0 0 1 2 2v7.6a2 2 0 0 1-2 2h-13a2 2 0 0 1-2-2Z"/><path d="M12 12.2v4M10 14.2h4"/></svg>
                 </button>
-                <button class="b3-send" type="button" aria-label="发送">
+                <button class="b3-send ui-icon-button ui-icon-button--solid" type="button" aria-label="发送">
                   <svg viewBox="0 0 16 16" fill="currentColor"><path d="M7 2h2v2H7zM5 4h2v2H5zM9 4h2v2H9zM3 6h2v2H3zM11 6h2v2h-2zM7 6h2v8H7z"/></svg>
                 </button>
               </span>
@@ -258,7 +255,7 @@
           </svg>
           <h3>No files found</h3>
           <p>It seems Nicolas Sharp doesn&rsquo;t<br>have files</p>
-          <button class="b2-btn" type="button">New file</button>
+          <button class="b2-btn ui-button ui-button--solid" type="button">New file</button>
         </div>
       </div>
       <div class="b2-col">
@@ -278,7 +275,7 @@
           </svg>
           <h3>No companies found</h3>
           <p>It seems Nicolas Sharp doesn&rsquo;t<br>have associated companies</p>
-          <button class="b2-btn" type="button">Add to list</button>
+          <button class="b2-btn ui-button ui-button--solid" type="button">Add to list</button>
         </div>
         <div class="b2-row">
           <span class="b2-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M8.5 10h7v9.5h-7Z"/><path d="M8.5 10l2.2-1.6h7L15.5 10"/><path d="M15.5 10l2.2-1.6v9.5l-2.2 1.6"/><path d="M10.3 3.4h3.4v3.4h-3.4Z"/><path d="M10.3 3.4l1.8-1.3h3.4l-1.8 1.3"/><path d="M13.7 3.4l1.8-1.3v3.4l-1.8 1.3"/></svg></span>
@@ -520,7 +517,7 @@
       </div>
       <div class="jar-ui">
         <div class="jar-picker" id="jar-picker" role="radiogroup" aria-label="选择一种心情"></div>
-        <button class="jar-drop" id="jar-drop" type="button">放下一颗弹珠</button>
+        <button class="jar-drop ui-button ui-button--solid" id="jar-drop" type="button"><span>放下一颗弹珠</span></button>
         <p class="jar-note" id="jar-note"></p>
       </div>
     </div>
@@ -535,9 +532,9 @@
 </svg>
 <!-- fixed full-viewport glow — outside .canvas for the same reason as the nav -->
 <div class="ai-wave" aria-hidden="true"></div>
-<button class="back-to-top" id="back-to-top" type="button" aria-label="回到顶部">
+<button class="back-to-top ui-icon-button ui-icon-button--outline" id="back-to-top" type="button" aria-label="回到顶部">
   <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 14 6-6 6 6"/></svg>
 </button>
-  <script src="script.js?v=190"></script>
+  <script src="script.js?v=191"></script>
 </body>
 </html>
