@@ -144,16 +144,15 @@ test('browser feedback is reflected across the home page', () => {
   assert.match(js, /getElementById\('back-to-top'\)/);
 });
 
-test('works page contains every project family and both work filters', () => {
+test('works page uses the referenced portfolio content in the existing design system', () => {
   assert.equal(existsSync(pageUrl('works.html')), true, 'works.html must exist');
   const html = readPage('works.html');
   const runtime = readPage('pages.js');
-  const projectGroups = [
-    { name: 'Founder', kind: 'design', alts: ['Founder 高级会员升级页，含钻石礼盒插画', 'Founder 会员权益对比与票券套餐页', 'Founder 股票图表课程的付费方案页', 'Founder 用户资料页，展示连接人数与项目', 'Founder 附近活动列表页，含植物活动卡片', 'Founder 活动详情页，含紫色花卉封面与地图', 'Founder 上传头像与选择人物头像页'] },
-    { name: 'Indus', kind: 'design', alts: ['Indus 印度与新西兰牌照验证欢迎页', 'Indus 基金探索页，展示热门基金与分类', 'Indus BNK 基金详情页，展示收益走势图', 'Indus 钱包页，展示余额、充值与提现操作', 'Indus 投资仪表盘，展示价值与收益曲线', 'Indus 身份验证与邀请好友任务卡片', 'Indus 基金拆分页，展示持有基金卡片'] },
-    { name: 'Hush', kind: 'design', alts: ['Hush 荧光绿品牌启动页', 'Hush 欢迎页，说明回信解锁聊天', 'Hush 手机号码登录与验证码键盘页', 'Hush 消息收件箱，含置顶会话与筛选', 'Hush 与 Rehan 的文字聊天记录页', 'Hush 与 Rehan 的语音通话页', 'Hush 与 Rehan 的视频通话街景页', 'Hush 最近通话列表页'] },
-    { name: 'Flyout', kind: 'store', alts: ['Flyout 与创作者视频通话的商店展示图', 'Flyout 创作者内容信息流的商店展示图', 'Flyout 每日发现创作者的商店展示图', 'Flyout 预约通话日期与时段的商店展示图', 'Flyout 用户评价墙的商店展示图', 'Flyout 私信聊天功能的商店展示图'] },
-    { name: 'Justgains', kind: 'store', alts: ['Justgains 扫描牛角包并识别营养数据的商店展示图', 'Justgains 喝水与习惯连续记录的商店展示图', 'Justgains 食谱深浅主题切换的商店展示图', 'Justgains 跑步路线地图的商店展示图', 'Justgains Apple Watch 习惯追踪的商店展示图'] },
+  const projects = [
+    { kind: 'app', title: '先知命局 SeerQ DESIGN', type: 'PRODUCT DESIGN', year: '2024 - 2026', cover: 'cover-seerq.jpg', details: ['app1.png', 'app2.png'], href: 'https://play.google.com/store/apps/details?id=com.mmc.seer.onnet&hl=zh' },
+    { kind: 'website', title: '枫燧堂（香港）PC 端官网', type: 'WEB DESIGN', year: '2025', cover: 'cover-fengsuitang.jpg', details: ['fengsui1.jpg', 'fengsui2.jpg'], href: 'https://fengsuitang.com/' },
+    { kind: 'topic', title: '运势专题改版', type: 'VISUAL DESIGN', year: '2025', cover: 'cover-topic.jpg', details: ['zhuangti1.jpg', 'zhuangti2.jpg'], href: 'https://www.seeronnet.com/seer/onlinecs' },
+    { kind: 'operations', title: '运营活动视觉设计', type: 'AIGC VISUAL', year: '2025 - 2026', cover: 'cover-operations.jpg', details: ['haoyun1.png', 'haoyun2.png'], href: 'https://h5.seeronnet.net/dist/new-year-2026/' },
   ];
 
   assert.match(html, /<body\b[^>]*\bclass="[^"]*\bcontent-page\b[^"]*\bworks-page\b[^"]*"/);
@@ -164,66 +163,41 @@ test('works page contains every project family and both work filters', () => {
   assert.match(html, /href="index\.html#about"[^>]*>关于</);
   assert.match(html, /<script\s+src="pages\.js"\s*><\/script>/);
 
-  for (const { name, kind, alts } of projectGroups) {
-    assert.match(html, new RegExp(`<section\\b[^>]*\\bdata-work-kind="${kind}"[^>]*>[\\s\\S]*?<h2\\b[^>]*>\\s*${name}\\s*<`), `${name} must use the ${kind} group kind`);
-    alts.forEach((alt, index) => {
-      assert.match(
-        html,
-        new RegExp(`<img\\b[^>]*\\bsrc="assets/projects/${name.toLowerCase()}-${index + 1}\\.jpg"[^>]*\\balt="${alt}"`),
-        `${name} image ${index + 1} must use its exact local path and content-specific alt text`,
-      );
-    });
+  for (const { kind, title, type, year, cover, details, href } of projects) {
+    assert.match(html, new RegExp(`<article\\b[^>]*\\bdata-project-kind="${kind}"[^>]*>[\\s\\S]*?<h2\\b[^>]*>\\s*${title.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\s*<`));
+    assert.match(html, new RegExp(type));
+    assert.match(html, new RegExp(year.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')));
+    assert.match(html, new RegExp(`assets/portfolio/${cover.replace('.', '\\.')}"`));
+    details.forEach((detail) => assert.match(html, new RegExp(`assets/portfolio/${detail.replace('.', '\\.')}"`)));
+    const htmlHref = href.replaceAll('&', '&amp;');
+    assert.match(html, new RegExp(`href="${htmlHref.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}"`));
   }
-  assert.equal((html.match(/assets\/projects\/[\w-]+\.jpg/g) || []).length, 33, 'works page must use all 33 project images exactly once');
-  assert.match(html, /<button\b[^>]*data-works-filter="design"[^>]*aria-pressed="true"[^>]*>\s*App 设计\s*</);
-  assert.match(html, /<button\b[^>]*data-works-filter="store"[^>]*aria-pressed="false"[^>]*>\s*App Store 展示图\s*</);
+  assert.equal((html.match(/assets\/portfolio\/(?:cover-[\w-]+\.jpg|[\w-]+\.(?:jpg|png))/g) || []).length, 24, 'four visible galleries and four dialog templates must each reference three local assets');
+  for (const [kind, label] of [['app', 'App'], ['website', '官网'], ['topic', '专题页'], ['operations', '运营活动']]) {
+    assert.match(html, new RegExp(`<button\\b[^>]*data-featured-filter="${kind}"[^>]*>\\s*${label}\\s*<`));
+  }
+  assert.match(html, /data-featured-filter="operations"[^>]*aria-pressed="true"/);
+  assert.match(html, /<dialog\b[^>]*id="case-dialog"/);
+  assert.equal((html.match(/data-open-case=/g) || []).length, 4);
+  assert.doesNotMatch(html, /Founder|Indus|Hush|Flyout|Justgains/);
   assert.doesNotMatch(html, /<img\b[^>]*\bsrc="https?:\/\//, 'works page must not use remote image URLs');
   assert.match(runtime, /document\.documentElement\.classList\.add\(['"]js['"]\)/);
-  assert.match(runtime, /function activateWorksFilter\(selected\)/);
-  assert.match(runtime, /group\.hidden\s*=\s*group\.dataset\.workKind\s*!==\s*selected/);
+  assert.match(runtime, /function activateFeaturedProject\(selected\)/);
+  assert.match(runtime, /project\.hidden\s*=\s*project\.dataset\.projectKind\s*!==\s*selected/);
   assert.match(runtime, /button\.setAttribute\(['"]aria-pressed['"],\s*String\(isActive\)\)/);
+  assert.match(runtime, /dialog\.showModal\(\)/);
 });
 
-test('project media has stable native geometry, local failure handling, and shared Chinese alts', () => {
+test('featured portfolio media is local, present, and resilient', () => {
   const works = readPage('works.html');
-  const home = readPage('index.html');
   const styles = readPage('styles.css');
-  const heights = {
-    founder: [1127, 1127, 1127, 1127, 1126, 1126, 1124],
-    indus: [1127, 1127, 1124, 1130, 1127, 1127, 1121],
-    hush: Array(8).fill(1127),
-    flyout: Array(6).fill(1127),
-    justgains: Array(5).fill(1125),
-  };
-  const attr = (tag, name) => tag.match(new RegExp(`\\b${name}="([^"]*)"`))?.[1];
-
-  for (const [project, projectHeights] of Object.entries(heights)) {
-    projectHeights.forEach((height, index) => {
-      const source = `assets/projects/${project}-${index + 1}.jpg`;
-      const escapedSource = source.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-      const worksTag = works.match(new RegExp(`<img\\b[^>]*\\bsrc="${escapedSource}"[^>]*>`))?.[0];
-      const homeTag = home.match(new RegExp(`<img\\b[^>]*(?:src|data-src)="${escapedSource}"[^>]*>`))?.[0];
-
-      assert.ok(worksTag, `${source} must exist on Works`);
-      assert.ok(homeTag, `${source} must exist on the home showcase`);
-      assert.equal(attr(worksTag, 'width'), '520');
-      assert.equal(attr(worksTag, 'height'), String(height));
-      assert.equal(
-        attr(worksTag, 'onerror'),
-        "this.hidden=true;this.parentElement.classList.add('image-unavailable')",
-      );
-      assert.equal(attr(homeTag, 'alt'), attr(worksTag, 'alt'), `${source} must reuse the Works alt`);
-      assert.match(attr(homeTag, 'alt') || '', /[\u3400-\u9fff]/, `${source} needs a meaningful Chinese alt`);
-      assert.match(
-        works,
-        new RegExp(`<figure\\b[^>]*style="--shot-ratio:\\s*520\\s*\\/\\s*${height};"[^>]*>\\s*<img\\b[^>]*\\bsrc="${escapedSource}"`),
-        `${source} must reserve its native aspect ratio`,
-      );
-    });
-  }
-
-  assert.match(styles, /\.project-shot\s*\{[^}]*aspect-ratio:\s*var\(--shot-ratio\)/s);
-  assert.match(styles, /\.project-shot\.image-unavailable\s+img\s*\{[^}]*display:\s*none/s);
+  const media = ['cover-seerq.jpg', 'app1.png', 'app2.png', 'cover-fengsuitang.jpg', 'fengsui1.jpg', 'fengsui2.jpg', 'cover-topic.jpg', 'zhuangti1.jpg', 'zhuangti2.jpg', 'cover-operations.jpg', 'haoyun1.png', 'haoyun2.png'];
+  media.forEach((filename) => {
+    assert.equal(existsSync(pageUrl(`assets/portfolio/${filename}`)), true, `${filename} must be stored locally`);
+    assert.match(works, new RegExp(`assets/portfolio/${filename.replace('.', '\\.')}"`));
+  });
+  assert.match(styles, /\.featured-project-gallery\s+img\s*\{[^}]*object-fit:\s*cover/s);
+  assert.match(styles, /\.featured-project-gallery\s+img\.image-unavailable\s*\{[^}]*visibility:\s*hidden/s);
 });
 
 test('AI learning page is a static seven-article learning list', () => {
