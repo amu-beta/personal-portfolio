@@ -161,7 +161,7 @@ test('works page uses the referenced portfolio content in the existing design sy
   assert.match(html, /href="works\.html"[^>]*aria-current="page"[^>]*>作品集</);
   assert.match(html, /href="ai-learning\.html"[^>]*>AI 学习</);
   assert.match(html, /href="index\.html#about"[^>]*>关于</);
-  assert.match(html, /<script\s+src="pages\.js"\s*><\/script>/);
+  assert.match(html, /<script\s+src="pages\.js(?:\?v=\d+)?"\s*><\/script>/);
 
   for (const { kind, title, type, year, cover, details, href } of projects) {
     assert.match(html, new RegExp(`<article\\b[^>]*\\bdata-project-kind="${kind}"[^>]*>[\\s\\S]*?<h2\\b[^>]*>\\s*${title.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\s*<`));
