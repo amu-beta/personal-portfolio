@@ -22,9 +22,9 @@ test('home interface copy is Chinese', () => {
     '在这里种下一棵树',
     '选一种心情',
     '放下一颗弹珠',
-    '引导流程',
-    '10个界面',
-    '订阅页',
+    '系统化设计',
+    '统一视觉语言，让每次迭代都有依据。',
+    'SeerQ·色彩与图标规范',
   ]) {
     assert.match(homeInterface, new RegExp(phrase.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')));
   }
@@ -78,8 +78,8 @@ test('home interactive selectors expose and update accessible state', () => {
 
   assert.doesNotMatch(html, /hero-overlay-circles|role="slider"/);
 
-  assert.match(html, /<button\b[^>]*class="pill [^"]*active"[^>]*\baria-pressed="true"[^>]*>\s*应用设计\s*</);
-  assert.match(html, /<button\b[^>]*class="pill ui-segmented__item"[^>]*\baria-pressed="false"[^>]*>\s*应用商店素材\s*</);
+  assert.match(html, /<button\b[^>]*class="pill [^"]*active"[^>]*\baria-pressed="true"[^>]*>\s*产品界面\s*</);
+  assert.match(html, /<button\b[^>]*class="pill ui-segmented__item"[^>]*\baria-pressed="false"[^>]*>\s*视觉专题\s*</);
   assert.equal((html.match(/class="app-icon[^"\n]*"[^>]*\baria-pressed="(?:true|false)"/g) || []).length, 5);
   assert.match(runtime, /icon\.setAttribute\(['"]aria-pressed['"],\s*String\(isSelected\)\)/);
   assert.match(runtime, /pill\.setAttribute\(['"]aria-pressed['"],\s*String\(isActive\)\)/);
@@ -133,7 +133,7 @@ test('browser feedback is reflected across the home page', () => {
   assert.match(html, /<h2>关于我和我的<span class="blue">工作方式。<\/span><\/h2>/);
   assert.match(html, /Codex 协作/);
   assert.match(html, /<div class="ac-name">Chloe<\/div>/);
-  assert.match(html, /Codex 负责加速/);
+  assert.match(html, /我用 Codex 重新归纳和总结以往项目/);
   assert.doesNotMatch(html, /Claude|Rehan Ahmed/);
   assert.match(html, /id="back-to-top"[^>]*aria-label="回到顶部"/);
 

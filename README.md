@@ -14,7 +14,7 @@ python3 -m http.server 4173 --bind 127.0.0.1
 - `http://127.0.0.1:4173/works.html`：作品集
 - `http://127.0.0.1:4173/ai-learning.html`：AI 学习
 
-作品集默认显示「App 设计」（Founder、Indus、Hush）；可切换到「App Store 展示图」（Flyout、Justgains）。AI 学习页是静态的七篇学习笔记列表，不提供文章详情页或卡片链接。
+首页展示真实作品：可在「产品界面」（SeerQ、AI 六爻卜卦、好运节）与「视觉专题」（海外中文、海外英文）之间切换。作品集页按项目类型筛选，并链接到完整案例。AI 学习页是静态的七篇学习笔记列表。
 
 ## 本地资源说明
 
