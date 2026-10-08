@@ -7,44 +7,353 @@
   <meta name="description" content="先知命局 SeerQ 的全球化移动产品设计案例。">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=205">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:ital,wght@0,500;0,600;0,700;0,800;1,800&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="design-tokens.css?v=4">
+  <link rel="stylesheet" href="assets/iconfont/iconfont.css?v=1">
+  <link rel="stylesheet" href="styles.css?v=207">
+  <link rel="stylesheet" href="project-seerq.css?v=9">
+  <link rel="stylesheet" href="project-seerq-layout.css?v=14">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="site-common.css?v=3">
+  <link rel="stylesheet" href="project-seerq-motion.css?v=2">
 </head>
-<body class="content-page project-detail-page">
-  <nav class="nav content-nav" aria-label="主导航">
-    <a class="nav-logo tree-logo" href="index.html" aria-label="返回首页">
-      <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 28V14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/><path d="M16 16C8 16 5 12 6 7c5-1 9 1 10 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 18c8 0 11-4 10-9-5-1-9 1-10 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </a>
-    <div class="nav-links"><a href="index.html">首页</a><a href="works.html" aria-current="page">作品集</a><a href="ai-learning.html">AI 学习</a><a href="index.html#about">关于</a></div>
+<body class="content-page project-detail-page seerq-reference-page">
+  <div class="sq-progress" aria-hidden="true"><i></i></div>
+  <nav class="gnav" aria-label="主导航">
+    <a class="gnav-logo tree-logo" href="index.html" aria-label="返回首页"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 28V14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/><path d="M16 16C8 16 5 12 6 7c5-1 9 1 10 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 18c8 0 11-4 10-9-5-1-9 1-10 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    <div class="gnav-links"><a href="index.html">首页</a><a href="works.html" aria-current="page">作品集</a><a href="ai-learning.html">AI 学习</a><a href="index.html#about">关于</a></div>
+  </nav>
+
+  <nav class="site-rail" aria-label="章节导航">
+    <a href="#seerq-cover"><span>概览</span></a>
+    <a href="#s-overview"><span>项目全景</span></a>
+    <a href="#s-revamp"><span>改版体验</span></a>
+    <a href="#s-report"><span>洞察报告</span></a>
+    <a href="#s-strategy"><span>策略拆解</span></a>
+    <a href="#s-language"><span>设计语言</span></a>
+    <a href="#s-components"><span>组件搭建</span></a>
+    <a href="#s-framework"><span>框架重构</span></a>
+    <a href="#s-home"><span>首页方案</span></a>
+    <a href="#s-abtest"><span>A/B 测试</span></a>
+    <a href="#s-shop"><span>商城测算</span></a>
+    <a href="#s-consult"><span>咨询页面</span></a>
+    <a href="#s-gpt"><span>AI 增长</span></a>
+    <a href="#s-proto"><span>弹窗原型</span></a>
+    <a href="#s-results"><span>数据验证</span></a>
   </nav>
 
   <main class="content-shell">
-    <a class="project-back ui-button ui-button--muted ui-button--back" href="works.html"><span>返回作品集</span></a>
-    <header class="project-detail-hero">
-      <div class="project-detail-meta"><span>PRODUCT DESIGN</span><span>2024 - 2026</span></div>
-      <h1>先知命局<br>SeerQ&nbsp;DESIGN</h1>
-      <p class="project-detail-lead">面向全球用户的数字命理产品设计，围绕内容阵地、咨询转化、海外适配与视觉统一，持续迭代产品体验。</p>
-      <ul class="project-detail-tags" aria-label="项目标签"><li>Global Product</li><li>Mobile</li><li>UI System</li></ul>
-      <div class="project-detail-actions"><a class="btn-dark ui-button ui-button--solid" href="https://play.google.com/store/apps/details?id=com.mmc.seer.onnet&amp;hl=zh" target="_blank" rel="noreferrer"><span>打开项目</span></a></div>
-    </header>
-
-    <figure class="project-detail-cover"><img src="assets/portfolio/cover-seerq.jpg" width="1920" height="1152" alt="先知命局 SeerQ 产品设计视觉总览"></figure>
-
-    <section class="project-detail-overview" aria-labelledby="seerq-overview-title">
-      <div><p class="project-detail-kicker">PROJECT OVERVIEW</p><h2 id="seerq-overview-title">连接内容、咨询与全球化体验。</h2></div>
-      <p>项目以内容浏览、咨询转化与海外适配为核心，通过一致的信息层级、组件语言和视觉表达，让复杂服务在不同使用场景中保持清晰。</p>
-    </section>
-
-    <section class="project-detail-gallery" aria-labelledby="seerq-gallery-title">
-      <div class="project-detail-section-head"><p class="project-detail-kicker">VISUAL DETAILS</p><h2 id="seerq-gallery-title">界面与视觉细节</h2></div>
-      <div class="project-detail-media project-detail-media--compact">
-        <img src="assets/portfolio/app1.png" width="180" height="380" alt="先知命局移动端命理结果界面" loading="lazy" decoding="async">
-        <img src="assets/portfolio/app2.png" width="200" height="280" alt="先知命局服务内容与数据卡片" loading="lazy" decoding="async">
+    <!-- Existing project cover retained; the reference-matched supplement starts after project overview. -->
+    <section class="project-detail-cover seerq-hero-board" id="seerq-cover" aria-labelledby="seerq-hero-title">
+      <img class="seerq-hero-surface" src="assets/portfolio/seerq-surface.png" width="1920" height="1080" alt="先知命局产品界面拼贴背景">
+      <div class="seerq-hero-copy">
+        <p class="seerq-hero-eyebrow">— FLAGSHIP UX CASE · 体验升级与 AI 增长</p>
+        <h2 id="seerq-hero-title">先知命局</h2>
+        <div class="seerq-hero-tabs" aria-label="项目重点"><span>首页决策入口</span><span>服务转化链</span><span>AI 增长实验</span></div>
+        <div class="seerq-hero-panel">
+          <h3>产品背景</h3>
+          <p>全球领先的人生导师数位交易市场，依托 AI 与数位化技术构建 SaaS 平台，连接有人生抉择困惑、需隐私化专业帮助的用户与全球优质导师机构，通过评价体系、担保服务、标准化流程及高效运营工具，保障双方权益，陪伴用户实现自我成长，最终达成“让生活更轻松！”的核心愿景。致力于成为全球人生成长领域的标杆性数字生态平台。</p>
+          <h3>覆盖情况统计</h3>
+          <div class="seerq-hero-stats">
+            <div><strong>80+款</strong><span>核心算法模块</span></div>
+            <div><strong>50000+人</strong><span>累计注册用户数</span></div>
+            <div><strong>28%</strong><span>核心功能留存率</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="seerq-hero-cards" aria-label="先知命局核心功能展示">
+        <div class="seerq-card-column seerq-card-column--left">
+          <div class="seerq-card-track">
+            <div class="seerq-card-cycle">
+              <img class="seerq-card" src="assets/portfolio/seerq-assistant.png" width="345" height="747" alt="先知命局智能助手功能界面">
+              <img class="seerq-card" src="assets/portfolio/seerq-content.png" width="345" height="747" alt="先知命局内容阵地界面">
+            </div>
+            <div class="seerq-card-cycle" aria-hidden="true">
+              <img class="seerq-card" src="assets/portfolio/seerq-assistant.png" width="345" height="747" alt="">
+              <img class="seerq-card" src="assets/portfolio/seerq-content.png" width="345" height="747" alt="">
+            </div>
+          </div>
+        </div>
+        <div class="seerq-card-column seerq-card-column--right">
+          <div class="seerq-card-track">
+            <div class="seerq-card-cycle">
+              <img class="seerq-card" src="assets/portfolio/seerq-experts.png" width="345" height="747" alt="先知命局业内知名导师界面">
+              <img class="seerq-card" src="assets/portfolio/seerq-consult.png" width="345" height="747" alt="先知命局一对一咨询界面">
+            </div>
+            <div class="seerq-card-cycle" aria-hidden="true">
+              <img class="seerq-card" src="assets/portfolio/seerq-experts.png" width="345" height="747" alt="">
+              <img class="seerq-card" src="assets/portfolio/seerq-consult.png" width="345" height="747" alt="">
+            </div>
+          </div>
+        </div>
       </div>
     </section>
-    <div class="project-detail-end"><a class="ui-button ui-button--muted ui-button--back" href="works.html"><span>返回作品集</span></a><a class="ui-button ui-button--outline" href="project-fengsuitang.html"><span>下一个项目</span></a></div>
+
+    <section class="project-detail-overview" aria-labelledby="seerq-overview-title">
+      <div><p class="project-detail-kicker">PROJECT OVERVIEW</p><h2 id="seerq-overview-title">从命局内容到服务增长，搭建完整体验闭环。</h2></div>
+      <p>先知命局是面向全球用户的人生导师数字交易市场。项目以首页决策入口、服务转化链和 AI 增长实验为主线，通过内容、咨询与产品能力的重新组织，让复杂的命理服务更容易理解、选择与使用。</p>
+    </section>
+
+    <article class="seerq-case-study" aria-label="先知命局完整项目案例">
+      <section class="seerq-case-section seerq-star" data-seerq-section="overview">
+        <header class="seerq-section-heading">
+          <p>CASE STUDY · 01</p>
+          <h2 id="s-overview">项目全景概览</h2>
+          <span>基于 STAR 原则的项目拆解</span>
+        </header>
+        <div class="seerq-star-grid">
+          <article><span>S</span><h3>Situation｜背景困境</h3><p>产品从单一命理工具扩展为测算、咨询、内容、直播与课程平台，功能持续叠加，但信息架构与用户路径没有同步重构。用户进入产品后<mark>看不懂差异，也不知道从哪里开始。</mark></p></article>
+          <article><span>T</span><h3>Task｜核心任务</h3><p>围绕“降低决策成本”完成系统性体验升级：建立清晰起点、强化服务信任、缩短咨询与付费路径，并让多业务场景具备<mark>可复用的设计基础。</mark></p></article>
+          <article class="seerq-star-action"><span>A</span><h3>Action｜设计动作</h3><ul><li>结合版本演进、用户路径、行为数据与反馈，收敛“看不懂 / 不知道从哪开始 / 不敢付费”三类问题。</li><li>首页前置 AI 对话与核心服务，用用户决策逻辑重排信息层级。</li><li>串联测算、老师咨询、直播课程与消息触达，减少跳转和中断。</li><li>搭建原子—分子—组织—模板—页面组件库，并用 GPT 分析验证假设。</li></ul></article>
+          <article class="seerq-star-result"><span>R</span><h3>Result｜业务结果</h3><div class="seerq-result-mini-grid"><strong>62.9%<small>新用户点击率</small></strong><strong>79.2%<small>核心功能引导率</small></strong><strong>+6.39%<small>优选 AI 入口点击率</small></strong><strong>+20.7%<small>弹窗点击率提升</small></strong></div></article>
+        </div>
+      </section>
+
+      <section class="seerq-case-section" data-seerq-section="insight">
+        <header class="seerq-section-heading"><p>DISCOVERY · 02</p><h2 id="s-revamp">设计洞察-页面改版体验</h2><span>从复杂的信息浏览，转向以结果与引导为核心的服务路径，降低用户理解与决策成本。</span></header>
+        <div class="seerq-section-ruler seerq-insight-labels" aria-label="本节内容"><span>主流程用户体验地图</span><span>过程中的思考点</span></div>
+        <div class="seerq-two-col seerq-insight-map">
+          <figure class="seerq-paper-card seerq-journey-card">
+            <img src="assets/portfolio/seerq-user/journey-map.png" width="769" height="583" alt="先知命局主流程用户体验地图" decoding="async">
+          </figure>
+          <div class="seerq-insight-right">
+            <div class="seerq-paper-card seerq-question-card">
+              <h3 class="seerq-question-title">过程中的思考点</h3>
+              <dl><dt>🤔 用户进入首页真正想要什么</dt><dd>用户需要“结果 + 引导”，而不是“信息浏览”。</dd><dt>✍️ 首页应该承担什么角色</dt><dd>提供明确起点，引导用户行动，缩短核心服务转化路径。</dd><dt>🧑‍💼 如何降低用户决策成本</dt><dd>用“对话 + 推荐”替代“信息筛选”。</dd></dl>
+            </div>
+            <div class="seerq-insight-outcomes">
+              <div class="seerq-praise"><img src="assets/portfolio/seerq-reference/praise.png" width="70" height="70" alt="" loading="lazy"><strong>数据提升</strong></div>
+              <img class="seerq-insight-arrow" src="assets/portfolio/seerq-reference/dotted-arrow.png" width="100" height="23" alt="" loading="lazy">
+              <div class="seerq-inline-metrics"><strong><small>新用户点击率</small>62.9% <img class="seerq-metric-arrow" src="assets/portfolio/seerq-user/metric-arrow.png" width="26" height="33" alt="提升"></strong><strong><small>核心功能引导率</small>79.2% <img class="seerq-metric-arrow" src="assets/portfolio/seerq-user/metric-arrow.png" width="26" height="33" alt="提升"></strong></div>
+            </div>
+          </div>
+        </div>
+
+        <header class="seerq-subheading seerq-goal-heading"><h3>设计洞察-产品诉求</h3><span class="seerq-dark-pill">提升整体用户体验</span><p>针对现有体验问题，产品需要从“信息展示逻辑”转向“用户决策逻辑”，通过优化信息结构与用户路径，帮助用户更快理解产品价值并完成操作。</p></header>
+        <div class="seerq-goal-map">
+          <img class="seerq-goal-diagram" src="assets/portfolio/seerq-user/audience-goals.png" width="1368" height="654" alt="从产品多元化出发，梳理用户分层目标、活跃度较低用户与核心活跃用户的需求" loading="lazy">
+          <img class="seerq-goal-outcomes" src="assets/portfolio/seerq-reference/goals-outcomes.png" width="585" height="463" alt="产品侧、设计侧与业务侧的目标：场景触达、流程缩减、拓展服务触达路径" loading="lazy">
+        </div>
+        <p class="seerq-callout">当前产品问题并非功能不足，而是信息结构与路径设计未围绕“用户决策”展开。<br>页面信息复杂、入口分散、路径较长，用户在关键节点需要进行多次判断，最终影响咨询转化与付费行为。</p>
+      </section>
+
+      <section class="seerq-case-section" data-seerq-section="reports">
+        <header class="seerq-section-heading"><p>RESEARCH · 03</p><h2 id="s-report">设计洞察-体验洞察报告</h2></header>
+        <div class="seerq-report-stack">
+          <figure class="seerq-report-collage"><img src="assets/portfolio/seerq-reference/report-collage.png" width="1135" height="795" alt="三页叠放的先知命局体验洞察报告" loading="lazy" decoding="async"></figure>
+          <div class="seerq-report-flow"><span>输出 · 全链路体验洞察报告</span><img src="assets/portfolio/seerq-detail/flow-arrow.png" width="60" height="58" alt="" loading="lazy"><span>拉产品 · 共建体验沟通会</span><img src="assets/portfolio/seerq-detail/flow-arrow.png" width="60" height="58" alt="" loading="lazy"><strong>设计侧 · 驱动改版方向</strong></div>
+        </div>
+      </section>
+
+      <section class="seerq-case-section" data-seerq-section="strategy">
+        <header class="seerq-section-heading"><p>STRATEGY · 04</p><h2 id="s-strategy">聚焦问题-策略拆解</h2><span>从复杂的信息浏览，转向以结果与引导为核心的服务路径，降低用户理解与决策成本。</span></header>
+        <div class="seerq-section-ruler seerq-strategy-labels" aria-label="设计目标与设计策略"><span>设计目标</span><span>设计策略拆解</span></div>
+        <div class="seerq-strategy-grid">
+          <article class="seerq-paper-card seerq-strategy-evidence"><h3>用户核心需求</h3><strong>“结果 + 指引 + 快速决策”</strong><p>通过对用户行为路径、咨询转化流程及页面使用情况分析发现。</p><h3>调研与行为洞察</h3><strong>“结果 + 指引 + 快速决策”</strong><p>通过对用户行为路径、咨询转化流程及页面使用情况分析发现。</p><img class="seerq-insight-flow-image" src="assets/portfolio/seerq-user/process-flow.png" width="819" height="132" alt="分析页面、确定规则、组合组件的流程"></article>
+          <div class="seerq-strategy-right"><article class="seerq-paper-card seerq-strategy-summary"><p>当前产品问题并非功能不足，而是信息结构与用户路径未围绕“决策效率”设计。页面结构复杂、入口分散、表达偏解释型，用户在关键路径中需要进行大量筛选与判断，最终影响咨询转化与付费行为。</p><div class="seerq-outline-pills"><span>页面结果复杂</span><span>入口分散</span><span>表达偏解释型</span></div></article><div class="seerq-four-cards"><article>降低用户决策成本<small>简化信息结构 · 提供明确推荐 · 减少用户判断步骤</small></article><article>建立清晰的用户路径<small>明确“从哪里开始” · 连续操作路径 · 减少页面跳转</small></article><article>优化首次用户体验<small>提供清晰起点 · 降低理解门槛 · 快速建立产品认知</small></article><article>缩短核心转化链路<small>咨询入口前置 · 减少中间步骤 · 强化服务触达</small></article></div></div>
+        </div>
+      </section>
+
+      <section class="seerq-case-section" data-seerq-section="language">
+        <header class="seerq-section-heading"><p>SYSTEM · 05</p><h2 id="s-language">设计语言</h2></header>
+        <div class="seerq-language-grid">
+          <article><h3>页面规则</h3><p>先梳理页面结构与内容层级，再让 Codex 按统一规则搭建可复用组件。</p><img class="seerq-process-image" src="assets/portfolio/seerq-user/process-flow.png" width="819" height="132" alt="分析页面、确定规则、组合组件的流程"><img class="seerq-language-asset" src="assets/portfolio/seerq-reference/design-language.png" width="844" height="349" alt="先知命局设计规范与组件的原始设计图" loading="lazy"></article>
+          <article><h3>结构规范</h3><p>以统一的栅格、间距和对齐方式组织页面，让信息层级更清楚。</p><img class="seerq-language-asset seerq-spacing-asset" src="assets/portfolio/seerq-reference/spacing-rules.png" width="802" height="419" alt="卡片间距、内部留白、栅格和圆角尺寸规范" loading="lazy"></article>
+        </div>
+      </section>
+
+      <section class="seerq-case-section" data-seerq-section="components">
+        <header class="seerq-section-heading"><p>DESIGN SYSTEM · 06</p><h2 id="s-components">设计组件搭建</h2></header>
+        <div class="seerq-component-grid">
+          <div class="seerq-component-intro"><h3>从页面提取组件</h3><p>Codex 按页面结构提取重复元素，建立统一的色彩、按钮、图标和卡片规则。</p></div>
+          <div class="seerq-component-intro"><h3>组件规范</h3><p>复用所有颜色与图标，让组件样式与页面保持一致。</p></div>
+          <img class="seerq-atomic-card" src="assets/portfolio/seerq-user/atomic-system.png" width="710" height="277" alt="原子、分子、组织、模板、页面与源文件的组件层级" loading="lazy" decoding="async">
+          <img class="seerq-figma-workflow" src="assets/portfolio/seerq-user/figma-workflow.png" width="705" height="126" alt="Figma 原型、设计、切图、交付开发与验收整理流程" loading="lazy" decoding="async">
+          <div class="seerq-system-assets"><img src="assets/portfolio/seerq-user/design-system.png" width="840" height="710" alt="先知命局色彩与图标设计规范" loading="lazy" decoding="async"></div>
+        </div>
+        <figure class="seerq-library-row"><img src="assets/portfolio/seerq-reference/library-landing.png" width="1839" height="1080" alt="先知命局 V1.0 与 V2.0 设计系统迭代，以及 Figma 协作与资源沉淀" loading="lazy"></figure>
+      </section>
+
+      <section class="seerq-case-section" data-seerq-section="framework">
+        <header class="seerq-section-heading"><p>SOLUTION · 07</p><h2 id="s-framework">解决问题-框架重构</h2><span>从传统、密集的内容首页，转向清晰的服务入口与转化分区。</span></header>
+        <div class="seerq-framework-ruler" aria-label="设计目标、问题、重构、输出原型"><span>设计目标</span><span>问题</span><span>重构</span><span>输出原型</span></div>
+        <div class="seerq-framework">
+          <figure class="seerq-phone-shot seerq-phone-shot--old"><img src="assets/portfolio/seerq-detail/home-before.png" width="382" height="1297" alt="先知命局改版前首页" loading="lazy" decoding="async"></figure>
+          <div class="seerq-problem-stack"><span>视觉风格偏传统</span><span>首页信息密度过高</span><span>核心入口不突出</span><span>内容与服务混杂</span><span>咨询承接路径较弱</span></div>
+          <img class="seerq-flow-arrow" src="assets/portfolio/seerq-reference/right-arrow.png" width="144" height="148" alt="" aria-hidden="true">
+          <div class="seerq-rebuild-stack"><span><b>重塑品牌感</b>年轻化 / 轻专业 / 更亲和</span><span><b>重组首页架构</b>工具入口 / 内容推荐 / 服务承接</span><span><b>强化咨询转化</b>直播内容 + 老师推荐 + 在线咨询闭环</span></div>
+          <div class="seerq-wireframe" aria-label="重构后的首页架构"><span>头部信息区</span><span>主功能入口区<small>核心注入口模块</small></span><span>快捷导航区</span><span>内容运营区<small>Live &amp; Oncall</small></span><span>服务转化区<small>推荐老师 + 筛选 + 卡片列表</small></span></div>
+        </div>
+      </section>
+
+      <section class="seerq-case-section" data-seerq-section="homepage">
+        <header class="seerq-section-heading"><p>DELIVERY · 08</p><h2 id="s-home">解决问题-首页方案落地</h2></header>
+        <div class="seerq-home-delivery">
+          <figure class="seerq-phone-shot"><img src="assets/portfolio/seerq-detail/home-after.png" width="502" height="1565" alt="先知命局改版后首页" loading="lazy" decoding="async"></figure>
+          <figure class="seerq-phone-shot"><img src="assets/portfolio/seerq-detail/mentor-list.png" width="502" height="1565" alt="先知命局推荐老师列表" loading="lazy" decoding="async"></figure>
+          <div class="seerq-home-notes"><article><h3>AI 对话入口领先</h3><p>将 AI 对话模块放置于首页首屏，作为用户进入产品的第一个交互入口。用户无需理解复杂的产品结构，即可通过自然语言直接提问，快速进入服务流程。</p></article><article><h3>首页信息结构重构</h3><p>重新规划首页模块优先级：核心服务领先；次级内容后置；非关键内容弱化，形成“入口<i class="iconfont icon-right-arrow i-inline" aria-hidden="true"></i>服务<i class="iconfont icon-right-arrow i-inline" aria-hidden="true"></i>转化”。</p></article><article class="seerq-home-results"><h3><img src="assets/portfolio/seerq-reference/praise.png" width="70" height="70" alt="">数据提升</h3><div class="seerq-inline-metrics"><strong><small>新用户点击率</small>62.9% <img class="seerq-metric-arrow" src="assets/portfolio/seerq-user/metric-arrow.png" width="26" height="33" alt="提升"></strong><strong><small>核心功能引导率</small>79.2% <img class="seerq-metric-arrow" src="assets/portfolio/seerq-user/metric-arrow.png" width="26" height="33" alt="提升"></strong></div><h4>适配海外用户认知</h4><p>核心服务（八字、塔罗、星盘等）以通用图标 + AI 对话卡片形式置顶。</p><h4>信息架构重构</h4><p>用留白、卡片分区重构信息层级，视觉焦点前置，形成视觉焦点，直接引导用户发起互动。</p><h4>核心功能层级前置</h4><p>消除文化壁垒，适配多语言、多地区市场，品牌全球知名度提升。</p></article></div>
+        </div>
+        <figure class="seerq-segment-figure"><img src="assets/portfolio/seerq-user/user-segment-matrix.png" width="1720" height="588" alt="新用户与活跃用户的核心诉求、现存问题及解决策略" loading="lazy" decoding="async"></figure>
+      </section>
+
+      <section class="seerq-case-section" data-seerq-section="ai-test">
+        <header class="seerq-section-heading"><p>EXPERIMENT · 09</p><h2 id="s-abtest">AI对话入口优化 A/B 测试复盘</h2><span>首页原有功能入口较分散，用户进入产品后缺乏明确</span></header>
+        <p class="seerq-ab-intro">本次优化尝试通过 AI 对话入口前置，建立更符合用户的交互入口模式。</p>
+        <div class="seerq-ab-grid">
+          <figure><img src="assets/portfolio/seerq-detail/ai-entry-before.png" width="577" height="333" alt="AI 对话入口方案一" loading="lazy" decoding="async"><figcaption><b>方案1 AI 点击率<span>+3.21%</span></b><small>业务价值：页面优化后平均新增用户提示23人</small></figcaption></figure>
+          <figure><img src="assets/portfolio/seerq-detail/ai-entry-after.png" width="577" height="333" alt="AI 对话入口方案二" loading="lazy" decoding="async"><figcaption><b>方案2 AI 点击率<span>+6.39%</span></b><small>业务价值：页面优化后平均新增用户提示57人</small></figcaption></figure>
+          <figure class="seerq-hand-phone"><img src="assets/portfolio/seerq-user/hand-phone-panel.png" width="560" height="906" alt="先知命局首页手持手机效果" loading="lazy" decoding="async"></figure>
+        </div>
+        <figure class="seerq-light-note"><img src="assets/portfolio/seerq-user/lightweight-note.png" width="1155" height="304" alt="轻量化降低视觉干扰的数据复盘说明" loading="lazy" decoding="async"></figure>
+      </section>
+
+      <section class="seerq-case-section" data-seerq-section="service-pages">
+        <header class="seerq-section-heading"><p>PRODUCT PAGES · 10</p><h2 id="s-shop">快速触达 / 「泛浏览」到「精准下单」</h2><span>商城测算页面展示</span></header>
+        <div class="seerq-service-showcase">
+          <figure class="seerq-figma-phone seerq-figma-phone--shop"><img src="assets/portfolio/seerq-figma/124bc60e98b96dea8955fa06b656a5a72c9b6de6.png" width="1179" height="2556" alt="商城测算页面" loading="lazy" decoding="async"></figure>
+          <figure class="seerq-figma-phone seerq-figma-phone--result"><img src="assets/portfolio/seerq-figma/97f2ac5dad6bfc33e5b2671c30e677248cf4ab7e.png" width="1179" height="2556" alt="正缘画像测算页面" loading="lazy" decoding="async"></figure>
+          <div class="seerq-paper-card seerq-service-copy"><p>商城「测算」页是用户进入付费命理服务的第一触点，核心目标是让用户在 10 秒内找到「符合需求的测算服务」并发起购买 / 咨询，设计策略完全围绕「信息分层、优先级强化、路径简化」三大核心展开。</p><h3>核心服务前置：降低「找服务」的认知成本</h3><p>顶部直接展示「东方命理 / 西方占卜」两大核心分类，默认选中用户需求最高的「东方命理」，用户无需二次筛选，直接进入高频服务场景。</p><h3>服务列表的优先级强化：减少决策干扰</h3><p>每个服务卡片采用「主标题 + 副标题」的极简结构，主标题突出服务名称，副标题用一句话讲清核心价值（如「专业亲批 · 一生运势」「命中注定的两个人」），避免冗余信息干扰，让用户 1 秒 get 服务价值。</p><h3>功能路径前置：降低转化门槛</h3><p>服务卡片直接作为点击入口，用户点击卡片即可进入服务详情，无需额外跳转，实现「1 步完成服务选择」。</p></div>
+        </div>
+
+        <header class="seerq-subheading"><h3>信息页面</h3></header>
+        <div class="seerq-info-grid">
+          <figure class="seerq-figma-phone seerq-info-profile"><img src="assets/portfolio/seerq-figma/cec835f5570e7a2c480d9123e64cdc85ec665036.png" width="1179" height="2556" alt="老师资料信息页面" loading="lazy" decoding="async"></figure>
+          <figure class="seerq-figma-phone seerq-info-messages"><img src="assets/portfolio/seerq-figma/5a7d9c05365e7e7efd40271d88b35414a3d42091.png" width="1179" height="2556" alt="消息列表页面" loading="lazy" decoding="async"></figure>
+          <figure class="seerq-figma-phone seerq-info-system"><img src="assets/portfolio/seerq-figma/d4995929548c68d53f8aa846e20bd621b3188179.png" width="1179" height="2556" alt="系统消息页面" loading="lazy" decoding="async"></figure>
+          <article class="seerq-paper-card seerq-info-profile-note"><h4>老师咨询对话页面</h4><p>符合用户「先了解老师<i class="iconfont icon-right-arrow i-inline" aria-hidden="true"></i>再咨询<i class="iconfont icon-right-arrow i-inline" aria-hidden="true"></i>后付费」的决策路径，转化路径自然不生硬。专业信息展示强化老师 IP，提升用户付费意愿，同时沉淀用户与老师的长期关系。</p></article>
+          <article class="seerq-paper-card seerq-info-system-note"><h4>系统消息页面</h4><p>通知与营销融合：顶部用 banner 展示付费服务，直接引导用户点击测算。信任背书强化：通知内容用强吸引力文案，提升用户点击意愿，同时用「查看详情」按钮引导进一步转化。</p></article>
+        </div>
+      </section>
+
+      <section class="seerq-case-section" data-seerq-section="consultation">
+        <header class="seerq-section-heading"><p>CONSULTATION · 11</p><h2 id="s-consult">咨询页面</h2></header>
+        <div class="seerq-consult-grid">
+          <div class="seerq-consult-table"><b>用户核心疑问</b><b>信息架构</b><b>设计目标</b><span>有什么用？</span><strong>功能摘要（需求筛选层）</strong><p>顶部搜索 + 分类标签，减少无效浏览</p><span>多少钱？</span><strong>优惠信息（价格刺激层）</strong><p>卡片直接展示优惠后价格与优惠金额</p><span>谁给我提供服务？</span><strong>老师介绍（信任建立层）</strong><p>头像、姓名、擅长领域、评分与咨询人数</p><span>我能得到什么？</span><strong>权益介绍（服务价值层）</strong><p>清晰解释付费后能获得的内容</p><span>大家的评价怎么样？</span><strong>用户评价（信任背书层）</strong><p>评分 + 咨询人数，用真实数据做背书</p></div>
+          <figure class="seerq-figma-phone"><img src="assets/portfolio/seerq-figma/ac6a3a628acb9aafd4edbb9e75de04c32e0499cc.png" width="1179" height="2556" alt="先知命局导师咨询列表" loading="lazy" decoding="async"></figure>
+          <figure class="seerq-figma-phone"><img src="assets/portfolio/seerq-figma/ffc04477786f06877cae289de79c76cb509797b8.png" width="1179" height="2556" alt="老师服务下单抽屉" loading="lazy" decoding="async"></figure>
+        </div>
+
+        <header class="seerq-subheading"><h3>老师讲堂 / 直播页面</h3><span>内容直接承接互动与咨询，不再让用户多次跳转。</span></header>
+        <div class="seerq-live-grid">
+          <article class="seerq-paper-card"><h3>流量精准承接</h3><p>“老师讲堂”模块直接展示直播中 / 预告内容，用直播中、强提醒等视觉词抓住用户注意力，实现首页流量向直播间的高效导流。</p><h3>互动路径轻量化</h3><p>底部输入框 +「加助理」快捷按钮，用户 1 步即可发起咨询 / 添加私域，降低互动门槛。</p><h3>IP 强化</h3><p>顶部展示老师头像、名称、「关注」按钮，强化个人 IP，提升用户复看率。</p></article>
+          <figure class="seerq-figma-phone seerq-figma-phone--course-list"><img src="assets/portfolio/seerq-figma/804fb2e7f4e1761bf7e1b134e47039857694efb1.png" width="1179" height="2556" alt="老师讲堂课程列表" loading="lazy" decoding="async"></figure>
+          <figure class="seerq-figma-phone"><img src="assets/portfolio/seerq-figma/0488c8565abcd19d3fe6916c0b15fe227a12943e.png" width="1179" height="2556" alt="课程学习详情页面" loading="lazy" decoding="async"></figure>
+        </div>
+      </section>
+
+      <section class="seerq-case-section" data-seerq-section="growth">
+        <header class="seerq-section-heading"><p>AI GROWTH · 12</p><h2 id="s-gpt">搭建 GPT 用户分析需求</h2></header>
+        <div class="seerq-growth-grid">
+          <div class="seerq-growth-copy"><article class="seerq-paper-card"><h3>优化优惠券弹窗与挽留弹窗设计</h3><p>先知命局在核心付费链路中存在明显流失问题：用户查看部分内容后离开；用户对完整报告付费意愿不足；弹窗点击率与最终转化率偏低。</p><h3>搭建一个基于 GPT 用户分析的 AI 增长策略体系</h3><p>利用 GPT 对用户行为、流失节点与决策心理进行分析，建立 AI 驱动的增长策略工作流，辅助团队快速拆解用户在优惠券弹窗、退出挽留、付费转化等关键场景中的核心痛点。</p></article><img class="seerq-growth-analysis" src="assets/portfolio/seerq-reference/gpt-analysis-fields.png" width="693" height="291" alt="GPT 用户分析涉及的测算名称、出生资料与页面输出内容" loading="lazy"></div>
+          <div class="seerq-growth-visual">
+            <div class="seerq-growth-popup-stack"><figure><img src="assets/portfolio/seerq-figma/378d511b82d7c4cff9ad02c0b2763a58e59d6392.png" width="750" height="1624" alt="优惠券弹窗方案一" loading="lazy" decoding="async"></figure><figure><img src="assets/portfolio/seerq-figma/9103b216fe9bc517bad7ce29bbbde7cc3cdfc8c9.png" width="750" height="1624" alt="优惠券弹窗方案二" loading="lazy" decoding="async"></figure></div>
+            <figure class="seerq-growth-phone seerq-growth-phone--front"><img src="assets/portfolio/seerq-figma/4ac6927000ff16cf161073c30040dc5d025e3624.png" width="750" height="1624" alt="抽牌结果与导师推荐页面" loading="lazy" decoding="async"></figure>
+            <figure class="seerq-growth-phone seerq-growth-phone--back"><img src="assets/portfolio/seerq-figma/47b9f20c4e1353559e6196c8670190389bb1430b.png" width="750" height="1624" alt="付费解锁与挽留页面" loading="lazy" decoding="async"></figure>
+          </div>
+        </div>
+
+        <header class="seerq-subheading"><h3>建立弹窗转化模型</h3></header>
+        <div class="seerq-popup-model">
+          <article><h3>利用 AI 分析用户价格敏感点，降低首次付费门槛</h3><p>通过 GPT 对用户评论与行为进行分析后发现：<br>影响首次付费的核心因素包括：</p><ul><li>价格敏感</li><li>风险顾虑</li><li>不确定结果价值</li></ul><p>用户真正需要的不是“优惠”，而是“低风险尝试理由”。</p><h3>驱动设计策略</h3><img class="seerq-popup-strategy-image" src="assets/portfolio/seerq-user/popup-strategy.png" width="837" height="436" alt="利益点前置、强化限时氛围、降低首次付费压力与转化结果"></article>
+          <div class="seerq-tilted-phone"><img src="assets/portfolio/seerq-figma/378d511b82d7c4cff9ad02c0b2763a58e59d6392.png" width="750" height="1624" alt="金蛋挽留弹窗在手机中的展示" loading="lazy" decoding="async"></div>
+        </div>
+
+        <header class="seerq-subheading sq-proto-head"><h3 id="s-proto">交互原型 · 付费弹窗转化链路</h3><span>点击手机里闪烁的热区，体验从抽牌结果到两级挽留弹窗的完整路径；也可以直接点左侧步骤切换。</span></header>
+        <div class="sq-proto" id="sq-proto" data-step="0">
+          <div class="sq-proto-steps" role="tablist" aria-label="弹窗转化链路步骤">
+            <button class="ui-segmented__item sq-proto-step" type="button" role="tab" data-step="0" aria-selected="true"><b>01</b><span>抽牌结果<small>免费结果承接咨询</small></span><i aria-hidden="true"></i></button>
+            <button class="ui-segmented__item sq-proto-step" type="button" role="tab" data-step="1" aria-selected="false"><b>02</b><span>付费解锁<small>内容半遮挡 + 限时</small></span><i aria-hidden="true"></i></button>
+            <button class="ui-segmented__item sq-proto-step" type="button" role="tab" data-step="2" aria-selected="false"><b>03</b><span>金蛋挽留<small>退出时打断离开</small></span><i aria-hidden="true"></i></button>
+            <button class="ui-segmented__item sq-proto-step" type="button" role="tab" data-step="3" aria-selected="false"><b>04</b><span>最后机会<small>价格锚点再降门槛</small></span><i aria-hidden="true"></i></button>
+          </div>
+          <div class="sq-proto-device">
+            <div class="sq-proto-phone">
+              <div class="sq-proto-screen">
+                <div class="sq-pscreen is-active" data-s="0">
+                  <img src="assets/portfolio/seerq-motion/proto-tarot.jpg" width="750" height="1624" alt="塔罗抽牌结果页">
+                  <button class="ui-icon-button sq-hot" type="button" data-go="1" style="--x:5.6;--y:88.6;--w:33.6;--h:5" aria-label="问问 TA：进入老师对话"></button>
+                  <button class="ui-icon-button sq-hot sq-hot--quiet" type="button" data-toast="结果已保存到历史记录" style="--x:52.5;--y:65.8;--w:41;--h:5.4" aria-label="保存结果"></button>
+                </div>
+                <div class="sq-pscreen" data-s="1">
+                  <img src="assets/portfolio/seerq-motion/proto-paywall.jpg" width="750" height="1624" alt="老师对话付费解锁页">
+                  <span class="sq-cd" style="--x:22.53;--y:63.55;--w:21.33;--h:2.46;--fs:3.55cqw" aria-hidden="true">29:59:99</span>
+                  <span class="sq-cd" style="--x:76.67;--y:83.25;--w:17.33;--h:1.85;--fs:2.7cqw" aria-hidden="true">29:59:99</span>
+                  <button class="ui-icon-button sq-hot" type="button" data-go="2" style="--x:1.5;--y:6.2;--w:10;--h:4.6" aria-label="返回：尝试离开页面"></button>
+                  <button class="ui-icon-button sq-hot sq-hot--quiet" type="button" data-pay style="--x:25;--y:66.2;--w:51;--h:4.8" aria-label="立即解锁"></button>
+                  <button class="ui-icon-button sq-hot sq-hot--quiet" type="button" data-pay style="--x:76;--y:85.2;--w:21.5;--h:3.6" aria-label="底部立即解锁"></button>
+                </div>
+                <div class="sq-popup" data-s="2">
+                  <img class="sq-popup-bg" src="assets/portfolio/seerq-motion/popup-egg-bg.jpg" width="750" height="1624" alt="">
+                  <div class="sq-popup-card" style="--x:4.933;--y:21.983;--w:90;--h:51.97">
+                    <img class="sq-popup-art" src="assets/portfolio/seerq-motion/popup-egg-card.webp" width="675" height="844" alt="金蛋挽留弹窗：现在解锁加送老师咨询">
+                    <img class="sq-popup-cta" src="assets/portfolio/seerq-motion/popup-egg-cta.webp" width="250" height="85" alt="" style="--x:51.41;--y:71.92;--w:37.04;--h:10.07">
+                  </div>
+                  <button class="ui-icon-button sq-hot" type="button" data-go="3" style="--x:15;--y:59.2;--w:33;--h:5.6" aria-label="放弃福利"></button>
+                  <button class="ui-icon-button sq-hot sq-hot--quiet" type="button" data-pay style="--x:51;--y:59.2;--w:34;--h:5.6" aria-label="现在解锁"></button>
+                </div>
+                <div class="sq-popup" data-s="3">
+                  <img class="sq-popup-bg" src="assets/portfolio/seerq-motion/popup-coupon-bg.jpg" width="750" height="1624" alt="">
+                  <div class="sq-popup-card" style="--x:4.933;--y:19.458;--w:90;--h:54.495">
+                    <img class="sq-popup-art" src="assets/portfolio/seerq-motion/popup-coupon-card.webp" width="675" height="885" alt="最后机会：新人惊喜优惠 USD$0.89">
+                    <img class="sq-popup-cta" src="assets/portfolio/seerq-motion/popup-coupon-cta.webp" width="444" height="87" alt="" style="--x:17.19;--y:73.11;--w:65.78;--h:9.83">
+                    <span class="sq-cd" style="--x:13.33;--y:70.4;--w:23.7;--h:4.52;--fs:3.55cqw" aria-hidden="true">29:59:99</span>
+                  </div>
+                  <button class="ui-icon-button sq-hot" type="button" data-pay style="--x:20;--y:59.1;--w:60;--h:5.8" aria-label="立即解锁"></button>
+                </div>
+                <span class="sq-tap" aria-hidden="true"></span>
+                <p class="sq-proto-toast" role="status" aria-live="polite"></p>
+              </div>
+            </div>
+            <div class="sq-proto-bar">
+              <button class="ui-button ui-button--outline sq-proto-replay" type="button"><span>重新播放</span></button>
+            </div>
+          </div>
+          <div class="sq-proto-spec" aria-live="polite">
+            <p class="sq-proto-kicker" data-spec="kicker"></p>
+            <h4 data-spec="title"></h4>
+            <p data-spec="intent"></p>
+            <dl class="sq-proto-motion" data-spec="motion"></dl>
+            <div class="sq-curve" aria-hidden="true"><svg viewBox="0 0 120 80"><path class="sq-curve-grid" d="M0 79.5H120M.5 0V80"/><path class="sq-curve-path" d=""/><circle class="sq-curve-dot" r="3.2" cx="0" cy="80"/></svg><span data-spec="ease"></span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="seerq-case-section seerq-results" data-seerq-section="results">
+        <header class="seerq-section-heading"><p>OUTCOME · 13</p><h2 id="s-results">数据结果验证</h2></header>
+        <div class="seerq-result-grid"><article><span>海外市场新用户注册转化率</span><b>+25%</b><small>降低文化壁垒，提升全球用户适配性</small></article><article><span>新用户 7 日留存率</span><b>+15%</b><small>核心入口与任务路径更清晰</small></article><article><span>用户周留存率提升</span><b>+18%</b><small>服务承接与互动路径更连续</small></article><article><span>海外用户日停留时长</span><b>+18%</b><small>轻量化信息结构提升浏览效率</small></article><article><span>核心服务互动率</span><b>+30%</b><small>咨询、直播与内容形成闭环</small></article><article><span>新用户首屏停留时长</span><b>+15%</b><small>AI 入口与核心服务前置</small></article></div>
+        <div class="seerq-summary-pills"><span>👀 视觉层：通过框架焕新，打造全球通用的现代设计语言，为全球化业务铺路</span><span>✨ 体验层：通过信息架构与操作路径优化，降低用户参与门槛，提升互动与留存</span><span>🌍 国际化层：通过去国风、轻量化设计，适配海外用户，拓展全球市场</span></div>
+      </section>
+    </article>
+
+<section class="all-pages" aria-labelledby="all-pages-title">
+      <div class="all-pages-head"><h2 id="all-pages-title">全部页面</h2><p>按住可左右拖动预览</p></div>
+      <div class="all-pages-viewport" data-all-pages>
+        <div class="all-pages-track">
+        <figure class="all-pages-item"><img src="assets/all-pages/seerq/01.jpg" width="405" height="880" alt="首页" loading="lazy" decoding="async" draggable="false"></figure>
+        <figure class="all-pages-item"><img src="assets/all-pages/seerq/02.jpg" width="406" height="880" alt="命理测算" loading="lazy" decoding="async" draggable="false"></figure>
+        <figure class="all-pages-item"><img src="assets/all-pages/seerq/03.jpg" width="407" height="880" alt="塔罗" loading="lazy" decoding="async" draggable="false"></figure>
+        <figure class="all-pages-item"><img src="assets/all-pages/seerq/04.jpg" width="406" height="880" alt="正缘" loading="lazy" decoding="async" draggable="false"></figure>
+        <figure class="all-pages-item"><img src="assets/all-pages/seerq/05.jpg" width="406" height="880" alt="商城" loading="lazy" decoding="async" draggable="false"></figure>
+        <figure class="all-pages-item"><img src="assets/all-pages/seerq/06.jpg" width="406" height="880" alt="下单" loading="lazy" decoding="async" draggable="false"></figure>
+        <figure class="all-pages-item"><img src="assets/all-pages/seerq/07.jpg" width="407" height="880" alt="付费解锁" loading="lazy" decoding="async" draggable="false"></figure>
+        <figure class="all-pages-item"><img src="assets/all-pages/seerq/08.jpg" width="407" height="880" alt="挽留弹窗" loading="lazy" decoding="async" draggable="false"></figure>
+        <figure class="all-pages-item"><img src="assets/all-pages/seerq/09.jpg" width="407" height="880" alt="优惠弹窗" loading="lazy" decoding="async" draggable="false"></figure>
+        <figure class="all-pages-item"><img src="assets/all-pages/seerq/10.jpg" width="405" height="880" alt="老师列表" loading="lazy" decoding="async" draggable="false"></figure>
+        <figure class="all-pages-item"><img src="assets/all-pages/seerq/11.jpg" width="406" height="880" alt="老师主页 A" loading="lazy" decoding="async" draggable="false"></figure>
+        <figure class="all-pages-item"><img src="assets/all-pages/seerq/12.jpg" width="406" height="880" alt="老师主页 B" loading="lazy" decoding="async" draggable="false"></figure>
+        <figure class="all-pages-item"><img src="assets/all-pages/seerq/13.jpg" width="406" height="880" alt="咨询" loading="lazy" decoding="async" draggable="false"></figure>
+        <figure class="all-pages-item"><img src="assets/all-pages/seerq/14.jpg" width="406" height="880" alt="消息" loading="lazy" decoding="async" draggable="false"></figure>
+        <figure class="all-pages-item"><img src="assets/all-pages/seerq/15.jpg" width="406" height="880" alt="课程" loading="lazy" decoding="async" draggable="false"></figure>
+        <figure class="all-pages-item"><img src="assets/all-pages/seerq/16.jpg" width="406" height="880" alt="课程列表" loading="lazy" decoding="async" draggable="false"></figure>
+        </div>
+      </div>
+    </section>
+    <div class="project-detail-end"><a class="ui-button ui-button--outline" href="project-fengsuitang.html"><span>下一个项目</span></a></div>
   </main>
   <footer class="content-footer"><a href="index.html">首页</a><a href="works.html">作品集</a><a href="ai-learning.html">AI 学习</a></footer>
+  <script src="project-seerq.js?v=1" defer></script>
+  <script src="project-seerq-motion.js?v=2" defer></script>
+<button class="site-to-top" type="button" aria-label="回到顶部"><i class="iconfont icon-up" aria-hidden="true"></i></button>
+<script src="site-common.js?v=2" defer></script>
 </body>
 </html>

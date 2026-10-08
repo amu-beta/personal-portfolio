@@ -1,0 +1,276 @@
+/* ============================================================
+   全站公共组件（所有页面在页面样式之后加载）
+   1. 图标字体：assets/iconfont（箭头统一用这一套）
+   2. 顶部导航：滚动后统一为首页的白色胶囊样式
+   3. 详情页右侧章节导航（滚动说明）
+   4. 返回顶部圆形按钮
+   5. 按钮里的箭头
+   数值都来自 design-tokens.css
+   ============================================================ */
+
+/* ---------- 1. 图标字体 ---------- */
+.iconfont {
+  display: inline-block;
+  font-size: 1em;
+  line-height: 1;
+  vertical-align: -0.125em;
+  speak: never;
+}
+/* 句子里的箭头（如「结论 → 依据」） */
+.i-inline { margin: 0 .2em; font-size: .9em; vertical-align: -0.08em; }
+
+/* ---------- 5. 按钮箭头：原像素箭头 → 图标字体 ---------- */
+.ui-button::after,
+.ui-button--solid::after,
+.ui-button--outline::after,
+.ui-button--muted::after,
+.ui-button--ghost::after,
+.ui-button--outline-dark::after {
+  content: "\e841";              /* icon-right */
+  width: auto;
+  height: auto;
+  flex: 0 0 auto;
+  background: none;
+  -webkit-mask: none;
+  mask: none;
+  font-family: "iconfont";
+  font-size: 1em;
+  font-weight: 400;
+  line-height: 1;
+}
+.ui-button--back::after { content: "\e83d"; transform: none; }   /* icon-left */
+.ui-button--back:hover::after { transform: translateX(-2px); }
+
+/* ---------- 2. 顶部导航（非首页统一使用 .gnav） ---------- */
+.gnav {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  width: min(980px, calc(100vw - 40px));
+  padding: 10px 14px;
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, .72);
+  box-shadow: 0 0 0 1px rgba(35, 35, 35, .04);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  font-family: var(--font-display);
+  transform: translateX(-50%);
+  transition:
+    width .55s cubic-bezier(.22, 1, .36, 1),
+    padding .55s cubic-bezier(.22, 1, .36, 1),
+    top .4s cubic-bezier(.22, 1, .36, 1),
+    background .35s,
+    box-shadow .35s;
+}
+.gnav-logo { display: flex; flex-shrink: 0; align-items: center; color: var(--k-ink); }
+.gnav-logo svg { display: block; width: 28px; height: 28px; }
+.gnav-links { display: flex; align-items: center; }
+.gnav-links a {
+  padding: 8px 14px;
+  color: var(--k-muted);
+  font-family: var(--font-display);
+  font-size: var(--fs-body);
+  font-weight: 500;
+  line-height: 1.4;
+  white-space: nowrap;
+  text-decoration: none;
+  transition: color .2s, padding .55s cubic-bezier(.22, 1, .36, 1);
+}
+.gnav-links a:hover { color: var(--k-ink); }
+.gnav-links a[aria-current="page"] { color: var(--k-ink); font-weight: 700; }
+/* 滚动后：与首页一致的白色胶囊（图一） */
+.gnav.condensed,
+.nav.condensed {
+  top: 12px;
+  width: min(640px, calc(100vw - 40px));
+  padding: 7px 8px 7px 14px;
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, .92);
+  box-shadow: 0 18px 40px -20px rgba(35, 35, 35, .25);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+.gnav.condensed .gnav-links a { padding: 8px 8px; }
+.nav.condensed .nav-links a { color: var(--k-muted); }
+.nav.condensed .nav-links a:hover,
+.nav.condensed .nav-links a[aria-current="page"] { color: var(--k-ink); }
+.nav.condensed .tree-logo { color: var(--k-ink); }
+
+/* 六爻 / 枫燧堂的阅读进度条：改为贴顶 */
+.site-progress { position: fixed; top: 0; right: 0; left: 0; bottom: auto; z-index: 210; height: 3px; pointer-events: none; }
+
+/* 锚点跳转时让出顶部导航的高度 */
+html:has(.site-rail) { scroll-padding-top: 88px; }
+
+/* ---------- 3. 详情页右侧章节导航 ---------- */
+.site-rail {
+  --rail-accent: #e8601f;
+  --rail-muted: #b49c8a;
+  --rail-chip: rgba(255, 251, 245, .94);
+  position: fixed;
+  top: 50%;
+  right: 22px;
+  z-index: 90;
+  display: grid;
+  gap: 2px;
+  transform: translateY(-50%);
+  transition: opacity .3s;
+}
+.site-rail a {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  padding: 4px 0;
+  color: var(--rail-muted);
+  font-family: var(--font-sans);
+  font-size: var(--fs-small);
+  line-height: 1.4;
+  text-decoration: none;
+}
+.site-rail a::after {
+  content: '';
+  width: 8px;
+  height: 8px;
+  flex: 0 0 8px;
+  border: 1.5px solid currentColor;
+  border-radius: 50%;
+  transition: background-color .2s, transform .2s;
+}
+.site-rail span {
+  padding: 3px 0;
+  background: none;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateX(6px);
+  transition: opacity .2s, transform .2s;
+}
+.site-rail:hover span,
+.site-rail a:focus-visible span,
+.site-rail a[aria-current] span { opacity: 1; transform: none; }
+.site-rail a[aria-current] { color: var(--rail-accent); font-weight: 700; }
+.site-rail a[aria-current]::after { background: currentColor; transform: scale(1.25); }
+.site-rail a:hover { color: var(--rail-accent); }
+.site-rail.is-dark,
+.site-rail.is-over-gallery { opacity: 0; pointer-events: none; }  /* 经过深色区块或底部「全部页面」时隐藏，避免压在图片上 */
+/* 宽屏右侧留白足够时，章节名常显 */
+@media (min-width: 1500px) {
+  .site-rail span { opacity: 1; transform: none; }
+}
+@media (max-width: 1099px) {
+  .site-rail { display: none; }
+}
+/* 各详情页的强调色 */
+.ops-case .site-rail { --rail-accent: #e8601f; --rail-muted: #b49c8a; --rail-chip: rgba(255, 251, 245, .94); }
+.topic-case .site-rail { --rail-accent: #7f139a; --rail-muted: #a8939f; --rail-chip: rgba(253, 248, 252, .94); }
+.seerq-reference-page .site-rail { --rail-accent: #c27a00; --rail-muted: #b3a48a; --rail-chip: rgba(252, 249, 240, .94); }
+.liuyao-page .site-rail { --rail-accent: #9b6416; --rail-muted: #b3a38c; --rail-chip: rgba(255, 250, 241, .94); }
+.fst-page .site-rail { --rail-accent: #8b3c39; --rail-muted: #ad9f94; --rail-chip: rgba(250, 246, 240, .94); }
+
+/* ---------- 4. 返回顶部圆形按钮（与首页一致） ---------- */
+.site-to-top {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 180;
+  display: grid;
+  width: 48px;
+  height: 48px;
+  place-items: center;
+  padding: 0;
+  border: 1px solid var(--k-border);
+  border-radius: 50%;
+  background: var(--k-card);
+  color: var(--k-ink);
+  font-size: 22px;
+  line-height: 1;
+  box-shadow: 0 14px 34px -18px rgba(35, 35, 35, .5);
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  translate: 0 12px;
+  transition: opacity .25s ease, visibility .25s ease, translate .25s ease, border-color .18s ease;
+}
+.site-to-top.is-visible { opacity: 1; visibility: visible; translate: 0 0; }
+.site-to-top:hover { border-color: var(--k-faint); translate: 0 -2px; }
+.site-to-top:focus-visible { outline: 3px solid rgba(35, 35, 35, .3); outline-offset: 3px; }
+/* 页面原有的返回顶部按钮由公共按钮替代 */
+.liuyao-page #to-top,
+.fst-page #to-top { display: none !important; }
+/* 首页按钮图标同样换成图标字体 */
+.back-to-top .iconfont { font-size: 22px; }
+
+@media (max-width: 767px) {
+  .gnav,
+  .gnav.condensed { width: calc(100% - 28px); top: 10px; padding: 7px 8px 7px 12px; }
+  .gnav-links { min-width: 0; max-width: calc(100vw - 84px); overflow-x: auto; scrollbar-width: none; }
+  .gnav-links::-webkit-scrollbar { display: none; }
+  .gnav-links a,
+  .gnav.condensed .gnav-links a { flex: 0 0 auto; padding: 7px 8px; font-size: var(--fs-small); }
+  .site-to-top { right: 16px; bottom: 16px; width: 44px; height: 44px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .gnav, .site-to-top, .site-rail span { transition: none; }
+}
+
+/* 图标尺寸（替换原 SVG 箭头时保持原大小） */
+.ic-12 { font-size: 12px; } .ic-13 { font-size: 13px; } .ic-14 { font-size: 14px; } .ic-15 { font-size: 15px; }
+.ic-16 { font-size: 16px; } .ic-18 { font-size: 18px; } .ic-20 { font-size: 20px; } .ic-22 { font-size: 22px; }
+
+/* 详情页顶部留白：去掉「返回作品集」后，首屏统一从导航下方约 156px 处开始 */
+.seerq-reference-page .content-shell { padding-top: 136px; }
+.liuyao-page .cover { padding-top: 140px; }
+.fst-page .cover { padding-top: 156px; }
+@media (max-width: 767px) {
+  .seerq-reference-page .content-shell { padding-top: 96px; }
+  .liuyao-page .cover { padding-top: 104px; }
+  .fst-page .cover { padding-top: 112px; }
+}
+/* 详情页底部只保留「下一个项目」，靠右放 */
+.project-detail-end { justify-content: flex-end; }
+
+/* ---------- 6. 详情页底部「全部页面」：全屏匀速滑动 + 拖拽预览 ---------- */
+html { overflow-x: clip; }
+.all-pages { --ap-h: 440px; --ap-gap: 20px; padding: 96px 0 32px; background: none; }
+.all-pages-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  width: min(var(--detail-width), calc(100% - 40px));
+  margin: 0 auto 32px;
+}
+.all-pages-head h2 { margin: 0; color: inherit; font-family: var(--font-display); font-size: var(--fs-h2); font-weight: 700; letter-spacing: -.02em; line-height: 1.2; }
+.all-pages-head p { margin: 0; color: inherit; font-family: var(--font-sans); font-size: var(--fs-small); opacity: .55; }
+.all-pages-viewport {
+  position: relative;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  overflow: hidden;
+  padding: 8px 0 28px;          /* 给阴影留位置 */
+  cursor: grab;
+  touch-action: pan-y;          /* 手机上竖向仍可滚动页面，横向用于拖拽 */
+  user-select: none;
+  -webkit-user-select: none;
+}
+.all-pages-viewport.is-dragging { cursor: grabbing; }
+.all-pages-track { display: flex; gap: var(--ap-gap); width: max-content; will-change: transform; }
+.all-pages-item {
+  flex: 0 0 auto;
+  height: var(--ap-h);
+  margin: 0;
+  overflow: hidden;
+  border-radius: var(--radius-sm);   /* 所有截图统一 12px 圆角 */
+  background: #fff;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, .06), 0 18px 36px -24px rgba(0, 0, 0, .35);
+}
+.all-pages-item img { display: block; width: auto; height: 100%; pointer-events: none; -webkit-user-drag: none; }
+@media (max-width: 767px) {
+  .all-pages { --ap-h: 300px; --ap-gap: 12px; padding: 64px 0 20px; }
+  .all-pages-head { width: calc(100% - 32px); margin-bottom: 20px; }
+}

@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI 六爻卜卦｜UI/UX 设计案例</title>
+<meta name="description" content="AI 六爻卜卦 App 设计案例：用 AI 把晦涩的六爻卦象翻译成看得懂的方位与行动建议，呈现这款 App 的功能、设计决策与 AI 协作的制作过程。">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:ital,wght@0,500;0,600;0,700;0,800;1,800&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="design-tokens.css?v=4">
+  <link rel="stylesheet" href="assets/iconfont/iconfont.css?v=1"><link rel="stylesheet" href="project-liuyao.css?v=11"><link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<script src="project-liuyao.js?v=9" defer></script>
+  <link rel="stylesheet" href="site-common.css?v=3">
+</head>
+<body class="liuyao-page">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-ai" viewBox="0 0 24 24"><path d="M3.5 19 8 6h1.4l4.5 13M5.2 14.4h6.9M17 10.5V19M17 7v.01"/><path d="M20 2.6l.6 1.5 1.5.6-1.5.6-.6 1.5-.6-1.5-1.5-.6 1.5-.6z" class="fill"/></symbol>
+    <symbol id="i-badge" viewBox="0 0 24 24"><path d="M12 2.8l2.3 1.7 2.8-.2.9 2.7 2.3 1.6-.9 2.7.9 2.7-2.3 1.6-.9 2.7-2.8-.2-2.3 1.7-2.3-1.7-2.8.2-.9-2.7-2.3-1.6.9-2.7-.9-2.7 2.3-1.6.9-2.7 2.8.2z"/><path d="M8.6 12.1l2.4 2.4 4.5-4.7"/></symbol>
+    <symbol id="i-chart" viewBox="0 0 24 24"><path d="M4 5v15h15M8.5 16v-4M12.5 16V9.5M16.5 16v-6"/><path d="M19.5 2.6l.6 1.5 1.5.6-1.5.6-.6 1.5-.6-1.5-1.5-.6 1.5-.6z" class="fill"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8.3 12.2l2.5 2.5 4.9-5"/></symbol>
+    <symbol id="i-smile" viewBox="0 0 24 24"><path d="M19.5 12.5A7.5 7.5 0 1 1 12 5"/><path d="M8.8 13.6c1.6 2 4.8 2 6.4 0M9 9.6v.01M15 9.6v.01"/><path d="M18.5 2.8l.6 1.5 1.5.6-1.5.6-.6 1.5-.6-1.5-1.5-.6 1.5-.6z" class="fill"/></symbol>
+    <symbol id="i-layers" viewBox="0 0 24 24"><path d="M5 19 19 5M5 13l6-6M11 19l8-8"/><path d="M4 4h5v5H4zM15 15h5v5h-5z"/></symbol>
+    <symbol id="i-tap" viewBox="0 0 24 24"><path d="M4 9h16v10H4zM4 13h16M9 9V6h6v3"/><path d="M18.5 2.4l.6 1.5 1.5.6-1.5.6-.6 1.5-.6-1.5-1.5-.6 1.5-.6z" class="fill"/></symbol>
+    <symbol id="i-stat" viewBox="0 0 24 24"><path d="M9 7.5a6 6 0 1 0 8.5 8.5"/><path d="M13 3.5a7.5 7.5 0 0 1 7.5 7.5H13z"/></symbol>
+    <symbol id="i-list" viewBox="0 0 24 24"><path d="M4 5h16v11H11l-4 3.5V16H4z"/><path d="M8 9h4M8 12h7"/></symbol>
+    <symbol id="i-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/></symbol>
+    <symbol id="i-award" viewBox="0 0 24 24"><circle cx="12" cy="9" r="5.5"/><path d="M8.5 13.3 7.5 21l4.5-2.5 4.5 2.5-1-7.7"/></symbol>
+    <symbol id="i-down" viewBox="0 0 24 24"><path d="M12 5v14M6 13l6 6 6-6"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-zoom" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4 4M11 8.5v5M8.5 11h5"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path d="M8 5.5v13l10-6.5z"/></symbol>
+    <symbol id="i-pause" viewBox="0 0 24 24"><path d="M8 5v14M16 5v14"/></symbol>
+    <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4.5 20.5a7.5 7.5 0 0 1 15 0"/></symbol>
+    <symbol id="i-in" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/></symbol>
+    <symbol id="i-out" viewBox="0 0 24 24"><rect x="5" y="4" width="14" height="16" rx="2"/><path d="M9 9h6M9 13h4"/></symbol>
+    <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/></symbol>
+  </defs>
+</svg>
+
+<a class="skip-link" href="#challenge">跳到正文</a>
+<nav class="gnav" id="site-nav" aria-label="主导航">
+    <a class="gnav-logo tree-logo" href="index.html" aria-label="返回首页"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 28V14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/><path d="M16 16C8 16 5 12 6 7c5-1 9 1 10 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 18c8 0 11-4 10-9-5-1-9 1-10 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    <div class="gnav-links"><a href="index.html">首页</a><a href="works.html" aria-current="page">作品集</a><a href="ai-learning.html">AI 学习</a><a href="index.html#about">关于</a></div>
+  </nav>
+<span class="progress site-progress" aria-hidden="true"><i id="progress-bar"></i></span>
+<nav class="site-rail" aria-label="章节导航">
+    <a href="#cover"><span>概览</span></a>
+    <a href="#challenge"><span>设计挑战</span></a>
+    <a href="#process"><span>设计流程</span></a>
+    <a href="#library"><span>组件库与规范</span></a>
+    <a href="#home"><span>首页</span></a>
+    <a href="#paipan"><span>摇卦排盘</span></a>
+    <a href="#result"><span>结果页</span></a>
+    <a href="#all-pages"><span>全部页面</span></a>
+  </nav>
+
+<main>
+<!-- 概览 -->
+<section id="cover" class="cover" aria-labelledby="cover-title">
+  <div class="cover-bg" aria-hidden="true"><span class="orb orb-a"></span><span class="orb orb-b"></span><span class="ring"></span><img class="bamboo" src="assets/portfolio/liuyao/bamboo-atmosphere.svg" alt=""></div>
+  <div class="wrap cover-grid">
+    <div class="cover-copy">
+      <p class="eyebrow">UI/UX 设计案例 · 移动端 App · 2026</p>
+      <h1 id="cover-title" class="cover-title" aria-label="AI 六爻卜卦"><span aria-hidden="true" style="--i:0">AI</span><span aria-hidden="true" style="--i:1">六</span><span aria-hidden="true" style="--i:2">爻</span><span aria-hidden="true" style="--i:3">卜</span><span aria-hidden="true" style="--i:4">卦</span></h1>
+      <p class="tagline">让 AI 把卦象，<br>翻译成看得懂的行动建议。</p>
+      <p class="lead">一款结合传统六爻与 AI 解读的移动 App。丢了东西或遇到难题时，只需<b>描述问题、摇一卦</b>，就能得到可能的方位、时间和寻找顺序。本案例呈现从需求梳理、设计规范、组件库到核心页面的完整设计过程。</p>
+    </div>
+    <div class="cover-stage" id="cover-stage">
+      <span class="stage-glow" aria-hidden="true"></span>
+      <div class="phone cover-phone" data-depth="-8"><span class="phone-screen"><span class="notch" aria-hidden="true"></span><img src="assets/portfolio/liuyao-v7/screen-home.png" width="750" height="1682" alt="AI 六爻卜卦 App 首页"></span></div>
+      <aside class="float-card card-gua" data-depth="18">
+        <h2>今日卦象</h2>
+        <dl><div><dt>本卦</dt><dd>天风姤（乾宫）</dd></div><div><dt>变卦</dt><dd>火水未济</dd></div><div><dt>动爻</dt><dd>三爻、五爻</dd></div><div><dt>卦象</dt><dd>中平</dd></div></dl>
+      </aside>
+      <aside class="float-card card-luck" data-depth="30">
+        <h2>运势简析</h2>
+        <p>当前运势平稳，宜守不宜攻。静待时机，方能转困成佳。</p>
+        <ul class="stars">
+          <li><span>事业</span><i style="--v:4"></i></li>
+          <li><span>财运</span><i style="--v:4"></i></li>
+          <li><span>健康</span><i style="--v:4.5"></i></li>
+          <li><span>感情</span><i style="--v:3.5"></i></li>
+        </ul>
+      </aside>
+    </div>
+  </div>
+  <div class="wrap cover-meta">
+    <dl>
+      <div><dt>项目角色</dt><dd>UI / UX 设计 · AI 协作设计</dd></div>
+      <div><dt>设计周期</dt><dd>一个月</dd></div>
+      <div><dt>协作工具</dt><dd>GPT · Codex · Figma</dd></div>
+      <div><dt>交付内容</dt><dd>设计规范、组件库与核心页面（Figma 源文件）</dd></div>
+    </dl>
+  </div>
+</section>
+
+<!-- 设计挑战 -->
+<section id="challenge" class="chapter chapter-alt" aria-labelledby="ch-title">
+  <div class="wrap">
+    <header class="chapter-head reveal"><p class="kicker">设计挑战</p><h2 id="ch-title">用户不懂卦，<br>只想知道下一步怎么做</h2></header>
+    <div class="translate reveal" aria-label="从卦象原文到可用答案">
+      <div class="tr-card tr-raw">
+        <p class="tr-label">卦象原文<span>专业，但难懂</span></p>
+        <ul><li><b>天泽履</b>第十卦 · 上上卦</li><li><b>九五</b>兄弟申金 · 世</li><li><b>用神</b>父母爻持世</li><li><b>动爻</b>动而化回头克</li></ul>
+      </div>
+      <div class="tr-mid" aria-hidden="true"><span class="tr-line"></span><span class="tr-core"><svg><use href="#i-spark"/></svg><b>AI 解读</b><small>+ 设计转译</small></span><span class="tr-line"></span></div>
+      <div class="tr-card tr-out">
+        <p class="tr-label">用户看到的<span>直接能用</span></p>
+        <ul><li><b>方位</b>西方 · 西北方</li><li><b>先找</b>低处或下层</li><li><b>时间</b>申酉时 15:00–19:00</li><li><b>找回概率</b>较高</li></ul>
+      </div>
+    </div>
+    <dl class="brief-chips reveal">
+      <div><dt>目标用户</dt><dd>对玄学感兴趣的年轻用户</dd></div>
+      <div><dt>产品目标</dt><dd>更快找回物品，为决定提供参考</dd></div>
+      <div><dt>设计关键词</dt><dd>东方美学 · 温润 · 信任感</dd></div>
+    </dl>
+    <h3 class="pain-title reveal">四个痛点，四个解法</h3>
+    <ol class="pain-grid">
+      <li class="reveal"><a href="#home"><span class="pn">1</span><s>功能多，不知从哪开始</s><i class="iconfont icon-down-arrow pa ic-18" aria-hidden="true"></i><b>一个主入口 + 六张功能卡</b><em>看首页 <i class="iconfont icon-right-arrow ic-13" aria-hidden="true"></i></em></a></li>
+      <li class="reveal"><a href="#all-pages"><span class="pn">2</span><s>描述丢失物品太费力</s><i class="iconfont icon-down-arrow pa ic-18" aria-hidden="true"></i><b>文字、语音、拍照任选</b><em>看全部页面 <i class="iconfont icon-right-arrow ic-13" aria-hidden="true"></i></em></a></li>
+      <li class="reveal"><a href="#paipan"><span class="pn">3</span><s>起卦等待太枯燥</s><i class="iconfont icon-down-arrow pa ic-18" aria-hidden="true"></i><b>龟甲铜钱 + 逐爻进度</b><em>试试摇卦 <i class="iconfont icon-right-arrow ic-13" aria-hidden="true"></i></em></a></li>
+      <li class="reveal"><a href="#result"><span class="pn">4</span><s>结果又长又专业</s><i class="iconfont icon-down-arrow pa ic-18" aria-hidden="true"></i><b>先给结论，再讲依据</b><em>看结果页 <i class="iconfont icon-right-arrow ic-13" aria-hidden="true"></i></em></a></li>
+    </ol>
+  </div>
+</section>
+
+<!-- 设计流程 -->
+<section id="process" class="chapter" aria-label="设计流程">
+  <div class="wrap">
+    <header class="chapter-head reveal"><p class="kicker">设计流程</p></header>
+    <div class="flow-window reveal">
+      <div class="flow-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><b>AI × 设计师 · 协作流程</b><span class="flow-legend"><i class="role r-in">输入</i><i class="role r-ai">AI</i><i class="role r-out">输出</i><i class="role r-hu">人工</i></span></div>
+      <ol class="flow-cols"><li class="flow-col"><p class="flow-no">01</p><h3>定义目标</h3><ul class="flow-steps"><li>Brief 输入<i class="role r-in">输入</i></li></ul><p class="flow-desc">写清用户、功能、风格与交付要求，给 AI 设好边界。</p><p class="flow-out"><span>产出</span>需求 Brief</p></li><li class="flow-col"><p class="flow-no">02</p><h3>搭建结构</h3><ul class="flow-steps"><li>GPT 拆解需求<i class="role r-ai">AI</i></li><li>产品文档输出<i class="role r-out">输出</i></li><li>页面框架生成<i class="role r-out">输出</i></li></ul><p class="flow-desc">GPT 拆出功能与页面清单，设计师定 P0 / P1 优先级。</p><p class="flow-out"><span>产出</span>PRD · 页面框架</p></li><li class="flow-col"><p class="flow-no">03</p><h3>生成内容</h3><ul class="flow-steps"><li>设计规则转译<i class="role r-ai">AI</i></li><li>Codex × Figma 搭组件<i class="role r-ai">AI</i></li></ul><p class="flow-desc">设计师定规则，Codex 解析母稿，Figma 批量搭组件。</p><p class="flow-out"><span>产出</span>设计规范 · 组件库</p></li><li class="flow-col"><p class="flow-no">04</p><h3>优化交付</h3><ul class="flow-steps"><li>页面批量生成<i class="role r-out">输出</i></li><li>人工优化与交付<i class="role r-hu">人工</i></li></ul><p class="flow-desc">批量生成后逐屏检查文案、状态与一致性。</p><p class="flow-out"><span>产出</span>Figma 源文件</p></li></ol>
+    </div>
+  </div>
+</section>
+
+<!-- 组件库与设计规范 -->
+<section id="library" class="chapter" aria-labelledby="lib-title">
+  <div class="wrap">
+    <header class="chapter-head reveal"><p class="kicker">AI 辅助搭建组件库</p><h2 id="lib-title">让 AI 整理规则，<br>规范与组件放在一处</h2></header>
+    <p class="body narrow reveal">借助 AI 辅助搭建组件库，高效输出标注与开发说明，缩短设计落地周期；还能按规范衍生新组件，适配后续产品迭代与新增功能。设计规范、字体样式与组件库统一收在同一个 Figma 文件中。</p>
+    <div class="lib-steps reveal">
+      <div class="lib-step"><div><span class="lib-tag">分析画稿</span><p>用 Codex 解析母稿、提炼规范，省去人工逐个画点，统一全稿隐性设计规则。</p></div><div class="lib-icons"><img src="assets/portfolio/liuyao-v7/codex.png" width="160" height="160" alt="Codex"></div></div>
+      <span class="lib-arrow" aria-hidden="true"><i class="iconfont icon-right-arrow ic-14" aria-hidden="true"></i></span>
+      <div class="lib-step"><div><span class="lib-tag">搭建规范 / 组件</span><p>由 Codex 导出的标准化规范驱动 Figma 批量生成组件，大幅压缩组件搭建与改版工时。</p></div><div class="lib-icons"><img src="assets/portfolio/liuyao-v7/codex.png" width="160" height="160" alt="Codex"><img src="assets/portfolio/liuyao-v7/figma.png" width="66" height="66" alt="Figma"></div></div>
+    </div>
+    <div class="lib-board reveal">
+      <div class="lib-tabs" role="tablist" aria-label="组件库页面">
+        <button role="tab" aria-selected="true" data-lib="0"><b>01</b>设计规范<small>色彩 · 圆角 · 间距 · 图标</small></button>
+        <button role="tab" aria-selected="false" data-lib="1" tabindex="-1"><b>02</b>字体样式<small>品牌字 · 宋体 · 黑体 · 12 个样式</small></button>
+        <button role="tab" aria-selected="false" data-lib="2" tabindex="-1"><b>03</b>组件库<small>按钮 · 表单 · 卡片 · 起卦 · 结果</small></button>
+      </div>
+      <div class="lib-panel" role="tabpanel" data-lib-panel><button class="lib-shot" data-zoom="assets/portfolio/liuyao-v8/lib-spec.jpg" data-ztitle="组件库 · 01 设计规范" data-group="lib"><img src="assets/portfolio/liuyao-v8/lib-spec.jpg" width="2400" height="4119" alt="组件库截图：设计规范，包括情绪板、品牌色、灰阶对比度、色阶、语义色、圆角、间距、投影、栅格与图标" loading="lazy"></button></div>
+      <div class="lib-panel" role="tabpanel" data-lib-panel hidden><button class="lib-shot" data-zoom="assets/portfolio/liuyao-v8/lib-type.jpg" data-ztitle="组件库 · 02 字体样式" data-group="lib"><img src="assets/portfolio/liuyao-v8/lib-type.jpg" width="2400" height="2505" alt="组件库截图：字体样式，包括品牌标题字、思源宋体、思源黑体、数字字体、12 个文本样式与文字颜色" loading="lazy"></button></div>
+      <div class="lib-panel" role="tabpanel" data-lib-panel hidden><button class="lib-shot" data-zoom="assets/portfolio/liuyao-v8/lib-components.jpg" data-ztitle="组件库 · 03 组件库" data-group="lib"><img src="assets/portfolio/liuyao-v8/lib-components.jpg" width="2400" height="3624" alt="组件库截图：按钮、分段标签、状态标签、表单、功能卡片、起卦组件与结果页模块" loading="lazy"></button></div>
+      <p class="lib-hint">点击截图查看大图</p>
+    </div>
+    <div class="lib-note reveal">
+      <h3>调用 Figma 分析设计母稿</h3>
+      <div>
+        <p>导入项目原始设计稿，由 Codex 自动提取稿件内的颜色、字号、边距、圆角、控件尺寸等零散数据，整理成设计规范，剔除原稿中不统一的非标样式，输出标准化色卡、文字规范和间距规则，省去人工逐一丈量统计。</p>
+        <p>再把这套统一规范同步到 Figma 样式库，批量生成按钮、卡片、输入框等基础组件及多状态变体。采用主组件联动机制，修改主样式即可全页面同步更新，快速落地完整组件库。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 首页 -->
+<section id="home" class="chapter" aria-labelledby="home-title">
+  <div class="wrap">
+    <header class="chapter-head reveal"><p class="kicker">首页</p><h2 id="home-title">打开就知道，<br>从哪里开始</h2></header>
+  </div>
+  <div class="home-scrolly" id="home-scrolly">
+    <div class="home-sticky">
+      <div class="wrap home-grid">
+        <div class="home-left">
+          <p class="body">首页要同时放下 7 个功能和当日卦象，最大的风险是用户找不到起点。解法是<strong>一个主入口 + 一组功能卡片</strong>建立优先级，再用色块和留白区分模块。</p>
+          <ul class="icon-list">
+            <li><span class="ic-tile"><svg><use href="#i-smile"/></svg></span><div><h4>清晰的功能入口</h4><p>所有主要功能在首屏可见，减少查找和思考成本。</p></div></li>
+            <li><span class="ic-tile"><svg><use href="#i-layers"/></svg></span><div><h4>信息层级与视觉引导</h4><p>主入口用金色按钮，功能卡片用不同底色区分。</p></div></li>
+            <li><span class="ic-tile"><svg><use href="#i-tap"/></svg></span><div><h4>低学习成本</h4><p>每张卡片一句话说明用途，不用读说明就能上手。</p></div></li>
+          </ul>
+        </div>
+        <figure class="phone home-phone is-zoning" id="home-phone">
+          <span class="phone-screen"><img src="assets/portfolio/liuyao-v7/screen-home.png" width="750" height="1682" alt="六爻卜卦 App 首页设计" loading="lazy"><i class="zone-mask" id="zone-mask" aria-hidden="true" style="top:5%;bottom:76%"></i></span>
+        </figure>
+        <div class="annos-wrap">
+          <ol class="annos" id="home-annos" aria-label="首页区域说明">
+            <li><button data-zone="4.5,24" aria-pressed="true"><h4>当日信息区</h4><p>日期、时辰与吉凶状态，打开即得关键信息；铜钱元素点出产品主题。</p></button></li>
+            <li><button data-zone="25,36" aria-pressed="false"><h4>主入口：寻物</h4><p>最高频的场景放在最前，说明和「开始探索」按钮放在一起。</p></button></li>
+            <li><button data-zone="37,82" aria-pressed="false"><h4>六大功能区</h4><p>两列卡片，名称 + 一句用途说明，配不同底色便于区分。</p></button></li>
+            <li><button data-zone="83,96" aria-pressed="false"><h4>AI 解读推荐</h4><p>强调专业算法、精准分析和隐私安全，建立信任。</p></button></li>
+          </ol>
+          <p class="scroll-hint" id="scroll-hint"><span class="mouse" aria-hidden="true"></span><span id="scroll-hint-text">继续向下滚动，查看下一个区域</span><b id="zone-count">1 / 4</b></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 摇卦排盘 -->
+<section id="paipan" class="chapter chapter-alt" aria-labelledby="pp-title">
+  <div class="wrap">
+    <header class="chapter-head reveal"><p class="kicker">摇卦排盘</p><h2 id="pp-title">把等待，变成一场仪式</h2></header>
+    <div class="pp-grid">
+      <div class="pp-left">
+        <p class="body reveal">起卦是整个产品最有文化感的一刻，也是用户最容易失去耐心的一刻。设计上用龟甲和铜钱承载仪式感，用逐爻出现的线条和进度点告诉用户「还差几步」。</p>
+        <ul class="pp-feats">
+          <li class="reveal"><span class="feat-pair"><img src="assets/portfolio/liuyao/2040-736-raw-04.png" width="307" height="376" alt="" loading="lazy"><img class="feat-coin" src="assets/portfolio/liuyao-v7/coin.png" width="58" height="58" alt=""></span><div><h4>龟甲与铜钱</h4><p>点击龟甲或摇晃手机起爻，铜钱翻转动画给出即时反馈。</p></div></li>
+          <li class="reveal"><span class="yao-icon" aria-hidden="true"><i></i><i class="yin"></i><i></i><i></i><i class="yin"></i><i></i></span><div><h4>逐爻生成</h4><p>六条爻自下而上出现，阴阳一目了然，动爻用红色标记。</p></div></li>
+        </ul>
+        <p class="try reveal">右侧是可以操作的网页原型，试着起一卦 <i class="iconfont icon-right-arrow i-inline" aria-hidden="true"></i></p>
+      </div>
+
+      <div class="pp-demo reveal">
+        <div class="phone cast-phone" id="cast-phone">
+          <div class="phone-screen cast-screen">
+            <div class="cs-status"><span>9:41</span><span class="sig" aria-hidden="true"></span></div>
+            <div class="cs-title"><span aria-hidden="true"><i class="iconfont icon-left i-inline" aria-hidden="true"></i></span><b>占卜解答</b><span></span></div>
+            <p class="cs-sub">— 玄机卜卦 · 指引寻回 —</p>
+            <p class="cs-hint" data-z="core">点击龟甲或摇晃手机起爻</p>
+            <div class="cs-core" data-z="core">
+              <span class="side l">静心专注</span><span class="side r">卦定吉凶</span>
+              <button class="turtle" id="turtle" aria-label="点击龟甲起一爻"><img src="assets/portfolio/liuyao/2040-736-raw-04.png" width="307" height="376" alt=""></button>
+            </div>
+            <div class="cs-coins" id="coins" data-z="state" aria-hidden="true">
+              <span class="coin"><b class="f"><img src="assets/portfolio/liuyao-v7/coin.png" width="58" height="58" alt=""></b><b class="k"></b></span>
+              <span class="coin"><b class="f"><img src="assets/portfolio/liuyao-v7/coin.png" width="58" height="58" alt=""></b><b class="k"></b></span>
+              <span class="coin"><b class="f"><img src="assets/portfolio/liuyao-v7/coin.png" width="58" height="58" alt=""></b><b class="k"></b></span>
+            </div>
+            <div class="cs-progress" data-z="aux"><p id="cast-count">已起爻 0 / 6</p><ol id="cast-dots"><li>初爻</li><li>二爻</li><li>三爻</li><li>四爻</li><li>五爻</li><li>上爻</li></ol></div>
+            <ol class="cs-lines" id="cast-lines" data-z="detail" aria-live="polite"></ol>
+          </div>
+        </div>
+        <div class="cast-ctrl">
+          <button class="btn btn-gold" id="cast-btn">起初爻</button>
+          <button class="btn btn-ghost" id="cast-all">一键起卦</button>
+          <button class="btn btn-text" id="cast-reset">重新起卦</button>
+        </div>
+        <div class="cast-result" id="cast-result" hidden>
+          <p class="cr-label">起卦完成 · 网页原型随机演示，非真实预测</p>
+          <div class="cr-row"><div><small>本卦</small><b id="cr-ben">—</b></div><span aria-hidden="true"><i class="iconfont icon-right-arrow i-inline" aria-hidden="true"></i></span><div><small>变卦</small><b id="cr-bian">—</b></div></div>
+          <p id="cr-dong" class="small">动爻：—</p>
+          <a class="text-link" href="#result">接下来：结果页如何解读 <i class="iconfont icon-down-arrow i-inline" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <ol class="annos pp-annos reveal" id="pp-annos" aria-label="排盘页区域说明，悬停高亮对应区域">
+        <li><button data-hl="core"><h4>核心交互区</h4><p>龟甲是唯一的主操作，传统元素增强仪式感和心理认同。</p></button></li>
+        <li><button data-hl="state"><h4>铜钱状态</h4><p>每次起爻翻转铜钱，正反面决定这一爻的阴阳。</p></button></li>
+        <li><button data-hl="aux"><h4>进度提示</h4><p>显示已起几爻，用户随时知道还要几步。</p></button></li>
+        <li><button data-hl="detail"><h4>卦爻详情</h4><p>每条爻的阴阳和动静配文字，扫一眼就能看懂。</p></button></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- 结果页 -->
+<section id="result" class="chapter" aria-labelledby="rs-title">
+  <div class="wrap">
+    <header class="chapter-head reveal"><p class="kicker">结果页</p><h2 id="rs-title">结论先行，<br>细节按需展开</h2></header>
+    <div class="rs-grid">
+      <div>
+        <p class="body reveal">结果页信息量最大：卦象、排盘、分析、方位、建议。按「结论 <i class="iconfont icon-right-arrow i-inline" aria-hidden="true"></i> 依据 <i class="iconfont icon-right-arrow i-inline" aria-hidden="true"></i> 行动」排序，用四个标签分层，再把方位和寻找顺序做成可视化。点击下面的条目，右侧手机会滚动到对应模块。</p>
+        <ul class="rs-items reveal" id="rs-items">
+          <li><button data-pos="0.125" aria-pressed="false"><span class="ic-tile"><svg><use href="#i-stat"/></svg></span><div><h4>卦象与爻辞</h4><p>卦名、六爻线条和白话解释放在一起，专业内容也能读懂。</p></div></button></li>
+          <li><button data-pos="0.497" aria-pressed="false"><span class="ic-tile"><svg><use href="#i-chart"/></svg></span><div><h4>综合分析与关键词</h4><p>先给「整体运势、寻找难度、找回概率」三个标签和关键词，再展开解释。</p></div></button></li>
+          <li><button data-pos="0.592" aria-pressed="false"><span class="ic-tile"><svg><use href="#i-compass"/></svg></span><div><h4>方位可视化</h4><p>用方向盘标出物品可能所在的方位，比一段文字更直观。</p></div></button></li>
+          <li><button data-pos="0.748" aria-pressed="false"><span class="ic-tile"><svg><use href="#i-list"/></svg></span><div><h4>行动建议</h4><p>把建议排成检查顺序：低处或下层 <i class="iconfont icon-right-arrow i-inline" aria-hidden="true"></i> 角落边缘 <i class="iconfont icon-right-arrow i-inline" aria-hidden="true"></i> 被遮挡处。</p></div></button></li>
+          <li><button data-pos="0.826" aria-pressed="false"><span class="ic-tile"><svg><use href="#i-award"/></svg></span><div><h4>总结与注意事项</h4><p>四个要点卡片收尾，并提示「仅供参考」，建立信任。</p></div></button></li>
+        </ul>
+      </div>
+      <div class="rs-stage reveal">
+        <div class="phone rs-phone"><div class="phone-screen rs-scroll" id="rs-scroll" tabindex="0" aria-label="寻物结果完整页面，可滚动"><img id="rs-img" src="assets/portfolio/liuyao/2020-1093-raw-04.png" width="454" height="4096" alt="寻物结果完整页面：本次卦象、爻卦排盘、综合分析、卦象总结" loading="lazy"></div></div>
+        <div class="seg rs-tabs" id="rs-tabs" aria-label="结果页模块快速定位"><button data-pos="0" aria-pressed="true">本次卦象</button><button data-pos="0.283" aria-pressed="false">爻卦排盘</button><button data-pos="0.497" aria-pressed="false">综合分析</button><button data-pos="0.82" aria-pressed="false">卦象总结</button></div>
+        <p class="hint">可在手机内直接滚动 · <span id="rs-pct">已阅读 0%</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="all-pages" id="all-pages" aria-labelledby="all-pages-title">
+      <div class="all-pages-head"><h2 id="all-pages-title">全部页面</h2><p>按住可左右拖动预览</p></div>
+      <div class="all-pages-viewport" data-all-pages>
+        <div class="all-pages-track">
+        <figure class="all-pages-item"><img src="assets/all-pages/liuyao/01.jpg" width="405" height="880" alt="首页" loading="lazy" decoding="async" draggable="false"></figure>
+        <figure class="all-pages-item"><img src="assets/all-pages/liuyao/02.jpg" width="406" height="880" alt="提问" loading="lazy" decoding="async" draggable="false"></figure>
+        <figure class="all-pages-item"><img src="assets/all-pages/liuyao/03.jpg" width="406" height="880" alt="静心" loading="lazy" decoding="async" draggable="false"></figure>
+        <figure class="all-pages-item"><img src="assets/all-pages/liuyao/04.jpg" width="406" height="880" alt="摇卦" loading="lazy" decoding="async" draggable="false"></figure>
+        <figure class="all-pages-item"><img src="assets/all-pages/liuyao/05.jpg" width="406" height="880" alt="信息" loading="lazy" decoding="async" draggable="false"></figure>
+        <figure class="all-pages-item"><img src="assets/all-pages/liuyao/06.jpg" width="406" height="880" alt="报告" loading="lazy" decoding="async" draggable="false"></figure>
+        <figure class="all-pages-item"><img src="assets/all-pages/liuyao/07.jpg" width="349" height="758" alt="结果 1" loading="lazy" decoding="async" draggable="false"></figure>
+        <figure class="all-pages-item"><img src="assets/all-pages/liuyao/08.jpg" width="405" height="880" alt="结果 2" loading="lazy" decoding="async" draggable="false"></figure>
+        <figure class="all-pages-item"><img src="assets/all-pages/liuyao/09.jpg" width="349" height="758" alt="结果 3" loading="lazy" decoding="async" draggable="false"></figure>
+        <figure class="all-pages-item"><img src="assets/all-pages/liuyao/10.jpg" width="349" height="758" alt="结果 4" loading="lazy" decoding="async" draggable="false"></figure>
+        <figure class="all-pages-item"><img src="assets/all-pages/liuyao/11.jpg" width="406" height="880" alt="摇卦排盘" loading="lazy" decoding="async" draggable="false"></figure>
+        </div>
+      </div>
+    </section>
+    <div class="wrap project-detail-end"><a class="ui-button ui-button--outline" href="project-fengsuitang.html"><span>下一个项目</span></a></div>
+</main>
+
+<footer class="content-footer"><a href="index.html">首页</a><a href="works.html">作品集</a><a href="ai-learning.html">AI 学习</a></footer>
+<button class="to-top" id="to-top" aria-label="回到顶部" hidden><i class="iconfont icon-up-arrow i-inline" aria-hidden="true"></i></button>
+<dialog id="image-dialog" aria-label="大图预览"><div class="dialog-bar"><strong id="image-title"></strong><div><button id="image-prev">上一张</button><button id="image-next">下一张</button><button id="image-close">关闭 ×</button></div></div><div class="image-scroll"><img id="large-image" alt=""></div></dialog>
+<button class="site-to-top" type="button" aria-label="回到顶部"><i class="iconfont icon-up" aria-hidden="true"></i></button>
+<script src="site-common.js?v=2" defer></script>
+</body>
+</html>

@@ -1,0 +1,982 @@
+/* The cover and the case study share one responsive content width. */
+.seerq-reference-page {
+  --seerq-content-width: var(--detail-width);
+  background-color: #f8f6ef;
+  background-image:
+    radial-gradient(circle 430px at 17% 9%, rgba(177, 212, 244, .17), transparent 79%),
+    radial-gradient(circle 380px at 83% 27%, rgba(209, 190, 240, .13), transparent 80%),
+    radial-gradient(circle 460px at 12% 52%, rgba(245, 198, 221, .10), transparent 81%),
+    radial-gradient(circle 420px at 79% 76%, rgba(175, 210, 237, .11), transparent 80%);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+.seerq-reference-page .seerq-case-study {
+  width: 100%;
+  margin: 0;
+  padding: 0 0 100px;
+  overflow: visible;
+  background: transparent;
+}
+.seerq-reference-page .seerq-case-section {
+  position: relative;
+  box-sizing: border-box;
+  width: min(var(--seerq-content-width), calc(100% - 64px));
+  max-width: none;
+  height: auto;
+  min-height: 0;
+  margin: 0 auto;
+  padding: 86px 0 0;
+  overflow: visible;
+  scroll-margin-top: 96px;
+}
+.seerq-reference-page .seerq-case-section:last-child { margin-bottom: 0; }
+.seerq-case-study .seerq-section-heading { max-width: none; margin: 0 0 28px; }
+.seerq-case-study .seerq-section-heading h2,
+.seerq-case-study .seerq-subheading h3 {
+  font-size: var(--fs-h2);
+  line-height: 1.12;
+}
+.seerq-case-study .seerq-section-heading > span,
+.seerq-case-study .seerq-subheading > span {
+  max-width: none;
+  margin-top: 9px;
+  font-size: var(--fs-lead);
+  line-height: 1.65;
+}
+.seerq-case-study .seerq-subheading { margin: 80px 0 30px; }
+.seerq-case-study .seerq-paper-card,
+.seerq-case-study .seerq-callout,
+.seerq-case-study .seerq-light-note {
+  background-color: rgba(255, 255, 255, .74);
+  box-shadow: 0 16px 36px -32px rgba(79, 58, 18, .30);
+}
+.seerq-case-study img { max-width: 100%; }
+
+/* Overview */
+.seerq-case-study .seerq-star-grid {
+  width: 100%;
+  margin: 0;
+  grid-template-columns: .88fr .88fr 1.45fr 1.04fr;
+  gap: 16px;
+  align-items: center;
+}
+.seerq-case-study .seerq-star-grid > article {
+  min-width: 0;
+  min-height: 392px;
+  padding: 30px 25px;
+}
+.seerq-case-study .seerq-star-grid .seerq-star-action { min-height: 475px; padding: 36px 29px; }
+.seerq-case-study .seerq-star-grid > article > span { font-size: var(--fs-stat); line-height: 1; }
+.seerq-case-study .seerq-star-grid h3 { margin: 20px 0 15px; font-size: var(--fs-lead); white-space: normal; }
+.seerq-case-study .seerq-star-grid p,
+.seerq-case-study .seerq-star-grid li { font-size: var(--fs-body); line-height: 1.75; }
+.seerq-case-study .seerq-star-grid li + li { margin-top: 9px; }
+.seerq-case-study .seerq-result-mini-grid { gap: 10px; }
+.seerq-case-study .seerq-result-mini-grid strong {
+  width: auto;
+  min-height: 94px;
+  padding: 14px 11px;
+  font-size: var(--fs-card-title);
+}
+.seerq-case-study .seerq-result-mini-grid small { margin-top: 7px; font-size: var(--fs-caption); line-height: 1.4; }
+
+/* Discovery: labels, journey diagram, reasoning and evidence. */
+.seerq-case-study .seerq-section-ruler {
+  position: relative;
+  inset: auto;
+  display: grid;
+  min-height: 40px;
+  margin: 26px 0 24px;
+  grid-template-columns: 1fr 1fr;
+  gap: 38px;
+  justify-items: center;
+}
+.seerq-case-study .seerq-section-ruler span { padding: 8px 24px; font-size: var(--fs-body); }
+.seerq-case-study .seerq-insight-map {
+  display: grid;
+  grid-template-columns: minmax(0, 1.02fr) minmax(0, 1fr);
+  gap: 38px;
+  align-items: start;
+}
+.seerq-case-study .seerq-journey-card {
+  width: 100%;
+  height: auto;
+  padding: 0;
+  overflow: hidden;
+  background: #fff;
+}
+.seerq-case-study .seerq-journey-card img { display: block; width: 100%; height: auto; object-fit: contain; }
+.seerq-insight-right { min-width: 0; }
+.seerq-case-study .seerq-question-card { width: 100%; height: auto; padding: 24px 28px 26px; }
+.seerq-question-title { display: none; }
+.seerq-case-study .seerq-question-card dl { margin: 0; }
+.seerq-case-study .seerq-question-card dt { margin: 0 0 4px; font-size: var(--fs-card-title); line-height: 1.45; }
+.seerq-case-study .seerq-question-card dt:not(:first-child) { margin-top: 24px; }
+.seerq-case-study .seerq-question-card dd { margin: 0 0 0 38px; font-size: var(--fs-lead); line-height: 1.6; }
+.seerq-insight-outcomes {
+  display: grid;
+  margin-top: 40px;
+  grid-template-columns: 100px 72px minmax(0, 1fr);
+  gap: 8px;
+  align-items: end;
+}
+.seerq-praise { display: grid; justify-items: center; gap: 4px; font-size: var(--fs-card-title); }
+.seerq-praise img { width: 58px; height: 58px; object-fit: contain; }
+.seerq-insight-arrow { width: 72px; align-self: center; }
+.seerq-case-study .seerq-insight-outcomes .seerq-inline-metrics { display: grid; margin: 0; grid-template-columns: 1fr 1fr; gap: 10px; }
+.seerq-case-study .seerq-insight-outcomes .seerq-inline-metrics strong {
+  display: block;
+  padding: 10px 8px;
+  border: 1px solid #fff;
+  border-radius: var(--radius);
+  background: rgba(255,255,255,.77);
+  font-size: var(--fs-title);
+  line-height: 1.25;
+  text-align: center;
+}
+.seerq-case-study .seerq-insight-outcomes .seerq-inline-metrics small {
+  margin: 0 0 7px;
+  font-size: var(--fs-small);
+  line-height: 1.3;
+}
+.seerq-inline-metrics em { color: #e9bd64; font-style: normal; }
+.seerq-case-study .seerq-goal-heading > span {
+  display: table;
+  margin-top: 24px;
+  padding: 9px 24px;
+  color: #fff;
+  font-size: var(--fs-body);
+  line-height: 1.3;
+  opacity: 1;
+}
+.seerq-goal-heading p { margin: 18px 0 0; color: #70747b; font-size: var(--fs-lead); line-height: 1.65; }
+.seerq-case-study .seerq-goal-map {
+  display: grid;
+  grid-template-columns: minmax(0, 1.75fr) minmax(0, .75fr);
+  gap: 12px;
+  align-items: center;
+}
+.seerq-goal-diagram,
+.seerq-goal-outcomes { display: block; width: 100%; height: auto; }
+.seerq-case-study .seerq-callout {
+  width: min(820px, 100%);
+  margin: 12px 0 0;
+  padding: 24px 28px;
+  font-size: var(--fs-lead);
+  line-height: 1.65;
+}
+
+/* A supplied transparent collage keeps the three report sheets in their Figma order. */
+.seerq-case-study .seerq-report-stack {
+  display: grid;
+  grid-template-columns: minmax(0, 2.1fr) minmax(0, .85fr);
+  gap: 38px;
+  align-items: center;
+}
+.seerq-case-study .seerq-report-collage {
+  width: 100%;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  border-radius: 0;
+  box-shadow: none;
+  transform: none;
+}
+.seerq-case-study .seerq-report-collage img { display: block; width: 100%; height: auto; object-fit: contain; }
+.seerq-case-study .seerq-report-flow { display: grid; width: 100%; margin: 0; gap: 4px; justify-items: stretch; }
+.seerq-case-study .seerq-report-flow span,
+.seerq-case-study .seerq-report-flow strong {
+  display: grid;
+  min-height: 76px;
+  padding: 18px 14px;
+  place-items: center;
+  border: 1px solid #fff;
+  border-radius: var(--radius);
+  background: rgba(255,255,255,.82);
+  color: #bd7b00;
+  font-size: var(--fs-lead);
+  font-weight: 700;
+  line-height: 1.35;
+  text-align: center;
+  box-shadow: none;
+}
+.seerq-case-study .seerq-report-flow strong { background: #fff4d9; color: var(--seerq-ink); }
+.seerq-report-flow img { display: block; width: 28px; height: 28px; justify-self: center; object-fit: contain; }
+
+/* Strategy and design language */
+.seerq-case-study .seerq-strategy-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 38px;
+  align-items: start;
+}
+.seerq-case-study .seerq-strategy-grid article { min-height: 0; padding: 28px; }
+.seerq-case-study .seerq-strategy-evidence h3 { margin: 0 0 8px; font-size: var(--fs-card-title); }
+.seerq-case-study .seerq-strategy-evidence h3:nth-of-type(2) { margin-top: 26px; }
+.seerq-case-study .seerq-strategy-evidence strong { margin: 0 0 8px; font-size: var(--fs-card-title); }
+.seerq-case-study .seerq-strategy-evidence p,
+.seerq-case-study .seerq-strategy-summary p { margin: 0; font-size: var(--fs-lead); line-height: 1.6; }
+.seerq-case-study .seerq-insight-flow { margin-top: 24px; gap: 10px; }
+.seerq-case-study .seerq-insight-flow > div { gap: 7px; }
+.seerq-case-study .seerq-insight-flow > div { position: relative; }
+.seerq-case-study .seerq-insight-flow > div:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 54px;
+  right: -14px;
+  width: 18px;
+  height: 18px;
+  background: url("assets/portfolio/seerq-reference/right-arrow.png") center / contain no-repeat;
+}
+.seerq-case-study .seerq-insight-flow span {
+  padding: 7px 8px;
+  font-size: var(--fs-caption);
+  line-height: 1.4;
+}
+.seerq-case-study .seerq-insight-flow b {
+  margin-top: 12px;
+  padding: 9px 6px;
+  font-size: var(--fs-body);
+  line-height: 1.35;
+}
+.seerq-strategy-right { display: grid; gap: 16px; }
+.seerq-case-study .seerq-strategy-summary { padding: 25px 28px; }
+.seerq-case-study .seerq-outline-pills { display: flex; margin-top: 18px; justify-content: space-between; gap: 10px; flex-wrap: nowrap; }
+.seerq-case-study .seerq-outline-pills span { padding: 8px 13px; font-size: var(--fs-small); text-align: center; }
+.seerq-case-study .seerq-four-cards { display: grid; margin: 0; grid-template-columns: 1fr 1fr; gap: 12px; }
+.seerq-case-study .seerq-four-cards article {
+  min-width: 0;
+  min-height: 122px;
+  padding: 20px;
+  border: 1px solid #fff;
+  border-radius: var(--radius);
+  background: rgba(255,255,255,.79);
+  color: #c67e00;
+  font-size: var(--fs-lead);
+  font-weight: 700;
+}
+.seerq-case-study .seerq-four-cards small { display: block; margin-top: 8px; color: #747677; font-size: var(--fs-body); font-weight: 500; line-height: 1.45; }
+.seerq-case-study .seerq-language-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: start; }
+.seerq-case-study .seerq-language-grid h3 { margin: 0 0 6px; font-size: var(--fs-card-title); }
+.seerq-case-study .seerq-language-grid p { min-height: 54px; margin: 0; font-size: var(--fs-lead); line-height: 1.6; }
+.seerq-case-study .seerq-process-row { margin: 24px 0 7px; gap: 9px; }
+.seerq-case-study .seerq-process-row span { min-width: 0; padding: 9px 10px; font-size: var(--fs-body); }
+.seerq-case-study .seerq-process-row i { font-size: var(--fs-card-title); }
+.seerq-process-captions { display: grid; margin: 0 0 18px; grid-template-columns: repeat(3,1fr); gap: 10px; color: #c78d2d; font-size: var(--fs-small); text-align: center; }
+.seerq-language-asset { display: block; width: 100%; height: auto; object-fit: contain; }
+.seerq-spacing-asset { margin-top: 22px; }
+
+/* Component foundations and the original Figma library illustration. */
+.seerq-case-study .seerq-component-grid {
+  display: grid;
+  grid-template-columns: minmax(0,1fr) minmax(0,1fr);
+  column-gap: 48px;
+  row-gap: 26px;
+  align-items: start;
+}
+.seerq-case-study .seerq-component-intro:first-child { grid-column: 1; grid-row: 1; }
+.seerq-case-study .seerq-component-intro:nth-child(2) { grid-column: 2; grid-row: 1; }
+.seerq-case-study .seerq-component-intro h3 { margin: 0 0 7px; font-size: var(--fs-card-title); }
+.seerq-case-study .seerq-component-intro p { margin: 0; color: #737780; font-size: var(--fs-lead); line-height: 1.6; }
+.seerq-case-study .seerq-atomic-card {
+  box-sizing: border-box;
+  width: 100%;
+  height: auto;
+  min-height: 178px;
+  padding: 24px;
+  grid-column: 1;
+  grid-row: 2;
+}
+.seerq-case-study .seerq-atomic-card b { font-size: var(--fs-body); }
+.seerq-case-study .seerq-atomic-card small { font-size: var(--fs-caption); line-height: 1.45; }
+.seerq-case-study .seerq-figma-workflow {
+  width: 100%;
+  height: auto;
+  margin: 0;
+  grid-column: 1;
+  grid-row: 3;
+  object-fit: contain;
+}
+.seerq-case-study .seerq-system-assets {
+  position: relative;
+  display: block;
+  min-height: 394px;
+  grid-column: 2;
+  grid-row: 2 / span 2;
+}
+.seerq-case-study .seerq-system-assets img:first-child {
+  display: block;
+  width: 70%;
+  height: auto;
+  object-fit: contain;
+}
+.seerq-case-study .seerq-system-assets img:last-child {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 49%;
+  height: auto;
+  margin: 0;
+  object-fit: contain;
+}
+.seerq-case-study .seerq-library-row {
+  display: block;
+  width: 100%;
+  margin: 90px 0 0;
+  padding: 0;
+  overflow: hidden;
+  border-radius: var(--radius);
+}
+.seerq-case-study .seerq-library-row img { display: block; width: 100%; height: auto; object-fit: contain; }
+
+/* Before / after structure with complete, uncropped screens. */
+.seerq-case-study .seerq-framework-ruler,
+.seerq-case-study .seerq-framework {
+  display: grid;
+  grid-template-columns: minmax(0,.96fr) minmax(0,.72fr) 54px minmax(0,.72fr) minmax(0,.96fr);
+  gap: 20px;
+}
+.seerq-case-study .seerq-framework-ruler {
+  min-height: 28px;
+  margin: 24px 0 26px;
+  align-items: start;
+}
+.seerq-case-study .seerq-framework-ruler span { margin-top: -15px; padding: 7px 15px; font-size: var(--fs-small); }
+.seerq-case-study .seerq-framework { align-items: stretch; }
+.seerq-case-study .seerq-framework > * { min-width: 0; }
+.seerq-case-study .seerq-framework .seerq-phone-shot { width: 100%; height: auto; overflow: visible; }
+.seerq-case-study .seerq-framework .seerq-phone-shot img { display: block; width: 100%; max-width: none; height: auto; object-fit: contain; }
+.seerq-case-study .seerq-problem-stack,
+.seerq-case-study .seerq-rebuild-stack { display: grid; grid-template-rows: repeat(4,auto) minmax(190px,1fr); gap: 7px; }
+.seerq-case-study .seerq-problem-stack span,
+.seerq-case-study .seerq-rebuild-stack span { padding: 14px 12px; font-size: var(--fs-small); line-height: 1.5; }
+.seerq-case-study .seerq-problem-stack span:nth-child(5) { display: grid; align-items: end; }
+.seerq-case-study .seerq-rebuild-stack { grid-template-rows: 1fr 1fr 3fr; }
+.seerq-case-study .seerq-rebuild-stack span { display: grid; align-content: center; background: #fffaf0; }
+.seerq-case-study .seerq-flow-arrow { width: 54px; height: auto; align-self: center; opacity: 1; }
+.seerq-case-study .seerq-wireframe { width: 100%; min-height: 0; padding: 7px; grid-template-rows: .8fr 1.2fr .7fr 2.2fr 1fr; gap: 7px; }
+.seerq-case-study .seerq-wireframe span { display: grid; min-width: 0; padding: 14px 9px; place-content: center; font-size: var(--fs-small); line-height: 1.45; }
+
+/* Landing page work: two complete phone screens, then evidence and decisions. */
+.seerq-case-study .seerq-home-delivery {
+  display: grid;
+  grid-template-columns: minmax(0,.76fr) minmax(0,.76fr) minmax(0,1.06fr);
+  gap: 24px;
+  align-items: start;
+}
+.seerq-case-study .seerq-home-delivery .seerq-phone-shot { width: 100%; height: auto; overflow: visible; }
+.seerq-case-study .seerq-home-delivery .seerq-phone-shot img { display: block; width: 100%; max-width: 100%; height: auto; object-fit: contain; }
+.seerq-case-study .seerq-home-notes { display: grid; gap: 16px; }
+.seerq-case-study .seerq-home-notes article { padding: 23px 25px; }
+.seerq-case-study .seerq-home-notes h3,
+.seerq-case-study .seerq-home-notes h4 { margin: 0 0 10px; color: #c88000; font-size: var(--fs-lead); line-height: 1.35; }
+.seerq-case-study .seerq-home-notes h4 { margin: 17px 0 5px; font-size: var(--fs-body); }
+.seerq-case-study .seerq-home-notes p { margin: 0; font-size: var(--fs-body); line-height: 1.7; }
+.seerq-home-results h3 { display: flex; align-items: center; gap: 8px; }
+.seerq-home-results h3 img { width: 34px; height: 34px; object-fit: contain; }
+.seerq-case-study .seerq-home-results .seerq-inline-metrics { display: grid; margin: 8px 0 18px; grid-template-columns: 1fr 1fr; gap: 12px; }
+.seerq-case-study .seerq-home-results .seerq-inline-metrics strong { padding: 12px; font-size: var(--fs-title); }
+.seerq-case-study .seerq-home-results .seerq-inline-metrics small { margin: 0 0 6px; font-size: var(--fs-small); }
+.seerq-case-study .seerq-segment-table { display: block; margin-top: 65px; border: 0; }
+.seerq-segment-head,
+.seerq-segment-row { display: grid; grid-template-columns: 78px repeat(3,minmax(0,1fr)); gap: 14px; align-items: stretch; }
+.seerq-segment-head { position: relative; margin-bottom: 16px; align-items: center; }
+.seerq-segment-head::before { content: ""; position: absolute; z-index: -1; top: 50%; right: 0; left: 78px; border-top: 1px dashed #d7bb81; }
+.seerq-segment-head span { justify-self: center; padding: 8px 18px; border-radius: 999px; background: #252932; color: #fff; font-size: var(--fs-body); }
+.seerq-segment-head span:first-child { grid-column: 2; }
+.seerq-segment-head span:last-child { background: #fff4d9; color: #6d5b3d; }
+.seerq-segment-row { margin-top: 18px; }
+.seerq-segment-row > * { display: grid; min-width: 0; min-height: 106px; padding: 20px 17px; place-content: center; border: 1px solid #fff; border-radius: var(--radius); background: rgba(255,255,255,.76); color: #70747c; font-size: var(--fs-body); font-weight: 500; line-height: 1.55; }
+.seerq-segment-row > b { padding: 0; border: 0; background: transparent; color: #c67e00; font-weight: 700; }
+.seerq-segment-row > strong { background: #fff7dd; color: #292b2e; font-weight: 700; }
+
+/* A/B test */
+.seerq-case-study [data-seerq-section="ai-test"] .seerq-section-heading > span,
+.seerq-case-study [data-seerq-section="service-pages"] .seerq-section-heading > span {
+  display: inline-flex;
+  margin-top: 18px;
+  padding: 8px 18px;
+  font-size: var(--fs-body);
+  line-height: 1.4;
+}
+.seerq-ab-intro { margin: 0 0 30px; color: #70747b; font-size: var(--fs-lead); }
+.seerq-case-study .seerq-ab-grid {
+  display: grid;
+  grid-template-columns: minmax(0,1fr) minmax(0,1fr) minmax(0,1.1fr);
+  gap: 25px;
+  align-items: start;
+}
+.seerq-case-study .seerq-ab-grid figure { min-width: 0; margin: 0; }
+.seerq-case-study .seerq-ab-grid figure:nth-child(1) { grid-column: 1; grid-row: 1; }
+.seerq-case-study .seerq-ab-grid figure:nth-child(2) { grid-column: 2; grid-row: 1; }
+.seerq-case-study .seerq-ab-grid figure:not(.seerq-hand-phone) > img { display: block; width: 100%; height: auto; object-fit: contain; }
+.seerq-case-study .seerq-ab-grid figcaption { margin-top: 18px; }
+.seerq-case-study .seerq-ab-grid figcaption b { color: var(--seerq-ink); font-size: var(--fs-card-title); }
+.seerq-case-study .seerq-ab-grid figcaption b span { color: #c98000; font-size: var(--fs-title); }
+.seerq-case-study .seerq-ab-grid figcaption small { color: #72767e; font-size: var(--fs-small); line-height: 1.45; }
+.seerq-case-study .seerq-hand-phone { grid-column: 3; grid-row: 1 / span 2; }
+.seerq-case-study .seerq-hand-phone img { display: block; width: 100%; max-width: none; height: auto; }
+.seerq-case-study .seerq-light-note {
+  display: grid;
+  width: min(780px, 68%);
+  max-width: none;
+  margin: -180px 0 0;
+  padding: 23px 27px;
+  grid-template-columns: minmax(0,1fr) 190px;
+  gap: 20px;
+  align-items: center;
+}
+.seerq-case-study .seerq-light-note h3 { margin: 0 0 7px; font-size: var(--fs-card-title); }
+.seerq-case-study .seerq-light-note p { margin: 0; font-size: var(--fs-body); line-height: 1.65; }
+.seerq-case-study .seerq-light-note img { width: 100%; height: auto; }
+
+/* Service pages: natural image ratios keep each screen inside its own column. */
+.seerq-case-study .seerq-service-showcase {
+  display: grid;
+  grid-template-columns: minmax(0,.64fr) minmax(0,.64fr) minmax(0,1.22fr);
+  gap: 30px;
+  align-items: start;
+}
+.seerq-case-study .seerq-figma-phone { min-width: 0; width: 100%; height: auto; margin: 0; overflow: hidden; }
+.seerq-case-study .seerq-figma-phone img { display: block; width: 100%; height: auto; object-fit: contain; object-position: center top; }
+.seerq-case-study .seerq-service-copy { width: 100%; min-height: 0; padding: 26px 28px; }
+.seerq-case-study .seerq-service-copy h3 { margin: 24px 0 7px; font-size: var(--fs-card-title); line-height: 1.45; }
+.seerq-case-study .seerq-service-copy p { margin: 0; font-size: var(--fs-body); line-height: 1.7; }
+.seerq-case-study .seerq-info-grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0,1fr) minmax(0,.8fr) minmax(0,1fr);
+  grid-template-rows: auto auto;
+  column-gap: 8%;
+  row-gap: 34px;
+  align-items: start;
+  justify-content: stretch;
+}
+.seerq-case-study .seerq-info-grid::before {
+  content: "";
+  position: absolute;
+  top: 43%;
+  right: 22%;
+  left: 22%;
+  border-top: 1px dashed #9e9b8f;
+  pointer-events: none;
+}
+.seerq-case-study .seerq-info-grid .seerq-figma-phone { position: relative; z-index: 1; background: #fff; }
+.seerq-info-profile { grid-column: 1; grid-row: 1; }
+.seerq-info-messages { grid-column: 2; grid-row: 1; margin-top: 30px !important; }
+.seerq-info-system { grid-column: 3; grid-row: 1; margin-top: 30px !important; }
+.seerq-case-study .seerq-info-profile-note,
+.seerq-case-study .seerq-info-system-note { min-width: 0; padding: 22px 24px; }
+.seerq-info-profile-note { grid-column: 1; grid-row: 2; }
+.seerq-info-system-note { grid-column: 3; grid-row: 2; }
+.seerq-case-study .seerq-info-grid h4 { margin: 0 0 10px; color: #c67e00; font-size: var(--fs-card-title); }
+.seerq-case-study .seerq-info-grid p { margin: 0; color: #737780; font-size: var(--fs-body); line-height: 1.65; }
+
+/* Consultation is a three-column decision table beside two complete phone screens. */
+.seerq-case-study .seerq-consult-grid,
+.seerq-case-study .seerq-live-grid {
+  display: grid;
+  grid-template-columns: minmax(0,1.65fr) minmax(0,.72fr) minmax(0,.72fr);
+  gap: 22px;
+  align-items: start;
+}
+.seerq-case-study .seerq-consult-grid > *,
+.seerq-case-study .seerq-live-grid > * { min-width: 0; }
+.seerq-case-study .seerq-consult-table {
+  position: relative;
+  display: grid;
+  grid-template-columns: 29% 35% 36%;
+  grid-auto-rows: minmax(75px,auto);
+  border: 0;
+  background: none;
+}
+.seerq-case-study .seerq-consult-table::before,
+.seerq-case-study .seerq-consult-table::after {
+  content: "";
+  position: absolute;
+  top: 8px;
+  bottom: 0;
+  border-left: 1px dashed #dfba6b;
+  pointer-events: none;
+}
+.seerq-case-study .seerq-consult-table::before { left: 29%; }
+.seerq-case-study .seerq-consult-table::after { left: 64%; }
+.seerq-case-study .seerq-consult-table > * {
+  min-width: 0;
+  margin: 0;
+  padding: 13px 12px;
+  border: 0;
+  background: transparent;
+  color: #697078;
+  font-size: var(--fs-body);
+  line-height: 1.5;
+}
+.seerq-case-study .seerq-consult-table > b {
+  display: inline-grid;
+  width: max-content;
+  height: max-content;
+  margin: 10px auto;
+  padding: 9px 17px;
+  place-items: center;
+  border-radius: 999px;
+  background: #252932;
+  color: #fff;
+  font-size: var(--fs-body);
+}
+.seerq-case-study .seerq-consult-table > b:nth-child(3) { background: #fff3d7; color: #514632; }
+.seerq-case-study .seerq-consult-table strong {
+  display: inline-grid;
+  width: fit-content;
+  height: max-content;
+  align-self: center;
+  justify-self: center;
+  padding: 9px 13px;
+  place-items: center;
+  border: 1px solid #e7aa37;
+  border-radius: 999px;
+  color: #c58000;
+  font-size: var(--fs-body);
+  font-weight: 700;
+  text-align: center;
+}
+.seerq-case-study .seerq-consult-table span,
+.seerq-case-study .seerq-consult-table p { align-self: center; }
+.seerq-case-study .seerq-live-grid > article { grid-column: auto; min-height: 0; padding: 26px 28px; }
+.seerq-case-study .seerq-live-grid h3 { margin: 21px 0 6px; font-size: var(--fs-lead); }
+.seerq-case-study .seerq-live-grid h3:first-child { margin-top: 0; }
+.seerq-case-study .seerq-live-grid p { margin: 0; font-size: var(--fs-body); line-height: 1.6; }
+.seerq-case-study .seerq-live-grid .seerq-figma-phone,
+.seerq-case-study .seerq-live-grid .seerq-figma-phone--course-list { width: 100%; height: auto; }
+.seerq-case-study .seerq-live-grid .seerq-figma-phone img { width: 100%; height: auto; object-fit: contain; }
+
+/* GPT analysis, offer experiments, and the large conversion screen. */
+.seerq-case-study .seerq-growth-grid { display: grid; grid-template-columns: minmax(0,.9fr) minmax(0,1.1fr); gap: 34px; align-items: start; }
+.seerq-reference-page [data-seerq-section="growth"] { padding-bottom: 28px; }
+.seerq-growth-copy { display: grid; min-width: 0; gap: 24px; }
+.seerq-case-study .seerq-growth-copy > article { padding: 28px 30px; }
+.seerq-case-study .seerq-growth-copy h3 { margin: 24px 0 7px; font-size: var(--fs-card-title); }
+.seerq-case-study .seerq-growth-copy h3:first-child { margin-top: 0; }
+.seerq-case-study .seerq-growth-copy p { margin: 0; font-size: var(--fs-body); line-height: 1.7; }
+.seerq-growth-analysis { display: block; width: 100%; height: auto; border-radius: var(--radius); }
+.seerq-case-study .seerq-growth-visual { position: relative; display: block; width: 100%; height: auto; aspect-ratio: 1.13; }
+.seerq-case-study .seerq-growth-popup-stack { position: absolute; top: 0; left: 0; display: grid; width: 30%; height: 100%; grid-template-rows: 1fr 1fr; gap: 18px; }
+.seerq-case-study .seerq-growth-popup-stack figure { width: 100%; height: 100%; max-height: none; }
+.seerq-case-study .seerq-growth-popup-stack img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: top; }
+.seerq-case-study .seerq-growth-phone { position: absolute; top: 0; height: 100%; margin: 0; }
+.seerq-case-study .seerq-growth-phone--front { left: 34%; z-index: 2; width: 49%; }
+.seerq-case-study .seerq-growth-phone--back { left: 64%; z-index: 1; width: 34%; }
+.seerq-case-study .seerq-growth-phone img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+.seerq-case-study .seerq-popup-model { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 70px; align-items: center; }
+.seerq-case-study .seerq-popup-model > article { min-width: 0; }
+.seerq-case-study .seerq-popup-model > article > h3 { margin: 0 0 13px; font-size: var(--fs-card-title); line-height: 1.5; }
+.seerq-case-study .seerq-popup-model > article > p,
+.seerq-case-study .seerq-popup-model > article > ul { margin: 0 0 18px; color: #737780; font-size: var(--fs-lead); line-height: 1.65; }
+.seerq-case-study .seerq-popup-model > article > ul { padding-left: 30px; }
+.seerq-case-study .seerq-popup-model > article > h3:nth-of-type(2) { margin-top: 30px; }
+.seerq-case-study .seerq-popup-model .seerq-popup-strategies { display: grid; margin: 0 0 24px; grid-template-columns: repeat(3,1fr); gap: 14px; }
+.seerq-case-study .seerq-popup-strategies span {
+  display: grid;
+  min-width: 0;
+  min-height: 138px;
+  padding: 16px;
+  place-content: center;
+  border: 1px solid #fff;
+  border-radius: 50%;
+  background: #fff7dd;
+  text-align: center;
+}
+.seerq-case-study .seerq-popup-strategies b { color: #c78000; font-size: var(--fs-lead); }
+.seerq-case-study .seerq-popup-strategies small { margin-top: 8px; color: #77716a; font-size: var(--fs-caption); line-height: 1.45; }
+.seerq-case-study .seerq-popup-model .seerq-popup-results { display: grid; margin: 0; grid-template-columns: minmax(0,.9fr) minmax(0,1fr); gap: 28px; align-items: center; }
+.seerq-case-study .seerq-popup-results strong { display: block; padding: 15px; border: 1px solid #fff; border-radius: var(--radius); background: #fff7dd; color: #c78000; font-size: var(--fs-title); text-align: center; }
+.seerq-case-study .seerq-popup-results strong em { font-style: normal; }
+.seerq-case-study .seerq-popup-results strong small { display: block; padding: 5px 12px; border-radius: 999px; background: #fff; color: #775b30; font-size: var(--fs-small); }
+.seerq-case-study .seerq-popup-results > div { display: grid; gap: 10px; }
+.seerq-case-study .seerq-popup-results > div span { display: block; min-height: 0; padding: 8px 10px; border: 1px solid #dfa746; border-radius: 999px; background: #fff; color: #c78000; font-size: var(--fs-body); font-weight: 700; text-align: center; }
+.seerq-case-study .seerq-tilted-phone { width: min(100%, 410px); height: auto; min-height: 0; margin-inline: auto; padding: 0; border-radius: 52px; transform: rotate(6deg); }
+.seerq-case-study .seerq-tilted-phone img { display: block; width: 100%; height: auto; object-fit: contain; }
+
+/* The result cards keep their Figma order while fitting the cover width. */
+.seerq-case-study .seerq-result-grid {
+  width: 100%;
+  margin-inline: 0;
+  grid-template-columns: minmax(0,1.1fr) minmax(0,.79fr) minmax(0,.79fr) minmax(0,1.1fr);
+  grid-template-rows: 180px 180px;
+  column-gap: 5px;
+  row-gap: 165px;
+}
+.seerq-case-study .seerq-result-grid article { width: 100%; height: 180px; min-height: 0; padding: 18px 20px; }
+.seerq-case-study .seerq-result-grid article:nth-child(2),
+.seerq-case-study .seerq-result-grid article:nth-child(3) { width: 100%; height: auto; aspect-ratio: 1; transform: none; }
+.seerq-case-study .seerq-result-grid span { font-size: var(--fs-body); }
+.seerq-case-study .seerq-result-grid b { font-size: var(--fs-section); }
+.seerq-case-study .seerq-result-grid b::after { width: 34px; height: 34px; flex-basis: 34px; }
+.seerq-case-study .seerq-result-grid article > span { padding: 7px 10px; }
+.seerq-case-study .seerq-result-grid article > small { margin-top: 8px; font-size: var(--fs-small); }
+.seerq-case-study .seerq-summary-pills { width: min(900px,100%); max-width: 100%; margin-top: 55px; }
+.seerq-case-study .seerq-summary-pills span { padding: 15px 20px; font-size: var(--fs-body); line-height: 1.5; }
+
+@media (max-width: 1050px) {
+  .seerq-case-study .seerq-star-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .seerq-case-study .seerq-star-grid > article,
+  .seerq-case-study .seerq-star-grid .seerq-star-action { min-height: 0; }
+  .seerq-case-study .seerq-strategy-grid,
+  .seerq-case-study .seerq-language-grid,
+  .seerq-case-study .seerq-growth-grid,
+  .seerq-case-study .seerq-popup-model { grid-template-columns: 1fr; }
+  .seerq-case-study .seerq-component-grid { column-gap: 28px; }
+  .seerq-case-study .seerq-system-assets { min-height: 285px; }
+  .seerq-case-study .seerq-framework-ruler { display: none; }
+  .seerq-case-study .seerq-framework { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .seerq-case-study .seerq-framework .seerq-phone-shot { max-width: 300px; justify-self: center; }
+  .seerq-case-study .seerq-flow-arrow { display: none; }
+  .seerq-case-study .seerq-rebuild-stack { grid-column: 1; }
+  .seerq-case-study .seerq-wireframe { grid-column: 2; }
+  .seerq-case-study .seerq-home-delivery,
+  .seerq-case-study .seerq-service-showcase,
+  .seerq-case-study .seerq-consult-grid,
+  .seerq-case-study .seerq-live-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .seerq-case-study .seerq-home-notes,
+  .seerq-case-study .seerq-service-copy,
+  .seerq-case-study .seerq-consult-table,
+  .seerq-case-study .seerq-live-grid > article { grid-column: 1 / -1; }
+  .seerq-case-study .seerq-home-notes { grid-template-columns: repeat(3,minmax(0,1fr)); }
+  .seerq-case-study .seerq-home-delivery .seerq-phone-shot,
+  .seerq-case-study .seerq-service-showcase .seerq-figma-phone,
+  .seerq-case-study .seerq-consult-grid .seerq-figma-phone,
+  .seerq-case-study .seerq-live-grid .seerq-figma-phone { max-width: 320px; justify-self: center; }
+  .seerq-case-study .seerq-light-note { width: 100%; margin: 34px 0 0; }
+  .seerq-case-study .seerq-growth-visual { width: min(660px,100%); margin-inline: auto; }
+  .seerq-case-study .seerq-tilted-phone { max-width: 370px; }
+  .seerq-case-study .seerq-result-grid { grid-template-columns: repeat(2,minmax(0,1fr)); grid-template-rows: auto; gap: 16px; }
+  .seerq-case-study .seerq-result-grid article:nth-child(n) { grid-column: auto; grid-row: auto; height: auto; min-height: 150px; }
+  .seerq-case-study .seerq-result-grid article:nth-child(2),
+  .seerq-case-study .seerq-result-grid article:nth-child(3) { width: min(240px,100%); height: auto; aspect-ratio: 1; justify-self: center; }
+}
+
+@media (max-width: 767px) {
+  .seerq-reference-page .seerq-case-study { padding-bottom: 65px; }
+  .seerq-reference-page .seerq-case-section { width: calc(100% - 40px); padding: 66px 0 0; }
+  .seerq-case-study .seerq-section-heading h2,
+  .seerq-case-study .seerq-subheading h3 { font-size: var(--fs-h2); line-height: 1.14; }
+  .seerq-case-study .seerq-section-heading h2::after,
+  .seerq-case-study .seerq-subheading h3::after {
+    width: 38px;
+    height: 21px;
+    background-size: 38px 21px;
+  }
+  .seerq-case-study [data-seerq-section="insight"] .seerq-section-heading h2,
+  .seerq-case-study [data-seerq-section="reports"] .seerq-section-heading h2 { font-size: var(--fs-title); }
+  .seerq-case-study .seerq-section-heading > span,
+  .seerq-case-study .seerq-subheading > span { font-size: var(--fs-body); }
+  .seerq-case-study .seerq-subheading { margin: 65px 0 24px; }
+  .seerq-case-study .seerq-star-grid,
+  .seerq-case-study .seerq-insight-map,
+  .seerq-case-study .seerq-goal-map,
+  .seerq-case-study .seerq-report-stack,
+  .seerq-case-study .seerq-strategy-grid,
+  .seerq-case-study .seerq-language-grid,
+  .seerq-case-study .seerq-component-grid,
+  .seerq-case-study .seerq-framework,
+  .seerq-case-study .seerq-home-delivery,
+  .seerq-case-study .seerq-ab-grid,
+  .seerq-case-study .seerq-service-showcase,
+  .seerq-case-study .seerq-info-grid,
+  .seerq-case-study .seerq-consult-grid,
+  .seerq-case-study .seerq-live-grid,
+  .seerq-case-study .seerq-growth-grid,
+  .seerq-case-study .seerq-popup-model { grid-template-columns: 1fr; }
+  .seerq-case-study .seerq-star-grid > article { padding: 28px; }
+  .seerq-case-study .seerq-star-grid .seerq-star-action { padding: 28px; }
+  .seerq-case-study .seerq-section-ruler { display: none; }
+  .seerq-case-study .seerq-question-title { display: block; margin: 0 0 18px; color: #c67e00; font-size: var(--fs-lead); }
+  .seerq-case-study .seerq-question-card { padding: 22px; }
+  .seerq-case-study .seerq-question-card dt { font-size: var(--fs-lead); }
+  .seerq-case-study .seerq-question-card dd { margin-left: 24px; font-size: var(--fs-body); }
+  .seerq-insight-outcomes { margin-top: 24px; grid-template-columns: 62px 25px minmax(0,1fr); gap: 3px; }
+  .seerq-praise { font-size: var(--fs-small); }
+  .seerq-praise img { width: 42px; height: 42px; }
+  .seerq-insight-arrow { width: 25px; }
+  .seerq-case-study .seerq-insight-outcomes .seerq-inline-metrics strong { padding: 8px 5px; font-size: var(--fs-lead); }
+  .seerq-case-study .seerq-insight-outcomes .seerq-inline-metrics small { font-size: var(--fs-caption); }
+  .seerq-goal-heading p { font-size: var(--fs-body); }
+  .seerq-case-study .seerq-callout { padding: 20px; font-size: var(--fs-body); }
+  .seerq-case-study .seerq-report-flow { width: 100%; }
+  .seerq-case-study .seerq-report-flow span,
+  .seerq-case-study .seerq-report-flow strong { min-height: 62px; font-size: var(--fs-body); }
+  .seerq-case-study .seerq-strategy-grid article { padding: 22px; }
+  .seerq-case-study .seerq-outline-pills { flex-wrap: wrap; }
+  .seerq-case-study .seerq-four-cards { grid-template-columns: 1fr 1fr; }
+  .seerq-case-study .seerq-four-cards article { padding: 15px; font-size: var(--fs-body); }
+  .seerq-case-study .seerq-four-cards small { font-size: var(--fs-small); }
+  .seerq-case-study .seerq-language-grid { gap: 38px; }
+  .seerq-case-study .seerq-language-grid p { min-height: 0; }
+  .seerq-case-study .seerq-process-row span { font-size: var(--fs-caption); }
+  .seerq-process-captions { font-size: var(--fs-caption); }
+  .seerq-case-study .seerq-component-grid > * { grid-column: 1 !important; grid-row: auto !important; }
+  .seerq-case-study .seerq-component-grid { gap: 18px; }
+  .seerq-case-study .seerq-atomic-card { grid-template-columns: repeat(3,1fr); gap: 14px; }
+  .seerq-case-study .seerq-system-assets { min-height: 265px; }
+  .seerq-case-study .seerq-library-row { margin-top: 45px; }
+  .seerq-case-study .seerq-framework > * { grid-column: 1 !important; }
+  .seerq-case-study .seerq-framework .seerq-phone-shot { width: min(280px,100%); }
+  .seerq-case-study .seerq-framework .seerq-rebuild-stack { grid-column: 1; }
+  .seerq-case-study .seerq-framework .seerq-wireframe { min-height: 560px; }
+  .seerq-case-study .seerq-home-notes { grid-column: 1; grid-template-columns: 1fr; }
+  .seerq-case-study .seerq-home-delivery .seerq-phone-shot,
+  .seerq-case-study .seerq-service-showcase .seerq-figma-phone,
+  .seerq-case-study .seerq-consult-grid .seerq-figma-phone,
+  .seerq-case-study .seerq-live-grid .seerq-figma-phone { width: min(300px,100%); }
+  .seerq-case-study .seerq-segment-head { display: none; }
+  .seerq-case-study .seerq-segment-row { grid-template-columns: 1fr; gap: 8px; }
+  .seerq-case-study .seerq-segment-row > * { min-height: 0; }
+  .seerq-case-study .seerq-segment-row > b { justify-content: start; }
+  .seerq-case-study .seerq-hand-phone { grid-row: auto; }
+  .seerq-case-study .seerq-ab-grid figure:nth-child(n) { grid-column: 1; grid-row: auto; }
+  .seerq-case-study .seerq-hand-phone img { width: min(320px,100%); margin-inline: auto; }
+  .seerq-case-study .seerq-light-note { grid-template-columns: 1fr; }
+  .seerq-case-study .seerq-light-note img { width: 170px; justify-self: end; }
+  .seerq-case-study .seerq-info-grid > * { grid-column: 1 !important; grid-row: auto !important; }
+  .seerq-case-study .seerq-info-grid .seerq-figma-phone { width: min(300px,100%); justify-self: center; }
+  .seerq-case-study .seerq-info-messages,
+  .seerq-case-study .seerq-info-system { margin-top: 0 !important; }
+  .seerq-case-study .seerq-consult-table { grid-column: 1; grid-template-columns: 26% 37% 37%; }
+  .seerq-case-study .seerq-consult-table::before { left: 26%; }
+  .seerq-case-study .seerq-consult-table::after { left: 63%; }
+  .seerq-case-study .seerq-consult-table > * { padding: 9px 5px; font-size: var(--fs-caption); }
+  .seerq-case-study .seerq-consult-table > b { padding: 7px 8px; font-size: var(--fs-caption); }
+  .seerq-case-study .seerq-consult-table strong { padding: 6px 7px; font-size: var(--fs-caption); }
+  .seerq-case-study .seerq-live-grid > article { grid-column: 1; }
+  .seerq-case-study .seerq-growth-visual { min-height: 340px; }
+  .seerq-case-study .seerq-growth-grid { grid-template-columns: minmax(0,1fr); }
+  .seerq-case-study .seerq-growth-copy,
+  .seerq-case-study .seerq-growth-visual { min-width: 0; max-width: 100%; }
+  .seerq-case-study .seerq-popup-strategies b { font-size: var(--fs-small); }
+  .seerq-case-study .seerq-popup-strategies small { font-size: var(--fs-caption); }
+  .seerq-case-study .seerq-popup-model .seerq-popup-results { gap: 10px; }
+  .seerq-case-study .seerq-popup-results strong { font-size: var(--fs-title); }
+  .seerq-case-study .seerq-popup-results > div span { font-size: var(--fs-caption); }
+  .seerq-case-study .seerq-tilted-phone { width: min(280px,82%); }
+  .seerq-case-study .seerq-result-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .seerq-case-study .seerq-result-grid article { padding: 12px; }
+  .seerq-case-study .seerq-result-grid span { font-size: var(--fs-small); }
+  .seerq-case-study .seerq-result-grid b { font-size: var(--fs-title); }
+  .seerq-case-study .seerq-result-grid b::after { width: 22px; height: 22px; flex-basis: 22px; }
+}
+
+/* 2026-09-27 browser-comment refinements */
+.seerq-reference-page {
+  --seerq-translucent-white: rgba(255, 255, 255, .30);
+  --seerq-translucent-gold: rgba(255, 244, 215, .30);
+}
+
+.seerq-reference-page .content-nav .nav-logo { transform: translateX(18px); }
+.seerq-reference-page #seerq-overview-title { font-size: var(--fs-h2); line-height: 1.18; }
+
+.seerq-case-study .seerq-journey-card { background: var(--seerq-translucent-white); }
+.seerq-case-study .seerq-journey-card > img { width: 100%; height: auto; object-fit: contain; object-position: center; }
+.seerq-insight-flow-image,
+.seerq-process-image,
+.seerq-popup-strategy-image { display: block; width: 100%; height: auto; object-fit: contain; }
+.seerq-insight-flow-image { margin-top: 26px; }
+.seerq-process-image { margin: 24px 0 18px; }
+.seerq-popup-strategy-image { margin-top: 18px; }
+.seerq-case-study img.seerq-atomic-card {
+  display: block;
+  width: 100%;
+  height: auto;
+  min-height: 0;
+  padding: 0;
+  object-fit: contain;
+  border-radius: var(--radius);
+  background: transparent;
+  box-shadow: none;
+}
+.seerq-case-study .seerq-figma-workflow { width: 100%; height: auto; object-fit: contain; }
+.seerq-case-study .seerq-system-assets { min-height: 0; }
+.seerq-case-study .seerq-system-assets img:first-child,
+.seerq-case-study .seerq-system-assets img:last-child {
+  position: static;
+  right: auto;
+  bottom: auto;
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0;
+  object-fit: contain;
+}
+
+.seerq-case-study .seerq-inline-metrics strong {
+  border-color: rgba(255, 255, 255, .30);
+  background: var(--seerq-translucent-white);
+  white-space: nowrap;
+}
+.seerq-case-study .seerq-insight-outcomes .seerq-inline-metrics strong,
+.seerq-case-study .seerq-home-results .seerq-inline-metrics strong {
+  border-color: rgba(255, 255, 255, .30);
+  background: var(--seerq-translucent-white);
+}
+.seerq-case-study .seerq-metric-arrow { display: inline-block; width: 13px; height: 17px; margin-left: 3px; object-fit: contain; vertical-align: -.1em; }
+
+.seerq-case-study .seerq-outline-pills span {
+  padding: 9px 16px;
+  border-color: var(--seerq-gold);
+  color: var(--seerq-gold);
+  font-size: var(--fs-body);
+  font-weight: 700;
+}
+
+.seerq-case-study .seerq-paper-card,
+.seerq-case-study .seerq-callout,
+.seerq-case-study .seerq-light-note,
+.seerq-case-study .seerq-star-grid > article,
+.seerq-case-study .seerq-four-cards article,
+.seerq-case-study .seerq-home-notes article,
+.seerq-case-study .seerq-info-profile-note,
+.seerq-case-study .seerq-info-system-note,
+.seerq-case-study .seerq-live-grid > article,
+.seerq-case-study .seerq-growth-copy > article {
+  border-color: rgba(255, 255, 255, .30);
+  background: var(--seerq-translucent-white);
+}
+.seerq-case-study .seerq-report-flow span { background: var(--seerq-translucent-white); }
+.seerq-case-study .seerq-report-flow strong,
+.seerq-case-study .seerq-rebuild-stack span,
+.seerq-case-study .seerq-segment-row > strong { background: var(--seerq-translucent-gold); }
+.seerq-case-study .seerq-problem-stack span,
+.seerq-case-study .seerq-segment-row > span {
+  border-color: rgba(255, 255, 255, .30);
+  background: var(--seerq-translucent-white);
+}
+.seerq-case-study .seerq-result-mini-grid strong,
+.seerq-case-study .seerq-result-grid article,
+.seerq-case-study .seerq-result-grid article:nth-child(2),
+.seerq-case-study .seerq-result-grid article:nth-child(3),
+.seerq-case-study .seerq-summary-pills span {
+  border-color: rgba(255, 255, 255, .30);
+  background: var(--seerq-translucent-white);
+}
+.seerq-reference-page .seerq-hero-panel,
+.seerq-reference-page .seerq-hero-stats div {
+  border-color: rgba(255, 255, 255, .30);
+  background: var(--seerq-translucent-white);
+}
+
+.seerq-case-study .seerq-problem-stack span {
+  display: grid;
+  align-content: center;
+  justify-content: center;
+  text-align: center;
+}
+.seerq-case-study .seerq-problem-stack span:nth-child(5) { align-items: center; }
+
+.seerq-case-study .seerq-segment-table { margin-top: 66px; }
+.seerq-segment-head,
+.seerq-segment-row { grid-template-columns: 92px repeat(3, minmax(0, 1fr)); gap: 14px; }
+.seerq-segment-head::before { left: 92px; border-color: rgba(215,187,129,.72); }
+.seerq-segment-head span { min-width: 118px; padding: 9px 20px; }
+.seerq-segment-row { position: relative; margin-top: 30px; }
+.seerq-segment-row > * { min-height: 112px; border-color: rgba(255,255,255,.30); }
+.seerq-segment-row > b { justify-content: start; color: var(--seerq-gold); font-size: var(--fs-lead); }
+.seerq-segment-row > strong { color: var(--seerq-ink); }
+.seerq-segment-row > strong::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: calc(33.333% - 6px);
+  width: 0;
+  height: 0;
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+  border-left: 12px solid rgba(232, 187, 95, .65);
+  transform: translate(26px, -50%);
+}
+
+.seerq-case-study .seerq-hand-phone { overflow: hidden; background: #fff; }
+
+.seerq-case-study .seerq-service-copy {
+  display: flex;
+  min-height: 100%;
+  align-self: stretch;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.seerq-case-study .seerq-service-copy h3 { margin: 18px 0 7px; }
+.seerq-case-study .seerq-service-copy p { line-height: 1.78; }
+
+@media (max-width: 767px) {
+  .seerq-reference-page .content-nav .nav-logo { transform: translateX(7px); }
+  .seerq-reference-page #seerq-overview-title { font-size: var(--fs-h2); }
+  .seerq-case-study .seerq-outline-pills span { font-size: var(--fs-small); }
+  .seerq-segment-row > strong::before { display: none; }
+  .seerq-case-study .seerq-service-copy { min-height: 0; }
+}
+
+/* 2026-09-28 supplied replacements for the homepage and A/B-test sections. */
+.seerq-case-study .seerq-segment-figure {
+  display: block;
+  width: 100%;
+  margin: 66px 0 0;
+  padding: 0;
+  overflow: visible;
+}
+.seerq-case-study .seerq-segment-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+.seerq-case-study .seerq-hand-phone {
+  overflow: visible;
+  background: transparent;
+}
+.seerq-case-study .seerq-hand-phone img {
+  display: block;
+  width: 100%;
+  max-width: none;
+  height: auto;
+  margin: 0;
+  object-fit: contain;
+}
+.seerq-case-study .seerq-light-note {
+  display: block;
+  padding: 0;
+  overflow: visible;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+}
+.seerq-case-study .seerq-light-note img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+@media (max-width: 767px) {
+  .seerq-case-study .seerq-segment-figure,
+  .seerq-case-study .seerq-light-note {
+    overflow-x: auto;
+    overflow-y: hidden;
+    overscroll-behavior-inline: contain;
+    scrollbar-color: transparent transparent;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+  .seerq-case-study .seerq-segment-figure::-webkit-scrollbar,
+  .seerq-case-study .seerq-light-note::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
+  }
+  .seerq-case-study .seerq-segment-figure { margin-top: 38px; }
+  .seerq-case-study .seerq-segment-figure img {
+    width: 860px;
+    max-width: none;
+  }
+  .seerq-case-study .seerq-light-note img {
+    width: 700px;
+    max-width: none;
+    justify-self: auto;
+  }
+}

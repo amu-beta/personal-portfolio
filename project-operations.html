@@ -4,41 +4,479 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>运营活动视觉设计｜Chloe</title>
-  <meta name="description" content="AIGC 赋能海外新年运营活动的视觉设计案例。">
+  <meta name="description" content="先知命局 · 好运节：AIGC 赋能的海外新年活动 H5。从项目背景、设计目标、主会场与玩法策略，到 AIGC 素材体系、Midjourney / LoRA 流程沉淀与数据验证的完整案例。">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=205">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:ital,wght@0,500;0,600;0,700;0,800;1,800&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="design-tokens.css?v=4">
+  <link rel="stylesheet" href="assets/iconfont/iconfont.css?v=1">
+  <link rel="stylesheet" href="styles.css?v=207">
+  <link rel="stylesheet" href="project-operations.css?v=6">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <script src="project-operations.js?v=4" defer></script>
+  <link rel="stylesheet" href="site-common.css?v=3">
 </head>
-<body class="content-page project-detail-page">
-  <nav class="nav content-nav" aria-label="主导航">
-    <a class="nav-logo tree-logo" href="index.html" aria-label="返回首页"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 28V14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/><path d="M16 16C8 16 5 12 6 7c5-1 9 1 10 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 18c8 0 11-4 10-9-5-1-9 1-10 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-    <div class="nav-links"><a href="index.html">首页</a><a href="works.html" aria-current="page">作品集</a><a href="ai-learning.html">AI 学习</a><a href="index.html#about">关于</a></div>
+<body class="content-page project-detail-page ops-case">
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <symbol id="op-i-spark" viewBox="0 0 24 24"><path d="M12 2.5l2.1 6.4 6.4 2.1-6.4 2.1L12 19.5l-2.1-6.4L3.5 11l6.4-2.1z"/></symbol>
+      <symbol id="op-i-arrow" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></symbol>
+      <symbol id="op-i-down" viewBox="0 0 24 24"><path d="M12 5v14M6 13l6 6 6-6"/></symbol>
+      <symbol id="op-i-up" viewBox="0 0 24 24"><path d="M12 19V5M6 11l6-6 6 6"/></symbol>
+      <symbol id="op-i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.2 4.2L19 7"/></symbol>
+      <symbol id="op-i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+      <symbol id="op-i-copy" viewBox="0 0 24 24"><rect x="8.5" y="8.5" width="11" height="11" rx="2"/><path d="M15.5 8.5v-2a2 2 0 0 0-2-2h-7a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h2"/></symbol>
+      <symbol id="op-i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+      <symbol id="op-i-zoom" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5M11 8.5v5M8.5 11h5"/></symbol>
+      <symbol id="op-i-left" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></symbol>
+      <symbol id="op-i-right" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></symbol>
+      <symbol id="op-i-reset" viewBox="0 0 24 24"><path d="M4.5 12a7.5 7.5 0 1 0 2.2-5.3"/><path d="M4.5 4.5v4h4"/></symbol>
+      <symbol id="op-i-game" viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="11" rx="4"/><path d="M8 10.5v4M6 12.5h4M15.5 11.5h.01M17.5 13.5h.01"/></symbol>
+      <symbol id="op-i-copies" viewBox="0 0 24 24"><rect x="4" y="4" width="12" height="12" rx="2.5"/><path d="M8 20h9.5a2.5 2.5 0 0 0 2.5-2.5V8"/></symbol>
+      <symbol id="op-i-link" viewBox="0 0 24 24"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></symbol>
+    </defs>
+  </svg>
+
+  <nav class="gnav" aria-label="主导航">
+    <a class="gnav-logo tree-logo" href="index.html" aria-label="返回首页"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 28V14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/><path d="M16 16C8 16 5 12 6 7c5-1 9 1 10 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 18c8 0 11-4 10-9-5-1-9 1-10 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    <div class="gnav-links"><a href="index.html">首页</a><a href="works.html" aria-current="page">作品集</a><a href="ai-learning.html">AI 学习</a><a href="index.html#about">关于</a></div>
   </nav>
-  <main class="content-shell">
-    <a class="project-back ui-button ui-button--muted ui-button--back" href="works.html"><span>返回作品集</span></a>
-    <header class="project-detail-hero">
-      <div class="project-detail-meta"><span>AIGC VISUAL</span><span>2025 - 2026</span></div>
-      <h1>运营活动<br>视觉设计</h1>
-      <p class="project-detail-lead">AIGC 赋能海外新年活动视觉设计，从主视觉概念、互动场景到落地页与延展素材，形成完整活动表达。</p>
-      <ul class="project-detail-tags" aria-label="项目标签"><li>AIGC</li><li>Campaign</li><li>Overseas</li><li>Visual System</li><li>Operations</li></ul>
-      <div class="project-detail-actions"><a class="btn-dark ui-button ui-button--solid" href="https://h5.seeronnet.net/dist/new-year-2026/" target="_blank" rel="noreferrer"><span>打开项目</span></a></div>
-    </header>
-    <figure class="project-detail-cover"><img src="assets/portfolio/cover-operations.jpg" width="1920" height="1152" alt="运营活动视觉设计总览"></figure>
-    <section class="project-detail-overview" aria-labelledby="operations-overview-title">
-      <div><p class="project-detail-kicker">PROJECT OVERVIEW</p><h2 id="operations-overview-title">把 AIGC 变成一套完整活动表达。</h2></div>
-      <p>从主视觉概念出发，将互动场景、落地页和延展素材纳入同一视觉系统，让海外新年活动在不同触点保持统一且有辨识度。</p>
+
+  <span class="op-progress" aria-hidden="true"><i id="op-progress-bar"></i></span>
+
+  <nav class="op-rail site-rail" aria-label="章节导航">
+    <a href="#overview"><span>概览</span></a>
+    <a href="#background"><span>项目背景</span></a>
+    <a href="#goals"><span>设计目标</span></a>
+    <a href="#venue"><span>主会场</span></a>
+    <a href="#strategy"><span>策略推导</span></a>
+    <a href="#matrix"><span>内容矩阵</span></a>
+    <a href="#resources"><span>AIGC 资源</span></a>
+    <a href="#workflow"><span>流程复盘</span></a>
+    <a href="#results"><span>设计验证</span></a>
+    <a href="#extras"><span>延展物料</span></a>
+    <a href="#all-pages"><span>全部页面</span></a>
+  </nav>
+
+  <main class="content-shell op-shell">
+
+    <!-- ================= 概览 ================= -->
+    <section id="overview" class="op-hero" aria-labelledby="op-title">
+      <div class="op-hero-copy">
+        <div class="project-detail-meta"><span>AIGC VISUAL</span><span>2025 - 2026</span><span>NEW YEAR CAMPAIGN</span></div>
+        <h1 id="op-title"><small>先知命局 · 好运节</small>运营活动视觉设计</h1>
+        <p class="op-lead">面向全球华人用户的新年主题活动 H5。用 AIGC 搭起一座「沉浸式新春城市」：主视觉、四大会场、玩法弹窗和成套 3D 素材都出自同一条流程，让一次节日活动同时完成拉新、留存与付费转化。</p>
+        <ul class="project-detail-tags" aria-label="项目标签"><li>AIGC</li><li>Campaign</li><li>Overseas</li><li>Visual System</li><li>Operations</li></ul>
+      </div>
+      <div class="op-hero-phones" aria-label="活动页面示意">
+        <img src="assets/operations/matrix-0.webp" width="413" height="860" alt="会场入口：LuckNival 维港夜景主会场" decoding="async">
+        <img src="assets/operations/matrix-1.webp" width="413" height="860" alt="团圆饭会场：集满 10 道菜即可抽奖" decoding="async">
+      </div>
+      <dl class="op-facts">
+        <div><dt>活动</dt><dd>2026 新年主题 H5</dd></div>
+        <div><dt>用户</dt><dd>全球华人 · 港台繁体</dd></div>
+        <div><dt>我的职责</dt><dd>主视觉 · 会场设计 · AIGC 流程</dd></div>
+        <div><dt>核心结果</dt><dd>参与率 <b>33%</b> 提升至 <b>68%</b></dd></div>
+      </dl>
     </section>
-    <section class="project-detail-gallery" aria-labelledby="operations-gallery-title">
-      <div class="project-detail-section-head"><p class="project-detail-kicker">CAMPAIGN DETAILS</p><h2 id="operations-gallery-title">活动延展与互动场景</h2></div>
-      <div class="project-detail-media project-detail-media--compact">
-        <img src="assets/portfolio/haoyun1.png" width="450" height="320" alt="海外新年运营活动移动端视觉合集" loading="lazy" decoding="async">
-        <img src="assets/portfolio/haoyun2.png" width="180" height="380" alt="海外新年运营活动单页互动视觉" loading="lazy" decoding="async">
+
+    <section class="op-pipeline reveal" aria-labelledby="op-pipe-title">
+      <header>
+        <p class="op-kicker">AIGC × OPERATIONS</p>
+        <h2 id="op-pipe-title">AIGC 赋能运营视觉全链路</h2>
+        <p>运营提效 × 视觉升级 × AIGC 赋能。从策划到复盘的每个环节都有 AIGC 参与，选中一个环节查看它在本案例中的落点。</p>
+      </header>
+      <ol class="op-pipe" role="tablist" aria-label="全链路环节">
+        <li><button type="button" class="ui-segmented__item op-pipe-step" role="tab" aria-selected="true" data-target="#background"><b>01</b><strong>创意构思</strong><span>活动策划 · 明确目标人群</span></button></li>
+        <li><button type="button" class="ui-segmented__item op-pipe-step" role="tab" aria-selected="false" data-target="#resources"><b>02</b><strong>素材生成</strong><span>AIGC 创作 · 高效产出素材</span></button></li>
+        <li><button type="button" class="ui-segmented__item op-pipe-step" role="tab" aria-selected="false" data-target="#venue"><b>03</b><strong>视觉设计</strong><span>精选方案 · 快速提交</span></button></li>
+        <li><button type="button" class="ui-segmented__item op-pipe-step" role="tab" aria-selected="false" data-target="#matrix"><b>04</b><strong>场景应用</strong><span>活动上线 · 多渠道引流</span></button></li>
+        <li><button type="button" class="ui-segmented__item op-pipe-step" role="tab" aria-selected="false" data-target="#results"><b>05</b><strong>效果优化</strong><span>数据监控 · 复盘迭代</span></button></li>
+      </ol>
+      <div class="op-pipe-detail">
+        <figure class="op-pipe-shots" id="op-pipe-shots" data-active="0">
+          <img src="assets/operations/pipe-1.webp" width="960" height="600" alt="创意构思产出：先知命局好运节主 KV 与好运狮吉祥物" decoding="async">
+          <img src="assets/operations/pipe-2.webp" width="960" height="600" alt="素材生成产出：抽奖弹窗与 AIGC 3D 菜品" loading="lazy" decoding="async">
+          <img src="assets/operations/pipe-3.webp" width="960" height="600" alt="视觉设计产出：主会场长页、团圆饭玩法页与祈福弹窗" loading="lazy" decoding="async">
+          <img src="assets/operations/pipe-4.webp" width="960" height="600" alt="场景应用：会场入口、团圆饭、新春卖场、许愿广场四个会场页面" loading="lazy" decoding="async">
+          <img src="assets/operations/pipe-5.webp" width="960" height="600" alt="效果优化：参与率、停留时长、付费转化率等活动数据看板" loading="lazy" decoding="async">
+        </figure>
+        <div class="op-pipe-copy" aria-live="polite">
+          <p class="op-pipe-name" id="op-pipe-name"><b>01</b>创意构思</p>
+          <p id="op-pipe-text">用 AI 发散创意灵感：以「港式新春夜景 + 团圆饭」为母题，快速试出多套主视觉方向，再和业务一起收敛到「沉浸式新春城市」。</p>
+          <a class="op-pipe-link" id="op-pipe-link" href="#background">查看项目背景<i class="iconfont icon-down-arrow ic-16" aria-hidden="true"></i></a>
+        </div>
       </div>
     </section>
-    <div class="project-detail-end"><a class="ui-button ui-button--muted ui-button--back" href="works.html"><span>返回作品集</span></a><a class="ui-button ui-button--outline" href="project-seerq.html"><span>下一个项目</span></a></div>
+
+    <!-- ================= 项目背景 ================= -->
+    <section id="background" class="op-section" aria-labelledby="bg-title">
+      <header class="op-head reveal">
+        <p class="op-kicker">01 · BACKGROUND</p>
+        <h2 id="bg-title">项目背景<span>/ 先知命局 好运节</span></h2>
+        <p class="op-note">以轻量化、国际化、科技感为基调，通过 AIGC 创新互动、沉浸式场景和清晰的活动链路，为海外用户提供一站式的节日参与体验。设计目标：提升参与度、延长停留时长、提高活动转化率，并建立统一、可复用的全球化活动设计体系。</p>
+      </header>
+
+      <div class="op-bg-grid">
+        <div class="op-panel reveal">
+          <h3 class="op-label">现状痛点</h3>
+          <ul class="op-pains">
+            <li data-goal="0"><span class="op-num">01</span><strong>节日玩法单一</strong><p>玩法固化、缺乏新意，难以持续吸引用户回访。</p></li>
+            <li data-goal="2"><span class="op-num">02</span><strong>活动同质化</strong><p>与同类产品的节日活动内容模式相似，缺少差异化竞争力。</p></li>
+            <li data-goal="1"><span class="op-num">03</span><strong>链路割裂</strong><p>活动与产品之间链路不连贯，体验断层直接影响整体转化。</p></li>
+          </ul>
+        </div>
+        <div class="op-panel op-panel--soft reveal">
+          <h3 class="op-label op-label--red">用户诉求</h3>
+          <ul class="op-needs">
+            <li><b>普通用户</b>想要「有年味、好参与、有福利」的新春互动，拒绝复杂操作。</li>
+            <li><b>产品核心用户</b>希望节日内容「结合运势、有文化感」，加深对产品的情感认同。</li>
+            <li><strong class="op-stat">40%</strong><span>的用户在参与活动后，存在「运势测算、专家咨询」的延伸付费诉求。</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="op-solve reveal" aria-label="解决思路">
+        <div class="op-solve-side">
+          <span class="op-pill">业务诉求</span>
+          <p>实现拉新、留存、付费转化的三重增长，强化产品节日营销的差异化竞争力。</p>
+        </div>
+        <div class="op-solve-core">
+          <p class="op-solve-title">设计核心策略</p>
+          <ul>
+            <li><svg aria-hidden="true"><use href="#op-i-check"/></svg>AIGC 技术赋能</li>
+            <li><svg aria-hidden="true"><use href="#op-i-check"/></svg>卡通 3D 风格场景植入</li>
+            <li><svg aria-hidden="true"><use href="#op-i-check"/></svg>国际化属性优化</li>
+            <li><svg aria-hidden="true"><use href="#op-i-check"/></svg>全链路转化设计</li>
+            <li><svg aria-hidden="true"><use href="#op-i-check"/></svg>提升参与度与转化效率</li>
+          </ul>
+        </div>
+        <div class="op-solve-side">
+          <span class="op-pill">用户诉求</span>
+          <p>打造沉浸式新春互动体验，兼顾趣味性与文化感，同时降低参与门槛。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 设计目标 ================= -->
+    <section id="goals" class="op-section op-section--tint" aria-labelledby="goals-title">
+      <header class="op-head reveal">
+        <p class="op-kicker">02 · DESIGN GOALS</p>
+        <h2 id="goals-title">设计目标<span>/ 目标驱动 · 价值平衡 · 体验升级</span></h2>
+        <p class="op-note">针对玩法单一、文化辨识度低、转化链路割裂、缺乏技术赋能四个核心问题，在「文化氛围、互动体验、商业转化、AIGC 创新」之间找到平衡。</p>
+      </header>
+      <ol class="op-goals">
+        <li class="op-goal reveal">
+          <span class="op-goal-tag">模块化布局</span>
+          <h3>互动体验升级</h3>
+          <p>梳理活动全链路逻辑，建立「主会场入口 / 分玩法模块 / 转化入口」三层清晰层级，降低用户参与门槛和理解成本。</p>
+          <small>对应痛点 · 节日玩法单一</small>
+        </li>
+        <li class="op-goal reveal">
+          <span class="op-goal-tag">补充付费功能</span>
+          <h3>商业价值衔接</h3>
+          <p>补全活动转化链路，在玩法中自然植入测算、咨询、商城等付费入口，形成「参与、内容消费、付费转化」的闭环。</p>
+          <small>对应痛点 · 链路割裂</small>
+        </li>
+        <li class="op-goal reveal">
+          <span class="op-goal-tag">技术提效</span>
+          <h3>AIGC 创新赋能</h3>
+          <p>融入 AI 素材与 AI 团圆视频等创新互动，提升活动的趣味性与传播性，吸引年轻用户，打造差异化亮点。</p>
+          <small>对应痛点 · 活动同质化</small>
+        </li>
+      </ol>
+      <div class="op-banner reveal">
+        <span class="op-banner-tag">目标价值落点</span>
+        <p>让「用户体验 - 业务诉求 - 公司战略」深度对齐：既满足用户对新春氛围与趣味互动的需求，又达成拉新、留存、商业转化的核心目标，同时沉淀一套可复用的节日活动设计范式。</p>
+      </div>
+    </section>
+
+    <!-- ================= 主会场 ================= -->
+    <section id="venue" class="op-section" aria-labelledby="venue-title">
+      <header class="op-head reveal">
+        <p class="op-kicker">03 · MAIN VENUE</p>
+        <h2 id="venue-title">主会场页<span>/ 沉浸式新春城市场景</span></h2>
+        <p class="op-note">以维多利亚港夜景为背景，把四大核心玩法做成城市里的四栋建筑。选择右侧的设计要点，查看它在页面里的位置；点击建筑上的入口标签，可以直接跳到对应会场。</p>
+      </header>
+      <div class="op-venue reveal">
+        <div class="op-phone op-phone--venue" id="op-venue-phone" data-mode="0">
+          <img src="assets/operations/venue-phone.webp" width="630" height="1570" alt="先知命局好运节主会场长页：金色立体标题、维港夜景、团圆饭酒楼、舞狮许愿台、新春卖场与品牌阁" loading="lazy" decoding="async">
+          <span class="op-zone op-zone--title" data-mode="0" aria-hidden="true"></span>
+          <span class="op-zone op-zone--hall" data-mode="1" aria-hidden="true"></span>
+          <span class="op-zone op-zone--stage" data-mode="1" aria-hidden="true"></span>
+          <span class="op-glow" data-mode="3" style="--x:17.8%;--y:43%" aria-hidden="true"></span>
+          <span class="op-glow" data-mode="3" style="--x:50%;--y:61.5%" aria-hidden="true"></span>
+          <span class="op-glow" data-mode="3" style="--x:40.8%;--y:80.6%" aria-hidden="true"></span>
+          <span class="op-glow" data-mode="3" style="--x:89%;--y:90.5%" aria-hidden="true"></span>
+          <button type="button" class="ui-segmented__item op-pin" style="--x:71.6%;--y:58.5%" data-entry="1" aria-label="团圆饭入口">团圆饭</button>
+          <button type="button" class="ui-segmented__item op-pin" style="--x:21.1%;--y:70.6%" data-entry="3" aria-label="许愿广场入口">许愿广场</button>
+          <button type="button" class="ui-segmented__item op-pin" style="--x:69.8%;--y:87.5%" data-entry="2" aria-label="新春卖场入口">新春卖场</button>
+          <button type="button" class="ui-segmented__item op-pin" style="--x:16%;--y:94.8%" data-entry="-1" aria-label="品牌阁入口">品牌阁</button>
+        </div>
+        <div class="op-venue-points" role="tablist" aria-label="主会场设计要点">
+          <button type="button" class="ui-segmented__item op-point" role="tab" aria-selected="true" data-mode="0">
+            <span class="op-num">01</span><strong>视觉层级强化</strong>
+            <p>主标题用鎏金立体字突出，场景元素主次分明，引导用户视线自上而下流动，提升信息获取效率。</p>
+          </button>
+          <button type="button" class="ui-segmented__item op-point" role="tab" aria-selected="false" data-mode="1">
+            <span class="op-num">02</span><strong>3D 立体场景打造</strong>
+            <p>维港夜景作底，融合骑楼建筑、舞狮舞台与团圆饭酒楼，构建沉浸式新春城市，强化文化与节日氛围。</p>
+          </button>
+          <button type="button" class="ui-segmented__item op-point" role="tab" aria-selected="false" data-mode="2">
+            <span class="op-num">03</span><strong>模块化入口设计</strong>
+            <p>团圆饭、许愿广场、新春卖场、品牌阁四大玩法以建筑入口呈现，层级清晰，用户一眼找到目标玩法。</p>
+          </button>
+          <button type="button" class="ui-segmented__item op-point" role="tab" aria-selected="false" data-mode="3">
+            <span class="op-num">04</span><strong>运营氛围拉满</strong>
+            <p>暖色主视觉搭配动态灯笼、樱花、金币与烟花，增强节日感，激发参与兴趣，延长停留与传播。</p>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 策略推导 ================= -->
+    <section id="strategy" class="op-section op-section--tint" aria-labelledby="strategy-title">
+      <header class="op-head reveal">
+        <p class="op-kicker">04 · STRATEGY</p>
+        <h2 id="strategy-title">策略推导<span>/ 以团圆饭会场为例</span></h2>
+        <p class="op-note">按用户参与活动的四个阶段拆解页面：每个阶段对应一种设计手段，也对应页面上的一块区域。</p>
+      </header>
+      <div class="op-strategy reveal">
+        <div class="op-wire" id="op-wire" data-zone="0" aria-hidden="true">
+          <div class="op-wire-focus" data-z="0"><b>视觉焦点</b></div>
+          <div class="op-wire-btn" data-z="1"></div>
+          <div class="op-wire-play">
+            <b>玩法区域</b>
+            <i data-z="2"></i><i data-z="2"></i><i data-z="3"></i>
+          </div>
+        </div>
+        <ol class="op-stages" role="tablist" aria-label="参与阶段">
+          <li><button type="button" class="ui-segmented__item op-stage" role="tab" aria-selected="true" data-zone="0">
+            <span class="op-stage-when"><b>参与前</b>了解认知</span>
+            <span class="op-stage-body"><strong>视觉吸引</strong><span>视觉上利用布局降低用户理解成本，增加操作引导和利益点刺激，同时营造活动氛围。</span></span>
+          </button></li>
+          <li><button type="button" class="ui-segmented__item op-stage" role="tab" aria-selected="false" data-zone="1">
+            <span class="op-stage-when"><b>参与中</b>刺激转化</span>
+            <span class="op-stage-body"><strong>交互牵引</strong><span>「开始备菜」作为唯一主操作常驻视线中心，菜品逐道点亮、进度可见，每一步都有即时反馈。</span></span>
+          </button></li>
+          <li><button type="button" class="ui-segmented__item op-stage" role="tab" aria-selected="false" data-zone="2">
+            <span class="op-stage-when"><b>参与后</b>刺激留存</span>
+            <span class="op-stage-body"><strong>激励体系</strong><span>活动中设置助力和分层奖励，利用实时和定时福利驱动用户参与到活动中，提升留存。</span></span>
+          </button></li>
+          <li><button type="button" class="ui-segmented__item op-stage" role="tab" aria-selected="false" data-zone="3">
+            <span class="op-stage-when"><b>活动结束</b>活跃使用</span>
+            <span class="op-stage-body"><strong>引导转化</strong><span>通过活动拉动产品活跃和获客，让用户在产品中留存，提升活动留存率 <em>+21%</em></span></span>
+          </button></li>
+        </ol>
+        <div class="op-phone op-phone--strategy" id="op-strategy-phone" data-zone="0">
+          <img src="assets/operations/strategy-phone.webp" width="403" height="961" alt="团圆饭会场页面：一家三口与圆桌菜品、开始备菜按钮、获取抽菜次数任务列表" loading="lazy" decoding="async">
+          <span class="op-szone" data-zone="0" style="--t:2%;--h:45%;--l:4%;--w:92%" aria-hidden="true"><i>视觉焦点</i></span>
+          <span class="op-szone" data-zone="1" style="--t:47.6%;--h:8.6%;--l:12%;--w:76%" aria-hidden="true"><i>主操作</i></span>
+          <span class="op-szone" data-zone="2" style="--t:59%;--h:22.4%;--l:6%;--w:88%" aria-hidden="true"><i>任务激励</i></span>
+          <span class="op-szone" data-zone="3" style="--t:81.4%;--h:14%;--l:6%;--w:88%" aria-hidden="true"><i>产品入口</i></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 内容矩阵 ================= -->
+    <section id="matrix" class="op-section" aria-labelledby="matrix-title">
+      <header class="op-head reveal">
+        <p class="op-kicker">05 · CONTENT MATRIX</p>
+        <h2 id="matrix-title">活动内容矩阵<span>/ 一个入口，三个会场</span></h2>
+        <p class="op-note">每个会场承担不同的业务目标：入口负责分流，团圆饭负责互动与拉新，新春会场负责付费，许愿会场负责分享与情感连接。</p>
+      </header>
+      <div class="op-matrix reveal">
+        <div class="op-matrix-body" id="op-matrix-panel" aria-roledescription="轮播" aria-label="活动会场，滚动鼠标滚轮切换">
+          <div class="op-matrix-phones" id="op-matrix-phones" data-active="0">
+            <img src="assets/operations/matrix-0.webp" width="413" height="860" alt="会场入口：LuckNival 立体标题与维港夜景城市场景" loading="lazy" decoding="async">
+            <img src="assets/operations/matrix-1.webp" width="413" height="860" alt="团圆饭会场：集满 10 道菜即可抽奖，圆桌菜品与开始备菜按钮" loading="lazy" decoding="async">
+            <img src="assets/operations/matrix-2.webp" width="413" height="860" alt="新春会场：新春特卖场最高 50% 折扣，名师推荐与开运手链商品" loading="lazy" decoding="async">
+            <img src="assets/operations/matrix-3.webp" width="413" height="860" alt="许愿会场：文字话题、红包雨倒计时与用户新年愿望弹幕" loading="lazy" decoding="async">
+          </div>
+          <div class="op-matrix-info">
+            <p class="op-matrix-role" id="op-mx-role">分流 · 认知</p>
+            <h3 id="op-mx-title">会场入口</h3>
+            <p id="op-mx-desc">LuckNival 立体标题配合维港夜景，第一屏就交代「这是一场新春城市嘉年华」；四大玩法以建筑形式散落在城市中，用户无需阅读说明就知道往哪里点。</p>
+            <ul class="op-matrix-list" id="op-mx-list">
+              <li>港式夜景建立国际化与本地文化的双重辨识度</li>
+              <li>建筑即入口，四个玩法一屏可达</li>
+              <li>人物 IP 散布场景，增加探索感</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= AIGC 设计资源 ================= -->
+    <section id="resources" class="op-section op-section--warm" aria-labelledby="res-title">
+      <header class="op-head reveal">
+        <p class="op-kicker">06 · AIGC ASSETS</p>
+        <h2 id="res-title">AIGC 设计资源<span>/ 菜品 · 弹窗 · 人物 IP</span></h2>
+        <p class="op-note">团圆饭会场需要 10 余道风格统一的 3D 菜品、整套抽奖弹窗和多个人物 IP。下面就是活动里真实使用的素材，试试把菜「端上桌」：</p>
+      </header>
+
+      <div class="op-feast reveal">
+        <div class="op-feast-board">
+          <div class="op-feast-top">
+            <p><strong>集满 10 道菜即可抽奖</strong><span id="op-feast-hint">点击菜品端上桌</span></p>
+            <button type="button" class="ui-icon-button ui-icon-button--outline op-feast-reset" id="op-feast-reset" aria-label="清空餐桌"><i class="iconfont icon-change ic-20" aria-hidden="true"></i></button>
+          </div>
+          <div class="op-feast-meter" aria-hidden="true"><i id="op-feast-bar"></i><span id="op-feast-count">0/10</span></div>
+          <ul class="op-dishes" aria-label="团圆饭菜品">
+            <li><button type="button" class="ui-segmented__item op-dish" aria-pressed="false" data-name="富贵盆菜" data-kind="main"><img src="assets/operations/dish-00.webp" width="255" height="194" alt="富贵盆菜" loading="lazy" decoding="async"><span>富贵盆菜</span></button></li>
+            <li><button type="button" class="ui-segmented__item op-dish" aria-pressed="false" data-name="捞起鱼生" data-kind="home"><img src="assets/operations/dish-01.webp" width="256" height="176" alt="捞起鱼生" loading="lazy" decoding="async"><span>捞起鱼生</span></button></li>
+            <li><button type="button" class="ui-segmented__item op-dish" aria-pressed="false" data-name="贵妃鸡" data-kind="main"><img src="assets/operations/dish-02.webp" width="254" height="182" alt="贵妃鸡" loading="lazy" decoding="async"><span>贵妃鸡</span></button></li>
+            <li><button type="button" class="ui-segmented__item op-dish" aria-pressed="false" data-name="鲍鱼海参" data-kind="main"><img src="assets/operations/dish-03.webp" width="256" height="174" alt="鲍鱼海参" loading="lazy" decoding="async"><span>鲍鱼海参</span></button></li>
+            <li><button type="button" class="ui-segmented__item op-dish" aria-pressed="false" data-name="荔枝咕噜肉" data-kind="home"><img src="assets/operations/dish-04.webp" width="164" height="112" alt="荔枝咕噜肉" loading="lazy" decoding="async"><span>荔枝咕噜肉</span></button></li>
+            <li><button type="button" class="ui-segmented__item op-dish" aria-pressed="false" data-name="砂锅鱼头" data-kind="home"><img src="assets/operations/dish-05.webp" width="164" height="130" alt="砂锅鱼头" loading="lazy" decoding="async"><span>砂锅鱼头</span></button></li>
+            <li><button type="button" class="ui-segmented__item op-dish" aria-pressed="false" data-name="蒜蓉扇贝" data-kind="home"><img src="assets/operations/dish-06.webp" width="256" height="173" alt="蒜蓉扇贝" loading="lazy" decoding="async"><span>蒜蓉扇贝</span></button></li>
+            <li><button type="button" class="ui-segmented__item op-dish" aria-pressed="false" data-name="四喜丸子" data-kind="home"><img src="assets/operations/dish-07.webp" width="233" height="165" alt="四喜丸子" loading="lazy" decoding="async"><span>四喜丸子</span></button></li>
+            <li><button type="button" class="ui-segmented__item op-dish" aria-pressed="false" data-name="上汤龙虾" data-kind="main"><img src="assets/operations/dish-08.webp" width="233" height="157" alt="上汤龙虾" loading="lazy" decoding="async"><span>上汤龙虾</span></button></li>
+            <li><button type="button" class="ui-segmented__item op-dish" aria-pressed="false" data-name="冬菇排骨" data-kind="home"><img src="assets/operations/dish-09.webp" width="231" height="187" alt="冬菇排骨" loading="lazy" decoding="async"><span>冬菇排骨</span></button></li>
+            <li><button type="button" class="ui-segmented__item op-dish" aria-pressed="false" data-name="清蒸鱼" data-kind="home"><img src="assets/operations/dish-10.webp" width="256" height="188" alt="清蒸鱼" loading="lazy" decoding="async"><span>清蒸鱼</span></button></li>
+            <li><button type="button" class="ui-segmented__item op-dish" aria-pressed="false" data-name="蚝皇鲍鱼" data-kind="main"><img src="assets/operations/dish-11.webp" width="256" height="170" alt="蚝皇鲍鱼" loading="lazy" decoding="async"><span>蚝皇鲍鱼</span></button></li>
+          </ul>
+        </div>
+
+        <aside class="op-popup-stage" aria-label="弹窗反馈">
+          <div class="op-popup-frame">
+            <img id="op-popup-img" src="assets/operations/popup-0.webp" width="329" height="423" alt="新用户弹窗：下载 APP 加 10 次抽菜" decoding="async">
+          </div>
+          <p class="op-popup-caption" id="op-popup-caption" aria-live="polite">新用户引导 · 下载 APP +10 次抽菜</p>
+          <div class="op-popup-thumbs" role="group" aria-label="弹窗样式">
+            <button type="button" class="ui-segmented__item op-popup-thumb" aria-pressed="true" data-popup="0"><img src="assets/operations/popup-0.webp" width="329" height="423" alt="新用户引导弹窗" loading="lazy" decoding="async"></button>
+            <button type="button" class="ui-segmented__item op-popup-thumb" aria-pressed="false" data-popup="2"><img src="assets/operations/popup-2.webp" width="329" height="423" alt="获得主菜碎片弹窗" loading="lazy" decoding="async"></button>
+            <button type="button" class="ui-segmented__item op-popup-thumb" aria-pressed="false" data-popup="4"><img src="assets/operations/popup-4.webp" width="329" height="423" alt="获得家常菜碎片弹窗" loading="lazy" decoding="async"></button>
+            <button type="button" class="ui-segmented__item op-popup-thumb" aria-pressed="false" data-popup="3"><img src="assets/operations/popup-3.webp" width="329" height="423" alt="获得祈福道具弹窗" loading="lazy" decoding="async"></button>
+            <button type="button" class="ui-segmented__item op-popup-thumb" aria-pressed="false" data-popup="1"><img src="assets/operations/popup-1.webp" width="329" height="423" alt="抽中神秘大奖弹窗" loading="lazy" decoding="async"></button>
+          </div>
+        </aside>
+      </div>
+
+      <div class="op-figures reveal">
+        <div>
+          <h3>人物 IP</h3>
+          <p>统一的 3D 盲盒比例与材质，复用在主会场、团圆饭和品牌阁中，让城市「有人在过年」。</p>
+        </div>
+        <ul aria-label="人物 IP">
+          <li><img src="assets/operations/figure-0.webp" width="116" height="150" alt="西装男性人物 IP" loading="lazy" decoding="async"></li>
+          <li><img src="assets/operations/figure-1.webp" width="141" height="177" alt="戴眼镜的大叔人物 IP" loading="lazy" decoding="async"></li>
+          <li><img src="assets/operations/figure-2.webp" width="130" height="169" alt="长衫男性人物 IP" loading="lazy" decoding="async"></li>
+          <li><img src="assets/operations/figure-3.webp" width="185" height="172" alt="提购物袋的女性人物 IP" loading="lazy" decoding="async"></li>
+          <li><img src="assets/operations/figure-4.webp" width="123" height="158" alt="抱臂男性人物 IP" loading="lazy" decoding="async"></li>
+          <li><img src="assets/operations/figure-5.webp" width="120" height="153" alt="红衣女孩人物 IP" loading="lazy" decoding="async"></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ================= 流程复盘 ================= -->
+    <section id="workflow" class="op-section" aria-labelledby="flow-title">
+      <header class="op-head reveal">
+        <p class="op-kicker">07 · WORKFLOW</p>
+        <h2 id="flow-title">AIGC 流程复盘<span>/ 沉淀 · 迭代 · 复用</span></h2>
+        <p class="op-note">AIGC 早已在日常工作中产出成果，但生成效率仍有提升空间。这次把可复用的素材、高频关键词和训练好的模型分类归档，丰富了 AIGC 创作资源，也提升了生成效率。</p>
+      </header>
+
+      <ol class="op-steps reveal">
+        <li><span class="op-step-circle">参考图收集</span><span class="op-step-note">增加了 AIGC 和 3D 视觉素材库</span></li>
+        <li class="has-arrow"><span class="op-step-circle">书写关键词</span><span class="op-step-note">可高频关键词保存到库中</span></li>
+        <li class="has-arrow"><span class="op-step-circle">AIGC制作</span><span class="op-step-note">可复用性强的保存到库中</span></li>
+        <li><span class="op-step-circle">后期调试</span><span class="op-step-note">包括成图调试和关键词迭代</span></li>
+      </ol>
+
+      <div class="op-tools reveal">
+        <article class="op-tool-card" aria-labelledby="mj-title">
+          <h3 id="mj-title">Midjourney 关键词模板化</h3>
+          <p class="op-tool-sub">为了提升生成画面的可控性及一致性，模板化关键词</p>
+          <div class="op-tool-tags" role="tablist" aria-label="关键词模板">
+            <button type="button" class="ui-segmented__item op-chip" role="tab" aria-selected="true" data-seg="0">主题模板</button>
+            <button type="button" class="ui-segmented__item op-chip" role="tab" aria-selected="false" data-seg="1" tabindex="-1">风格说明</button>
+            <button type="button" class="ui-segmented__item op-chip" role="tab" aria-selected="false" data-seg="2" tabindex="-1">细节描述</button>
+            <button type="button" class="ui-segmented__item op-chip" role="tab" aria-selected="false" data-seg="3" tabindex="-1">指令参数</button>
+          </div>
+          <p class="op-tool-sample" id="op-sample" aria-live="polite">Chinese New Year reunion dinner dish, braised abalone on a white porcelain plate, festive</p>
+          <p class="op-tool-desc">配合 ImagePrompt.org 这个提示词反推工具，配合已有的模板化关键词，可以快速实现参考图的风格一致性生成，生成效率大大提高。</p>
+        </article>
+        <article class="op-tool-card" aria-labelledby="lora-title">
+          <h3 id="lora-title">Stable Diffusion 训练 LoRA 自用模型</h3>
+          <p class="op-tool-sub">常用的设计资源可以训练成 LoRA，批量生成同风格素材</p>
+          <ul class="op-tool-dishes">
+            <li><img src="assets/operations/dish-07.webp" width="233" height="165" alt="LoRA 生成：四喜丸子" loading="lazy" decoding="async"></li>
+            <li><img src="assets/operations/dish-08.webp" width="233" height="157" alt="LoRA 生成：上汤龙虾" loading="lazy" decoding="async"></li>
+            <li><img src="assets/operations/dish-09.webp" width="231" height="187" alt="LoRA 生成：冬菇排骨" loading="lazy" decoding="async"></li>
+          </ul>
+        </article>
+      </div>
+      <p class="op-motto reveal">沉淀 + 迭代 + 复用，提升视觉输出效率</p>
+    </section>
+
+    <!-- ================= 设计验证 ================= -->
+    <section id="results" class="op-section op-section--tint" aria-labelledby="results-title">
+      <header class="op-head reveal">
+        <p class="op-kicker">08 · VALIDATION</p>
+        <h2 id="results-title">多维度设计验证<span>/ 确保目标达成与价值落地</span></h2>
+        <p class="op-note">活动上线后从参与、转化、拉新三个维度回看数据，并结合用户访谈验证设计决策。</p>
+      </header>
+      <div class="op-kpis reveal">
+          <article class="op-kpi"><p class="op-kpi-label">用户活动参与率</p><p class="op-kpi-value"><b data-to="68">68</b><small>%</small></p><div class="op-kpi-bar" style="--a:33;--b:68;--max:68"><i></i><i></i></div><p class="op-kpi-from">活动前 33%</p></article>
+          <article class="op-kpi"><p class="op-kpi-label">页面平均停留时长</p><p class="op-kpi-value"><b data-to="8">8</b><small>分</small><b data-to="20">20</b><small>秒</small></p><div class="op-kpi-bar" style="--a:255;--b:500;--max:500"><i></i><i></i></div><p class="op-kpi-from">活动前 4 分 15 秒</p></article>
+          <article class="op-kpi"><p class="op-kpi-label">活动期间付费转化率</p><p class="op-kpi-value"><b data-to="22">22</b><small>%</small></p><div class="op-kpi-bar" style="--a:9;--b:22;--max:22"><i></i><i></i></div><p class="op-kpi-from">活动前 9%</p></article>
+          <article class="op-kpi"><p class="op-kpi-label">活动分享率</p><p class="op-kpi-value"><b data-to="18">18</b><small>%</small></p><div class="op-kpi-bar op-kpi-bar--single" style="--b:18;--max:18"><i></i><i></i></div><p class="op-kpi-from">好友助力与 AI 视频带动传播</p></article>
+          <article class="op-kpi"><p class="op-kpi-label">活动期间新增用户</p><p class="op-kpi-value"><small>+</small><b data-to="45">45</b><small>%</small></p><div class="op-kpi-bar op-kpi-bar--single" style="--b:45;--max:45"><i></i><i></i></div><p class="op-kpi-from">新增用户数增幅</p></article>
+          <article class="op-kpi"><p class="op-kpi-label">付费用户周复访率</p><p class="op-kpi-value"><b data-to="18">18</b><small>%</small></p><div class="op-kpi-bar" style="--a:7;--b:18;--max:18"><i></i><i></i></div><p class="op-kpi-from">活动前 7%</p></article>
+      </div>
+      <ul class="op-insights reveal">
+        <li><b>参与度</b><p>参与率与停留时长大幅提升，证明「3D 沉浸式场景 + 场景化玩法」解决了参与度低的痛点。</p></li>
+        <li><b>转化与拉新</b><p>付费转化率与分享率同步增长，证明「全链路转化设计 + 社交裂变」提升了商业转化与拉新效率。</p></li>
+        <li><b>用户反馈</b><p>访谈中反复出现「AI 团圆视频、港式新春场景很有新意」，说明 AIGC 与文化调性精准匹配了用户需求。</p></li>
+      </ul>
+      <div class="op-banner op-banner--final reveal">
+        <span class="op-banner-tag">最终结论</span>
+        <p>「先知命局 · 好运节」新年活动 H5 达成全部预设目标。以「文化赋能 + 体验提效 + 商业转化 + AIGC 创新」的全链路策略，实现了用户体验、业务增长与品牌价值的三重升级；每个设计决策都有数据与用户反馈支撑，沉淀出一套可复用的轻玄学产品节日活动设计逻辑。</p>
+      </div>
+    </section>
+
+    <!-- ================= 完整设计稿 ================= -->
+    <section id="extras-wrap" class="project-detail-gallery" aria-label="延展物料">
+      <div class="op-extras" id="extras">
+        <header class="op-head reveal">
+          <p class="op-kicker">09 · EXTENSIONS</p>
+          <h2>延展物料<span>/ 同一套视觉，延伸到每个触点</span></h2>
+        </header>
+        <div class="op-bento reveal">
+          <figure class="op-bento-card op-bento-kv"><div class="op-bento-media"><img src="assets/portfolio/haoyun1.png" width="450" height="320" alt="先知命局好运节社媒主 KV：新春聚福，运势满满" loading="lazy" decoding="async"></div><figcaption><strong>社媒主 KV</strong><span>新春聚福，运势满满</span></figcaption></figure>
+          <figure class="op-bento-card op-bento-mascot"><div class="op-bento-media"><img src="assets/operations/mascot.webp" width="560" height="386" alt="举着「好运节」横幅的舞狮吉祥物" loading="lazy" decoding="async"></div><figcaption><strong>IP 吉祥物</strong><span>舞狮形象，贯穿全活动</span></figcaption></figure>
+          <figure class="op-bento-card op-bento-props"><div class="op-bento-media"><img src="assets/operations/props.webp" width="400" height="400" alt="福袋、卷轴、莲花灯等祈福道具" loading="lazy" decoding="async"></div><figcaption><strong>祈福道具</strong><span>福袋 · 卷轴 · 莲花灯</span></figcaption></figure>
+          <figure class="op-bento-card op-bento-video"><div class="op-bento-media"><iframe src="https://www.youtube-nocookie.com/embed/mQI9jIasaJ4?rel=0&amp;playsinline=1" title="先知命局好运节活动宣传短视频" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div><figcaption><strong>宣传短视频</strong><span>竖版 Shorts</span></figcaption></figure>
+          <figure class="op-bento-card op-bento-poster"><div class="op-bento-media"><img src="assets/portfolio/haoyun2.png" width="180" height="380" alt="舞狮新春氛围竖版海报" loading="lazy" decoding="async"></div><figcaption><strong>竖版海报</strong><span>舞狮迎春</span></figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+<section class="all-pages op-all-pages" id="all-pages" aria-labelledby="all-pages-title">
+      <div class="all-pages-head"><div><p class="op-kicker">10 · ALL SCREENS</p><h2 id="all-pages-title">全部页面</h2></div><p>5 个会场页面 · 5 种弹窗 · 按住可左右拖动</p></div>
+      <div class="all-pages-viewport" data-all-pages>
+        <div class="all-pages-track">
+        <figure class="all-pages-item op-ap-phone"><img src="assets/all-pages/operations/01.webp" width="413" height="860" alt="主会场" loading="lazy" decoding="async" draggable="false"><figcaption>主会场</figcaption></figure>
+        <figure class="all-pages-item op-ap-phone"><img src="assets/all-pages/operations/02.webp" width="413" height="860" alt="会场入口" loading="lazy" decoding="async" draggable="false"><figcaption>会场入口</figcaption></figure>
+        <figure class="all-pages-item op-ap-phone"><img src="assets/all-pages/operations/03.webp" width="413" height="860" alt="团圆饭会场" loading="lazy" decoding="async" draggable="false"><figcaption>团圆饭会场</figcaption></figure>
+        <figure class="all-pages-item op-ap-phone"><img src="assets/all-pages/operations/04.webp" width="413" height="860" alt="新春会场" loading="lazy" decoding="async" draggable="false"><figcaption>新春会场</figcaption></figure>
+        <figure class="all-pages-item op-ap-phone"><img src="assets/all-pages/operations/05.webp" width="413" height="860" alt="许愿会场" loading="lazy" decoding="async" draggable="false"><figcaption>许愿会场</figcaption></figure>
+        <figure class="all-pages-item op-ap-popup"><img src="assets/operations/popup-0.webp" width="329" height="423" alt="新用户引导弹窗" loading="lazy" decoding="async" draggable="false"><figcaption>新用户引导</figcaption></figure>
+        <figure class="all-pages-item op-ap-popup"><img src="assets/operations/popup-1.webp" width="329" height="423" alt="抽中大奖弹窗" loading="lazy" decoding="async" draggable="false"><figcaption>抽中大奖</figcaption></figure>
+        <figure class="all-pages-item op-ap-popup"><img src="assets/operations/popup-2.webp" width="329" height="423" alt="主菜碎片弹窗" loading="lazy" decoding="async" draggable="false"><figcaption>主菜碎片</figcaption></figure>
+        <figure class="all-pages-item op-ap-popup"><img src="assets/operations/popup-3.webp" width="329" height="423" alt="祈福道具弹窗" loading="lazy" decoding="async" draggable="false"><figcaption>祈福道具</figcaption></figure>
+        <figure class="all-pages-item op-ap-popup"><img src="assets/operations/popup-4.webp" width="329" height="423" alt="家常菜碎片弹窗" loading="lazy" decoding="async" draggable="false"><figcaption>家常菜碎片</figcaption></figure>
+        </div>
+      </div>
+    </section>
   </main>
+
   <footer class="content-footer"><a href="index.html">首页</a><a href="works.html">作品集</a><a href="ai-learning.html">AI 学习</a></footer>
+
+
+  <div class="op-toast" id="op-toast" role="status" aria-live="polite"></div>
+<button class="site-to-top" type="button" aria-label="回到顶部"><i class="iconfont icon-up" aria-hidden="true"></i></button>
+<script src="site-common.js?v=2" defer></script>
 </body>
 </html>

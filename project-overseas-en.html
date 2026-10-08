@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>海外英文 · 视觉专题设计｜Chloe</title>
+  <meta name="description" content="海外英文命理专题 H5 视觉设计：Mysterious Palmistry 手相预测与 SeerQ Astro-Numeric Map，每个专题的主视觉、设计要点与完整页面，可点击查看详情。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:ital,wght@0,500;0,600;0,700;0,800;1,800&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="design-tokens.css?v=4">
+  <link rel="stylesheet" href="assets/iconfont/iconfont.css?v=1">
+  <link rel="stylesheet" href="styles.css?v=207">
+  <link rel="stylesheet" href="project-overseas.css?v=3">
+  <link rel="stylesheet" href="project-overseas-en.css?v=2">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <script src="project-overseas.js?v=3" defer></script>
+  <link rel="stylesheet" href="site-common.css?v=3">
+</head>
+<body class="content-page project-detail-page overseas-case overseas-en-case">
+  <nav class="gnav" aria-label="主导航">
+    <a class="gnav-logo tree-logo" href="index.html" aria-label="返回首页"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 28V14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/><path d="M16 16C8 16 5 12 6 7c5-1 9 1 10 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 18c8 0 11-4 10-9-5-1-9 1-10 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    <div class="gnav-links"><a href="index.html">首页</a><a href="works.html" aria-current="page">作品集</a><a href="ai-learning.html">AI 学习</a><a href="index.html#about">关于</a></div>
+  </nav>
+
+  <span class="ov-progress" aria-hidden="true"><i id="ov-progress-bar"></i></span>
+
+  <nav class="ov-rail site-rail" aria-label="章节导航">
+    <a href="#overview"><span>概览</span></a>
+    <a href="#background"><span>项目背景</span></a>
+    <a href="#topics"><span>专题列表</span></a>
+  </nav>
+
+  <main class="content-shell ov-shell">
+
+    <!-- ================= 概览 ================= -->
+    <section id="overview" class="ov-hero" aria-labelledby="ov-title">
+      <div class="ov-hero-copy">
+        <div class="project-detail-meta"><span>VISUAL DESIGN</span><span>2025</span><span>MOBILE H5</span></div>
+        <h1 id="ov-title"><small>Design &amp; AI Creation</small><span class="ov-nowrap">海外英文 ·</span> <span class="ov-nowrap">视觉专题设计</span></h1>
+        <p class="ov-hero-lead">面向欧美、东南亚（马来西亚）市场的英文命理测算 H5。手相预测「Mysterious Palmistry」以「神秘紫 + 奇幻金」营造玄学氛围；SeerQ「Astro-Numeric Map」把紫微斗数、西方占星与数字命理融合成「三源算法」。两个专题各有独立视觉，又共用一套标题、按钮、输入卡片与数据组件，把海外用户从好奇一路带到付费。</p>
+        <ul class="project-detail-tags" aria-label="项目标签"><li>H5</li><li>English</li><li>Overseas</li><li>Component System</li><li>AIGC</li></ul>
+        <dl class="ov-facts">
+          <div><dt>题材</dt><dd>手相 · 中西命理</dd></div>
+          <div><dt>市场</dt><dd>欧美 · 东南亚</dd></div>
+          <div><dt>范围</dt><dd>主视觉 · 组件 · 页面</dd></div>
+          <div><dt>方式</dt><dd>设计 + AI 辅助创作</dd></div>
+        </dl>
+      </div>
+      <figure class="project-detail-cover ov-cover">
+        <button type="button" class="ui-segmented__item ov-cover-btn ov-board-open" data-src="assets/portfolio/cover-overseas-en.jpg" data-title="海外英文 · 视觉专题设计" data-w="1920" data-h="1264" aria-label="放大查看视觉总览">
+          <img src="assets/portfolio/cover-overseas-en.jpg" width="1920" height="1264" alt="海外英文视觉专题设计总览：SeerQ Astro-Numeric Map 与 Mysterious Palmistry 两个专题首屏">
+        </button>
+        <figcaption>SeerQ Astro-Numeric Map · Mysterious Palmistry</figcaption>
+      </figure>
+    </section>
+
+    <!-- ================= 项目背景 ================= -->
+    <section id="background" class="ov-section" aria-labelledby="bg-title">
+      <header class="ov-head reveal">
+        <p class="ov-kicker">BACKGROUND</p>
+        <h2 id="bg-title">让海外用户看得懂、信得过、愿意付费</h2>
+        <p class="ov-note">海外命理产品同质化严重，多是廉价卡通或扁平模板；中式命理直接翻译成英文，又容易显得生硬。这次设计要同时解决三件事：风格差异化、中西文化适配、商业转化。</p>
+      </header>
+      <ol class="ov-shift reveal" aria-label="旧版痛点与设计目标">
+        <li><span class="ov-shift-from">视觉同质化</span><span class="ov-shift-to">专属视觉体系</span><p>手相用「神秘紫 + 奇幻金」，SeerQ 用「科技感 + 神秘学」，每个产品都有独立的记忆点。</p></li>
+        <li><span class="ov-shift-from">文化融合生硬</span><span class="ov-shift-to">中西命理视觉融合</span><p>紫微命盘、西方星盘、数字命理放进同一个三角结构，英文用户也能读懂中式命理。</p></li>
+        <li><span class="ov-shift-from">组件无统一规范</span><span class="ov-shift-to">标准化组件库</span><p>标题、按钮、输入卡片、标签与数据卡片统一规范，提升设计复用率与开发效率。</p></li>
+        <li><span class="ov-shift-from">转化引导模糊</span><span class="ov-shift-to">清晰的付费路径</span><p>突出行动入口，用参与人数、限时折扣、倒计时与多种支付方式降低付费门槛。</p></li>
+      </ol>
+    </section>
+
+    <!-- ================= 专题列表 ================= -->
+    <section id="topics" class="ov-section ov-section--tint" aria-labelledby="topics-title">
+      <header class="ov-head reveal">
+        <p class="ov-kicker">TOPICS</p>
+        <h2 id="topics-title">专题列表</h2>
+        <p class="ov-note">按题材筛选，点击任一专题，进入详情查看完整页面、设计要点、页面模块与主色。</p>
+      </header>
+      <div class="ov-filter ui-segmented reveal" role="group" aria-label="按题材筛选专题"><button type="button" class="ui-segmented__item active" data-filter="all" aria-pressed="true">全部</button><button type="button" class="ui-segmented__item" data-filter="palm" aria-pressed="false">手相预测</button><button type="button" class="ui-segmented__item" data-filter="astro" aria-pressed="false">中西命理</button></div>
+      <ul class="ov-cards reveal" id="ov-cards" aria-live="polite">
+          <li class="ov-card-item" data-cat="palm">
+            <a class="ov-card" href="#topic-palmistry" data-topic="palmistry" style="--tone:#4045D8">
+              <span class="ov-card-media"><img src="assets/portfolio/overseas-en/th-palm.jpg" width="369" height="461" alt="Mysterious Palmistry 手相预测 H5 首屏" loading="lazy" decoding="async"><span class="ov-card-flag">含组件解析</span></span>
+              <span class="ov-card-body">
+                <span class="ov-card-meta"><span>手相预测</span></span>
+                <strong>Mysterious Palmistry · 手相预测</strong>
+                <span class="ov-card-slogan">Palm Prints Predict — Wealth, Marriage &amp; Accident</span>
+                <span class="ov-card-more">查看详情<i class="iconfont icon-right" aria-hidden="true"></i></span>
+              </span>
+            </a>
+          </li>
+          <li class="ov-card-item" data-cat="astro">
+            <a class="ov-card" href="#topic-astro-numeric" data-topic="astro-numeric" style="--tone:#D6B46A">
+              <span class="ov-card-media"><img src="assets/portfolio/overseas-en/th-astro.jpg" width="369" height="461" alt="SeerQ Astro-Numeric Map H5 首屏" loading="lazy" decoding="async"><span class="ov-card-flag">含组件解析</span></span>
+              <span class="ov-card-body">
+                <span class="ov-card-meta"><span>中西命理</span></span>
+                <strong>SeerQ Astro-Numeric Map</strong>
+                <span class="ov-card-slogan">ZiWei × Astrology × Numerology 三源算法</span>
+                <span class="ov-card-more">查看详情<i class="iconfont icon-right" aria-hidden="true"></i></span>
+              </span>
+            </a>
+          </li>
+      </ul>
+    </section>
+
+
+
+
+    <section class="all-pages" aria-labelledby="all-pages-title">
+      <div class="all-pages-head"><h2 id="all-pages-title">全部页面</h2><p>按住可左右拖动预览</p></div>
+      <div class="all-pages-viewport" data-all-pages>
+        <div class="all-pages-track">
+        <figure class="all-pages-item"><img src="assets/all-pages/overseas-en/01.jpg" width="369" height="700" alt="Palmistry 首屏" loading="lazy" decoding="async" draggable="false"></figure>
+        <figure class="all-pages-item"><img src="assets/all-pages/overseas-en/02.jpg" width="369" height="700" alt="Palmistry 婚恋预测" loading="lazy" decoding="async" draggable="false"></figure>
+        <figure class="all-pages-item"><img src="assets/all-pages/overseas-en/03.jpg" width="369" height="700" alt="Palmistry 财富与意外预测" loading="lazy" decoding="async" draggable="false"></figure>
+        <figure class="all-pages-item"><img src="assets/all-pages/overseas-en/04.jpg" width="369" height="700" alt="Astro-Numeric Map 首屏" loading="lazy" decoding="async" draggable="false"></figure>
+        <figure class="all-pages-item"><img src="assets/all-pages/overseas-en/05.jpg" width="369" height="700" alt="Astro-Numeric Map 结果预览" loading="lazy" decoding="async" draggable="false"></figure>
+        <figure class="all-pages-item"><img src="assets/all-pages/overseas-en/06.jpg" width="369" height="700" alt="Astro-Numeric Map 支付弹窗" loading="lazy" decoding="async" draggable="false"></figure>
+        <figure class="all-pages-item"><img src="assets/all-pages/overseas-en/07.jpg" width="369" height="700" alt="Astro-Numeric Map 内容示例" loading="lazy" decoding="async" draggable="false"></figure>
+        </div>
+      </div>
+    </section>
+    <div class="project-detail-end"><a class="ui-button ui-button--outline" href="project-operations.html"><span>下一个项目</span></a></div>
+  </main>
+
+  <footer class="content-footer"><a href="index.html">首页</a><a href="works.html">作品集</a><a href="ai-learning.html">AI 学习</a></footer>
+
+  <!-- ================= 专题详情 ================= -->
+  <dialog class="ov-detail" id="ov-detail" aria-labelledby="ov-d-name">
+    <div class="ov-d-bar">
+      <button type="button" class="ui-button ui-button--muted ui-button--back" id="ov-d-back"><span>返回专题列表</span></button>
+      <div class="ov-d-nav">
+        <button type="button" class="ui-icon-button ui-icon-button--outline" id="ov-d-prev" aria-label="上一个专题"><i class="iconfont icon-left" aria-hidden="true"></i></button>
+        <span id="ov-d-count" aria-live="polite">1 / 2</span>
+        <button type="button" class="ui-icon-button ui-icon-button--outline" id="ov-d-next" aria-label="下一个专题"><i class="iconfont icon-right" aria-hidden="true"></i></button>
+      </div>
+    </div>
+    <div class="ov-d-body" id="ov-d-body">
+      <div class="ov-d-grid">
+        <div class="ov-d-phone-col">
+          <div class="ov-phone">
+            <div class="ov-phone-scroll" id="ov-d-scroll" tabindex="0" aria-label="专题完整页面，可滚动浏览">
+              <img id="ov-d-img" src="" alt="" decoding="async">
+            </div>
+            <span class="ov-phone-meter" aria-hidden="true"><i id="ov-d-meter"></i></span>
+          </div>
+          <p class="ov-d-hint" id="ov-d-hint">在手机里滚动，浏览完整页面</p>
+        </div>
+        <article class="ov-d-info">
+          <p class="ov-d-kicker" id="ov-d-kicker"></p>
+          <h2 id="ov-d-name"></h2>
+          <p class="ov-d-slogan" id="ov-d-slogan"></p>
+          <p class="ov-d-desc" id="ov-d-desc"></p>
+
+          <h3>页面模块 <span>点选跳转到手机中的对应位置</span></h3>
+          <ol class="ov-d-sections" id="ov-d-sections"></ol>
+
+          <div class="ov-d-screens" id="ov-d-screens" hidden>
+            <h3>关键页面 <span>点击放大查看</span></h3>
+            <ul class="ov-d-screens-grid" id="ov-d-screens-grid"></ul>
+          </div>
+
+          <h3>设计要点</h3>
+          <ul class="ov-d-points" id="ov-d-points"></ul>
+
+          <h3>主色取样 <span>点击色块复制色值</span></h3>
+          <ul class="ov-d-colors" id="ov-d-colors"></ul>
+
+          <div class="ov-d-comp" id="ov-d-comp" hidden>
+            <h3>组件拆解</h3>
+            <ul class="ov-d-comp-grid" id="ov-d-comp-grid"></ul>
+          </div>
+        </article>
+      </div>
+      <nav class="ov-d-pager" aria-label="切换专题">
+        <button type="button" class="ui-segmented__item ov-d-pager-btn" id="ov-d-pager-prev"><small>上一个专题</small><strong></strong></button>
+        <button type="button" class="ui-segmented__item ov-d-pager-btn ov-d-pager-btn--next" id="ov-d-pager-next"><small>下一个专题</small><strong></strong></button>
+      </nav>
+    </div>
+  </dialog>
+
+  <dialog class="ov-lightbox" id="ov-lightbox" aria-labelledby="ov-lb-title">
+    <div class="ov-lb-bar">
+      <p id="ov-lb-title">设计稿</p>
+      <div class="ov-lb-actions">
+        <button type="button" class="ui-icon-button ui-icon-button--muted" id="ov-lb-zoom" aria-pressed="false" aria-label="切换原始尺寸"><i class="iconfont icon-search" aria-hidden="true"></i></button>
+        <button type="button" class="ui-icon-button ui-icon-button--muted" id="ov-lb-close" aria-label="关闭"><i class="iconfont icon-close" aria-hidden="true"></i></button>
+      </div>
+    </div>
+    <div class="ov-lb-body" id="ov-lb-body"><p class="ov-lb-loading">长图加载中…</p><img id="ov-lb-img" alt=""></div>
+  </dialog>
+
+  <div class="ov-toast" id="ov-toast" role="status" aria-live="polite"></div>
+  <script type="application/json" id="ov-data">{"title":"海外英文 · 视觉专题设计","cats":{"palm":"手相预测","astro":"中西命理"},"hideIndex":true,"topics":[
+{"slug":"palmistry","name":"Mysterious Palmistry · 手相预测","cat":"palm","img":"assets/portfolio/overseas-en/t-palm.jpg","w":380,"h":1746,"slogan":"Palm Prints Predict — Wealth, Marriage & Accident","desc":"面向欧美 / 东南亚市场的手相命理 H5。以「神秘紫 + 奇幻金」建立专属视觉体系：鎏金拱门标题、星象手掌与命运罗盘构成首屏主视觉，财富、婚龄、子女、意外等问题标签环绕手掌，把用户最关心的问题直接放在第一屏；往下再以婚恋、财富、意外概率等模块逐一拆解手相能预测什么。","points":["EXCLUSIVE 徽章 + 鎏金拱门标题，营造神秘奇幻氛围，与同类廉价卡通风拉开差距","Wealth / Age of Marriage / Boy or Girl 等问题标签环绕手掌，首屏就说明「能算什么」","发光渐变「Predict Now」主按钮 + 参与人数，行动入口突出，同时补足信任","财富三档对比卡、意外概率环形图，把抽象的手相结论做成可视化数据"],"sections":[{"n":"首屏主视觉","at":0},{"n":"Predict Now","at":0.28},{"n":"婚恋预测","at":0.365},{"n":"财富预测","at":0.58},{"n":"意外概率","at":0.84}],"colors":[{"hex":"#230C40","n":"深紫 · 底色"},{"hex":"#4045D8","n":"电光蓝 · 按钮"},{"hex":"#C99A32","n":"奇幻金 · 标题"},{"hex":"#E040C8","n":"霓虹粉 · 标签"}],"partial":false,"screens":[{"n":"首屏","img":"assets/portfolio/overseas-en/s-p-first.jpg","w":380,"h":713},{"n":"财富 · 意外模块","img":"assets/portfolio/overseas-en/s-p-wealth.jpg","w":380,"h":735}],"comp":{"title":"Mysterious Palmistry 手相预测 H5","board":"assets/portfolio/overseas-en/board-palm.jpg","w":1920,"h":1390,"items":[{"n":"主标题组件","img":"assets/portfolio/overseas-en/c-p-title.jpg","w":380,"h":185},{"n":"手掌命盘主视觉","img":"assets/portfolio/overseas-en/c-p-hero.jpg","w":380,"h":335},{"n":"主按钮组件","img":"assets/portfolio/overseas-en/c-p-btn.jpg","w":270,"h":105},{"n":"概率环形组件","img":"assets/portfolio/overseas-en/c-p-accident.jpg","w":380,"h":280}]}},
+{"slug":"astro-numeric","name":"SeerQ Astro-Numeric Map","cat":"astro","img":"assets/portfolio/overseas-en/t-astro.jpg","w":380,"h":1554,"slogan":"ZiWei × Astrology × Numerology 三源算法","desc":"面向马来西亚等海外市场的命理测算 H5，融合紫微斗数、西方占星与数字命理的「三源算法」。首屏用三角结构把三种体系连到 Talent / Love / Wealth / Career 四个维度：左边紫微命盘、右边星盘、底部数字，中西元素在同一画面里各有位置。深紫星空 + 香槟金营造「科技感 + 神秘学」的高端调性，并完整设计了信息输入、结果预览到支付解锁的转化链路。","points":["三角结构主视觉：紫微 × 占星 × 数字命理，一张图讲清「三源算法」","半透明紫色表单卡 + 香槟金「Initiate Calibration」按钮，输入区紧跟首屏","Romance / Finance / Innate Talents / Lucky Energy 四维度胶囊，示例内容按维度展开","结果页先回显三源命盘再引导查看完整报告；支付弹窗含限时价、倒计时与多种海外支付方式"],"sections":[{"n":"首屏主视觉","at":0},{"n":"信息输入","at":0.2},{"n":"三源算法说明","at":0.39},{"n":"四维度切换","at":0.52},{"n":"内容示例","at":0.66}],"colors":[{"hex":"#2A1B44","n":"星夜紫 · 底色"},{"hex":"#453163","n":"雾紫 · 卡片"},{"hex":"#D6B46A","n":"香槟金 · 按钮"},{"hex":"#DCCC9F","n":"浅金 · 标题"}],"partial":false,"screens":[{"n":"填写信息","img":"assets/portfolio/overseas-en/s-a-first.jpg","w":380,"h":713},{"n":"结果预览","img":"assets/portfolio/overseas-en/s-a-result.jpg","w":380,"h":753},{"n":"支付解锁","img":"assets/portfolio/overseas-en/s-a-pay.jpg","w":380,"h":753}],"comp":{"title":"SeerQ Astro-Numeric Map 英文版 H5","board":"assets/portfolio/overseas-en/board-astro.jpg","w":1920,"h":1875,"items":[{"n":"主标题 · 三源结构","img":"assets/portfolio/overseas-en/c-a-title.jpg","w":380,"h":300},{"n":"信息输入卡片","img":"assets/portfolio/overseas-en/c-a-form.jpg","w":362,"h":280},{"n":"结果预览卡片","img":"assets/portfolio/overseas-en/c-a-result.jpg","w":380,"h":335},{"n":"支付弹窗组件","img":"assets/portfolio/overseas-en/c-a-pay.jpg","w":342,"h":395}]}}
+]}</script>
+<button class="site-to-top" type="button" aria-label="回到顶部"><i class="iconfont icon-up" aria-hidden="true"></i></button>
+<script src="site-common.js?v=2" defer></script>
+</body>
+</html>

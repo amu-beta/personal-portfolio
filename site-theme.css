@@ -1,0 +1,411 @@
+/* ============================================================
+   中性配色 —— 参考 kargul.studio
+   在首页、作品集页、AI 学习页加载（位于 styles.css 之后）。
+   规则：页面底 #efefef / 卡片 #fff / 主文字与主按钮 #232323 /
+        次要文字 #707070 / 弱化 #9d9d9d / 描边 #e5e5e5 / 状态绿 #1daf61
+   蓝紫色强调统一收敛为 #232323；插画里的彩色（文件夹标签等）保留。
+   颜色数值来自 design-tokens.css 的 --k-* 令牌。
+   ============================================================ */
+
+/* 1. 以下为 styles.css 中相关规则的配色映射（自动生成，顺序与原文件一致） */
+:root {
+  --ink: #232323;
+  --ink-heading: #232323;
+  --gray: #707070;
+  --blue: #232323;
+  --blue-soft: #232323;
+  --line: #e5e5e5;
+  --card-gray: #f5f5f5;
+  --fill: #f5f5f5;
+  --hero-navy: #232323;
+  --control-dark-900: #232323;
+  --control-dark-800: #232323;
+  --control-gray-100: #f5f5f5;
+  --control-gray-200: #f5f5f5;
+  --control-gray-300: #e5e5e5;
+  --control-gray-600: #707070;
+  --control-outline-bg-hover: #f5f5f5;
+  --control-focus: #232323;
+  --control-focus-ring: rgba(35, 35, 35, 0.478);
+}
+.tag::before, .tag::after {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10.012 13.188" overflow="visible"><path d="M 3.164 13.188 L 0 6.314 L 3.01 0 L 4.116 0 L 1.162 6.314 L 4.27 13.188 Z M 8.906 13.188 L 5.742 6.314 L 8.752 0 L 9.858 0 L 6.904 6.314 L 10.012 13.188 Z" fill="rgba(35, 35, 35, 0.4)"/></svg>');
+}
+.bracket {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10.012 13.188" overflow="visible"><path d="M 3.164 13.188 L 0 6.314 L 3.01 0 L 4.116 0 L 1.162 6.314 L 4.27 13.188 Z M 8.906 13.188 L 5.742 6.314 L 8.752 0 L 9.858 0 L 6.904 6.314 L 10.012 13.188 Z" fill="rgba(35, 35, 35, 0.4)"/></svg>');
+}
+.ui-button--solid {
+  border-color: #232323;
+  box-shadow: inset 0 1px 0 #ffffff4d, 0 10px 22px -18px rgba(35, 35, 35, 0.6);
+}
+.ui-button--solid:hover {
+  box-shadow: inset 0 1px 0 #ffffff5c, 0 12px 24px -18px rgba(35, 35, 35, 0.702);
+}
+.ui-button--outline:hover {
+  border-color: #b4b4b4;
+}
+.ui-icon-button--solid {
+  border-color: #232323;
+}
+.ui-segmented__item.active {
+  box-shadow: inset 0 1px 0 #ffffff4d, 0 8px 18px -14px rgba(35, 35, 35, 0.639);
+}
+.nav-links a {
+  color: #707070;
+}
+.nav.condensed {
+  box-shadow: 0 18px 40px -20px rgba(35, 35, 35, 0.251);
+}
+.content-nav {
+  box-shadow: 0 18px 42px -28px rgba(35, 35, 35, 0.4);
+}
+.works-page {
+  background: linear-gradient(180deg, #fff 0%, #ffffff 52%, #fff 100%);
+}
+.featured-project {
+  background: linear-gradient(138deg, #fff 10%, #f5f5f5 100%);
+  box-shadow: 0 12px 32px -28px rgba(35, 35, 35, 0.451);
+}
+.featured-project:hover {
+  box-shadow: 0 16px 36px -28px rgba(35, 35, 35, 0.502);
+}
+.featured-project-meta span {
+  color: #9d9d9d;
+}
+.featured-project:has(.featured-project-title-link:focus-visible) {
+  outline: 3px solid rgba(35, 35, 35, 0.2);
+}
+.featured-project-description {
+  color: #707070;
+}
+.featured-project-tags li {
+  border: 1px solid #e5e5e5;
+  background: #f5f5f5;
+  color: #707070;
+}
+.featured-project-gallery {
+  background: radial-gradient(circle at 30% 18%, #f5f5f5 0, transparent 34%),
+    linear-gradient(150deg, #f5f5f5 0%, #f5f5f5 100%);
+}
+.featured-project-gallery figure {
+  background: #f5f5f5;
+  box-shadow: 0 18px 44px -32px #232323;
+}
+.featured-project-gallery figure.image-unavailable::after {
+  color: #9d9d9d;
+}
+.hero-pill {
+  box-shadow: 0 12px 28px -14px rgba(35, 35, 35, 0.2);
+}
+.hero-pill-chip {
+  box-shadow: 0 4px 12px -4px rgba(35, 35, 35, 0.18);
+}
+.hero-pill-text {
+  color: #707070;
+}
+.hero-ico {
+  --shadow-ramp: 0 1px 1px rgba(35, 35, 35, 0.059),
+    0 2px 2px rgba(35, 35, 35, 0.051),
+    0 4px 5px rgba(35, 35, 35, 0.047),
+    0 9px 10px rgba(35, 35, 35, 0.043),
+    0 18px 22px rgba(35, 35, 35, 0.039),
+    0 34px 42px rgba(35, 35, 35, 0.039);
+}
+.hero-ico-app {
+  box-shadow: var(--shadow-ramp), 0 12px 26px -10px rgba(35, 35, 35, 0.239);
+}
+.type-line .tch.sel {
+  background: #f5f5f5;
+}
+.type-cursor {
+  background: #232323;
+}
+.hero-sub {
+  color: #707070;
+}
+.phone-frame {
+  border: 3px solid #e5e5e5;
+  box-shadow: 0 20px 40px -20px rgba(35, 35, 35, 0.071);
+}
+.bento-head .tag,
+.showcase-head .tag {
+  box-shadow: 0 8px 20px -10px rgba(35, 35, 35, 0.141), 0 1px 2px rgba(35, 35, 35, 0.078);
+}
+.app-icon:hover {
+  box-shadow: 0 8px 18px -14px rgba(35, 35, 35, 0.4);
+}
+.app-icon.sel {
+  border-color: #232323;
+}
+.step-plan-card {
+  box-shadow: 0 20px 30px -18px rgba(35, 35, 35, 0.059), 0 2px 4px rgba(35, 35, 35, 0.039);
+}
+.orbit .tool {
+  box-shadow: 0 1px 1px rgba(35, 35, 35, 0.039), 0 4px 6px rgba(35, 35, 35, 0.031), 0 0 0 1px rgba(35, 35, 35, 0.039);
+}
+.orbit-logo {
+  box-shadow: 0 1px 1px rgba(35, 35, 35, 0.039), 0 6px 8px rgba(35, 35, 35, 0.031), 0 0 0 1px rgba(35, 35, 35, 0.039);
+}
+.monitor {
+  box-shadow: 0 20px 30px -18px rgba(35, 35, 35, 0.059), 0 2px 4px rgba(35, 35, 35, 0.039);
+}
+.m-row .m-cell {
+  color: rgba(35, 35, 35, 0.502);
+}
+.monitor-banner {
+  background: #f5f5f5;
+}
+.sa-phone {
+  border: 4px solid #e5e5e5;
+  box-shadow: inset 0 0 0 1.5px #f5f5f7, 0 30px 50px -30px rgba(35, 35, 35, 0.251);
+}
+.sa1-box {
+  box-shadow: 0 18px 34px -20px rgba(35, 35, 35, 0.2), 0 2px 5px rgba(35, 35, 35, 0.039);
+}
+.sa-chip svg {
+  color: #9d9d9d;
+}
+.sa1-lines span {
+  background: #f5f5f5;
+}
+.sa2-tile {
+  box-shadow: 0 14px 26px -12px rgba(35, 35, 35, 0.259), 0 2px 5px rgba(35, 35, 35, 0.122);
+}
+.sa2-x {
+  color: #b4b4b4;
+}
+.sa2-comment {
+  box-shadow: 0 14px 26px -16px rgba(35, 35, 35, 0.18), 0 2px 4px rgba(35, 35, 35, 0.039);
+}
+.sa2-c1 i {
+  background: #232323;
+}
+.sa3-testi {
+  box-shadow: 0 18px 34px -20px rgba(35, 35, 35, 0.2), 0 2px 5px rgba(35, 35, 35, 0.039);
+}
+.sa3-head img {
+  background: #f5f5f5;
+}
+.bento-card {
+  box-shadow: 0 0 0 1.60714px rgba(35, 35, 35, 0.039), 0 40px 50px -30px rgba(35, 35, 35, 0.059), 0 4px 8px rgba(35, 35, 35, 0.031);
+}
+.bento-pill {
+  box-shadow: 0 14px 28px -16px rgba(35, 35, 35, 0.161), 0 2px 4px rgba(35, 35, 35, 0.039);
+}
+.pill-chev {
+  color: #9d9d9d;
+}
+.bento-pill .spark {
+  color: #232323;
+}
+.pill-purple {
+  border-color: rgba(35, 35, 35, 0.259);
+}
+.pill-purple, .pill-purple .bento-pill-r {
+  color: #232323;
+}
+.fan img {
+  box-shadow: 0 24px 44px -20px rgba(35, 35, 35, 0.2), 0 4px 10px rgba(35, 35, 35, 0.078);
+}
+.bv2-card {
+  box-shadow: 0 26px 48px -32px rgba(35, 35, 35, 0.129), 0 2px 6px rgba(35, 35, 35, 0.039);
+}
+.bv2-eyebrow {
+  color: #232323;
+}
+.bv2-chips span {
+  background: #f5f5f5;
+  color: #707070;
+}
+.bv2-screen img {
+  box-shadow: 0 -18px 44px -24px rgba(35, 35, 35, 0.251);
+}
+.bv2-screen::before,
+.bv2-side .b3-folders::before,
+.bv2-side .b3-prompt::before {
+  background: radial-gradient(62% 56% at 50% 46%, rgba(35, 35, 35, 0.22) 0%, rgba(35, 35, 35, 0.11) 55%, transparent 78%);
+}
+.b3-card {
+  background: #f5f5f5;
+}
+.b3-avatar {
+  background: linear-gradient(145deg, #232323, #232323);
+}
+.b3-promptbox {
+  border: 1px solid #e5e5e5;
+  box-shadow: 0 22px 40px -24px rgba(35, 35, 35, 0.141), 0 2px 6px rgba(35, 35, 35, 0.039);
+}
+.b3-ph {
+  color: #9d9d9d;
+}
+.b3-chip {
+  box-shadow: 0 2px 5px rgba(35, 35, 35, 0.039);
+}
+.b3-chip svg {
+  color: #9d9d9d;
+}
+.b2-row.is-selected {
+  background: #f5f5f5;
+}
+.b2-ico {
+  background: #f5f5f5;
+  border: 1px solid #e5e5e5;
+  color: #9d9d9d;
+}
+.is-selected .b2-ico {
+  background: #f5f5f5;
+  border-color: #e5e5e5;
+}
+.b2-card {
+  background: #f5f5f5;
+  border: 1px solid #e5e5e5;
+}
+.event-pill {
+  box-shadow: 0 18px 30px -16px rgba(35, 35, 35, 0.149), 0 2px 4px rgba(35, 35, 35, 0.039);
+}
+.event-pill img {
+  background: #f5f5f5;
+}
+.track-note {
+  background: rgba(35, 35, 35, 0.071);
+  border: 1px solid rgba(35, 35, 35, 0.259);
+}
+.track-note .spark {
+  color: #232323;
+}
+.track-note strong {
+  color: #232323;
+}
+.track-note p {
+  color: #232323;
+}
+.delivery-track {
+  background: #f5f5f5;
+}
+.delivery-track i {
+  background: #f5f5f5;
+}
+.delivery-chip {
+  box-shadow: 0 12px 24px -14px rgba(35, 35, 35, 0.149), 0 2px 4px rgba(35, 35, 35, 0.039);
+}
+.figma-card {
+  box-shadow: 0 18px 30px -16px rgba(35, 35, 35, 0.125), 0 2px 4px rgba(35, 35, 35, 0.039);
+}
+.figma-file {
+  border-bottom: 1px solid #e5e5e5;
+}
+.figma-row i {
+  border: 1.5px solid #b4b4b4;
+}
+.figma-row em {
+  color: #232323;
+  background: rgba(35, 35, 35, 0.102);
+}
+.figma-row.hot {
+  background: rgba(35, 35, 35, 0.051);
+}
+.figma-row.hot i {
+  border-color: #232323;
+}
+.footer-mono {
+  color: #707070;
+}
+.footer-col h5 {
+  color: #707070;
+}
+.footer-col a {
+  color: #b4b4b4;
+}
+.footer-bottom {
+  color: #707070;
+}
+.about-head .tag {
+  box-shadow: 0 8px 20px -10px rgba(35, 35, 35, 0.141), 0 1px 2px rgba(35, 35, 35, 0.078);
+}
+.about-card {
+  border: 1px solid #e5e5e5;
+  box-shadow: 0 34px 64px -34px rgba(35, 35, 35, 0.259), 0 3px 10px rgba(35, 35, 35, 0.078);
+}
+.ac-top {
+  color: #9d9d9d;
+  border-top: 1px solid #e5e5e5;
+  border-bottom: 1px solid #e5e5e5;
+}
+.ac-field label, .ac-col label {
+  color: #9d9d9d;
+  border-bottom: 1px solid #e5e5e5;
+}
+.ac-name {
+  color: #232323;
+  border-bottom: 1px solid #e5e5e5;
+}
+.ac-blurb {
+  color: #707070;
+}
+.ac-col li {
+  color: #707070;
+  border-bottom: 1px dashed #e5e5e5;
+}
+.about-photo {
+  box-shadow: 0 22px 44px -24px rgba(35, 35, 35, 0.278), 0 2px 6px rgba(35, 35, 35, 0.11);
+}
+.tape {
+  box-shadow: 0 1px 3px rgba(35, 35, 35, 0.094);
+}
+.footer-v2::before {
+  background: radial-gradient(430px 430px at 150px 105px, #ffffff 0%, #ffffff 12%, #fffffff2 21%, #ffffffb8 33%, #ffffff00 62%),
+    radial-gradient(500px 500px at 150px 105px, #ffffff00 42%, rgba(245, 245, 245, 0.278) 56%, rgba(245, 245, 245, 0.251) 66%, rgba(245, 245, 245, 0.302) 76%, #ffffff00 90%),
+    radial-gradient(640px 640px at 150px 105px, rgba(245, 245, 245, 0.302) 0%, #ffffff00 58%),
+    radial-gradient(950px 950px at 150px 105px, #7fb2e600 24%, rgba(35, 35, 35, 0.29) 52%, rgba(35, 35, 35, 0.18) 74%, #86b4e400 95%),
+    url('assets/hero-sky.jpg') center top / cover no-repeat;
+}
+.jar-sub {
+  color: #707070;
+}
+.jar-pick.on {
+  border-color: #232323;
+}
+.jar-note {
+  color: #9d9d9d;
+}
+.fv2-copy {
+  color: #9d9d9d;
+}
+.back-to-top {
+  box-shadow: 0 14px 34px -18px rgba(35, 35, 35, 0.502);
+}
+.back-to-top:hover {
+  border-color: #b4b4b4;
+}
+.learning-page .featured-article {
+  border: 1px solid #e5e5e5;
+  background: linear-gradient(135deg, #f5f5f5 0%, #fff 68%);
+}
+.learning-page .article-meta time::before {
+  color: #9d9d9d;
+}
+.learning-page .article-status {
+  border: 1px solid #e5e5e5;
+  color: #707070;
+}
+
+/* 2. 页面与卡片底色 */
+:root {
+  --bg: var(--k-bg);
+  --card-gray: var(--k-card);
+}
+body,
+.page-cover,
+.canvas { background: var(--k-bg); }
+
+/* 3. 去掉蓝天/水彩氛围背景，保持参考站的纯色中性底 */
+.about::before,
+.bento::before,
+.footer-v2::before { background: none; }
+.about-bg { display: none; }
+
+.hero-zone::before { background: var(--k-bg); }
+.hero-pill { background: var(--k-card); }
+/* Codex 品牌图标底：保留图标本色，底座改为白色卡片 */
+.b3-avatar { background: var(--k-card); box-shadow: 0 0 0 1px var(--k-border); }
+.works-page { background: var(--k-bg); }

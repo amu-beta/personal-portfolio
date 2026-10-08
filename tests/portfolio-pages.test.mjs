@@ -149,7 +149,7 @@ test('all site buttons share the reference-driven variant system', () => {
   const home = readPage('index.html');
   const works = readPage('works.html');
   const script = readPage('script.js');
-  const detailPages = ['project-seerq.html', 'project-fengsuitang.html', 'project-topic.html', 'project-operations.html'].map(readPage);
+  const detailPages = ['project-seerq.html', 'project-fengsuitang.html', 'project-topic.html', 'project-overseas.html', 'project-overseas-en.html', 'project-operations.html'].map(readPage);
 
   for (const token of ['--control-solid-bg', '--control-outline-bg', '--control-muted-bg', '--button-height', '--button-radius']) {
     assert.match(css, new RegExp(`${token}:`), `${token} must be defined once for the shared button system`);
@@ -176,7 +176,7 @@ test('all site buttons share the reference-driven variant system', () => {
     }
   }
 
-  assert.equal((works.match(/featured-case-button ui-button ui-button--solid/g) || []).length, 4);
+  assert.equal((works.match(/featured-case-button ui-button ui-button--solid/g) || []).length, 8);
   assert.equal((works.match(/featured-project-link ui-button ui-button--outline/g) || []).length, 4);
   assert.match(works, /class="featured-tabs ui-segmented"/);
 
@@ -194,9 +194,13 @@ test('works page uses the referenced portfolio content in the existing design sy
   const runtime = readPage('pages.js');
   const projects = [
     { kind: 'app', title: '先知命局 SeerQ DESIGN', type: 'PRODUCT DESIGN', year: '2024 - 2026', page: 'project-seerq.html', cover: 'cover-seerq.jpg', details: ['app1.png', 'app2.png'], href: 'https://play.google.com/store/apps/details?id=com.mmc.seer.onnet&hl=zh' },
+    { kind: 'app', title: 'AI 六爻卜卦', type: 'AI PRODUCT DESIGN', year: '2026', page: 'project-liuyao.html', cover: 'liuyao/2003-1109-raw-01.png', details: ['liuyao/2014-619-raw-03.png', 'liuyao/2020-961-raw-04.png'] },
     { kind: 'website', title: '枫燧堂（香港）PC 端官网', type: 'WEB DESIGN', year: '2025', page: 'project-fengsuitang.html', cover: 'cover-fengsuitang.jpg', details: ['fengsui1.jpg', 'fengsui2.jpg'], href: 'https://fengsuitang.com/' },
     { kind: 'topic', title: '运势专题改版', type: 'VISUAL DESIGN', year: '2025', page: 'project-topic.html', cover: 'cover-topic.jpg', details: ['zhuangti1.jpg', 'zhuangti2.jpg'], href: 'https://www.seeronnet.com/seer/onlinecs' },
+    { kind: 'topic', title: '海外中文 · 视觉专题设计', type: 'VISUAL DESIGN', year: '2024', page: 'project-overseas.html', cover: 'cover-overseas.jpg', details: ['haiwai1.jpg', 'haiwai2.jpg'] },
+    { kind: 'topic', title: '海外英文 · 视觉专题设计', type: 'VISUAL DESIGN', year: '2025', page: 'project-overseas-en.html', cover: 'cover-overseas-en.jpg', details: ['haiwai-en1.jpg', 'haiwai-en2.jpg'] },
     { kind: 'operations', title: '运营活动视觉设计', type: 'AIGC VISUAL', year: '2025 - 2026', page: 'project-operations.html', cover: 'cover-operations.jpg', details: ['haoyun1.png', 'haoyun2.png'], href: 'https://h5.seeronnet.net/dist/new-year-2026/' },
+    { kind: 'materials', title: '运营素材 · 弹窗与广告 Banner', type: 'OPERATIONS VISUAL', year: '2025', page: 'project-materials.html', cover: 'cover-materials.jpg', details: ['materials1.png', 'materials2.png'] },
   ];
 
   assert.match(html, /<body\b[^>]*\bclass="[^"]*\bcontent-page\b[^"]*\bworks-page\b[^"]*"/);
@@ -208,10 +212,12 @@ test('works page uses the referenced portfolio content in the existing design sy
   assert.match(html, /<script\s+src="pages\.js(?:\?v=\d+)?"\s*><\/script>/);
 
   assert.doesNotMatch(html, /SELECTED WORK|<h1[^>]*>\s*精选作品\s*</, 'the removed portfolio heading must stay removed');
-  assert.match(html, /class="works-summary"/);
+  assert.doesNotMatch(html, /class="works-summary"/, 'the works summary line was removed on request');
 
   for (const { kind, title, type, year, page, cover, details, href } of projects) {
-    const article = html.match(new RegExp(`<article\\b[^>]*\\bdata-project-kind="${kind}"[^>]*>[\\s\\S]*?<\\/article>`))?.[0];
+    const article = [...html.matchAll(new RegExp(`<article\\b[^>]*\\bdata-project-kind="${kind}"[^>]*>[\\s\\S]*?<\\/article>`, 'g'))]
+      .map((match) => match[0])
+      .find((candidate) => candidate.includes(`href="${page}"`));
     assert.ok(article, `${kind} must have a complete project card`);
     assert.match(article, new RegExp(`<a\\b[^>]*href="${page.replace('.', '\\.')}"[^>]*>\\s*<h2\\b[^>]*>\\s*${title.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\s*<`));
     assert.equal((article.match(new RegExp(`href="${page.replace('.', '\\.')}"`, 'g')) || []).length, 2, `${title} card and case action must both link to its detail page`);
@@ -219,11 +225,13 @@ test('works page uses the referenced portfolio content in the existing design sy
     assert.match(article, new RegExp(year.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')));
     assert.match(article, new RegExp(`assets/portfolio/${cover.replace('.', '\\.')}"`));
     details.forEach((detail) => assert.match(article, new RegExp(`assets/portfolio/${detail.replace('.', '\\.')}"`)));
-    const htmlHref = href.replaceAll('&', '&amp;');
-    assert.match(article, new RegExp(`href="${htmlHref.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}"`));
+    if (href) {
+      const htmlHref = href.replaceAll('&', '&amp;');
+      assert.match(article, new RegExp(`href="${htmlHref.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}"`));
+    }
   }
-  assert.equal((html.match(/assets\/portfolio\/(?:cover-[\w-]+\.jpg|[\w-]+\.(?:jpg|png))/g) || []).length, 12, 'four visible galleries must each reference three local assets once');
-  for (const [kind, label] of [['app', 'App'], ['website', '官网'], ['topic', '专题页'], ['operations', '运营活动']]) {
+  assert.equal((html.match(/assets\/portfolio\/(?:liuyao\/)?(?:cover-[\w-]+\.jpg|[\w-]+\.(?:jpg|png))/g) || []).length, 24, 'eight visible galleries must each reference three local assets once');
+  for (const [kind, label] of [['app', 'App'], ['website', '官网'], ['topic', '专题页'], ['operations', '运营活动'], ['materials', '运营素材']]) {
     assert.match(html, new RegExp(`<button\\b[^>]*data-featured-filter="${kind}"[^>]*>\\s*${label}\\s*<`));
   }
   assert.match(html, /data-featured-filter="operations"[^>]*aria-pressed="true"/);

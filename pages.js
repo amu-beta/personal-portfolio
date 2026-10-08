@@ -49,5 +49,5 @@
     });
   });
 
-  activateFeaturedProject(filters.find((button) => button.classList.contains('active'))?.dataset.featuredFilter || 'operations');
+  activateFeaturedProject(filters.find((button) => button.classList.contains('active'))?.dataset.featuredFilter || 'app');
 })();

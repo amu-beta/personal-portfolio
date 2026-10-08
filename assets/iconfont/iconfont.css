@@ -1,0 +1,96 @@
+@font-face {
+  font-family: "iconfont"; /* Project id  */
+  src: url('iconfont.ttf?t=1791379241901') format('truetype');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-add:before {
+  content: "\e835";
+}
+
+.icon-down-arrow:before {
+  content: "\e839";
+}
+
+.icon-down:before {
+  content: "\e83a";
+}
+
+.icon-close:before {
+  content: "\e83b";
+}
+
+.icon-left:before {
+  content: "\e83d";
+}
+
+.icon-left-arrow:before {
+  content: "\e83e";
+}
+
+.icon-lower-left-arrow:before {
+  content: "\e83f";
+}
+
+.icon-lower-right-arrow:before {
+  content: "\e840";
+}
+
+.icon-right:before {
+  content: "\e841";
+}
+
+.icon-selected:before {
+  content: "\e842";
+}
+
+.icon-right-arrow:before {
+  content: "\e843";
+}
+
+.icon-return:before {
+  content: "\e844";
+}
+
+.icon-search:before {
+  content: "\e845";
+}
+
+.icon-right-double-arrow:before {
+  content: "\e846";
+}
+
+.icon-share:before {
+  content: "\e847";
+}
+
+.icon-up-arrow:before {
+  content: "\e848";
+}
+
+.icon-up:before {
+  content: "\e849";
+}
+
+.icon-upper-right-arrow:before {
+  content: "\e84a";
+}
+
+.icon-upper-left-arrow:before {
+  content: "\e84b";
+}
+
+.icon-send-fill:before {
+  content: "\e888";
+}
+
+.icon-change:before {
+  content: "\e88c";
+}

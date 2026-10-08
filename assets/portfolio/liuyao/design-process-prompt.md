@@ -1,0 +1,6 @@
+# Design process illustration
+
+Generated with the built-in imagegen tool. This is a conceptual illustration, not evidence of the project's original wireframes or a shipped app.
+
+Prompt:
+Create a wide editorial illustration for a Chinese designer portfolio case study about building a traditional I Ching mobile app. A refined physical design workbench composition: on left a few ivory paper wireframe sheets with subtle gray structural marks, in center carefully aligned warm-gold UI component tiles and tiny color swatches, on right an elegant upright ivory smartphone containing abstract warm-gold interface blocks. Illustrate progression from planning to components to screen. Soft high-key ivory #fffaf3 background, pale champagne gold, a trace of bamboo-leaf shadows at upper right, airy translucent circular light behind objects, subtle paper texture. Sculptural paper and matte ceramic material, restrained realistic 3D editorial render, diffuse sunlight, very light contact shadows, generous breathing room, landscape 3:2 composition. No text, no letters, no numbers, no brands, no watermark. This is a conceptual process illustration, not a screenshot. Avoid dark beige backgrounds, brown muddy tones, neon, glowing tech circuitry.

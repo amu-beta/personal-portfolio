@@ -1,44 +1,273 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>枫燧堂（香港）PC 端官网｜Chloe</title>
-  <meta name="description" content="枫燧堂香港 PC 端品牌官网设计案例。">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=205">
-  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>枫燧堂（香港）PC 端官网｜Chloe</title>
+<meta name="description" content="枫燧堂香港 PC 端品牌官网设计案例：中式视觉体系、12 栅格系统、视觉规范与首页、法会预约页、关于我们页的模块拆解。">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:ital,wght@0,500;0,600;0,700;0,800;1,800&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="design-tokens.css?v=4">
+  <link rel="stylesheet" href="assets/iconfont/iconfont.css?v=1"><link rel="stylesheet" href="project-fengsuitang.css?v=6">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<script src="project-fengsuitang.js?v=3" defer></script>
+  <link rel="stylesheet" href="site-common.css?v=3">
 </head>
-<body class="content-page project-detail-page">
-  <nav class="nav content-nav" aria-label="主导航">
-    <a class="nav-logo tree-logo" href="index.html" aria-label="返回首页"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 28V14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/><path d="M16 16C8 16 5 12 6 7c5-1 9 1 10 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 18c8 0 11-4 10-9-5-1-9 1-10 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-    <div class="nav-links"><a href="index.html">首页</a><a href="works.html" aria-current="page">作品集</a><a href="ai-learning.html">AI 学习</a><a href="index.html#about">关于</a></div>
+<body class="project-detail-page fst-page">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-back" viewBox="0 0 24 24"><path d="M19 12H5M11 6l-6 6 6 6"/></symbol>
+    <symbol id="i-down" viewBox="0 0 24 24"><path d="M12 5v14M6 13l6 6 6-6"/></symbol>
+    <symbol id="i-up" viewBox="0 0 24 24"><path d="M12 19V5M6 11l6-6 6 6"/></symbol>
+    <symbol id="i-ext" viewBox="0 0 24 24"><path d="M14 5h5v5M19 5l-8 8M17 14v5H5V7h5"/></symbol>
+    <symbol id="i-zoom" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4 4M11 8.5v5M8.5 11h5"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+    <symbol id="i-prev" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></symbol>
+    <symbol id="i-next" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24"><rect x="8" y="8" width="11" height="11" rx="2"/><path d="M5 15V6a1 1 0 0 1 1-1h9"/></symbol>
+    <symbol id="i-brand" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 3.5a4.25 4.25 0 0 1 0 8.5 4.25 4.25 0 0 0 0 8.5"/><circle cx="12" cy="7.75" r=".9" class="fill"/><circle cx="12" cy="16.25" r=".9"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8.5" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0M16 5.2a3.5 3.5 0 0 1 0 6.6M18 14.2a6.5 6.5 0 0 1 3.5 5.8"/></symbol>
+    <symbol id="i-lantern" viewBox="0 0 24 24"><path d="M12 2.5v2.5M9 5h6M7.5 7.5C6 12 6 13 7.5 17.5h9C18 13 18 12 16.5 7.5zM9 5l-1.5 2.5M15 5l1.5 2.5M12 7.5v10M9 17.5V20h6v-2.5M12 20v2"/></symbol>
+  </defs>
+</svg>
+
+<a class="skip-link" href="#background">跳到正文</a>
+<nav class="gnav" id="site-nav" aria-label="主导航">
+    <a class="gnav-logo tree-logo" href="index.html" aria-label="返回首页"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 28V14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/><path d="M16 16C8 16 5 12 6 7c5-1 9 1 10 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 18c8 0 11-4 10-9-5-1-9 1-10 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    <div class="gnav-links"><a href="index.html">首页</a><a href="works.html" aria-current="page">作品集</a><a href="ai-learning.html">AI 学习</a><a href="index.html#about">关于</a></div>
   </nav>
-  <main class="content-shell">
-    <a class="project-back ui-button ui-button--muted ui-button--back" href="works.html"><span>返回作品集</span></a>
-    <header class="project-detail-hero">
-      <div class="project-detail-meta"><span>WEB DESIGN</span><span>2025</span></div>
-      <h1>枫燧堂（香港）<br>PC 端官网</h1>
-      <p class="project-detail-lead">整合法会预约、八字测算、道教文化和公益服务，搭建中式视觉体系与模块化 PC 官网浏览体验。</p>
-      <ul class="project-detail-tags" aria-label="项目标签"><li>Brand Website</li><li>PC</li><li>Chinese Aesthetic</li></ul>
-      <div class="project-detail-actions"><a class="btn-dark ui-button ui-button--solid" href="https://fengsuitang.com/" target="_blank" rel="noreferrer"><span>打开项目</span></a></div>
-    </header>
-    <figure class="project-detail-cover"><img src="assets/portfolio/cover-fengsuitang.jpg" width="1920" height="1152" alt="枫燧堂品牌官网设计视觉总览"></figure>
-    <section class="project-detail-overview" aria-labelledby="fengsuitang-overview-title">
-      <div><p class="project-detail-kicker">PROJECT OVERVIEW</p><h2 id="fengsuitang-overview-title">让传统文化内容更易理解、更易行动。</h2></div>
-      <p>网站将法会预约、测算、文化内容与公益服务组织在同一套浏览结构中，并用统一的中式视觉语言保持品牌辨识度和信息秩序。</p>
-    </section>
-    <section class="project-detail-gallery" aria-labelledby="fengsuitang-gallery-title">
-      <div class="project-detail-section-head"><p class="project-detail-kicker">FULL PAGE DESIGN</p><h2 id="fengsuitang-gallery-title">官网页面全览</h2></div>
-      <div class="project-detail-media">
-        <img src="assets/portfolio/fengsui1.jpg" width="1920" height="7311" alt="枫燧堂官网长页设计全览" loading="lazy" decoding="async">
-        <img src="assets/portfolio/fengsui2.jpg" width="1920" height="5888" alt="枫燧堂官网品牌与内容模块展示" loading="lazy" decoding="async">
+<span class="progress site-progress" aria-hidden="true"><i id="progress-bar"></i></span>
+<nav class="site-rail" aria-label="章节导航">
+    <a href="#cover"><span>概览</span></a>
+    <a href="#background"><span>项目背景</span></a>
+    <a href="#design-system"><span>设计系统</span></a>
+    <a href="#pages"><span>页面拆解</span></a>
+  </nav>
+
+<main>
+<!-- ============ 概览 ============ -->
+<section id="cover" class="cover" aria-labelledby="cover-title">
+  <div class="cover-bg" aria-hidden="true"><span class="cloud cloud-a"></span><span class="cloud cloud-b"></span></div>
+  <div class="wrap cover-grid">
+    <div class="cover-copy">
+      <p class="eyebrow"><span>WEB DESIGN</span><span>2025</span><span>PC 品牌官网</span></p>
+      <h1 id="cover-title">枫燧堂（香港）<br><em>PC 端官网</em></h1>
+      <p class="lead">整合法会预约、八字测算、道教文化和公益服务，搭建中式视觉体系与模块化 PC 官网浏览体验。</p>
+      <ul class="tags" aria-label="项目标签"><li>Brand Website</li><li>PC</li><li>Chinese Aesthetic</li></ul>
+      <div class="actions">
+        <a class="btn-dark ui-button ui-button--solid" href="https://fengsuitang.com/" target="_blank" rel="noreferrer"><span>打开项目</span></a>
+      </div>
+    </div>
+    <figure class="project-detail-cover">
+      <button class="cover-zoom ui-button" type="button" data-lightbox="cover" aria-label="放大查看封面">
+        <img id="cover-img" src="assets/portfolio/cover-fengsuitang.jpg" width="1920" height="1152" alt="枫燧堂品牌官网设计视觉总览">
+      </button>
+      <figcaption>官网首页 · 1440 × 900 设计稿</figcaption>
+    </figure>
+  </div>
+  <dl class="wrap cover-meta">
+    <div><dt>我的角色</dt><dd>UI / 视觉设计</dd></div>
+    <div><dt>设计规格</dt><dd>1440 × 900</dd></div>
+    <div><dt>栅格系统</dt><dd><b data-count="12">12</b> 列 · <b data-count="1176">1176</b>px</dd></div>
+    <div><dt>核心页面</dt><dd>首页 · 法会预约 · 关于我们</dd></div>
+  </dl>
+</section>
+
+<!-- ============ 项目背景 ============ -->
+<section id="background" class="chapter chapter-red" aria-labelledby="bg-title">
+  <div class="wrap">
+    <div class="chapter-head reveal">
+      <p class="kicker">01 · PROJECT BACKGROUND</p>
+      <h2 id="bg-title">项目背景<span>/ 枫燧堂</span></h2>
+    </div>
+    <div class="bg-tiles">
+      <figure class="bg-tile reveal"><img src="assets/fengsuitang/bg-brand.jpg" width="483" height="348" alt="品牌定位：以中华传统道学、国学文化为核心，面向香港及大湾区用户提供法会、命理、风水、公益义诊等服务。"></figure>
+      <figure class="bg-tile reveal"><img src="assets/fengsuitang/bg-users.jpg" width="483" height="348" alt="用户人群：对传统文化、命理运势、祈福法会、养生公益有需求的中青年及传统文化爱好者。"></figure>
+      <figure class="bg-tile reveal"><img src="assets/fengsuitang/bg-business.jpg" width="483" height="348" alt="核心业务：道家文化传播、法会预约、命理咨询、公益善功、文创吉品销售。"></figure>
+    </div>
+    <div class="goals reveal">
+      <h3>设计目标</h3>
+      <ol class="goal-list">
+        <li><b>品牌调性统一</b><span>打造庄重、传统、有仪式感的中式道学视觉体系，强化品牌专业度与信任感。</span></li>
+        <li><b>信息架构清晰</b><span>梳理服务、法会、公益、师资、文化展示等模块，降低用户理解与操作成本。</span></li>
+        <li><b>转化路径明确</b><span>突出“报名、预约、咨询”核心按钮，提升法会报名与服务咨询转化率。</span></li>
+        <li><b>文化价值传递</b><span>通过神像、道观与法会内容的系统呈现，让道教文化被看见、被理解。</span></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 设计系统 ============ -->
+<section id="design-system" class="chapter" aria-labelledby="ds-title">
+  <div class="wrap">
+    <div class="chapter-head reveal">
+      <p class="kicker">02 · DESIGN SYSTEM</p>
+      <h2 id="ds-title">设计系统</h2>
+      <p class="chapter-lead">内容区域采用能被 2、3、4 整除的 12 栅格体系，以 1440 × 900 为基础，栅格区域 1176px、列间距 20px；配合组件化设计，提高设计效率，也减少与开发的沟通成本。</p>
+    </div>
+    <figure class="ds-fig reveal">
+      <figcaption><b>栅格系统</b><span>12 栅格 · 边距固定，内容自适应分辨率</span></figcaption>
+      <button class="ds-shot ui-button" type="button" data-lightbox="ds-grid"><img src="assets/fengsuitang/ds-grid.jpg" width="1344" height="890" alt="栅格系统：1440px 设计稿，栅格区域 1176px，12 列" loading="lazy"></button>
+    </figure>
+    <figure class="ds-fig reveal">
+      <figcaption><b>颜色字体与组件</b><span>颜色字体规范 · 视频资讯组件 · 内容资讯组件</span></figcaption>
+      <button class="ds-shot ui-button" type="button" data-lightbox="ds-components"><img src="assets/fengsuitang/ds-components.jpg" width="1568" height="680" alt="设计组件：颜色字体规范、视频资讯组件、内容资讯组件" loading="lazy"></button>
+    </figure>
+  </div>
+</section>
+
+<!-- ============ 页面拆解 ============ -->
+<section id="pages" class="chapter" aria-labelledby="pages-title">
+  <div class="wrap">
+    <div class="chapter-head reveal">
+      <p class="kicker">03 · PAGE BREAKDOWN</p>
+      <h2 id="pages-title">核心页面拆解</h2>
+      <p class="chapter-lead">在左侧浏览器中滚动页面，或点击右侧模块，查看每个板块的设计考虑。</p>
+    </div>
+
+    <div class="explorer reveal">
+      <div class="ex-tabs" role="tablist" aria-label="选择页面">
+        <button class="ex-tab ui-segmented__item active" type="button" role="tab" id="tab-home" aria-controls="panel-home" aria-selected="true" data-tab="home"><span class="ex-tab-thumb"><img src="assets/fengsuitang/page-home.jpg" width="529" height="1205" alt=""></span><span class="ex-tab-text"><small>01</small><b>官网首页</b><em>品牌第一印象 + 全业务入口聚合</em></span></button>
+        <button class="ex-tab ui-segmented__item" type="button" role="tab" id="tab-fahui" aria-controls="panel-fahui" aria-selected="false" tabindex="-1" data-tab="fahui"><span class="ex-tab-thumb"><img src="assets/fengsuitang/page-fahui-hd.jpg" width="542" height="861" alt="" loading="lazy"></span><span class="ex-tab-text"><small>02</small><b>专场法会预约页</b><em>主题氛围 + 预约转化</em></span></button>
+        <button class="ex-tab ui-segmented__item" type="button" role="tab" id="tab-about" aria-controls="panel-about" aria-selected="false" tabindex="-1" data-tab="about"><span class="ex-tab-thumb"><img src="assets/fengsuitang/page-about-hd.jpg" width="542" height="1115" alt="" loading="lazy"></span><span class="ex-tab-text"><small>03</small><b>关于我们页</b><em>品牌叙事 + 文化内容沉淀</em></span></button>
+      </div>
+
+      <!-- 首页 -->
+      <div class="ex-panel" id="panel-home" role="tabpanel" aria-labelledby="tab-home" data-panel="home">
+        <div class="ex-body">
+          <div class="browser">
+            <div class="browser-bar" aria-hidden="true"><i></i><i></i><i></i><span>fengsuitang.com</span></div>
+            <div class="ex-viewport" tabindex="0" aria-label="首页设计稿，可滚动">
+              <div class="ex-canvas">
+                <img src="assets/fengsuitang/page-home.jpg" width="529" height="1205" alt="枫燧堂官网首页设计稿">
+                <span class="hotspot" data-mod="0" style="--t:0;--b:305"></span>
+                <span class="hotspot" data-mod="1" style="--t:324;--b:590"></span>
+                <span class="hotspot" data-mod="2" style="--t:604;--b:752"></span>
+                <span class="hotspot" data-mod="3" style="--t:764;--b:912"></span>
+                <span class="hotspot" data-mod="4" style="--t:926;--b:1120"></span>
+                <span class="hotspot" data-mod="5" style="--t:1132;--b:1205"></span>
+              </div>
+            </div>
+            <span class="scroll-hint" aria-hidden="true"><i class="iconfont icon-down-arrow ic-13" aria-hidden="true"></i>滚动浏览</span>
+          </div>
+          <ol class="notes">
+            <li><button class="note ui-button" type="button" data-mod="0"><b>导航与主视觉</b><span>深色导航条收纳全部业务入口；首屏以太极、铜钱纹浮雕作为主视觉，奠定庄重的道学基调。</span></button></li>
+            <li><button class="note ui-button" type="button" data-mod="1"><b>今日运势模块</b><span>展示当日农历、宜忌信息与月份日历，标注道馆重要活动节点，增强用户日常访问粘性，同时营造专业、贴近传统习俗的使用体验。</span></button></li>
+            <li><button class="note ui-button" type="button" data-mod="2"><b>热门活动报名区</b><span>以图文卡片形式突出近期重点法会与公益活动，搭配醒目报名按钮，缩短用户参与路径，提升活动曝光与报名转化率。</span></button></li>
+            <li><button class="note ui-button" type="button" data-mod="3"><b>神像 / 道馆介绍</b><span>两张氛围大图作为文化内容入口，承接对神像与道馆感兴趣的浏览需求。</span></button></li>
+            <li><button class="note ui-button" type="button" data-mod="4"><b>最新法会公告</b><span>公告列表与现场图片组合，集中发布法会通知与动态，信息一目了然。</span></button></li>
+            <li><button class="note ui-button" type="button" data-mod="5" data-media="products"><b>全板块 · 热门吉品</b><span>一站式呈现品牌全貌，高效引导用户进入业务模块。</span></button></li>
+          </ol>
+        </div>
+      </div>
+
+      <!-- 法会 -->
+      <div class="ex-panel" id="panel-fahui" role="tabpanel" aria-labelledby="tab-fahui" data-panel="fahui" hidden>
+        <div class="ex-body">
+          <div class="browser">
+            <div class="browser-bar" aria-hidden="true"><i></i><i></i><i></i><span>fengsuitang.com/fahui</span></div>
+            <div class="ex-viewport" tabindex="0" aria-label="专场法会预约页设计稿，可滚动">
+              <div class="ex-canvas">
+                <img src="assets/fengsuitang/page-fahui-hd.jpg" width="542" height="861" alt="枫燧堂专场法会预约页设计稿" loading="lazy">
+                <span class="hotspot" data-mod="0" style="--t:52;--b:248"></span>
+                <span class="hotspot" data-mod="1" style="--t:282;--b:484"></span>
+                <span class="hotspot" data-mod="2" style="--t:502;--b:694"></span>
+                <span class="hotspot" data-mod="3" style="--t:712;--b:861"></span>
+              </div>
+            </div>
+            <span class="scroll-hint" aria-hidden="true"><i class="iconfont icon-down-arrow ic-13" aria-hidden="true"></i>滚动浏览</span>
+          </div>
+          <ol class="notes">
+            <li><button class="note ui-button" type="button" data-mod="0" data-media="banners"><b>主题 Banner 区域</b><span>以化小人、祈福等核心法会为主题，搭配古风仪式插画，视觉冲击力强，直接点明页面核心业务，引导用户快速报名。</span></button></li>
+            <li><button class="note ui-button" type="button" data-mod="1"><b>最新法会预约卡片</b><span>清晰展示每场法会的名称、时间、地点与线上线下形式，信息规整醒目，搭配预约按钮，缩短转化路径，提升报名率。</span></button></li>
+            <li><button class="note ui-button" type="button" data-mod="2"><b>往期法会回顾板块</b><span>以视频封面 + 仪式插画形式呈现历史法会实况，增强仪式感与真实感，让新用户更直观感受法会氛围，提高参与意愿。</span></button></li>
+            <li><button class="note ui-button" type="button" data-mod="3"><b>页脚与悬浮咨询</b><span>页脚汇总联系方式与快速链接；右侧悬浮的咨询、留言按钮全站常驻，随时承接咨询需求。</span></button></li>
+          </ol>
+        </div>
+      </div>
+
+      <!-- 关于 -->
+      <div class="ex-panel" id="panel-about" role="tabpanel" aria-labelledby="tab-about" data-panel="about" hidden>
+        <div class="ex-body">
+          <div class="browser">
+            <div class="browser-bar" aria-hidden="true"><i></i><i></i><i></i><span>fengsuitang.com/about</span></div>
+            <div class="ex-viewport" tabindex="0" aria-label="关于我们页设计稿，可滚动">
+              <div class="ex-canvas">
+                <img src="assets/fengsuitang/page-about-hd.jpg" width="542" height="1115" alt="枫燧堂关于我们页设计稿" loading="lazy">
+                <span class="hotspot" data-mod="0" style="--t:50;--b:286"></span>
+                <span class="hotspot" data-mod="1" style="--t:304;--b:652"></span>
+                <span class="hotspot" data-mod="2" style="--t:672;--b:948"></span>
+                <span class="hotspot" data-mod="3" style="--t:952;--b:1115"></span>
+              </div>
+            </div>
+            <span class="scroll-hint" aria-hidden="true"><i class="iconfont icon-down-arrow ic-13" aria-hidden="true"></i>滚动浏览</span>
+          </div>
+          <ol class="notes">
+            <li><button class="note ui-button" type="button" data-mod="0"><b>枫燧堂品牌简介</b><span>介绍品牌宗旨、文化使命与发展理念，阐述品牌在弘扬道学、服务社会方面的定位，树立正统、专业、有温度的品牌形象。</span></button></li>
+            <li><button class="note ui-button" type="button" data-mod="1" data-media="deities"><b>神像介绍九宫格</b><span>以九宫格陈列祖天师、门姆元君、赵公明、文昌帝君、狐仙娘娘等神像，统一题签与底纹，便于浏览与识别。</span></button></li>
+            <li><button class="note ui-button" type="button" data-mod="2"><b>道观介绍板块</b><span>设置跳转按钮，支持用户深入查看道观文化与历史，满足深度文化爱好者的阅读需求，提升内容厚度。</span></button></li>
+            <li><button class="note ui-button" type="button" data-mod="3"><b>页脚信息</b><span>与全站一致的深色页脚，保持各页面结尾的统一与稳定感。</span></button></li>
+          </ol>
+        </div>
+      </div>
+
+      <!-- 模块细节图 -->
+      <figure class="ex-media" id="ex-media" hidden aria-live="polite">
+        <div class="ex-media-track" data-media-set="products">
+          <button class="ui-button media-btn" type="button" data-lightbox="products"><img src="assets/fengsuitang/products.jpg" width="785" height="486" alt="热门吉品模块细节" loading="lazy"></button>
+        </div>
+        <div class="ex-media-track" data-media-set="banners">
+          <button class="ui-button media-btn" type="button" data-lightbox="banner-1"><img src="assets/fengsuitang/banner-1.jpg" width="812" height="276" alt="法会主题 Banner：逐爱化债" loading="lazy"></button>
+          <button class="ui-button media-btn" type="button" data-lightbox="banner-2"><img src="assets/fengsuitang/banner-2.jpg" width="812" height="276" alt="法会主题 Banner：古风宫殿插画" loading="lazy"></button>
+        </div>
+        <div class="ex-media-track" data-media-set="deities">
+          <button class="ui-button media-btn" type="button" data-lightbox="deities"><img src="assets/fengsuitang/deities-hd.jpg" width="997" height="297" alt="神像介绍九宫格细节" loading="lazy"></button>
+        </div>
+        <figcaption id="ex-media-cap">模块细节</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 结尾 ============ -->
+<section class="all-pages" aria-labelledby="all-pages-title">
+      <div class="all-pages-head"><h2 id="all-pages-title">全部页面</h2><p>按住可左右拖动预览</p></div>
+      <div class="all-pages-viewport" data-all-pages>
+        <div class="all-pages-track">
+        <figure class="all-pages-item"><img src="assets/all-pages/fengsuitang/01.jpg" width="1408" height="880" alt="官网首页" loading="lazy" decoding="async" draggable="false"></figure>
+        <figure class="all-pages-item"><img src="assets/all-pages/fengsuitang/02.jpg" width="1408" height="880" alt="品牌内容" loading="lazy" decoding="async" draggable="false"></figure>
+        <figure class="all-pages-item"><img src="assets/all-pages/fengsuitang/03.jpg" width="405" height="880" alt="首页" loading="lazy" decoding="async" draggable="false"></figure>
+        <figure class="all-pages-item"><img src="assets/all-pages/fengsuitang/04.jpg" width="531" height="852" alt="法会预约" loading="lazy" decoding="async" draggable="false"></figure>
+        <figure class="all-pages-item"><img src="assets/all-pages/fengsuitang/05.jpg" width="419" height="880" alt="关于我们" loading="lazy" decoding="async" draggable="false"></figure>
+        <figure class="all-pages-item"><img src="assets/all-pages/fengsuitang/06.jpg" width="634" height="880" alt="产品详情" loading="lazy" decoding="async" draggable="false"></figure>
+        <figure class="all-pages-item"><img src="assets/all-pages/fengsuitang/07.jpg" width="687" height="418" alt="八字测算" loading="lazy" decoding="async" draggable="false"></figure>
+        <figure class="all-pages-item"><img src="assets/all-pages/fengsuitang/08.jpg" width="687" height="435" alt="师资介绍" loading="lazy" decoding="async" draggable="false"></figure>
+        <figure class="all-pages-item"><img src="assets/all-pages/fengsuitang/09.jpg" width="785" height="486" alt="商品列表" loading="lazy" decoding="async" draggable="false"></figure>
+        </div>
       </div>
     </section>
-    <div class="project-detail-end"><a class="ui-button ui-button--muted ui-button--back" href="works.html"><span>返回作品集</span></a><a class="ui-button ui-button--outline" href="project-topic.html"><span>下一个项目</span></a></div>
-  </main>
-  <footer class="content-footer"><a href="index.html">首页</a><a href="works.html">作品集</a><a href="ai-learning.html">AI 学习</a></footer>
+<div class="fst-end">
+  <div class="project-detail-end"><a class="ui-button ui-button--outline" href="project-topic.html"><span>下一个项目</span></a></div>
+</div>
+</main>
+
+<footer class="content-footer"><a href="index.html">首页</a><a href="works.html">作品集</a><a href="ai-learning.html">AI 学习</a></footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<dialog class="lightbox" id="lightbox" aria-label="图片预览">
+  <div class="lb-bar">
+    <p class="lb-cap" id="lb-cap"></p>
+    <span class="lb-count" id="lb-count"></span>
+    <button class="ui-icon-button lb-btn" type="button" id="lb-zoom" aria-label="切换原尺寸"><svg><use href="#i-zoom"/></svg></button>
+    <button class="ui-icon-button lb-btn" type="button" id="lb-close" aria-label="关闭"><svg><use href="#i-close"/></svg></button>
+  </div>
+  <div class="lb-stage" id="lb-stage"><img id="lb-img" alt=""></div>
+  <button class="ui-icon-button lb-nav lb-prev" type="button" id="lb-prev" aria-label="上一张"><i class="iconfont icon-left ic-18" aria-hidden="true"></i></button>
+  <button class="ui-icon-button lb-nav lb-next" type="button" id="lb-next" aria-label="下一张"><i class="iconfont icon-right ic-18" aria-hidden="true"></i></button>
+</dialog>
+<button class="site-to-top" type="button" aria-label="回到顶部"><i class="iconfont icon-up" aria-hidden="true"></i></button>
+<script src="site-common.js?v=2" defer></script>
 </body>
 </html>

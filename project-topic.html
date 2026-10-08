@@ -4,41 +4,309 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>运势专题改版｜Chloe</title>
-  <meta name="description" content="运势专题 H5 视觉与转化体验改版案例。">
+  <meta name="description" content="运势 · 轻玄学专题改版：紫微命格详批 H5 的视觉升级、体验优化与结构重构案例，可交互查看改版对比、全部页面、组件复用、决策路径与数据结果。">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=205">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:ital,wght@0,500;0,600;0,700;0,800;1,800&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="design-tokens.css?v=4">
+  <link rel="stylesheet" href="assets/iconfont/iconfont.css?v=1">
+  <link rel="stylesheet" href="styles.css?v=207">
+  <link rel="stylesheet" href="project-topic.css?v=5">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <script src="project-topic.js?v=3" defer></script>
+  <link rel="stylesheet" href="site-common.css?v=3">
 </head>
-<body class="content-page project-detail-page">
-  <nav class="nav content-nav" aria-label="主导航">
-    <a class="nav-logo tree-logo" href="index.html" aria-label="返回首页"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 28V14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/><path d="M16 16C8 16 5 12 6 7c5-1 9 1 10 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 18c8 0 11-4 10-9-5-1-9 1-10 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-    <div class="nav-links"><a href="index.html">首页</a><a href="works.html" aria-current="page">作品集</a><a href="ai-learning.html">AI 学习</a><a href="index.html#about">关于</a></div>
+<body class="content-page project-detail-page topic-case">
+  <nav class="gnav" aria-label="主导航">
+    <a class="gnav-logo tree-logo" href="index.html" aria-label="返回首页"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 28V14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/><path d="M16 16C8 16 5 12 6 7c5-1 9 1 10 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 18c8 0 11-4 10-9-5-1-9 1-10 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    <div class="gnav-links"><a href="index.html">首页</a><a href="works.html" aria-current="page">作品集</a><a href="ai-learning.html">AI 学习</a><a href="index.html#about">关于</a></div>
   </nav>
-  <main class="content-shell">
-    <a class="project-back ui-button ui-button--muted ui-button--back" href="works.html"><span>返回作品集</span></a>
-    <header class="project-detail-hero">
-      <div class="project-detail-meta"><span>VISUAL DESIGN</span><span>2025</span></div>
-      <h1>运势专题改版</h1>
-      <p class="project-detail-lead">通过视觉升级、体验优化与结构重构，解决命理 H5 视觉杂乱、转化路径模糊与用户信任感不足的问题。</p>
-      <ul class="project-detail-tags" aria-label="项目标签"><li>H5</li><li>Landing Page</li><li>Conversion</li><li>Visual Refresh</li></ul>
-      <div class="project-detail-actions"><a class="btn-dark ui-button ui-button--solid" href="https://www.seeronnet.com/seer/onlinecs" target="_blank" rel="noreferrer"><span>打开项目</span></a></div>
-    </header>
-    <figure class="project-detail-cover"><img src="assets/portfolio/cover-topic.jpg" width="1920" height="1152" alt="运势专题改版视觉总览"></figure>
-    <section class="project-detail-overview" aria-labelledby="topic-overview-title">
-      <div><p class="project-detail-kicker">PROJECT OVERVIEW</p><h2 id="topic-overview-title">从视觉升级到转化路径重构。</h2></div>
-      <p>改版以信息秩序和用户理解为起点，统一视觉表现并梳理内容节奏，让关键价值与行动入口在长页面中更清晰。</p>
+
+  <span class="tc-progress" aria-hidden="true"><i id="tc-progress-bar"></i></span>
+
+  <nav class="tc-rail site-rail" aria-label="章节导航">
+    <a href="#overview"><span>概览</span></a>
+    <a href="#background"><span>项目背景</span></a>
+    <a href="#pain"><span>旧版痛点</span></a>
+    <a href="#components"><span>组件复用</span></a>
+    <a href="#structure"><span>决策路径</span></a>
+    <a href="#data"><span>改版效果</span></a>
+    <a href="#pages"><span>全部页面</span></a>
+  </nav>
+
+  <main class="content-shell tc-shell">
+
+    <!-- ================= 概览 ================= -->
+    <section id="overview" class="tc-hero" aria-labelledby="tc-title">
+      <div class="tc-hero-copy">
+        <div class="project-detail-meta"><span>VISUAL DESIGN</span><span>2025</span><span>MOBILE H5</span></div>
+        <h1 id="tc-title"><small>运势 · 轻玄学</small>运势专题改版</h1>
+        <p class="tc-hero-lead">通过视觉升级、体验优化与结构重构，解决传统命理 H5 视觉杂乱、转化路径模糊、用户信任度不足的痛点，打造符合「帝王术数」专业调性、高转化的服务落地页。</p>
+        <ul class="project-detail-tags" aria-label="项目标签"><li>H5</li><li>Landing Page</li><li>Conversion</li><li>Visual Refresh</li></ul>
+        <div class="project-detail-actions tc-actions"><a class="btn-dark ui-button ui-button--solid tc-open" href="https://www.seeronnet.com/zwmgxp/index?channel=seer_kqcs_00001&amp;schannel=calc-categories-pc" target="_blank" rel="noreferrer"><span>打开项目</span></a></div>
+        <dl class="tc-facts">
+          <div><dt>产品</dt><dd>紫微命格详批</dd></div>
+          <div><dt>场景</dt><dd>移动端 H5 · 港台繁体</dd></div>
+          <div><dt>范围</dt><dd>视觉体系 · 组件 · 页面结构</dd></div>
+          <div><dt>结果</dt><dd>付费转化 <b>+32%</b></dd></div>
+        </dl>
+      </div>
+
+      <figure class="project-detail-cover tc-compare-wrap">
+        <div class="tc-compare" id="tc-compare" style="--pos:50%">
+          <img class="tc-compare-before" src="assets/portfolio/topic/before.jpg" width="364" height="703" alt="改版前的紫微命格详批首屏：人物照片、四个圆形标签与表单堆叠">
+          <div class="tc-compare-after"><img src="assets/portfolio/topic/after.jpg" width="364" height="703" alt="改版后的紫微命格首屏：书法主标题、四大场景图、命盘入口与红色「马上算」按钮"></div>
+          <span class="tc-compare-tag tc-compare-tag--before" aria-hidden="true">改版前</span>
+          <span class="tc-compare-tag tc-compare-tag--after" aria-hidden="true">改版后</span>
+          <span class="tc-compare-handle" aria-hidden="true"><i></i></span>
+          <input class="tc-compare-range" id="tc-compare-range" type="range" min="0" max="100" value="50" aria-label="拖动对比改版前后首屏">
+        </div>
+        <figcaption>
+          <span>拖动滑块，对比改版前后首屏</span>
+          <span class="tc-compare-quick">
+            <button type="button" class="ui-segmented__item" data-compare="100">只看旧版</button>
+            <button type="button" class="ui-segmented__item" data-compare="0">只看新版</button>
+          </span>
+        </figcaption>
+      </figure>
     </section>
-    <section class="project-detail-gallery" aria-labelledby="topic-gallery-title">
-      <div class="project-detail-section-head"><p class="project-detail-kicker">FULL PAGE DESIGN</p><h2 id="topic-gallery-title">专题页面全览</h2></div>
-      <div class="project-detail-media">
-        <img src="assets/portfolio/zhuangti1.jpg" width="1920" height="5418" alt="运势专题改版页面全览" loading="lazy" decoding="async">
-        <img src="assets/portfolio/zhuangti2.jpg" width="1920" height="9600" alt="运势专题内容与转化模块全览" loading="lazy" decoding="async">
+
+    <!-- ================= 项目背景（按原设计稿） ================= -->
+    <section id="background" class="tc-section tc-bg" aria-labelledby="bg-title">
+      <div class="tc-bg-collage" aria-hidden="true">
+        <div class="tc-bg-col tc-bg-col--a">
+          <img src="assets/portfolio/topic/page-hero-bottom.jpg" width="240" height="240" alt="" loading="lazy" decoding="async">
+          <img src="assets/portfolio/topic/page-input.jpg" width="240" height="448" alt="" loading="lazy" decoding="async">
+        </div>
+        <div class="tc-bg-col tc-bg-col--b">
+          <img src="assets/portfolio/topic/page-2026.jpg" width="240" height="448" alt="" loading="lazy" decoding="async">
+          <img src="assets/portfolio/topic/page-preview.jpg" width="240" height="225" alt="" loading="lazy" decoding="async">
+        </div>
+        <div class="tc-bg-col tc-bg-col--c">
+          <img src="assets/portfolio/topic/page-life.jpg" width="240" height="448" alt="" loading="lazy" decoding="async">
+        </div>
+      </div>
+
+      <div class="tc-bg-copy reveal">
+        <h2 id="bg-title" class="tc-title">项目背景与业务诉求</h2>
+        <div class="tc-bg-row">
+          <p class="tc-bg-label">项目背景</p>
+          <p class="tc-bg-text">紫微斗数作为中国传统「帝王术数」，是命理测算赛道的核心品类之一，用户群体覆盖职场迷茫者、婚恋困惑者、财富规划者等全年龄段人群。但行业内同类 H5 普遍存在视觉同质化严重、信息层级混乱、转化引导生硬、专业感缺失等问题，导致用户首屏跳出率高、付费意愿弱，无法将流量转化为实际营收。</p>
+        </div>
+      </div>
+
+      <ul class="tc-pills reveal" aria-label="业务诉求">
+        <li class="tc-pill--wide"><span aria-hidden="true">✨</span>打造符合紫微斗数「帝王术数」高端、专业调性的视觉体系，区别于行业同质化产品</li>
+        <li><span aria-hidden="true">🔍</span>优化用户浏览与转化路径</li>
+        <li><span aria-hidden="true">📈</span>提升测算付费转化率</li>
+        <li><span aria-hidden="true">🔐</span>强化用户对命理服务的信任度，降低决策门槛</li>
+        <li><span aria-hidden="true">💻</span>适配移动端 H5 场景，保证全流程视觉统一、交互流畅</li>
+      </ul>
+    </section>
+
+
+    <!-- ================= 旧版痛点（精简） ================= -->
+    <section id="pain" class="tc-section tc-section--tint" aria-labelledby="pain-title">
+      <header class="tc-head reveal">
+        <h2 id="pain-title" class="tc-title">旧版体验痛点梳理</h2>
+        <p class="tc-note">用户调研、竞品分析与页面诊断后，明确四大核心痛点。</p>
+      </header>
+
+      <div class="tc-diagnose reveal">
+        <div class="tc-phone tc-phone--sm">
+          <img src="assets/portfolio/topic/before.jpg" width="364" height="703" alt="旧版紫微命格详批首屏" loading="lazy" decoding="async">
+          <span class="tc-pin" data-pin="0" style="--x:50%;--y:18%;--w:90%;--h:30%"><b>01</b></span>
+          <span class="tc-pin" data-pin="1" style="--x:50%;--y:58.5%;--w:96%;--h:16%"><b>02</b></span>
+          <span class="tc-pin" data-pin="2" style="--x:50%;--y:71%;--w:82%;--h:8%"><b>03</b></span>
+          <span class="tc-pin" data-pin="3" style="--x:39%;--y:13%;--w:14%;--h:14%"><b>04</b></span>
+        </div>
+        <div class="tc-pains" role="tablist" aria-label="旧版四大痛点">
+          <button type="button" class="ui-segmented__item tc-pain" role="tab" aria-selected="true" data-pain="0"><b>01</b><strong>视觉风格杂乱无章</strong><span>元素堆砌、色彩混乱，缺少统一视觉</span></button>
+          <button type="button" class="ui-segmented__item tc-pain" role="tab" aria-selected="false" data-pain="1"><b>02</b><strong>信息层级模糊混乱</strong><span>核心价值淹没在表单与长页里</span></button>
+          <button type="button" class="ui-segmented__item tc-pain" role="tab" aria-selected="false" data-pain="2"><b>03</b><strong>转化路径引导生硬</strong><span>不清楚为什么付费、能获得什么</span></button>
+          <button type="button" class="ui-segmented__item tc-pain" role="tab" aria-selected="false" data-pain="3"><b>04</b><strong>信任背书体系缺失</strong><span>专业感不足，难以建立信任</span></button>
+        </div>
       </div>
     </section>
-    <div class="project-detail-end"><a class="ui-button ui-button--muted ui-button--back" href="works.html"><span>返回作品集</span></a><a class="ui-button ui-button--outline" href="project-operations.html"><span>下一个项目</span></a></div>
+
+    <!-- ================= 组件化复用 ================= -->
+    <section id="components" class="tc-section" aria-labelledby="comp-title">
+      <header class="tc-head reveal">
+        <h2 id="comp-title" class="tc-title">组件化设计与复用规范</h2>
+        <p class="tc-note">围绕「紫微斗数 · 命盘」主题拆出三类组件，同一套组件复用到首屏、信息填写与报告各页。</p>
+      </header>
+
+      <div class="tc-comp reveal">
+        <div class="tc-explode" aria-hidden="false">
+          <img src="assets/portfolio/topic/explode.webp" width="609" height="1300" alt="组件拆解图：命盘式信息卡片、按钮与模块板块分层叠放" loading="lazy" decoding="async">
+          <button type="button" class="ui-icon-button tc-hot" data-comp="0" style="--x:19%;--y:4.4%;--w:70%;--h:40%" aria-label="命盘式信息卡片"><b>1</b></button>
+          <button type="button" class="ui-icon-button tc-hot" data-comp="1" style="--x:21%;--y:45.6%;--w:79%;--h:8.4%" aria-label="转化按钮"><b>2</b></button>
+          <button type="button" class="ui-icon-button tc-hot" data-comp="2" style="--x:25%;--y:54.2%;--w:71%;--h:41%" aria-label="模块板块"><b>3</b></button>
+        </div>
+
+        <div class="tc-comp-side">
+          <div class="tc-comp-tabs ui-segmented" role="tablist" aria-label="组件类型">
+            <button type="button" class="ui-segmented__item" role="tab" id="ct-0" aria-controls="cp-0" aria-selected="true"><b>1</b>命盘式信息卡片</button>
+            <button type="button" class="ui-segmented__item" role="tab" id="ct-1" aria-controls="cp-1" aria-selected="false" tabindex="-1"><b>2</b>转化按钮</button>
+            <button type="button" class="ui-segmented__item" role="tab" id="ct-2" aria-controls="cp-2" aria-selected="false" tabindex="-1"><b>3</b>模块板块</button>
+          </div>
+
+          <div class="tc-comp-panel" role="tabpanel" id="cp-0" aria-labelledby="ct-0">
+            <div class="tc-show tc-show--hero">
+              <img class="tc-show-title" src="assets/portfolio/topic/title-art.webp" width="415" height="257" alt="紫微命格详批书法主标题" loading="lazy" decoding="async">
+              <img class="tc-show-scenes" src="assets/portfolio/topic/scenes.webp" width="484" height="252" alt="财运、婚姻、事业、健康四大场景图" loading="lazy" decoding="async">
+            </div>
+            <p class="tc-comp-desc"><strong>书法标题 + 四大场景</strong>首屏一眼说清「能算什么」，标题同样用在信息填写页顶部。</p>
+            <p class="tc-reuse"><span>复用于</span><i>首屏</i><i>信息填写</i></p>
+          </div>
+
+          <div class="tc-comp-panel" role="tabpanel" id="cp-1" aria-labelledby="ct-1" hidden>
+            <div class="tc-show tc-show--cta">
+              <button type="button" class="ui-button tc-cta-try" id="tc-cta-try" aria-label="试按「馬上算」"><img src="assets/portfolio/topic/cta.webp" width="413" height="61" alt=""></button>
+              <span class="tc-cta-hint" id="tc-cta-hint">点一下按钮</span>
+              <img class="tc-cta-next" src="assets/portfolio/topic/page-input.jpg" width="240" height="448" alt="点击后进入的信息填写页" loading="lazy" decoding="async">
+            </div>
+            <p class="tc-comp-desc"><strong>唯一的高饱和红</strong>只留给行动入口，在金紫底色上对比最强，点击直达信息填写。</p>
+            <p class="tc-reuse"><span>复用于</span><i>首屏</i><i>页尾</i><i>信息填写</i></p>
+          </div>
+
+          <div class="tc-comp-panel" role="tabpanel" id="cp-2" aria-labelledby="ct-2" hidden>
+            <div class="tc-show tc-show--module">
+              <div class="tc-module">
+                <div class="tc-module-banner"><img src="assets/portfolio/topic/scroll-banner.webp" width="511" height="104" alt=""><p id="tc-module-title"><b>帝王紫微斗數</b><small>清晰掌握你的一生運程</small></p></div>
+                <div class="tc-module-body">
+                  <img class="tc-module-content is-on" data-content="0" src="assets/portfolio/topic/palaces.webp" width="467" height="579" alt="12 宫位卡片" loading="lazy" decoding="async">
+                  <img class="tc-module-content" data-content="1" src="assets/portfolio/topic/masters.webp" width="445" height="258" alt="先知命局名师团推荐" loading="lazy" decoding="async">
+                </div>
+              </div>
+              <div class="tc-module-swap ui-segmented" role="group" aria-label="替换板块内容">
+                <button type="button" class="ui-segmented__item" data-swap="0" aria-pressed="true">12 宫位</button>
+                <button type="button" class="ui-segmented__item" data-swap="1" aria-pressed="false">名师推荐</button>
+              </div>
+            </div>
+            <p class="tc-comp-desc"><strong>卷轴标题 + 鎏金容器</strong>骨架固定，只替换内容，长页面节奏统一、迭代更快。</p>
+            <p class="tc-reuse"><span>复用于</span><i>12 宫位</i><i>人生全盘透视</i><i>名师推荐</i><i>报告内容</i></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 决策路径 ================= -->
+    <section id="structure" class="tc-section tc-section--tint" aria-labelledby="st-title">
+      <header class="tc-head tc-head--row reveal">
+        <div>
+          <h2 id="st-title" class="tc-title">以用户决策路径重构页面</h2>
+          <p class="tc-note">点选模块，手机滚动到对应位置；切换改版前后，对比两版的页面结构。</p>
+        </div>
+        <div class="tc-mode ui-segmented" role="group" aria-label="切换版本">
+          <button type="button" class="ui-segmented__item" data-mode="new" aria-pressed="true">改版后</button>
+          <button type="button" class="ui-segmented__item" data-mode="old" aria-pressed="false">改版前</button>
+        </div>
+      </header>
+
+      <div class="tc-structure reveal" data-mode="new">
+        <div class="tc-structure-phone">
+          <div class="tc-phone tc-phone--lg">
+            <div class="tc-phone-scroll" id="tc-phone-scroll" tabindex="0" aria-label="完整长页，可滚动浏览">
+              <img id="tc-long" src="assets/portfolio/topic/new-long.jpg" width="380" height="5584" alt="改版后紫微命格详批完整长页" loading="lazy" decoding="async">
+            </div>
+            <span class="tc-phone-meter" aria-hidden="true"><i id="tc-phone-meter"></i></span>
+          </div>
+        </div>
+
+        <div class="tc-path">
+          <ol class="tc-stages" aria-label="决策阶段">
+            <li data-stage="0">视觉吸引</li><li data-stage="1">价值传递</li><li data-stage="2">信任建立</li><li data-stage="3">转化引导</li>
+          </ol>
+          <p class="tc-old-note">旧版：模块平铺，没有清晰的决策主线</p>
+
+          <ol class="tc-steps" data-list="new" role="tablist" aria-label="改版后页面模块">
+            <li><button type="button" class="ui-segmented__item tc-step" role="tab" aria-selected="true" data-at="0" data-stage="0"><b>1</b><strong>首屏主视觉</strong><span>书法标题 + 四大场景，首屏直达「馬上算」</span></button></li>
+            <li><button type="button" class="ui-segmented__item tc-step" role="tab" aria-selected="false" data-at="600" data-stage="1"><b>2</b><strong>12 宫位全解读</strong><span>讲清「测算能获得什么」</span></button></li>
+            <li><button type="button" class="ui-segmented__item tc-step" role="tab" aria-selected="false" data-at="1310" data-stage="1"><b>3</b><strong>人生全盘透视</strong><span>80 种指数 + 古今论命技法，回答「为什么选你」</span></button></li>
+            <li><button type="button" class="ui-segmented__item tc-step" role="tab" aria-selected="false" data-at="2130" data-stage="2"><b>4</b><strong>名师推荐 · 报告内容</strong><span>名师背书与报告清单，打消「准不准、值不值」</span></button></li>
+            <li><button type="button" class="ui-segmented__item tc-step" role="tab" aria-selected="false" data-at="4820" data-stage="3"><b>5</b><strong>用户好评 · 页尾行动</strong><span>口碑收尾，再次引导「馬上算」</span></button></li>
+          </ol>
+
+          <ol class="tc-steps" data-list="old" role="tablist" aria-label="改版前页面模块" hidden>
+            <li><button type="button" class="ui-segmented__item tc-step" role="tab" aria-selected="true" data-at="0"><b>1</b><strong>人物照 + 表单</strong><span>首屏信息堆叠，没有说清卖点</span></button></li>
+            <li><button type="button" class="ui-segmented__item tc-step" role="tab" aria-selected="false" data-at="600"><b>2</b><strong>宫位分析 · 运势预测</strong><span>8 个入口平铺，层级不清</span></button></li>
+            <li><button type="button" class="ui-segmented__item tc-step" role="tab" aria-selected="false" data-at="1300"><b>3</b><strong>困惑 / 开运 / 能量指数</strong><span>内容并列，缺少主线</span></button></li>
+            <li><button type="button" class="ui-segmented__item tc-step" role="tab" aria-selected="false" data-at="2580"><b>4</b><strong>理性选择 · 名师推荐</strong><span>信任背书放在页尾才出现</span></button></li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 改版效果 ================= -->
+    <section id="data" class="tc-section" aria-labelledby="data-title">
+      <header class="tc-head tc-head--row reveal">
+        <div>
+          <h2 id="data-title" class="tc-title">改版效果与数据价值</h2>
+          <p class="tc-note">以改版前为基准 100，悬停查看说明。</p>
+        </div>
+        <div class="tc-data-mode ui-segmented" role="group" aria-label="切换数据视图">
+          <button type="button" class="ui-segmented__item" data-view="before" aria-pressed="false">改版前</button>
+          <button type="button" class="ui-segmented__item" data-view="after" aria-pressed="true">改版后</button>
+        </div>
+      </header>
+
+      <ul class="tc-metrics reveal" id="tc-metrics">
+        <li class="tc-metric" data-delta="-12" data-good="down" data-note="适配海外用户审美，首屏留住更多人">
+          <span class="tc-metric-label">首屏跳出率</span>
+          <strong class="tc-metric-num">-12%</strong>
+          <div class="tc-bars"><span class="tc-bar tc-bar--before" data-tip="改版前 · 100"><i style="--w:100"></i></span><span class="tc-bar tc-bar--after" data-tip="改版后 · 88"><i style="--w:88"></i></span></div>
+        </li>
+        <li class="tc-metric" data-delta="10" data-good="up" data-note="价值传递清晰，用户愿意往下看">
+          <span class="tc-metric-label">平均停留时长</span>
+          <strong class="tc-metric-num">+10%</strong>
+          <div class="tc-bars"><span class="tc-bar tc-bar--before" data-tip="改版前 · 100"><i style="--w:100"></i></span><span class="tc-bar tc-bar--after" data-tip="改版后 · 110"><i style="--w:110"></i></span></div>
+        </li>
+        <li class="tc-metric tc-metric--key" data-delta="32" data-good="up" data-note="转化路径与信任体系，显著提升付费意愿">
+          <span class="tc-metric-label">测算付费转化率</span>
+          <strong class="tc-metric-num">+32%</strong>
+          <div class="tc-bars"><span class="tc-bar tc-bar--before" data-tip="改版前 · 100"><i style="--w:100"></i></span><span class="tc-bar tc-bar--after" data-tip="改版后 · 132"><i style="--w:132"></i></span></div>
+        </li>
+        <li class="tc-metric" data-delta="19" data-good="up" data-note="专业的视觉与体验获得用户认可">
+          <span class="tc-metric-label">用户满意度</span>
+          <strong class="tc-metric-num">+19%</strong>
+          <div class="tc-bars"><span class="tc-bar tc-bar--before" data-tip="改版前 · 100"><i style="--w:100"></i></span><span class="tc-bar tc-bar--after" data-tip="改版后 · 119"><i style="--w:119"></i></span></div>
+        </li>
+      </ul>
+      <p class="tc-metric-note reveal" id="tc-metric-note" aria-live="polite">悬停或点选任一指标查看说明</p>
+      <ol class="tc-loop reveal" aria-label="设计闭环"><li>痛点诊断</li><li>目标拆解</li><li>视觉重构</li><li>体验优化</li><li>数据验证</li></ol>
+      <span class="tc-tip" id="tc-tip" role="tooltip" hidden></span>
+    </section>
+
+    <!-- ================= 全部页面 ================= -->
+    <section id="pages" class="all-pages project-detail-gallery tc-pages" aria-labelledby="all-pages-title">
+      <div class="all-pages-head"><h2 id="all-pages-title" class="tc-title">全部页面</h2><p>按住左右拖动 · 点击查看完整页面</p></div>
+      <div class="all-pages-viewport" data-all-pages>
+        <div class="all-pages-track">
+          <figure class="all-pages-item tc-ap is-long" data-full="assets/portfolio/topic/new-long.jpg" data-title="首页（改版后完整长页）" style="--dur:46s"><div class="tc-ap-screen"><img src="assets/portfolio/topic/new-long.jpg" width="380" height="5584" alt="改版后首页完整长页" loading="lazy" decoding="async" draggable="false"></div><figcaption>首页 · 完整长页</figcaption></figure>
+          <figure class="all-pages-item tc-ap" data-full="assets/portfolio/topic/page-input.jpg" data-title="信息填写"><div class="tc-ap-screen"><img src="assets/portfolio/topic/page-input.jpg" width="240" height="448" alt="信息填写页" loading="lazy" decoding="async" draggable="false"></div><figcaption>信息填写</figcaption></figure>
+          <figure class="all-pages-item tc-ap" data-full="assets/all-pages/topic/03.jpg" data-title="命主命盘"><div class="tc-ap-screen"><img src="assets/all-pages/topic/03.jpg" width="367" height="592" alt="命主命盘页" loading="lazy" decoding="async" draggable="false"></div><figcaption>命主命盘</figcaption></figure>
+          <figure class="all-pages-item tc-ap" data-full="assets/portfolio/topic/page-2026.jpg" data-title="2026 流年运势"><div class="tc-ap-screen"><img src="assets/portfolio/topic/page-2026.jpg" width="240" height="448" alt="2026 流年运势页" loading="lazy" decoding="async" draggable="false"></div><figcaption>2026 流年运势</figcaption></figure>
+          <figure class="all-pages-item tc-ap" data-full="assets/portfolio/topic/page-life.jpg" data-title="人生全盘透视"><div class="tc-ap-screen"><img src="assets/portfolio/topic/page-life.jpg" width="240" height="448" alt="人生全盘透视页" loading="lazy" decoding="async" draggable="false"></div><figcaption>人生全盘透视</figcaption></figure>
+          <figure class="all-pages-item tc-ap is-long tc-ap--old" data-full="assets/portfolio/topic/old-long.jpg" data-title="首页（改版前完整长页）" style="--dur:30s"><div class="tc-ap-screen"><img src="assets/portfolio/topic/old-long.jpg" width="380" height="3143" alt="改版前首页完整长页" loading="lazy" decoding="async" draggable="false"></div><figcaption>改版前首页 · 对比</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <div class="project-detail-end"><a class="ui-button ui-button--outline" href="project-overseas.html"><span>下一个项目</span></a></div>
   </main>
+
   <footer class="content-footer"><a href="index.html">首页</a><a href="works.html">作品集</a><a href="ai-learning.html">AI 学习</a></footer>
+
+  <dialog class="tc-lightbox" id="tc-lightbox" aria-labelledby="tc-lb-title">
+    <div class="tc-lb-bar">
+      <p id="tc-lb-title">页面</p>
+      <button type="button" class="ui-icon-button ui-icon-button--muted" id="tc-lb-close" aria-label="关闭"><i class="iconfont icon-close" aria-hidden="true"></i></button>
+    </div>
+    <div class="tc-lb-body" id="tc-lb-body"><img id="tc-lb-img" alt=""></div>
+  </dialog>
+
+<button class="site-to-top" type="button" aria-label="回到顶部"><i class="iconfont icon-up" aria-hidden="true"></i></button>
+<script src="site-common.js?v=2" defer></script>
 </body>
 </html>

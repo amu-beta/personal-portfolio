@@ -1,0 +1,108 @@
+/* ============================================================
+   海外英文 · 视觉专题设计（在 project-overseas.css 基础上的补充）
+   作用域：.overseas-en-case
+   ============================================================ */
+
+/* ---------- 组件拆解（详情弹窗）：深紫底，突出紫金组件 ---------- */
+.ov-detail .ov-d-comp-grid figure { background: radial-gradient(120% 90% at 50% 0%, #3a1a6b 0%, #1f0d3b 70%); }
+
+/* ---------- 详情弹窗：关键页面 ---------- */
+.ov-d-screens-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-bottom: 8px; list-style: none; }
+.ov-d-screen {
+  display: grid;
+  gap: 8px;
+  width: 100%;
+  min-height: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  color: var(--ov-ink);
+  font: inherit;
+  font-size: var(--fs-small);
+  font-weight: 500;
+  text-align: left;
+  cursor: zoom-in;
+}
+.ov-d-screen figure { margin: 0; overflow: hidden; aspect-ratio: 380 / 560; border: 1px solid var(--ov-line); border-radius: var(--radius-sm); background: #1f0d3b; transition: transform .2s ease, box-shadow .2s ease; }
+.ov-d-screen img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: top center; }
+.ov-d-screen:hover { background: none; }
+.ov-d-screen:hover figure { transform: translateY(-3px); box-shadow: var(--ov-shadow); }
+.ov-d-screen:focus-visible { outline: 3px solid rgba(200, 54, 27, .35); outline-offset: 3px; border-radius: var(--radius-sm); }
+.ov-d-screen span { display: flex; align-items: center; gap: 6px; }
+.ov-detail .ov-phone-scroll { background: #1f0d3b; }
+
+/* ---------- 灯箱：手机截图按手机宽度展示，不拉伸 ---------- */
+.ov-lb-body.is-phone { padding: 24px 16px; }
+.ov-lb-body.is-phone img { width: min(430px, 100%); }
+.ov-lb-body.is-phone.is-zoomed img { width: min(760px, 100%); }
+
+/* ============================================================
+   与海外中文页（.overseas-zh-case）保持一致的调整 · 2026-10-08
+   规则同 project-overseas.css 末尾的中文页专属段，作用域换成英文页
+   ============================================================ */
+
+/* 专题筛选：与作品集页一致的下划线文字 Tab */
+.overseas-en-case .ov-filter.ui-segmented {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  gap: 28px;
+  margin-bottom: 32px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  box-shadow: inset 0 -1px 0 var(--ov-line);
+}
+.overseas-en-case .ov-filter .ui-segmented__item {
+  position: relative;
+  min-height: 0;
+  padding: 0 0 12px;
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+  color: var(--ov-muted);
+  font-family: var(--font-display);
+  font-size: var(--fs-lead);
+  font-weight: 500;
+}
+.overseas-en-case .ov-filter .ui-segmented__item:hover { color: var(--ov-ink); transform: none; }
+.overseas-en-case .ov-filter .ui-segmented__item.active { background: none; box-shadow: none; color: var(--ov-ink); font-weight: 700; }
+.overseas-en-case .ov-filter .ui-segmented__item::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--ov-ink);
+  transform: scaleX(0);
+  transition: transform .25s cubic-bezier(.22, 1, .36, 1);
+}
+.overseas-en-case .ov-filter .ui-segmented__item.active::after { transform: scaleX(1); }
+.overseas-en-case .ov-filter .ui-segmented__item:focus-visible { outline: 2px solid rgba(74, 31, 12, .3); outline-offset: 4px; }
+
+/* 去掉序号 */
+.overseas-en-case .ov-shift li::before { content: none; }
+.overseas-en-case .ov-d-sec { padding: 8px 14px; }
+.overseas-en-case .ov-d-sec::before { content: none; }
+.overseas-en-case #ov-d-count { display: none; }
+
+/* 「返回专题列表」：无底色的文字按钮 */
+.overseas-en-case #ov-d-back.ui-button {
+  padding-inline: 0;
+  border-color: transparent;
+  background: none;
+  box-shadow: none;
+  color: var(--ov-ink);
+}
+.overseas-en-case #ov-d-back.ui-button:hover { background: none; color: var(--ov-red); }
+
+/* ---------- responsive ---------- */
+@media (max-width: 767px) {
+  .overseas-en-case .ov-filter.ui-segmented { gap: 20px; }
+  .overseas-en-case .ov-filter .ui-segmented__item { flex: 0 0 auto; padding: 0 0 10px; font-size: var(--fs-body); }
+  .ov-d-screens-grid { gap: 8px; }
+}

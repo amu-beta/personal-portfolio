@@ -1,0 +1,18 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="1155" height="1080" viewBox="0 0 1155 1080" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="&#229;&#143;&#179;&#228;&#190;&#167;&#229;&#186;&#149;&#230;&#157;&#191;">
+<path id="Subtract" opacity="0.1" d="M1155 1080H1.00002V721.087L1.50002 729.5V615.711C1.50002 602.45 6.7678 589.732 16.1446 580.355L25.1446 571.355C44.6708 551.829 44.6708 520.171 25.1446 500.645L16.0069 491.507C6.71169 482.212 1.45094 469.629 1.3633 456.484L1.00002 402V0H1155V1080Z" fill="url(#paint0_linear_4711_954)"/>
+<path id="Subtract_2" opacity="0.1" d="M1.00002 0V402L1.36325 456.485C1.45089 469.63 6.71163 482.212 16.0068 491.507L25.1447 500.645C44.6709 520.171 44.6709 551.829 25.1447 571.355L16.0677 580.432C6.73645 589.764 1.47249 602.405 1.42344 615.602L1.00002 729.5V1080" stroke="url(#paint1_linear_4711_954)" stroke-width="2"/>
+<path id="Vector 1537" d="M9.00002 519L18 532L9.00002 545" stroke="#FFC413" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<defs>
+<linearGradient id="paint0_linear_4711_954" x1="578" y1="0" x2="578" y2="1080" gradientUnits="userSpaceOnUse">
+<stop stop-color="#FFC71D"/>
+<stop offset="1" stop-color="#FFC71D" stop-opacity="0"/>
+</linearGradient>
+<linearGradient id="paint1_linear_4711_954" x1="578" y1="0" x2="578" y2="1080" gradientUnits="userSpaceOnUse">
+<stop stop-color="#FFD351"/>
+<stop offset="0.456122" stop-color="#FFD351"/>
+<stop offset="1" stop-opacity="0"/>
+</linearGradient>
+</defs>
+</svg>

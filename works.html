@@ -7,37 +7,30 @@
   <meta name="description" content="Chloe 的产品设计、官网、专题页与运营活动视觉作品。">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=205">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:ital,wght@0,500;0,600;0,700;0,800;1,800&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="design-tokens.css?v=4">
+  <link rel="stylesheet" href="assets/iconfont/iconfont.css?v=1">
+  <link rel="stylesheet" href="styles.css?v=207">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="icon" href="assets/favicon-light.png" media="(prefers-color-scheme: light)">
   <link rel="icon" href="assets/favicon-dark.png" media="(prefers-color-scheme: dark)">
+  <link rel="stylesheet" href="site-theme.css?v=2">
+  <link rel="stylesheet" href="site-common.css?v=2">
+  <link rel="stylesheet" href="works.css?v=2">
 </head>
 <body class="content-page works-page">
-  <nav class="nav content-nav" aria-label="主导航">
-    <a class="nav-logo tree-logo" href="index.html" aria-label="返回首页">
-      <svg viewBox="0 0 32 32" aria-hidden="true">
-        <path d="M16 28V14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
-        <path d="M16 16C8 16 5 12 6 7c5-1 9 1 10 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
-        <path d="M16 18c8 0 11-4 10-9-5-1-9 1-10 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-    </a>
-    <div class="nav-links">
-      <a href="index.html">首页</a>
-      <a href="works.html" aria-current="page">作品集</a>
-      <a href="ai-learning.html">AI 学习</a>
-      <a href="index.html#about">关于</a>
-    </div>
+  <nav class="gnav" aria-label="主导航">
+    <a class="gnav-logo tree-logo" href="index.html" aria-label="返回首页"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 28V14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/><path d="M16 16C8 16 5 12 6 7c5-1 9 1 10 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 18c8 0 11-4 10-9-5-1-9 1-10 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    <div class="gnav-links"><a href="index.html">首页</a><a href="works.html" aria-current="page">作品集</a><a href="ai-learning.html">AI 学习</a><a href="index.html#about">关于</a></div>
   </nav>
 
   <main class="content-shell">
-    <p class="works-summary">从移动产品、品牌官网、专题改版到运营活动，记录完整的设计判断与落地结果。</p>
-
     <div class="featured-tabs ui-segmented" role="tablist" aria-label="作品分类">
-      <button class="ui-segmented__item" type="button" role="tab" data-featured-filter="app" aria-pressed="false">App</button>
+      <button class="ui-segmented__item active" type="button" role="tab" data-featured-filter="app" aria-pressed="true">App</button>
       <button class="ui-segmented__item" type="button" role="tab" data-featured-filter="website" aria-pressed="false">官网</button>
       <button class="ui-segmented__item" type="button" role="tab" data-featured-filter="topic" aria-pressed="false">专题页</button>
-      <button class="ui-segmented__item active" type="button" role="tab" data-featured-filter="operations" aria-pressed="true">运营活动</button>
+      <button class="ui-segmented__item" type="button" role="tab" data-featured-filter="operations" aria-pressed="false">运营活动</button>
+      <button class="ui-segmented__item" type="button" role="tab" data-featured-filter="materials" aria-pressed="false">运营素材</button>
     </div>
 
     <section class="featured-projects" aria-live="polite">
@@ -58,6 +51,25 @@
           <figure class="featured-project-cover"><img src="assets/portfolio/cover-seerq.jpg" width="1920" height="1152" alt="先知命局 SeerQ 产品设计视觉总览" loading="lazy"></figure>
           <figure><img src="assets/portfolio/app1.png" width="180" height="380" alt="先知命局移动端命理结果界面" loading="lazy"></figure>
           <figure><img src="assets/portfolio/app2.png" width="200" height="280" alt="先知命局服务内容与数据卡片" loading="lazy"></figure>
+        </div>
+      </article>
+
+      <article class="featured-project" data-project-kind="app" aria-labelledby="project-liuyao-title">
+        <div class="featured-project-copy">
+          <div class="featured-project-meta"><span>AI PRODUCT DESIGN</span><span>2026</span></div>
+          <a class="featured-project-title-link" href="project-liuyao.html"><h2 id="project-liuyao-title">AI 六爻卜卦</h2></a>
+          <p class="featured-project-description">以 AI 工作流重构传统六爻占卜体验，覆盖智能寻物、摇卦排盘、结果分析与组件化交付，让抽象卦象更易理解与操作。</p>
+          <ul class="featured-project-tags" aria-label="项目标签">
+            <li>AI Workflow</li><li>Mobile App</li><li>Interaction</li><li>UI System</li>
+          </ul>
+          <div class="featured-project-actions">
+            <a class="btn-dark featured-case-button ui-button ui-button--solid" href="project-liuyao.html"><span>查看案例</span></a>
+          </div>
+        </div>
+        <div class="featured-project-gallery">
+          <figure class="featured-project-cover"><img src="assets/portfolio/liuyao/2003-1109-raw-01.png" width="1086" height="720" alt="AI 六爻卜卦 App 产品设计总览" loading="lazy"></figure>
+          <figure><img src="assets/portfolio/liuyao/2014-619-raw-03.png" width="750" height="1682" alt="六爻卜卦 App 首页设计" loading="lazy"></figure>
+          <figure><img src="assets/portfolio/liuyao/2020-961-raw-04.png" width="750" height="1624" alt="六爻卜卦 App 摇卦交互页面" loading="lazy"></figure>
         </div>
       </article>
 
@@ -101,6 +113,44 @@
         </div>
       </article>
 
+      <article class="featured-project" data-project-kind="topic" aria-labelledby="project-overseas-title">
+        <div class="featured-project-copy">
+          <div class="featured-project-meta"><span>VISUAL DESIGN</span><span>2024</span></div>
+          <a class="featured-project-title-link" href="project-overseas.html"><h2 id="project-overseas-title">海外中文 · 视觉专题设计</h2></a>
+          <p class="featured-project-description">面向海外华人的 11 个命理专题 H5：每个题材独立主视觉，并沉淀一套可复用的组件体系。</p>
+          <ul class="featured-project-tags" aria-label="项目标签">
+            <li>H5</li><li>繁体中文</li><li>Component System</li><li>AIGC</li>
+          </ul>
+          <div class="featured-project-actions">
+            <a class="btn-dark featured-case-button ui-button ui-button--solid" href="project-overseas.html"><span>查看案例</span></a>
+          </div>
+        </div>
+        <div class="featured-project-gallery">
+          <figure class="featured-project-cover"><img src="assets/portfolio/cover-overseas.jpg" width="1920" height="1264" alt="海外中文视觉专题设计总览" loading="lazy"></figure>
+          <figure><img src="assets/portfolio/haiwai1.jpg" width="367" height="701" alt="择吉日专题 H5 首屏" loading="lazy"></figure>
+          <figure><img src="assets/portfolio/haiwai2.jpg" width="368" height="701" alt="六爻神卦专题 H5 首屏" loading="lazy"></figure>
+        </div>
+      </article>
+
+      <article class="featured-project" data-project-kind="topic" aria-labelledby="project-overseas-en-title">
+        <div class="featured-project-copy">
+          <div class="featured-project-meta"><span>VISUAL DESIGN</span><span>2025</span></div>
+          <a class="featured-project-title-link" href="project-overseas-en.html"><h2 id="project-overseas-en-title">海外英文 · 视觉专题设计</h2></a>
+          <p class="featured-project-description">面向欧美、东南亚的英文命理 H5：手相预测与 SeerQ 三源命理两个专题，覆盖主视觉、组件体系与付费转化链路。</p>
+          <ul class="featured-project-tags" aria-label="项目标签">
+            <li>H5</li><li>English</li><li>Overseas</li><li>Conversion</li>
+          </ul>
+          <div class="featured-project-actions">
+            <a class="btn-dark featured-case-button ui-button ui-button--solid" href="project-overseas-en.html"><span>查看案例</span></a>
+          </div>
+        </div>
+        <div class="featured-project-gallery">
+          <figure class="featured-project-cover"><img src="assets/portfolio/cover-overseas-en.jpg" width="1920" height="1264" alt="海外英文视觉专题设计总览" loading="lazy"></figure>
+          <figure><img src="assets/portfolio/haiwai-en1.jpg" width="368" height="690" alt="SeerQ Astro-Numeric Map H5 首屏" loading="lazy"></figure>
+          <figure><img src="assets/portfolio/haiwai-en2.jpg" width="368" height="690" alt="Mysterious Palmistry 手相预测 H5 首屏" loading="lazy"></figure>
+        </div>
+      </article>
+
       <article class="featured-project" data-project-kind="operations" aria-labelledby="project-operations-title">
         <div class="featured-project-copy">
           <div class="featured-project-meta"><span>AIGC VISUAL</span><span>2025 - 2026</span></div>
@@ -120,10 +170,31 @@
           <figure><img src="assets/portfolio/haoyun2.png" width="180" height="380" alt="海外新年运营活动单页互动视觉" loading="eager"></figure>
         </div>
       </article>
+
+      <article class="featured-project" data-project-kind="materials" aria-labelledby="project-materials-title">
+        <div class="featured-project-copy">
+          <div class="featured-project-meta"><span>OPERATIONS VISUAL</span><span>2025</span></div>
+          <a class="featured-project-title-link" href="project-materials.html"><h2 id="project-materials-title">运营素材 · 弹窗与广告 Banner</h2></a>
+          <p class="featured-project-description">面向海外繁体用户的活动弹窗、咨询入口与抽牌广告 Banner。弹窗讲清一个利益点，Banner 固定版式、按主题换肤，支撑节日活动与日常投放快速上新。</p>
+          <ul class="featured-project-tags" aria-label="项目标签">
+            <li>Popup</li><li>Ad Banner</li><li>繁體中文</li><li>Theme Variants</li>
+          </ul>
+          <div class="featured-project-actions">
+            <a class="btn-dark featured-case-button ui-button ui-button--solid" href="project-materials.html"><span>查看案例</span></a>
+          </div>
+        </div>
+        <div class="featured-project-gallery">
+          <figure class="featured-project-cover"><img src="assets/portfolio/cover-materials.jpg" width="1920" height="1152" alt="运营素材视觉总览：活动弹窗与抽牌广告 Banner" loading="lazy"></figure>
+          <figure><img src="assets/portfolio/materials1.png" width="275" height="371" alt="天降福利免费咨询弹窗" loading="lazy"></figure>
+          <figure><img src="assets/portfolio/materials2.png" width="355" height="454" alt="转运招财大法会报名弹窗" loading="lazy"></figure>
+        </div>
+      </article>
     </section>
   </main>
 
   <footer class="content-footer"><a href="index.html">首页</a><a href="ai-learning.html">AI 学习</a></footer>
-  <script src="pages.js?v=204"></script>
+  <script src="pages.js?v=205"></script>
+  <button class="site-to-top" type="button" aria-label="回到顶部"><i class="iconfont icon-up" aria-hidden="true"></i></button>
+<script src="site-common.js?v=1" defer></script>
 </body>
 </html>
