@@ -274,3 +274,45 @@ html { overflow-x: clip; }
   .all-pages { --ap-h: 300px; --ap-gap: 12px; padding: 64px 0 20px; }
   .all-pages-head { width: calc(100% - 32px); margin-bottom: 20px; }
 }
+
+/* Shared treatment for every project’s complete-screen gallery. */
+.all-pages {
+  --ap-radius: 12px;
+  --ap-shadow: 0 1px 2px rgba(0, 0, 0, .06), 0 18px 36px -24px rgba(0, 0, 0, .35);
+}
+:root .all-pages .all-pages-track .all-pages-item {
+  border: 0;
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+  overflow: visible;
+}
+:root .all-pages .all-pages-track .all-pages-item img,
+:root .all-pages .all-pages-track .tc-ap-screen {
+  border: 0;
+  border-radius: var(--ap-radius);
+  box-shadow: var(--ap-shadow);
+  filter: none;
+}
+:root .all-pages .all-pages-track .tc-ap-screen {
+  overflow: hidden;
+}
+:root .all-pages .all-pages-track .tc-ap-screen img {
+  border-radius: 0;
+  box-shadow: none;
+}
+:root .all-pages .all-pages-track .op-ap-phone {
+  display: block;
+}
+:root .all-pages .all-pages-track .op-ap-popup {
+  display: flex;
+  align-items: center;
+  height: var(--ap-phone);
+}
+:root .all-pages .all-pages-track .all-pages-item figcaption {
+  display: none;
+}
+:root .all-pages .all-pages-viewport {
+  padding-top: 12px;
+  padding-bottom: 36px;
+}
