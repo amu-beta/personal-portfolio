@@ -207,7 +207,7 @@ test('works page uses the referenced portfolio content in the existing design sy
   assert.match(html, /class="[^"]*\btree-logo\b[^"]*"/);
   assert.match(html, /href="index\.html"[^>]*>首页</);
   assert.match(html, /href="works\.html"[^>]*aria-current="page"[^>]*>作品集</);
-  assert.match(html, /href="ai-learning\.html"[^>]*>AI 学习</);
+  assert.match(html, /href="ai-learning\.html"[^>]*>AI 探索</);
   assert.match(html, /href="index\.html#about"[^>]*>关于</);
   assert.match(html, /<script\s+src="pages\.js(?:\?v=\d+)?"\s*><\/script>/);
 
@@ -281,64 +281,41 @@ test('featured portfolio cards are quiet and route to complete local detail page
   }
 });
 
-test('AI learning page is a static seven-article learning list', () => {
-  assert.equal(existsSync(pageUrl('ai-learning.html')), true, 'ai-learning.html must exist');
+test('AI exploration links three visual project cards to local content', () => {
   const html = readPage('ai-learning.html');
-  const styles = readPage('styles.css');
-  const expectedArticles = [
-    ['精选', '如何建立自己的 AI 学习系统'],
-    ['学习方法', '不追工具更新，先建立问题地图'],
-    ['提示词', '好提示词不是咒语，而是清晰的上下文'],
-    ['Agent', '从一次对话到可重复执行的工作流'],
-    ['自动化', '先自动化最烦的十分钟'],
-    ['AI 编程', '让 AI 写代码之前，先写清验收标准'],
-    ['工具选择', '用任务选择工具，不用榜单替你决定'],
-  ];
-
-  assert.match(html, /<body\b[^>]*\bclass="[^"]*\bcontent-page\b[^"]*\blearning-page\b[^"]*"/);
-  assert.match(html, /<a\b[^>]*\bclass="[^"]*\btree-logo\b[^"]*"[^>]*href="index\.html"/);
-  assert.match(html, /href="index\.html"[^>]*>首页</);
-  assert.match(html, /href="works\.html"[^>]*>作品集</);
-  assert.match(html, /href="ai-learning\.html"[^>]*aria-current="page"[^>]*>AI 学习</);
-  assert.match(html, /href="index\.html#about"[^>]*>关于</);
-  assert.match(html, /<footer\b[\s\S]*?href="index\.html"[^>]*>首页<[\s\S]*?href="works\.html"[^>]*>作品集</);
-  assert.doesNotMatch(html, /(?:联系我|联系我们|预约|Book a call|Contact)/i, 'learning page must not add a contact CTA');
-  assert.equal((html.match(/<article\b/g) || []).length, 7, 'learning page must contain exactly seven articles');
-  assert.equal((html.match(/<article\b[^>]*\bfeatured-article\b/g) || []).length, 1, 'one article must be featured');
-  assert.equal((html.match(/<article\b[^>]*\barticle-card\b/g) || []).length, 6, 'six articles must use the standard card class');
-
-  const learningCss = styles.slice(styles.indexOf('/* ============ AI LEARNING PAGE ============ */'));
-  const learningSelectors = ['learning-intro', 'featured-article', 'article-list', 'article-card', 'article-meta', 'article-index', 'article-status', 'article-content', 'article-summary'];
-  for (const selector of learningSelectors) {
-    assert.match(learningCss, new RegExp(`\\.learning-page\\s+\\.${selector}\\b`), `${selector} must be scoped to the learning page`);
-    assert.doesNotMatch(learningCss, new RegExp(`^\\s*\\.${selector}\\b`, 'm'), `${selector} must not leak into other pages`);
-  }
-
-  // Extract each block independently, refusing to cross another article opening
-  // tag, so a link after one article cannot satisfy another article's assertion.
-  const articleBlocks = [...html.matchAll(/<article\b[^>]*>(?:(?!<article\b)[\s\S])*?<\/article>/g)];
-  assert.equal(articleBlocks.length, 7, 'every article opening tag must have a complete block');
-  let summaryCount = 0;
-  for (const [index, match] of articleBlocks.entries()) {
+  const styles = readPage('ai-exploration.css');
+  assert.match(html, /aria-current="page"[^>]*>AI 探索</);
+  assert.match(styles, /grid-template-columns:\s*repeat\(2,\s*minmax\(0,\s*1fr\)\)/);
+  assert.match(styles, /@media\s*\(max-width:\s*767px\)[\s\S]*?\.explore-grid\s*\{\s*grid-template-columns:\s*minmax\(0,\s*1fr\)/);
+  const cards = [...html.matchAll(/<article\b[^>]*>(?:(?!<article\b)[\s\S])*?<\/article>/g)];
+  assert.equal(cards.length, 3, 'only the three practical cases remain available');
+  assert.doesNotMatch(html, /ai-notes\.html#/, 'method note cards should not appear on the AI exploration index');
+  for (const [index, match] of cards.entries()) {
     const block = match[0];
-    const [category, title] = expectedArticles[index];
-    assert.match(block, new RegExp(`>${category}<`), `article ${index + 1} must contain its exact category`);
-    assert.match(block, new RegExp(`<h2[^>]*>\\s*${title}\\s*<`), `article ${index + 1} must contain its exact title`);
-    const summaries = [...block.matchAll(/<p\b[^>]*\barticle-summary\b[^>]*>([^<]*)<\/p>/g)];
-    assert.equal(summaries.length, 1, `article ${index + 1} must contain one complete summary tag`);
-    assert.match(summaries[0][1].trim(), /^[^。]+。$/, `article ${index + 1} summary must end with exactly one Chinese full stop`);
-    summaryCount += summaries.length;
-    assert.match(block, /<time\b[^>]*>[^<]+分钟阅读<\/time>/, `article ${index + 1} must contain reading time`);
-    assert.match(block, /<span\b[^>]*\barticle-status\b[^>]*>学习笔记<\/span>/, `article ${index + 1} must contain a static status`);
-    assert.doesNotMatch(block, /<a\b/, 'article cards must remain static, without dead links');
+    const target = block.match(/<a\b[^>]*href="([^"]+)"/)[1];
+    const [file, fragment] = target.split('#');
+    assert.equal(existsSync(pageUrl(file)), true, `card ${index + 1} has a real local destination`);
+    if (fragment) assert.ok(readPage(file).includes(`id="${fragment}"`));
+    const image = block.match(/<img\b[^>]*src="([^"]+)"/)[1];
+    assert.equal(existsSync(pageUrl(image)), true, `card ${index + 1} image exists`);
+    assert.ok(block.indexOf('<img') < block.indexOf('<h2'), 'each card puts its image above the title');
   }
-  assert.equal(summaryCount, 7, 'learning page must contain seven complete summaries');
   const visibleCopy = html.replace(/<[^>]+>/g, ' ');
-  assert.doesNotMatch(
-    visibleCopy,
-    forbiddenLearningMetrics,
-    'learning page must not invent dates or view counts',
-  );
+  assert.doesNotMatch(visibleCopy, forbiddenLearningMetrics, 'cards must not invent dates or view counts');
+});
+
+test('knit rail case includes a self-contained demo and objective implementation narrative', () => {
+  const html = readPage('ai-knit-rail.html');
+  assert.match(html, /<iframe\b[^>]*src="demos\/knit-rail\/index\.html\?embed=1"/);
+  assert.equal(existsSync(pageUrl('demos/knit-rail/index.html')), true);
+  assert.doesNotMatch(html.replace(/<[^>]+>/g, ''), /我|学习与结果/);
+  assert.ok(html.includes('id="implementation"'));
+  assert.doesNotMatch(html, /id="(?:interaction|workflow)"|class="case-end"/);
+  const demo = readPage('demos/knit-rail/index.html');
+  for (const [, asset] of demo.matchAll(/(?:src=|(?:sideImage|frontImage):\s*)"(public\/assets\/[^\"]+)"/g)) {
+    assert.equal(existsSync(pageUrl(`demos/knit-rail/${asset}`)), true, `demo asset ${asset} exists`);
+  }
+  assert.doesNotMatch(demo, /localhost:5173|from\s+["']three["']/);
 });
 
 test('learning date guard recognizes dot-separated dates', () => {

@@ -1,0 +1,2 @@
+/* Preserve the space formerly occupied by the sticky showcase header. */
+.hero { margin-top: 72px; }

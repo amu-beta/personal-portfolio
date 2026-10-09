@@ -1,0 +1,197 @@
+diff --git a/src/App.jsx b/src/App.jsx
+--- a/src/App.jsx
++++ b/src/App.jsx
+@@ -1,7 +1,26 @@
+-import React, { lazy, Suspense, useCallback, useEffect, useRef, useState } from 'react';
++import React, { Component, lazy, Suspense, useCallback, useEffect, useRef, useState } from 'react';
+ import { TAROT_CARDS } from './tarotCards.js';
++import StaticTarotScene from './StaticTarotScene.jsx';
+ 
+ const TarotScene = lazy(() => import('./TarotScene.jsx'));
++
++const supportsWebGL = (() => {
++  try {
++    const canvas = document.createElement('canvas');
++    const context = canvas.getContext('webgl2');
++    if (!context) return false;
++    context.getExtension('WEBGL_lose_context')?.loseContext();
++    return true;
++  } catch {
++    return false;
++  }
++})();
++
++class SceneBoundary extends Component {
++  state = { failed: false };
++  static getDerivedStateFromError() { return { failed: true }; }
++  render() { return this.state.failed ? this.props.fallback : this.props.children; }
++}
+ 
+ function Mark() {
+   return (
+@@ -82,16 +101,20 @@
+           <div className="stage-light stage-light-one" />
+           <div className="stage-light stage-light-two" />
+           <div className="card-orbit" aria-hidden="true"><span /><span /><span /></div>
+-          <Suspense fallback={null}>
+-            <TarotScene
+-              ref={sceneRef}
+-              card={activeCard}
+-              isBack={isBack}
+-              onTurn={setIsBack}
+-              onReady={handleReady}
+-              onDragging={setIsDragging}
+-            />
+-          </Suspense>
++          <SceneBoundary fallback={<StaticTarotScene ref={sceneRef} card={activeCard} isBack={isBack} onTurn={setIsBack} onReady={handleReady} onDragging={setIsDragging} />}>
++            {supportsWebGL ? (
++              <Suspense fallback={null}>
++                <TarotScene
++                  ref={sceneRef}
++                  card={activeCard}
++                  isBack={isBack}
++                  onTurn={setIsBack}
++                  onReady={handleReady}
++                  onDragging={setIsDragging}
++                />
++              </Suspense>
++            ) : <StaticTarotScene ref={sceneRef} card={activeCard} isBack={isBack} onTurn={setIsBack} onReady={handleReady} onDragging={setIsDragging} />}
++          </SceneBoundary>
+           {!isReady && <div className="loading-note" role="status">正在铺展纸面与金箔…</div>}
+           <span className="stage-index" aria-hidden="true">{activeCard.number}</span>
+         </div>
+diff --git a/src/TarotScene.jsx b/src/TarotScene.jsx
+--- a/src/TarotScene.jsx
++++ b/src/TarotScene.jsx
+@@ -4,6 +4,7 @@
+ import * as THREE from 'three';
+ import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+ import { RoundedBoxGeometry } from 'three/addons/geometries/RoundedBoxGeometry.js';
++import StaticTarotScene from './StaticTarotScene.jsx';
+ 
+ import sharedBackUrl from '../assets/tarot-proposals-2026-10-09/cards/shared-back.png';
+ import backMaskUrl from '../assets/queen-of-cups/back-foil-mask.png';
+@@ -407,7 +408,7 @@
+         gl.toneMapping = THREE.ACESFilmicToneMapping;
+         gl.toneMappingExposure = 1.04;
+       }}
+-      fallback={<p className="webgl-fallback">此设备暂不支持 3D 展示，请尝试更新浏览器。</p>}
++      fallback={<StaticTarotScene ref={ref} card={card} isBack={isBack} onTurn={onTurn} onReady={onReady} onDragging={onDragging} />}
+       aria-label="圣杯女王 3D 塔罗牌，可拖动翻转"
+     >
+       <ambientLight intensity={0.72} />
+diff --git a/src/StaticTarotScene.jsx b/src/StaticTarotScene.jsx
+new file mode 100644
+--- /dev/null
++++ b/src/StaticTarotScene.jsx
+@@ -0,0 +1,59 @@
++import React, { forwardRef, useEffect, useImperativeHandle, useRef, useState } from 'react';
++import backUrl from '../assets/tarot-proposals-2026-10-09/cards/shared-back.png';
++
++// Keep the complete card deck usable when a browser cannot create a WebGL2 context.
++const StaticTarotScene = forwardRef(function StaticTarotScene({ card, isBack, onTurn, onReady, onDragging }, ref) {
++  const pointer = useRef(null);
++  const [tilt, setTilt] = useState({ x: 0, y: 0 });
++
++  useImperativeHandle(ref, () => ({ reset: () => setTilt({ x: 0, y: 0 }) }), []);
++  useEffect(() => { onReady(); }, [card.id, onReady]);
++  useEffect(() => { setTilt({ x: 0, y: 0 }); }, [card.id]);
++
++  const finishPointer = (event) => {
++    const start = pointer.current;
++    if (!start) return;
++    pointer.current = null;
++    onDragging(false);
++    setTilt({ x: 0, y: 0 });
++    const dx = event.clientX - start.x;
++    const dy = event.clientY - start.y;
++    if (Math.abs(dx) > 32 || (Math.abs(dx) < 8 && Math.abs(dy) < 8)) onTurn(!isBack);
++    try { event.currentTarget.releasePointerCapture(event.pointerId); } catch {}
++  };
++
++  return (
++    <div className="static-tarot-scene"
++      onPointerDown={(event) => {
++        pointer.current = { x: event.clientX, y: event.clientY };
++        onDragging(true);
++        event.currentTarget.setPointerCapture(event.pointerId);
++      }}
++      onPointerMove={(event) => {
++        if (event.pointerType !== 'mouse') return;
++        const bounds = event.currentTarget.getBoundingClientRect();
++        setTilt({
++          x: (0.5 - (event.clientY - bounds.top) / bounds.height) * 12,
++          y: ((event.clientX - bounds.left) / bounds.width - 0.5) * 12,
++        });
++      }}
++      onPointerUp={finishPointer}
++      onPointerCancel={(event) => {
++        pointer.current = null;
++        onDragging(false);
++        setTilt({ x: 0, y: 0 });
++        try { event.currentTarget.releasePointerCapture(event.pointerId); } catch {}
++      }}
++      onPointerLeave={() => { if (!pointer.current) setTilt({ x: 0, y: 0 }); }}
++    >
++      <div className="static-tarot-card" role="img" aria-label={card.name + (isBack ? '塔罗牌牌背' : '塔罗牌正面')}
++        style={{ transform: `rotateX(${tilt.x}deg) rotateY(${(isBack ? 180 : 0) + tilt.y}deg)` }}>
++        <img className="static-tarot-face" src={card.frontUrl} alt="" draggable="false" />
++        <img className="static-tarot-face static-tarot-back" src={backUrl} alt="" draggable="false" />
++      </div>
++      <span className="static-mode-note">当前以图片模式展示 · 支持切牌与翻面</span>
++    </div>
++  );
++});
++
++export default StaticTarotScene;
+diff --git a/src/styles.css b/src/styles.css
+--- a/src/styles.css
++++ b/src/styles.css
+@@ -367,3 +367,47 @@
+ @media (prefers-reduced-motion: reduce) {
+   *, *::before, *::after { scroll-behavior: auto !important; animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+ }
++
++
++.static-tarot-scene {
++  position: absolute;
++  z-index: 1;
++  inset: 0;
++  display: grid;
++  place-items: center;
++  perspective: 1200px;
++  touch-action: none;
++  user-select: none;
++}
++.static-tarot-card {
++  position: relative;
++  height: min(82%, 390px);
++  aspect-ratio: 5 / 8;
++  transform-style: preserve-3d;
++  transition: transform 650ms cubic-bezier(.22,.68,.18,1);
++  border-radius: 12px;
++}
++.static-tarot-face {
++  position: absolute;
++  inset: 0;
++  width: 100%;
++  height: 100%;
++  object-fit: contain;
++  border-radius: 12px;
++  backface-visibility: hidden;
++  -webkit-backface-visibility: hidden;
++  box-shadow: 0 14px 24px rgba(68,52,28,.2);
++  pointer-events: none;
++}
++.static-tarot-back { transform: rotateY(180deg); }
++.static-mode-note {
++  position: absolute;
++  bottom: 5px;
++  color: var(--ink-muted);
++  font-size: 10px;
++  text-align: center;
++  pointer-events: none;
++}
++@media (prefers-reduced-motion: reduce) {
++  .static-tarot-card { transition: none; }
++}

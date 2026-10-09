@@ -1,0 +1,76 @@
+/* 小知后台实践案例：保留作品集的中性视觉，以实际页面与过程记录为主体。 */
+.backend-shell { width: min(1080px, calc(100% - 64px)); }
+.backend-intro h1 { max-width: none; margin-bottom: 20px; }
+.backend-intro h2 { font-size: var(--fs-title); font-weight: 500; line-height: 1.6; margin: 0 0 22px; text-wrap: balance; }
+.backend-intro > p { max-width: 70ch; margin-bottom: 14px; }
+.backend-cover { margin: 44px 0 0; }
+.backend-cover > img { display: block; width: 100%; height: auto; border: 1px solid var(--k-border); border-radius: var(--radius); }
+.backend-cover figcaption { display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 20px 0; color: var(--k-muted); font-size: var(--fs-small); }
+.backend-collaboration { margin: 76px 0 64px; }
+.backend-collaboration h2, .backend-step h2 { font-family: var(--font-display); font-size: var(--fs-h2); font-weight: 600; line-height: 1.5; letter-spacing: -.025em; text-wrap: balance; margin: 0 0 26px; }
+.collaboration-roles { margin: 0; }
+.collaboration-roles > div { display: grid; grid-template-columns: 150px 1fr; gap: 28px; border-top: 1px solid var(--k-border); padding: 23px 0; }
+.collaboration-roles dt { font-weight: 600; }
+.collaboration-roles dd { margin: 0; color: var(--k-muted); line-height: 1.85; }
+.loop-label { color: var(--k-muted); margin: 36px 0 18px; }
+.collaboration-loop { display: flex; flex-wrap: wrap; gap: 12px 0; padding: 0; margin: 0; list-style: none; }
+.collaboration-loop li { display: flex; align-items: center; font-weight: 500; line-height: 1.8; }
+.collaboration-loop li:not(:last-child)::after { content: ''; width: 22px; height: 1px; background: #929292; margin: 0 18px; }
+.backend-reading { display: grid; grid-template-columns: 180px minmax(0, 1fr); gap: 62px; align-items: start; }
+.backend-index { position: sticky; top: 110px; padding-top: 30px; }
+.backend-index nav > p { margin: 0 0 22px; font-size: var(--fs-small); color: var(--k-muted); }
+.backend-index a { display: flex; gap: 16px; padding: 10px 0; color: var(--k-muted); font-size: var(--fs-body); text-decoration: none; }
+.backend-index a span { font-variant-numeric: tabular-nums; }
+.backend-index a:hover { color: var(--k-ink); text-decoration: underline; text-underline-offset: 5px; }
+.backend-index a:focus-visible, .backend-evidence a:focus-visible { outline: 2px solid var(--k-ink); outline-offset: 5px; }
+.backend-step { border-top: 1px solid var(--k-border); padding: 42px 0 60px; scroll-margin-top: 105px; }
+.backend-step h2 { font-size: 28px; display: grid; grid-template-columns: 36px 1fr; gap: 14px; }
+.backend-step h2 > span { font-size: 15px; letter-spacing: 0; line-height: 42px; font-weight: 500; color: var(--k-muted); font-variant-numeric: tabular-nums; }
+.backend-step > p, .backend-step li { color: var(--k-muted); font-size: var(--fs-body); line-height: 1.95; }
+.backend-step > p { margin: 0 0 18px; }
+.backend-step ul { padding-left: 22px; margin: 22px 0; }
+.backend-step ul li { padding-left: 4px; margin-bottom: 10px; }
+.backend-step .stage-output { background: var(--k-card); padding: 20px 24px; border-radius: var(--radius-sm); margin: 28px 0; }
+.stage-output strong { display: block; color: var(--k-ink); font-weight: 500; margin-bottom: 5px; }
+.backend-evidence { margin: 32px 0 0; }
+.backend-evidence img { width: 100%; height: auto; display: block; border: 1px solid var(--k-border); border-radius: var(--radius-sm); }
+.backend-evidence figcaption { font-size: var(--fs-small); color: var(--k-muted); line-height: 1.8; margin-top: 12px; }
+.assistant-flow { list-style: none; padding: 0; margin: 26px 0 0; display: flex; flex-wrap: wrap; gap: 10px; }
+.backend-step .assistant-flow li { padding: 6px 12px; border: 1px solid var(--k-border); font-size: var(--fs-small); border-radius: var(--radius-sm); }
+.backend-outcome h2 { display: block; }
+.backend-outcome .case-button { margin-top: 14px; }
+@media (max-width: 900px) { .backend-reading { grid-template-columns: 140px minmax(0, 1fr); gap: 32px; } }
+@media (max-width: 767px) {
+ .backend-shell { width: calc(100% - 32px); }
+ .backend-intro h2 { font-size: 21px; }
+ .backend-cover { margin-top: 30px; }
+ .backend-cover figcaption { align-items: flex-start; flex-direction: column; gap: 12px; }
+ .backend-collaboration { margin: 48px 0; }
+ .backend-collaboration h2 { font-size: 26px; }
+ .collaboration-roles > div { grid-template-columns: 1fr; gap: 10px; padding: 20px 0; }
+ .collaboration-loop li { font-size: 14px; }
+ .collaboration-loop li:not(:last-child)::after { width: 12px; margin: 0 10px; }
+ .backend-reading { display: block; }
+ .backend-index { position: static; padding: 0 0 24px; }
+ .backend-index nav { display: flex; flex-wrap: wrap; gap: 4px 20px; }
+ .backend-index nav > p { width: 100%; margin-bottom: 10px; }
+ .backend-index a { font-size: 14px; gap: 8px; }
+ .backend-step { padding: 30px 0 42px; }
+ .backend-step h2 { font-size: 23px; grid-template-columns: 28px 1fr; gap: 8px; }
+ .backend-step h2 > span { line-height: 34px; }
+ .backend-step .stage-output { padding: 18px; }
+}
+/* 批注调整：紧凑的参考图片与三段规范主线。 */
+.backend-cover figcaption { justify-content: flex-end; }
+.backend-reference-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin-top: 26px; }
+.backend-reference-grid img { display: block; width: 100%; aspect-ratio: 1.65; height: auto; object-fit: cover; object-position: top; border-radius: var(--radius-sm); border: 1px solid var(--k-border); }
+.backend-system-grid { display: grid; grid-template-columns: .9fr .75fr 1.35fr; gap: 16px; }
+.backend-system-grid figure { min-width: 0; margin: 0; }
+.backend-system-grid figcaption { margin-bottom: 14px; font-weight: 500; font-size: var(--fs-body); line-height: 1.6; }
+.backend-system-grid img { display: block; width: 100%; height: 245px; object-fit: cover; object-position: top left; border-radius: var(--radius-sm); }
+@media (max-width: 767px) {
+ .backend-reference-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+ .backend-system-grid { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+ .backend-system-grid img { height: 240px; object-fit: cover; object-position: top left; background: #eef1f7; }
+ .backend-cover figcaption { align-items: flex-end; }
+}

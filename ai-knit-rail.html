@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>用 AI 实现可交互的服装展示｜Deslopify</title>
+  <meta name="description" content="通过素材对齐、CSS 透视变换和 JavaScript 弹簧动画，呈现服装衣架交互原型的 AI 制作方法。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:ital,wght@0,500;0,600;0,700;0,800;1,800&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="design-tokens.css?v=3">
+  <link rel="stylesheet" href="assets/iconfont/iconfont.css?v=1">
+  <link rel="stylesheet" href="styles.css?v=207">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/favicon-light.png" media="(prefers-color-scheme: light)">
+  <link rel="icon" href="assets/favicon-dark.png" media="(prefers-color-scheme: dark)">
+  <link rel="stylesheet" href="site-theme.css?v=2">
+  <link rel="stylesheet" href="site-common.css?v=2">
+  <link rel="stylesheet" href="ai-exploration.css?v=2">
+</head>
+<body class="content-page exploration-page"><nav class="gnav" aria-label="主导航">
+    <a class="gnav-logo tree-logo" href="index.html" aria-label="返回首页"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 28V14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/><path d="M16 16C8 16 5 12 6 7c5-1 9 1 10 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 18c8 0 11-4 10-9-5-1-9 1-10 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    <div class="gnav-links"><a href="index.html">首页</a><a href="works.html">作品集</a><a href="ai-learning.html" aria-current="page">AI 探索</a><a href="index.html#about">关于</a></div>
+  </nav>
+<main class="explore-shell case-shell">
+<header class="explore-intro case-intro">
+<a class="text-link" href="ai-learning.html"><span class="iconfont" aria-hidden="true">&#xe83d;</span>返回 AI 探索</a>
+<h1>用 AI 实现可交互的服装展示</h1>
+<p>将服装照片与参考动效转化为浏览器中的交互原型，通过 AI 辅助编程、素材对齐和动效调校，呈现具有立体感的服装浏览体验。</p>
+<div class="case-tags"><span>Claude实现交互原型</span><span>AI 辅助编程</span><span>HTML / CSS / JavaScript</span></div>
+</header>
+<section id="demo" aria-label="服装衣架交互演示">
+<div class="demo-wrap"><iframe src="demos/knit-rail/index.html?embed=1" title="Knit Rail 服装衣架交互演示" width="980" height="560"></iframe></div>
+<div class="demo-caption"><a class="case-button" href="demos/knit-rail/index.html" target="_blank" rel="noopener">打开完整演示<span class="iconfont" aria-hidden="true">&#xe841;</span></a></div>
+</section>
+<section class="case-section" id="implementation">
+<h2>三个关键实现</h2>
+<p class="section-lead">这个演示使用照片与浏览器变换构建立体感。核心在于视角交接、稳定支点和带惯性的运动。</p>
+<div class="tech-row"><div class="tech-visual"><img src="demos/knit-rail/public/assets/rail/blue.png" alt="蓝色服装的透明侧面照片" width="1122" height="1402" loading="lazy"><img src="demos/knit-rail/public/assets/rail/blue-front.png" alt="同一件蓝色服装的透明正面照片" width="1122" height="1402" loading="lazy"><div class="asset-label"><span>侧面照片</span><span>正面照片</span></div></div><div class="tech-copy"><h3>两张照片，衔接一次转身</h3><p>正面图与侧面图叠在同一位置，围绕挂钩执行 <code>rotateY</code> 旋转。在转到接近侧边时交接透明度，使两个视角连续过渡。</p><p>悬停服装提高叠放层级，邻居根据图片宽度向左右让位，为正面轮廓留出空间。</p></div></div>
+<div class="tech-row"><div class="tech-visual"><svg class="tech-diagram" viewBox="0 0 460 300" role="img" aria-label="对齐正侧面照片的挂钩顶点与衣摆长度"><path d="M70 67 H390 M70 238 H390" stroke="#89998b" stroke-dasharray="5 5" fill="none"/><path d="M122 68 V238 M338 68 V238" stroke="#89998b" fill="none"/><circle cx="122" cy="68" r="5" fill="#475b48"/><circle cx="338" cy="68" r="5" fill="#475b48"/><path d="M110 90 L150 105 L155 220 L115 238 L92 224 L92 115 Z M320 90 L355 105 L383 137 L356 153 L354 231 L301 231 L300 153 L276 137 L301 105 Z" fill="#afc6a9" stroke="#617b62"/><text x="230" y="42" text-anchor="middle" fill="#343e35" font-size="17" font-family="PingFang SC, sans-serif">统一挂钩顶点</text><text x="230" y="276" text-anchor="middle" fill="#343e35" font-size="17" font-family="PingFang SC, sans-serif">统一挂钩到衣摆的长度</text></svg></div><div class="tech-copy"><h3>对齐图片，避免转身时跳动</h3><p>素材脚本使用 Pillow 和 NumPy 读取透明通道，定位挂钩顶点与衣摆。按有效长度缩放正面图，再平移到侧面图的挂钩位置。</p><p>CSS 将旋转原点设为图片的 <code>49% 12.6%</code>，使两张图围绕同一支点运动。</p></div></div>
+<div class="tech-row"><div class="tech-visual"><svg class="tech-diagram" viewBox="0 0 460 300" role="img" aria-label="弹簧动画快速接近目标，轻微回弹后稳定"><path d="M45 245 H420 M45 245 V48 M45 100 H420" fill="none" stroke="#96a394"/><path d="M45 230 C65 230 78 72 115 77 S160 125 199 112 S234 95 268 99 S320 100 420 100" stroke="#475b48" stroke-width="3" fill="none"/><text x="358" y="82" fill="#475248" font-size="15" font-family="PingFang SC, sans-serif">目标角度</text><text x="80" y="278" fill="#475248" font-size="15" font-family="PingFang SC, sans-serif">转身</text><text x="186" y="278" fill="#475248" font-size="15" font-family="PingFang SC, sans-serif">回弹</text><text x="348" y="278" fill="#475248" font-size="15" font-family="PingFang SC, sans-serif">稳定</text></svg></div><div class="tech-copy"><h3>弹簧计算，让运动带有惯性</h3><p>通过 <code>requestAnimationFrame</code> 持续更新动画。刚度控制接近目标的速度，阻尼控制回弹衰减；转身使用刚度 210、阻尼 15，产生快速转正后的轻微回弹。</p><p>左右摆动与前后扭摆错开相位，形成更丰富的悬挂感。系统开启减少动态效果时，直接更新状态并关闭摆动。</p></div></div>
+</section>
+</main>
+<nav class="site-rail" aria-label="章节导航"><a href="#demo"><span>成果演示</span></a><a href="#implementation"><span>关键实现</span></a></nav>
+<button class="site-to-top" type="button" aria-label="回到顶部"><i class="iconfont icon-up" aria-hidden="true"></i></button>
+<footer class="content-footer"><a href="index.html">首页</a><a href="works.html">作品集</a><a href="ai-learning.html">AI 探索</a></footer><script src="site-common.js?v=1" defer></script>
+</body></html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>塔罗牌实现质感展示｜Deslopify</title>
+  <meta name="description" content="将塔罗牌插画、纸张纹理与金箔遮罩转化为可交互的 3D 展示，在线体验塔罗牌的倾斜、反光与翻面。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:ital,wght@0,500;0,600;0,700;0,800;1,800&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="design-tokens.css?v=3">
+  <link rel="stylesheet" href="assets/iconfont/iconfont.css?v=1">
+  <link rel="stylesheet" href="styles.css?v=207">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/favicon-light.png" media="(prefers-color-scheme: light)">
+  <link rel="icon" href="assets/favicon-dark.png" media="(prefers-color-scheme: dark)">
+  <link rel="stylesheet" href="site-theme.css?v=2">
+  <link rel="stylesheet" href="site-common.css?v=2">
+  <link rel="stylesheet" href="ai-exploration.css?v=4">
+</head>
+<body class="content-page exploration-page"><nav class="gnav" aria-label="主导航">
+  <a class="gnav-logo tree-logo" href="index.html" aria-label="返回首页"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 28V14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/><path d="M16 16C8 16 5 12 6 7c5-1 9 1 10 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 18c8 0 11-4 10-9-5-1-9 1-10 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+  <div class="gnav-links"><a href="index.html">首页</a><a href="works.html">作品集</a><a href="ai-learning.html" aria-current="page">AI 探索</a><a href="index.html#about">关于</a></div>
+</nav>
+<main class="explore-shell case-shell tarot-case">
+  <header class="explore-intro case-intro">
+    <a class="text-link" href="ai-learning.html"><span class="iconfont" aria-hidden="true">&#xe83d;</span>返回 AI 探索</a>
+    <h1>塔罗牌实现质感展示</h1>
+    <p>将塔罗牌插画、纸张纹理与金箔细节转化为浏览器中的交互原型。通过 AI 辅助编程与材质调校，让塔罗牌可以倾斜、翻转，并随指针移动呈现局部反光。</p>
+    <div class="case-tags"><span>AI 辅助编程</span><span>3D 材质与交互</span><span>React / Three.js</span></div>
+  </header>
+  <section id="demo" aria-label="塔罗牌在线交互演示">
+    <div class="demo-wrap tarot-demo"><iframe src="demos/tarot-card/index.html" title="Tarot Card Study 塔罗牌交互演示" width="980" height="700"></iframe></div>
+    <div class="demo-caption"><p>移动指针查看反光，横向拖动或点击按钮翻牌。</p><a class="case-button" href="demos/tarot-card/index.html" target="_blank" rel="noopener">在线浏览完整演示<span class="iconfont" aria-hidden="true">&#xe841;</span></a></div>
+  </section>
+  <section class="case-section" id="implementation">
+    <h2>三个关键实现</h2>
+    <p class="section-lead">从插画到可以拿起来端详的卡片，关键在于纸张厚度、局部反光，以及自然衔接的翻面动作。</p>
+    <div class="tech-row">
+      <div class="tech-visual tarot-faces"><img src="assets/ai-exploration/tarot/card-front.png" alt="圣杯女王塔罗牌正面插画" width="640" height="1024" loading="lazy"><img src="assets/ai-exploration/tarot/card-back.png" alt="塔罗牌共用的深蓝色金色花纹牌背" width="640" height="1024" loading="lazy"><div class="asset-label"><span>牌面插画</span><span>共用牌背</span></div></div>
+      <div class="tech-copy"><h3>让插画成为有厚度的纸牌</h3><p>以圆角卡体承接正反两张图片，保留纸牌边缘与厚度。以纸张纹理表现细微凹凸，调低光泽并配合柔和灯光和接触阴影，建立棉纸的触感。</p><p>不同牌面共用同一套尺寸与牌背，切换牌面时保持展示方式一致。</p></div>
+    </div>
+    <div class="tech-row">
+      <div class="tech-visual tarot-materials"><figure><img class="tarot-mask" src="assets/ai-exploration/tarot/foil-mask.png" alt="白色区域标记烫金位置的塔罗牌遮罩" width="640" height="1024" loading="lazy"><figcaption>局部金箔遮罩</figcaption></figure><figure><img class="tarot-foil" src="assets/ai-exploration/tarot/gold-foil.png" alt="古金色金箔表面纹理" width="512" height="512" loading="lazy"><figcaption>金箔纹理</figcaption></figure></div>
+      <div class="tech-copy"><h3>让反光只出现在金箔上</h3><p>用灰度遮罩标记牌面的金色花纹，将金箔纹理叠加在这些区域。纸面保持柔和，装饰细节则随视角呈现明暗变化。</p><p>着色器读取指针位置、移动速度和卡片倾角，控制高光的方向、范围与亮度，让反光随着操作掠过牌面。</p></div>
+    </div>
+    <div class="tech-row">
+      <div class="tech-visual tarot-motion"><svg class="tech-diagram" viewBox="0 0 460 300" role="img" aria-label="横向拖动卡片，松手后吸附到正面或背面"><defs><marker id="tarot-arrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0 0 6 3 0 6" fill="none" stroke="currentColor" stroke-width="1.2"/></marker></defs><g fill="none" stroke="currentColor" stroke-width="1.6"><rect x="53" y="68" width="74" height="120" rx="8"/><path d="M80 84h21M80 172h21M69 128h42M90 107v42"/><path d="M206 78 248 64Q254 62 254 69v105q0 8-6 10l-42 15q-5 2-5-5V87q0-7 5-9Z"/><path d="M216 86v91M241 80v90"/><rect x="333" y="68" width="74" height="120" rx="8"/><path d="m370 108 7 18 18 3-14 12 3 19-14-10-15 10 4-19-14-12 18-3Z"/><path d="M145 128h39M272 128h43" marker-end="url(#tarot-arrow)"/></g><g fill="currentColor" font-family="PingFang SC, sans-serif" font-size="16" text-anchor="middle"><text x="90" y="232">拖动</text><text x="228" y="232">转向</text><text x="370" y="232">吸附翻面</text></g></svg></div>
+      <div class="tech-copy"><h3>拖动、翻面与切牌连成一次体验</h3><p>横向拖动时，位移映射为卡片的旋转角度；松手后根据角度吸附至正面或背面。翻面与轻微倾斜分别控制，再用阻尼平滑过渡。</p><p>按钮与方向键同样可以翻牌，Escape 返回正面并重置视角。底部缩略图切换塔罗牌，手机上也可以直接触摸操作。</p></div>
+    </div>
+  </section>
+</main>
+<button class="site-to-top" type="button" aria-label="回到顶部"><i class="iconfont icon-up" aria-hidden="true"></i></button>
+<footer class="content-footer"><a href="index.html">首页</a><a href="works.html">作品集</a><a href="ai-learning.html">AI 探索</a></footer>
+<script src="site-common.js?v=1" defer></script>
+</body>
+</html>

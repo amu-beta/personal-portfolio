@@ -30,7 +30,7 @@ python3 -m http.server 8000
 ### 📄 主要页面
 - **首页**: http://localhost:8000/
 - **作品集**: http://localhost:8000/works.html
-- **AI 学习**: http://localhost:8000/ai-learning.html
+- **AI 探索**: http://localhost:8000/ai-learning.html
 - **项目详情**: http://localhost:8000/project-seerq.html
 
 ## 停止服务器

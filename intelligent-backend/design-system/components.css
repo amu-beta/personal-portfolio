@@ -1,0 +1,175 @@
+/* 先知命局 · Reusable UI components
+ * Components use only design-system tokens. Legacy page classes are kept
+ * alongside the new ds-* classes during the incremental migration.
+ */
+
+.ds-page-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--ds-page-header-gap);
+  margin-bottom: var(--ds-space-5);
+}
+
+.ds-page-header__copy { min-width: 0; display: flex; align-items: baseline; flex-wrap: wrap; gap: 10px; }
+
+.ds-page-title {
+  margin: 0;
+  color: var(--ds-color-text-primary);
+  font-size: var(--ds-page-title-size);
+  line-height: 1.35;
+  font-weight: var(--ds-page-title-weight);
+}
+
+.ds-page-subtitle {
+  margin: 0;
+  color: var(--ds-color-text-muted);
+  font-size: var(--ds-font-size-xs);
+  line-height: 1.5;
+}
+
+.ds-page-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--ds-control-gap);
+}
+
+.ds-button {
+  min-height: var(--ds-button-height);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 0 var(--ds-button-padding-x);
+  color: var(--ds-color-text-primary);
+  border: 1px solid transparent;
+  border-radius: var(--ds-button-radius);
+  background: var(--ds-color-surface);
+  font-size: var(--ds-font-size-sm);
+  line-height: 1;
+  cursor: pointer;
+  transition: color var(--ds-duration-fast) var(--ds-ease-standard),
+    background-color var(--ds-duration-fast) var(--ds-ease-standard),
+    border-color var(--ds-duration-fast) var(--ds-ease-standard),
+    box-shadow var(--ds-duration-normal) var(--ds-ease-standard),
+    transform var(--ds-duration-fast) var(--ds-ease-standard);
+}
+
+.ds-button:hover { background: var(--ds-color-surface-muted); }
+.ds-button:active { transform: translateY(1px); }
+.ds-button:focus-visible { outline: none; box-shadow: var(--ds-focus-ring); }
+.ds-button:disabled,
+.ds-button[aria-disabled="true"] { opacity: .5; cursor: not-allowed; pointer-events: none; }
+.ds-button--primary { color: var(--ds-color-white); background: var(--ds-color-primary); }
+.ds-button--primary:hover { background: var(--ds-color-primary-hover); }
+.ds-button--secondary { color: var(--ds-color-primary); background: var(--ds-color-primary-soft); }
+.ds-button--secondary:hover { color: var(--ds-color-white); background: var(--ds-color-primary); }
+.ds-button--outline { border-color: var(--ds-color-border); }
+.ds-button--ghost { background: transparent; }
+.ds-button--danger { color: var(--ds-color-white); background: var(--ds-color-danger); }
+.ds-button--danger:hover { filter: brightness(.94); }
+.ds-button--sm { min-height: var(--ds-button-height-sm); padding: 0 10px; font-size: var(--ds-font-size-xs); }
+.ds-button--icon { width: var(--ds-button-height); padding: 0; }
+
+.ds-card {
+  min-width: 0;
+  overflow: hidden;
+  border: 0;
+  border-radius: var(--ds-card-radius);
+  background: var(--ds-color-surface);
+  box-shadow: var(--ds-card-shadow);
+}
+
+.ds-card--interactive { transition: transform var(--ds-duration-normal) var(--ds-ease-standard), box-shadow var(--ds-duration-normal) var(--ds-ease-standard); }
+.ds-card--interactive:hover { transform: translateY(-2px); box-shadow: 0 8px 22px rgba(71, 84, 108, .11); }
+.ds-card__header { padding: var(--ds-card-padding) var(--ds-card-padding) 0; }
+.ds-card__body { padding: var(--ds-card-padding); }
+.ds-card__footer { padding: 0 var(--ds-card-padding) var(--ds-card-padding); }
+
+.ds-section-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--ds-space-3);
+  margin: 0 0 var(--ds-space-3);
+}
+
+.ds-section-title__heading { margin: 0; color: var(--ds-color-text-primary); font-size: var(--ds-font-size-lg); line-height: 1.4; font-weight: 600; }
+.ds-section-title__description { margin: 5px 0 0; color: var(--ds-color-text-muted); font-size: var(--ds-font-size-xs); }
+.ds-section-title > div:first-child { min-width: 0; display: flex; align-items: baseline; flex-wrap: wrap; gap: 9px; }
+.ds-section-title > div:first-child .ds-section-title__description { margin: 0; }
+.ds-section-title__actions { display: flex; align-items: center; flex-wrap: wrap; justify-content: flex-end; gap: var(--ds-space-2); }
+
+.ds-stack { display: flex; flex-direction: column; }
+.ds-stack--2 { gap: var(--ds-space-2); }
+.ds-stack--3 { gap: var(--ds-space-3); }
+.ds-stack--4 { gap: var(--ds-space-4); }
+.ds-stack--6 { gap: var(--ds-space-6); }
+
+.ds-grid { display: grid; min-width: 0; }
+.ds-grid--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--ds-space-4); }
+.ds-grid--4 { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+
+.ds-badge {
+  min-height: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px 8px;
+  border-radius: var(--ds-radius-pill);
+  font-size: var(--ds-font-size-xs);
+  line-height: 1.2;
+  white-space: nowrap;
+}
+.ds-badge--neutral { color: var(--ds-color-text-secondary); background: var(--ds-color-surface-muted); }
+.ds-badge--info { color: var(--ds-color-primary-hover); background: var(--ds-color-primary-soft); }
+.ds-badge--success { color: #087f5b; background: var(--ds-color-success-soft); }
+.ds-badge--warning { color: #c87521; background: var(--ds-color-warning-soft); }
+.ds-badge--danger { color: #d9414f; background: var(--ds-color-danger-soft); }
+
+.ds-metric-card {
+  position: relative;
+  min-width: 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: var(--ds-card-padding) 19px;
+  overflow: hidden;
+  border-radius: var(--ds-card-radius);
+  background: var(--ds-color-surface);
+  box-shadow: var(--ds-card-shadow);
+}
+
+.ds-metric-card__icon {
+  flex: 0 0 38px;
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  color: var(--ds-color-primary);
+  border-radius: 9px;
+  background: var(--ds-color-primary-soft);
+}
+.ds-metric-card__icon--green { color: #20a66a; background: var(--ds-color-success-soft); }
+.ds-metric-card__icon--violet { color: var(--ds-color-violet-500); background: var(--ds-color-violet-050); }
+.ds-metric-card__icon--orange { color: var(--ds-color-orange-500); background: var(--ds-color-orange-050); }
+.ds-metric-card__copy { min-width: 0; position: relative; z-index: 1; }
+.ds-metric-card__label { display: block; color: var(--ds-color-text-secondary); font-size: var(--ds-font-size-xs); }
+.ds-metric-card__value { display: block; margin: 8px 0 7px; color: var(--ds-color-text-primary); overflow: hidden; text-overflow: ellipsis; font-size: var(--ds-font-size-kpi); line-height: 1; font-weight: 500; white-space: nowrap; }
+.ds-metric-card__note { color: var(--ds-color-text-muted); font-size: var(--ds-font-size-xs); }
+.ds-metric-card__trend { display: inline-flex; align-items: center; gap: 8px; white-space: nowrap; }
+.ds-metric-card__sparkline { position: absolute; right: 14px; bottom: 18px; width: 58px; height: 43px; display: flex; align-items: flex-end; gap: 5px; opacity: .9; pointer-events: none; }
+.ds-metric-card__sparkline i { flex: 1; min-width: 3px; border-radius: var(--ds-radius-pill); background: linear-gradient(180deg, #4b8cff, #b8d7ff); }
+
+@media (max-width: 900px) {
+  .ds-grid--4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 640px) {
+  .ds-page-header { flex-direction: column; }
+  .ds-page-actions { width: 100%; }
+  .ds-page-actions > * { flex: 1 1 auto; }
+  .ds-grid--2,
+  .ds-grid--4 { grid-template-columns: 1fr; }
+}
